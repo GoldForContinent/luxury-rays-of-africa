@@ -158,10 +158,10 @@ export default function Contact() {
                       className="form-input"
                     >
                       <option value="">Select budget</option>
-                      <option value="2000-3000">$2,000 - $3,000</option>
-                      <option value="3000-5000">$3,000 - $5,000</option>
-                      <option value="5000-8000">$5,000 - $8,000</option>
-                      <option value="8000+">$8,000+</option>
+                      <option value="260000-390000">Ksh 260,000 - Ksh 390,000</option>
+                      <option value="390000-650000">Ksh 390,000 - Ksh 650,000</option>
+                      <option value="650000-1040000">Ksh 650,000 - Ksh 1,040,000</option>
+                      <option value="1040000+">Ksh 1,040,000+</option>
                     </select>
                   </div>
                 </div>

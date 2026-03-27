@@ -167,7 +167,7 @@ export default function PlaceDetail() {
                       </div>
                       <div className="text-right">
                         <p className="font-display font-bold text-2xl text-[#D4A03A]">
-                          ${pkg.price.toLocaleString()}
+                          Ksh {(pkg.price * 130).toLocaleString()}
                         </p>
                         <p className="text-[#F7F2EA]/50 text-xs">per person</p>
                       </div>
