@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 18 25% 14%;
+    --foreground: 36 33% 95%;
+    --card: 18 25% 14%;
+    --card-foreground: 36 33% 95%;
+    --popover: 18 25% 14%;
+    --popover-foreground: 36 33% 95%;
+    --primary: 42 65% 53%;
+    --primary-foreground: 18 25% 14%;
+    --secondary: 36 20% 92%;
+    --secondary-foreground: 18 25% 14%;
+    --muted: 18 20% 22%;
+    --muted-foreground: 36 20% 72%;
+    --accent: 42 65% 53%;
+    --accent-foreground: 18 25% 14%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 20% 20%;
+    --input: 36 20% 20%;
+    --ring: 42 65% 53%;
+    --radius: 1.75rem;
+    
+    --savanna-gold: #D4A03A;
+    --deep-espresso: #2B1E1A;
+    --warm-sand: #F3EFE9;
+    --warm-ivory: #F7F2EA;
+    --ivory-soft: rgba(247,242,234,0.72);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-[#2B1E1A] text-[#F7F2EA] antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Headline Styles */
+.headline-xl {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+  font-size: clamp(44px, 5.2vw, 78px);
+}
+
+.headline-lg {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  font-size: clamp(32px, 3.8vw, 56px);
+}
+
+/* Eyebrow Label */
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  color: var(--savanna-gold);
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(30, 22, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(110%);
+  border-radius: 28px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
+}
+
+/* Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Section Base */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Image */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vignette Overlay */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(43, 30, 26, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  background: var(--savanna-gold);
+  color: var(--deep-espresso);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(212, 160, 58, 0.3);
+}
+
+.btn-outline {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300 border-2;
+  border-color: var(--savanna-gold);
+  color: var(--savanna-gold);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--savanna-gold);
+  color: var(--deep-espresso);
+  transform: translateY(-2px);
+}
+
+/* Collage Image */
+.collage-image {
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  object-fit: cover;
+}
+
+/* Scroll Cue */
+.scroll-cue {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Form Input */
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-[#D4A03A] transition-colors;
+}
+
+/* Link Hover Effect */
+.link-hover {
+  position: relative;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--savanna-gold);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Star Twinkle Animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.star-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-espresso);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 160, 58, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 160, 58, 0.6);
+}

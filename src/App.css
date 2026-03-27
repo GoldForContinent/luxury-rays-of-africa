@@ -1,0 +1,135 @@
+/* App-specific styles */
+
+/* Ensure smooth scroll behavior is disabled for GSAP */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Hide elements initially for animation */
+.unfiltered-collage-1,
+.unfiltered-collage-2,
+.unfiltered-collage-3,
+.unfiltered-headline,
+.unfiltered-card,
+.bigfive-collage-1,
+.bigfive-collage-2,
+.bigfive-collage-3,
+.bigfive-headline,
+.bigfive-card,
+.migration-collage-1,
+.migration-collage-2,
+.migration-collage-3,
+.migration-headline,
+.migration-card,
+.conservation-collage-1,
+.conservation-collage-2,
+.conservation-collage-3,
+.conservation-headline,
+.conservation-card,
+.communities-collage-1,
+.communities-collage-2,
+.communities-collage-3,
+.communities-headline,
+.communities-card,
+.landscapes-collage-1,
+.landscapes-collage-2,
+.landscapes-collage-3,
+.landscapes-headline,
+.landscapes-card,
+.adventure-collage-1,
+.adventure-collage-2,
+.adventure-collage-3,
+.adventure-headline,
+.adventure-card,
+.night-collage-1,
+.night-collage-2,
+.night-collage-3,
+.night-headline,
+.night-card,
+.luxury-collage-1,
+.luxury-collage-2,
+.luxury-collage-3,
+.luxury-headline,
+.luxury-card,
+.plan-collage-1,
+.plan-collage-2,
+.plan-collage-3,
+.plan-headline,
+.plan-card {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Mobile responsiveness for collage and cards */
+@media (max-width: 768px) {
+  .section-pinned .collage-image {
+    width: 90vw !important;
+    height: 18vh !important;
+    left: 5vw !important;
+    right: auto !important;
+  }
+  
+  .section-pinned .glass-card {
+    width: 90vw !important;
+    left: 5vw !important;
+    right: auto !important;
+    top: 58vh !important;
+    height: 38vh !important;
+    padding: 1.5rem !important;
+  }
+  
+  .section-pinned h2 {
+    top: 44% !important;
+    font-size: clamp(28px, 8vw, 44px) !important;
+  }
+  
+  .section-pinned .eyebrow {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .section-pinned h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .section-pinned p {
+    font-size: 0.875rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .section-pinned .btn-primary,
+  .section-pinned .btn-outline {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Ensure proper z-index stacking */
+.section-pinned {
+  isolation: isolate;
+}
+
+/* Form select styling */
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(247,242,234,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.3s ease;
+}
+
+/* Focus states */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #D4A03A;
+  outline-offset: 2px;
+}
