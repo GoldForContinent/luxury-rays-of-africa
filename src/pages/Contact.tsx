@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Send, Clock, CheckCircle } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, Clock, CheckCircle, MessageCircle, Calendar, Users, DollarSign, Map, Heart, Star } from 'lucide-react'
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
@@ -7,16 +7,22 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
+    country: '',
     travelers: '',
-    month: '',
+    dateRange: '',
+    duration: '',
+    destinations: '',
+    safariType: '',
     budget: '',
-    message: ''
+    accommodation: '',
+    specialInterests: '',
+    message: '',
+    howHeard: ''
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
-    // Here you would normally send the data to your backend
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -28,16 +34,21 @@ export default function Contact() {
 
   if (submitted) {
     return (
-      <div className="pt-20 min-h-screen bg-[#2B1E1A] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#2B1E1A] flex items-center justify-center px-4">
         <div className="text-center max-w-md">
-          <CheckCircle className="mx-auto text-[#D4A03A] mb-6" size={64} />
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#D4A03A]/20 flex items-center justify-center">
+            <CheckCircle className="text-[#D4A03A]" size={48} />
+          </div>
           <h1 className="font-display font-bold text-3xl text-[#F7F2EA] mb-4">
-            Thank You!
+            Request Received!
           </h1>
           <p className="text-[#F7F2EA]/70 mb-8">
-            We've received your enquiry and will get back to you within 24 hours with a personalized safari proposal.
+            Thank you for your safari enquiry. Our team of specialists will review your requirements and get back to you within 24 hours with a personalized proposal.
           </p>
-          <a href="/" className="btn-primary inline-flex items-center gap-2">
+          <p className="text-[#F7F2EA]/50 text-sm mb-8">
+            Check your email for a confirmation of your submission.
+          </p>
+          <a href="/" className="btn-primary inline-flex items-center gap-2 px-6 py-3">
             Back to Home
           </a>
         </div>
@@ -46,157 +57,262 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section className="relative py-16 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="eyebrow mb-4 block">Get in Touch</span>
-            <h1 className="font-display font-bold text-4xl md:text-5xl text-[#F7F2EA] mb-4">
-              Plan Your Safari
-            </h1>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Tell us about your dream safari and we'll create a personalized itinerary just for you.
-            </p>
-          </div>
+    <div className="min-h-screen">
+      {/* hero */}
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/hero-contact.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2B1E1A]/70 via-[#2B1E1A]/50 to-[#2B1E1A]" />
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <span className="eyebrow">Start Your Journey</span>
+          <h1 className="headline-xl mt-4 text-[#F7F2EA]">
+            Plan Your Safari
+          </h1>
+          <p className="text-lg md:text-xl text-[#F7F2EA]/80 mt-6 max-w-2xl mx-auto">
+            Share your dreams with us and our specialists will craft the perfect African adventure
+          </p>
+        </div>
+      </section>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="glass-card rounded-3xl p-6 md:p-8">
-              <h2 className="font-display font-semibold text-xl text-[#F7F2EA] mb-6">
-                Send Us Your Enquiry
-              </h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[#F7F2EA]/70 text-sm mb-2">Your Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="form-input"
-                      placeholder="John Smith"
-                    />
+      {/* Main Content */}
+      <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Form */}
+            <div className="lg:col-span-2">
+              <div className="glass-card rounded-3xl p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-[#D4A03A]/20 flex items-center justify-center">
+                    <Send className="text-[#D4A03A]" size={20} />
                   </div>
-                  <div>
-                    <label className="block text-[#F7F2EA]/70 text-sm mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="form-input"
-                      placeholder="john@example.com"
-                    />
-                  </div>
+                  <h2 className="font-display font-bold text-xl text-[#F7F2EA]">
+                    Safari Enquiry Form
+                  </h2>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Personal Details */}
                   <div>
-                    <label className="block text-[#F7F2EA]/70 text-sm mb-2">Phone Number</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="form-input"
-                      placeholder="+1 234 567 890"
-                    />
+                    <h3 className="text-sm text-[#D4A03A] uppercase tracking-wider mb-4">Your Details</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2">Full Name *</label>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A]"
+                          placeholder="Enter your full name"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2">Email Address *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A]"
+                          placeholder="you@example.com"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2">Phone Number</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A]"
+                          placeholder="+1 234 567 890"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2">Country of Residence</label>
+                        <input
+                          type="text"
+                          name="country"
+                          value={formData.country}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A]"
+                          placeholder="Where are you from?"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-[#F7F2EA]/70 text-sm mb-2">Number of Travelers</label>
-                    <select
-                      name="travelers"
-                      value={formData.travelers}
-                      onChange={handleChange}
-                      className="form-input"
-                    >
-                      <option value="">Select</option>
-                      <option value="1">1 person</option>
-                      <option value="2">2 people</option>
-                      <option value="3-4">3-4 people</option>
-                      <option value="5-8">5-8 people</option>
-                      <option value="9+">9+ people</option>
-                    </select>
+
+                  {/* Trip Details */}
+                  <div className="border-t border-[#F7F2EA]/10 pt-6">
+                    <h3 className="text-sm text-[#D4A03A] uppercase tracking-wider mb-4">Trip Details</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <Users className="w-4 h-4" /> Number of Travelers
+                        </label>
+                        <select
+                          name="travelers"
+                          value={formData.travelers}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] focus:outline-none focus:border-[#D4A03A]"
+                        >
+                          <option value="">Select</option>
+                          <option value="1">1 person</option>
+                          <option value="2">2 people</option>
+                          <option value="3-4">3-4 people</option>
+                          <option value="5-6">5-6 people</option>
+                          <option value="7-10">7-10 people</option>
+                          <option value="10+">10+ people</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <Calendar className="w-4 h-4" /> Preferred Travel Dates
+                        </label>
+                        <input
+                          type="text"
+                          name="dateRange"
+                          value={formData.dateRange}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A]"
+                          placeholder="e.g., July 2026, or flexible"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <Clock className="w-4 h-4" /> Trip Duration
+                        </label>
+                        <select
+                          name="duration"
+                          value={formData.duration}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] focus:outline-none focus:border-[#D4A03A]"
+                        >
+                          <option value="">Select</option>
+                          <option value="3-5">3-5 days</option>
+                          <option value="6-8">6-8 days</option>
+                          <option value="9-12">9-12 days</option>
+                          <option value="13-16">13-16 days</option>
+                          <option value="17+">17+ days</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <DollarSign className="w-4 h-4" /> Budget Per Person
+                        </label>
+                        <select
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] focus:outline-none focus:border-[#D4A03A]"
+                        >
+                          <option value="">Select</option>
+                          <option value="budget">Budget ($800 - $1,500)</option>
+                          <option value="midrange">Mid-Range ($1,500 - $3,500)</option>
+                          <option value="luxury">Luxury ($3,500 - $8,000)</option>
+                          <option value="ultra-luxury">Ultra-Luxury ($8,000+)</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[#F7F2EA]/70 text-sm mb-2">Preferred Travel Month</label>
-                    <select
-                      name="month"
-                      value={formData.month}
-                      onChange={handleChange}
-                      className="form-input"
-                    >
-                      <option value="">Select month</option>
-                      <option value="jan">January</option>
-                      <option value="feb">February</option>
-                      <option value="mar">March</option>
-                      <option value="apr">April</option>
-                      <option value="may">May</option>
-                      <option value="jun">June</option>
-                      <option value="jul">July</option>
-                      <option value="aug">August</option>
-                      <option value="sep">September</option>
-                      <option value="oct">October</option>
-                      <option value="nov">November</option>
-                      <option value="dec">December</option>
-                    </select>
+                  {/* Safari Preferences */}
+                  <div className="border-t border-[#F7F2EA]/10 pt-6">
+                    <h3 className="text-sm text-[#D4A03A] uppercase tracking-wider mb-4">Safari Preferences</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <Map className="w-4 h-4" /> Destinations Interest
+                        </label>
+                        <select
+                          name="destinations"
+                          value={formData.destinations}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] focus:outline-none focus:border-[#D4A03A]"
+                        >
+                          <option value="">Select</option>
+                          <option value="kenya">Kenya</option>
+                          <option value="tanzania">Tanzania</option>
+                          <option value="south-africa">South Africa</option>
+                          <option value="botswana">Botswana</option>
+                          <option value="uganda">Uganda</option>
+                          <option value="namibia">Namibia</option>
+                          <option value="zimbabwe">Zimbabwe</option>
+                          <option value="rwanda">Rwanda</option>
+                          <option value="multiple">Multiple Countries</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <Star className="w-4 h-4" /> Safari Type
+                        </label>
+                        <select
+                          name="safariType"
+                          value={formData.safariType}
+                          onChange={handleChange}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] focus:outline-none focus:border-[#D4A03A]"
+                        >
+                          <option value="">Select</option>
+                          <option value="budget">Budget Safari</option>
+                          <option value="midrange">Mid-Range Safari</option>
+                          <option value="luxury">Luxury Safari</option>
+                          <option value="family">Family Safari</option>
+                          <option value="honeymoon">Honeymoon Safari</option>
+                          <option value="group">Group Safari</option>
+                        </select>
+                      </div>
+                      <div className="md:col-span-2">
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
+                          <Heart className="w-4 h-4" /> Special Interests
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                          {['Big Five', 'Gorilla Trekking', 'Great Migration', 'Birding', 'Photography', 'Walking Safari', 'Cultural Experiences'].map((interest) => (
+                            <label key={interest} className="flex items-center gap-2 bg-[#1a1410] border border-[#F7F2EA]/10 rounded-lg px-3 py-2 cursor-pointer hover:border-[#D4A03A]/50 transition-colors">
+                              <input type="checkbox" className="accent-[#D4A03A]" />
+                              <span className="text-sm text-[#F7F2EA]/70">{interest}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="md:col-span-2">
+                        <label className="block text-[#F7F2EA]/70 text-sm mb-2">Additional Message</label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          rows={4}
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A] resize-none"
+                          placeholder="Tell us more about your dream safari - specific animals you'd like to see, any special occasions, dietary requirements, or questions..."
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-[#F7F2EA]/70 text-sm mb-2">Budget Per Person</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="form-input"
-                    >
-                      <option value="">Select budget</option>
-                      <option value="260000-390000">Ksh 260,000 - Ksh 390,000</option>
-                      <option value="390000-650000">Ksh 390,000 - Ksh 650,000</option>
-                      <option value="650000-1040000">Ksh 650,000 - Ksh 1,040,000</option>
-                      <option value="1040000+">Ksh 1,040,000+</option>
-                    </select>
-                  </div>
-                </div>
 
-                <div>
-                  <label className="block text-[#F7F2EA]/70 text-sm mb-2">Tell Us About Your Dream Safari</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="form-input resize-none"
-                    placeholder="What destinations interest you? Any specific wildlife you want to see? Special occasions?"
-                  />
-                </div>
+                  <button
+                    type="submit"
+                    className="btn-primary w-full flex items-center justify-center gap-2 py-4 text-lg"
+                  >
+                    <Send className="w-5 h-5" /> Submit Enquiry
+                  </button>
 
-                <button
-                  type="submit"
-                  className="btn-primary w-full flex items-center justify-center gap-2 py-4"
-                >
-                  <Send size={18} /> Send Enquiry
-                </button>
-
-                <p className="text-[#F7F2EA]/50 text-xs text-center">
-                  We reply within 24 hours. No spam. No hard sell.
-                </p>
-              </form>
+                  <p className="text-[#F7F2EA]/50 text-xs text-center">
+                    By submitting this form, you agree to our privacy policy. We never share your information.
+                  </p>
+                </form>
+              </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-display font-semibold text-xl text-[#F7F2EA] mb-6">
-                  Contact Information
-                </h2>
+            {/* Sidebar */}
+            <div className="space-y-6">
+              {/* Contact Info */}
+              <div className="glass-card rounded-3xl p-6">
+                <h3 className="font-display font-bold text-lg text-[#F7F2EA] mb-6">
+                  Get in Touch
+                </h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
@@ -204,8 +320,8 @@ export default function Contact() {
                       <Mail className="text-[#D4A03A]" size={18} />
                     </div>
                     <div>
-                      <p className="text-[#F7F2EA]/50 text-sm">Email</p>
-                      <a href="mailto:hello@raysofafrica.travel" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors">
+                      <p className="text-[#F7F2EA]/50 text-xs mb-1">Email</p>
+                      <a href="mailto:hello@raysofafrica.travel" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors text-sm">
                         hello@raysofafrica.travel
                       </a>
                     </div>
@@ -216,8 +332,8 @@ export default function Contact() {
                       <Phone className="text-[#D4A03A]" size={18} />
                     </div>
                     <div>
-                      <p className="text-[#F7F2EA]/50 text-sm">Phone</p>
-                      <a href="tel:+255123456789" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors">
+                      <p className="text-[#F7F2EA]/50 text-xs mb-1">Phone</p>
+                      <a href="tel:+255123456789" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors text-sm">
                         +255 123 456 789
                       </a>
                     </div>
@@ -228,9 +344,8 @@ export default function Contact() {
                       <MapPin className="text-[#D4A03A]" size={18} />
                     </div>
                     <div>
-                      <p className="text-[#F7F2EA]/50 text-sm">Office</p>
-                      <p className="text-[#F7F2EA]">
-                        123 Safari Road<br />
+                      <p className="text-[#F7F2EA]/50 text-xs mb-1">Office</p>
+                      <p className="text-[#F7F2EA] text-sm">
                         Arusha, Tanzania
                       </p>
                     </div>
@@ -241,32 +356,61 @@ export default function Contact() {
                       <Clock className="text-[#D4A03A]" size={18} />
                     </div>
                     <div>
-                      <p className="text-[#F7F2EA]/50 text-sm">Office Hours</p>
-                      <p className="text-[#F7F2EA]">
-                        Monday - Friday: 8am - 6pm EAT<br />
-                        Saturday: 9am - 1pm EAT
+                      <p className="text-[#F7F2EA]/50 text-xs mb-1">Office Hours</p>
+                      <p className="text-[#F7F2EA] text-sm">
+                        Mon-Fri: 8am - 6pm EAT<br />
+                        Sat: 9am - 2pm EAT
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="glass-card rounded-3xl p-6">
-                <h3 className="font-display font-semibold text-lg text-[#F7F2EA] mb-3">
-                  Prefer WhatsApp?
-                </h3>
-                <p className="text-[#F7F2EA]/60 text-sm mb-4">
-                  Chat with us directly for quick questions or to start planning.
-                </p>
+              {/* WhatsApp */}
+              <div className="glass-card rounded-3xl p-6 border-2 border-[#25D366]/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <MessageCircle className="w-8 h-8 text-[#25D366]" />
+                  <div>
+                    <h3 className="font-semibold text-[#F7F2EA]">WhatsApp Us</h3>
+                    <p className="text-xs text-[#F7F2EA]/50">Quick responses guaranteed</p>
+                  </div>
+                </div>
                 <a 
                   href="https://wa.me/255123456789"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline w-full text-center block"
+                  className="w-full bg-[#25D366] text-white py-3 rounded-xl text-center font-medium hover:bg-[#25D366]/90 transition-colors flex items-center justify-center gap-2"
                 >
-                  Chat on WhatsApp
+                  <MessageCircle className="w-5 h-5" /> Start Chat
                 </a>
+              </div>
+
+              {/* Why Book With Us */}
+              <div className="glass-card rounded-3xl p-6">
+                <h3 className="font-display font-semibold text-[#F7F2EA] mb-4">
+                  Why Book With Us
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    'Personalized safari itineraries',
+                    'Local expert guides',
+                    '24/7 support during your trip',
+                    'Direct conservation contributions',
+                    'No hidden fees or surprises'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-[#F7F2EA]/70">
+                      <CheckCircle className="w-5 h-5 text-[#D4A03A] flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Emergency */}
+              <div className="bg-[#D4A03A]/10 rounded-2xl p-4 border border-[#D4A03A]/20">
+                <p className="text-xs text-[#D4A03A] uppercase tracking-wider mb-1">Emergency Support</p>
+                <p className="text-[#F7F2EA] font-medium">+255 987 654 321</p>
+                <p className="text-xs text-[#F7F2EA]/50 mt-1">Available 24/7 during your safari</p>
               </div>
             </div>
           </div>

@@ -27,6 +27,248 @@ export interface Country {
   places: Place[]
 }
 
+export interface SafariType {
+  id: string
+  name: string
+  slug: string
+  shortDescription: string
+  description: string
+  icon: string
+  idealFor: string[]
+  priceRange: string
+  duration: string
+  image: string
+  highlights: string[]
+  included: string[]
+}
+
+export interface PricingTier {
+  id: string
+  name: string
+  description: string
+  priceRange: string
+  features: string[]
+}
+
+export const safariTypes: SafariType[] = [
+  {
+    id: 'budget',
+    name: 'Budget Safari',
+    slug: 'budget-safari',
+    shortDescription: 'Experience the wild without breaking the bank',
+    description: "Our budget-friendly safaris prove that incredible wildlife encounters don't require a luxury price tag. Perfect for students, backpackers, and adventurous travelers seeking authentic African experiences at accessible prices.",
+    icon: 'backpack',
+    idealFor: ['Solo travelers', 'Backpackers', 'Students', 'Young adventurers'],
+    priceRange: '$800 - $1,500',
+    duration: '3-7 days',
+    image: '/safari-types/budget.jpg',
+    highlights: ['Community campsites', 'Public game drives', 'Local guides', 'Cultural immersion', ' authentic experiences'],
+    included: ['Park fees', 'Basic accommodation', 'Meals included', 'Transportation', 'Expert guides']
+  },
+  {
+    id: 'midrange',
+    name: 'Mid-Range Safari',
+    slug: 'mid-range-safari',
+    shortDescription: 'The perfect balance of comfort and adventure',
+    description: 'Our mid-range safaris offer exceptional value, combining comfortable accommodations with unforgettable wildlife experiences. Ideal for families and couples seeking quality without luxury prices.',
+    icon: 'tent',
+    idealFor: ['Families', 'Couples', 'First-time safari-goers', 'Photography enthusiasts'],
+    priceRange: '$1,500 - $3,500',
+    duration: '4-10 days',
+    image: '/safari-types/midrange.jpg',
+    highlights: ['Lodge accommodation', 'Private game drives', 'Experienced rangers', 'Bush walks', 'Sundowners'],
+    included: ['All park fees', 'Quality lodges', 'All meals', 'Private vehicle option', 'Professional guide']
+  },
+  {
+    id: 'luxury',
+    name: 'Luxury Safari',
+    slug: 'luxury-safari',
+    shortDescription: 'Five-star comfort in the heart of the wild',
+    description: 'Indulge in the finest safari experience with world-class accommodations, private chefs, exclusive access, and personalized service. For those who demand nothing but the extraordinary.',
+    icon: 'star',
+    idealFor: ['Honeymooners', 'Celebrations', 'Discerning travelers', 'Private groups'],
+    priceRange: '$3,500 - $8,000',
+    duration: '5-14 days',
+    image: '/safari-types/luxury.jpg',
+    highlights: ['Luxury camps & lodges', 'Private concessions', 'Butler service', 'Gourmet dining', 'Exclusive activities'],
+    included: ['Private charter flights', 'Luxury accommodation', 'All meals & premium drinks', 'Private guide & vehicle', 'Spa treatments']
+  },
+  {
+    id: 'family',
+    name: 'Family Safari',
+    slug: 'family-safari',
+    shortDescription: 'Create lifelong memories with the whole family',
+    description: 'Designed with families in mind, our safaris offer safe, engaging experiences for all ages. Child-friendly activities, educational programs, and flexible itineraries ensure everyone has the adventure of a lifetime.',
+    icon: 'users',
+    idealFor: ['Families with children', 'Multi-generational trips', 'School holidays', 'First-time African visitors'],
+    priceRange: '$2,000 - $5,000',
+    duration: '5-12 days',
+    image: '/safari-types/family.jpg',
+    highlights: ['Kid-friendly activities', 'Junior ranger programs', 'Educational game drives', 'Safe environments', 'Flexible pacing'],
+    included: ['Family accommodations', 'Child-appropriate meals', 'Professional family guides', 'Educational materials', 'Babysitting options']
+  },
+  {
+    id: 'honeymoon',
+    name: 'Honeymoon Safari',
+    slug: 'honeymoon-safari',
+    shortDescription: 'Romance under the African stars',
+    description: 'Begin your married life with an unforgettable African adventure. Combine thrilling wildlife encounters with intimate moments, candlelit dinners in the bush, and memories that will last a lifetime.',
+    icon: 'heart',
+    idealFor: ['Newlyweds', 'Anniversary celebrations', 'Romantic getaways', 'Special occasions'],
+    priceRange: '$4,000 - $10,000',
+    duration: '7-14 days',
+    image: '/safari-types/honeymoon.jpg',
+    highlights: ['Private candlelit dinners', 'Couple\'s spa treatments', 'Romantic sundowners', 'Exclusive camps', 'Star bed experiences'],
+    included: ['Luxury accommodation', 'Private vehicle', 'Personal chef', 'Romantic surprises', 'Bush flights']
+  },
+  {
+    id: 'group',
+    name: 'Group Safari',
+    slug: 'group-safari',
+    shortDescription: 'Adventure is better shared',
+    description: 'Travel with friends, colleagues, or fellow enthusiasts on a custom group safari. Our group packages offer great value, fosters camaraderie, and create bonds through shared extraordinary experiences.',
+    icon: 'users-round',
+    idealFor: ['Friend groups', 'Corporate retreats', 'Photography clubs', 'Adventure groups'],
+    priceRange: '$1,800 - $4,500',
+    duration: '5-12 days',
+    image: '/safari-types/group.jpg',
+    highlights: ['Exclusive group pricing', 'Custom itineraries', 'Private vehicles', 'Group activities', 'Team building options'],
+    included: ['Group discount rates', 'Dedicated guide', 'Private camp option', 'Group transfers', 'Team activities']
+  }
+]
+
+export const pricingTiers: PricingTier[] = [
+  {
+    id: 'essential',
+    name: 'Essential',
+    description: 'For the budget-conscious explorer',
+    priceRange: '$800 - $1,500 per person',
+    features: [
+      'Community campsites or budget lodges',
+      'Shared game drives with other travelers',
+      'Basic meals included',
+      'Experienced local guides',
+      'Park entrance fees',
+      'Ground transportation',
+      'Cultural village visits'
+    ]
+  },
+  {
+    id: 'classic',
+    name: 'Classic',
+    description: 'The perfect safari experience',
+    priceRange: '$1,500 - $3,500 per person',
+    features: [
+      'Quality lodge or tented camp accommodation',
+      'Private game drives available',
+      'All meals included',
+      'Professional safari guide',
+      'All park fees',
+      'Bush walks and sundowners',
+      'Optional hot air balloon'
+    ]
+  },
+  {
+    id: 'premium',
+    name: 'Premium',
+    description: 'Ultimate luxury and exclusivity',
+    priceRange: '$3,500 - $8,000 per person',
+    features: [
+      'Luxury camps and lodges',
+      'Private concessions',
+      'Private guide and vehicle',
+      'Gourmet dining',
+      'Premium drinks included',
+      'Spa treatments',
+      'Helicopter scenic flights'
+    ]
+  },
+  {
+    id: 'bespoke',
+    name: 'Bespoke',
+    description: 'Your dream safari, exactly as imagined',
+    priceRange: '$5,000+ per person',
+    features: [
+      'Completely custom itinerary',
+      'Private charter flights',
+      'Ultra-luxury exclusive camps',
+      'Personal butler service',
+      'Concierge support',
+      'Special celebrations arranged',
+      'Extended stays and extensions'
+    ]
+  }
+]
+
+export const featuredPackages = [
+  {
+    id: 'great-migration',
+    name: 'Great Migration Spectacle',
+    tagline: 'Witness nature\'s greatest show',
+    duration: '7 Days / 6 Nights',
+    price: 4200,
+    destination: 'Serengeti, Tanzania',
+    highlights: ['River crossing viewing', 'Mobile tented camp', 'Expert wildlife guides', 'Photography opportunities'],
+    image: '/packages/great-migration.jpg',
+    includes: ['Internal flights', 'All meals', 'Park fees', 'Game drives', 'Bush dinners']
+  },
+  {
+    id: 'gorilla-trekking',
+    name: 'Mountain Gorilla Encounter',
+    tagline: 'An intimate moment with giants',
+    duration: '4 Days / 3 Nights',
+    price: 3800,
+    destination: 'Bwindi, Uganda',
+    highlights: ['Gorilla trekking permit', 'Expert trackers', 'Luxury forest lodge', 'Cultural village visit'],
+    image: '/packages/gorilla-trekking.jpg',
+    includes: ['Park fees', 'All meals', 'Accommodation', 'Permits', 'Guides']
+  },
+  {
+    id: 'big-five',
+    name: 'Big Five Safari',
+    tagline: 'Classic African wildlife adventure',
+    duration: '6 Days / 5 Nights',
+    price: 3200,
+    destination: 'Masai Mara, Kenya',
+    highlights: ['All Big Five species', 'Luxury tented camp', 'Hot air balloon option', 'Maasai cultural visit'],
+    image: '/packages/big-five.jpg',
+    includes: ['Game drives', 'All meals', 'Park fees', 'Accommodation', 'Transfers']
+  },
+  {
+    id: 'okavango-water',
+    name: 'Okavango Delta Explorer',
+    tagline: 'Africa\'s last paradise',
+    duration: '5 Days / 4 Nights',
+    price: 5800,
+    destination: 'Okavango, Botswana',
+    highlights: ['Mokoro canoe rides', 'Luxury water camp', 'Scenic flight', 'Water wildlife'],
+    image: '/packages/okavango.jpg',
+    includes: ['Scenic flights', 'Mokoro excursions', 'All meals', 'Park fees', 'Guides']
+  },
+  {
+    id: 'victoria-falls',
+    name: 'Victoria Falls Adventure',
+    tagline: 'The smoke that thunders',
+    duration: '5 Days / 4 Nights',
+    price: 2800,
+    destination: 'Victoria Falls, Zimbabwe',
+    highlights: ['Falls viewing', 'Adventure activities', 'Zambezi sunset cruise', 'Hwange safari'],
+    image: '/packages/victoria-falls.jpg',
+    includes: ['Accommodation', 'Falls tour', 'Sunset cruise', 'Safari day trip', 'Transfers']
+  },
+  {
+    id: 'cape-winelands',
+    name: 'Cape & Winelands Experience',
+    tagline: 'City, coast, and vineyards',
+    duration: '6 Days / 5 Nights',
+    price: 2400,
+    destination: 'Cape Town, South Africa',
+    highlights: ['Table Mountain', 'Cape Peninsula', 'Wine tasting', 'Robben Island'],
+    image: '/packages/cape-town.jpg',
+    includes: ['Accommodation', 'Daily breakfast', 'Guided tours', 'Wine tastings', 'Transfers']
+  }
+]
+
 export const destinations: Country[] = [
   {
     id: 'kenya',
@@ -854,4 +1096,12 @@ export function getPlaceById(countryId: string, placeId: string): Place | undefi
 export function getPackageById(countryId: string, placeId: string, packageId: string): Package | undefined {
   const place = getPlaceById(countryId, placeId)
   return place?.packages.find(pkg => pkg.id === packageId)
+}
+
+export function getSafariTypeById(id: string): SafariType | undefined {
+  return safariTypes.find(type => type.id === id)
+}
+
+export function getFeaturedPackageById(id: string) {
+  return featuredPackages.find(pkg => pkg.id === id)
 }

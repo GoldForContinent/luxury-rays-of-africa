@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -9,6 +9,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -25,11 +26,25 @@ export default function Layout({ children }: LayoutProps) {
 
   const navLinks = [
     { path: '/', label: 'Home' },
+    { path: '/safari-types', label: 'Safari Types' },
+    { path: '/packages', label: 'Packages' },
     { path: '/destinations', label: 'Destinations' },
     { path: '/wildlife', label: 'Wildlife' },
     { path: '/impact', label: 'Impact' },
+    { path: '/travel-info', label: 'Travel Info' },
     { path: '/journal', label: 'Journal' },
     { path: '/contact', label: 'Contact' },
+  ]
+
+  const destinations = [
+    { name: 'Kenya', path: '/destinations/kenya' },
+    { name: 'Tanzania', path: '/destinations/tanzania' },
+    { name: 'South Africa', path: '/destinations/south-africa' },
+    { name: 'Botswana', path: '/destinations/botswana' },
+    { name: 'Uganda', path: '/destinations/uganda' },
+    { name: 'Namibia', path: '/destinations/namibia' },
+    { name: 'Zimbabwe', path: '/destinations/zimbabwe' },
+    { name: 'Rwanda', path: '/destinations/rwanda' },
   ]
 
   return (
@@ -46,31 +61,73 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm transition-colors ${
-                  location.pathname === link.path 
-                    ? 'text-[#D4A03A]' 
-                    : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA]'
-                }`}
-              >
-                {link.label}
-              </Link>
+              <div key={link.path} className="relative group">
+                {link.path === '/destinations' ? (
+                  <button 
+                    className={`text-sm transition-colors flex items-center gap-1 ${
+                      location.pathname.startsWith('/destinations')
+                        ? 'text-[#D4A03A]' 
+                        : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA]'
+                    }`}
+                    onMouseEnter={() => setIsDestinationsOpen(true)}
+                    onMouseLeave={() => setIsDestinationsOpen(false)}
+                  >
+                    {link.label}
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className={`text-sm transition-colors ${
+                      location.pathname === link.path 
+                        ? 'text-[#D4A03A]' 
+                        : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA]'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )}
+                
+                {/* Destinations Dropdown */}
+                {link.path === '/destinations' && isDestinationsOpen && (
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-48 bg-[#1a1410] rounded-xl shadow-2xl p-4 border border-[#F7F2EA]/10"
+                    onMouseEnter={() => setIsDestinationsOpen(true)}
+                    onMouseLeave={() => setIsDestinationsOpen(false)}
+                  >
+                    <Link
+                      to="/destinations"
+                      className="block text-sm text-[#D4A03A] hover:text-[#F7F2EA] mb-3 pb-2 border-b border-[#F7F2EA]/10"
+                    >
+                      All Destinations
+                    </Link>
+                    {destinations.map((dest) => (
+                      <Link
+                        key={dest.path}
+                        to={dest.path}
+                        className="block text-sm text-[#F7F2EA]/70 hover:text-[#D4A03A] py-1.5 transition-colors"
+                      >
+                        {dest.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
-            <Link 
-              to="/contact" 
-              className="btn-outline text-sm py-2 px-4 flex items-center gap-2"
-            >
-              <Phone size={14} /> Plan a Trip
-            </Link>
           </div>
+
+          <Link 
+            to="/contact" 
+            className="hidden lg:flex btn-outline text-sm py-2 px-4 items-center gap-2"
+          >
+            <Phone size={14} /> Plan a Trip
+          </Link>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-[#F7F2EA]"
+            className="lg:hidden text-[#F7F2EA]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,17 +136,57 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-[#2B1E1A]/98 backdrop-blur-md py-4 px-4">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#2B1E1A]/98 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="block py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+              <div key={link.path}>
+                {link.path === '/destinations' ? (
+                  <>
+                    <button
+                      className="block w-full text-left py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
+                      onClick={() => setIsDestinationsOpen(!isDestinationsOpen)}
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isDestinationsOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isDestinationsOpen && (
+                      <div className="pl-4">
+                        <Link
+                          to="/destinations"
+                          className="block py-2 text-sm text-[#D4A03A]"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          All Destinations
+                        </Link>
+                        {destinations.map((dest) => (
+                          <Link
+                            key={dest.path}
+                            to={dest.path}
+                            className="block py-2 text-sm text-[#F7F2EA]/60"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {dest.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className="block py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </div>
             ))}
+            <Link 
+              to="/contact" 
+              className="mt-4 btn-primary w-full text-center py-3"
+            >
+              <Phone size={14} className="inline mr-2" /> Plan a Trip
+            </Link>
           </div>
         )}
       </nav>
@@ -98,42 +195,60 @@ export default function Layout({ children }: LayoutProps) {
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-[#1a1410] py-12 px-4 md:px-[8vw]">
+      <footer className="bg-[#1a1410] py-16 px-4 md:px-[8vw]">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
               <h3 className="font-display font-bold text-lg text-[#F7F2EA] mb-4">
                 Rays of Africa
               </h3>
-              <p className="text-[#F7F2EA]/60 text-sm">
-                Luxury safaris designed around light, land, and legacy.
+              <p className="text-[#F7F2EA]/60 text-sm mb-4">
+                Luxury safaris designed around light, land, and legacy. Creating unforgettable African adventures since 2010.
               </p>
+              <div className="flex gap-4">
+                {['facebook', 'instagram', 'twitter', 'youtube'].map((social) => (
+                  <a 
+                    key={social}
+                    href={`https://${social}.com`}
+                    className="w-10 h-10 rounded-full bg-[#2B1E1A] flex items-center justify-center text-[#F7F2EA]/60 hover:text-[#D4A03A] hover:bg-[#D4A03A]/10 transition-colors"
+                    aria-label={social}
+                  >
+                    <span className="text-xs uppercase">{social[0]}</span>
+                  </a>
+                ))}
+              </div>
             </div>
             <div>
-              <h4 className="font-semibold text-[#F7F2EA] mb-4">Explore</h4>
+              <h4 className="font-semibold text-[#F7F2EA] mb-4">Safari Experiences</h4>
               <ul className="space-y-2">
-                {['Destinations', 'Wildlife', 'Impact', 'Journal'].map((item) => (
-                  <li key={item}>
+                {[
+                  { name: 'Safari Types', path: '/safari-types' },
+                  { name: 'Packages & Pricing', path: '/packages' },
+                  { name: 'Destinations', path: '/destinations' },
+                  { name: 'Wildlife', path: '/wildlife' },
+                  { name: 'Travel Info', path: '/travel-info' }
+                ].map((item) => (
+                  <li key={item.name}>
                     <Link 
-                      to={`/${item.toLowerCase()}`} 
+                      to={item.path} 
                       className="text-[#F7F2EA]/60 hover:text-[#D4A03A] text-sm transition-colors"
                     >
-                      {item}
+                      {item.name}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-[#F7F2EA] mb-4">Company</h4>
+              <h4 className="font-semibold text-[#F7F2EA] mb-4">Destinations</h4>
               <ul className="space-y-2">
-                {['About', 'Contact', 'Careers'].map((item) => (
-                  <li key={item}>
+                {destinations.slice(0, 6).map((dest) => (
+                  <li key={dest.path}>
                     <Link 
-                      to={`/${item.toLowerCase()}`} 
+                      to={dest.path} 
                       className="text-[#F7F2EA]/60 hover:text-[#D4A03A] text-sm transition-colors"
                     >
-                      {item}
+                      {dest.name}
                     </Link>
                   </li>
                 ))}
@@ -141,15 +256,42 @@ export default function Layout({ children }: LayoutProps) {
             </div>
             <div>
               <h4 className="font-semibold text-[#F7F2EA] mb-4">Contact</h4>
-              <p className="text-[#F7F2EA]/60 text-sm mb-2">hello@raysofafrica.travel</p>
-              <p className="text-[#F7F2EA]/60 text-sm mb-2">+255 123 456 789</p>
-              <p className="text-[#F7F2EA]/60 text-sm">Arusha, Tanzania</p>
+              <ul className="space-y-2 text-sm text-[#F7F2EA]/60">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
+                  hello@raysofafrica.travel
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
+                  +255 123 456 789
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
+                  Arusha, Tanzania
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-[#F7F2EA]/10">
+                <p className="text-xs text-[#F7F2EA]/40">
+                  Emergency Support: +255 987 654 321
+                </p>
+              </div>
             </div>
           </div>
-          <div className="border-t border-[#F7F2EA]/10 pt-8 text-center">
+          <div className="border-t border-[#F7F2EA]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#F7F2EA]/40 text-sm">
               © 2026 Rays of Africa Safari. All rights reserved.
             </p>
+            <div className="flex gap-6 text-sm">
+              <Link to="/about" className="text-[#F7F2EA]/40 hover:text-[#D4A03A] transition-colors">
+                About Us
+              </Link>
+              <Link to="/impact" className="text-[#F7F2EA]/40 hover:text-[#D4A03A] transition-colors">
+                Sustainability
+              </Link>
+              <Link to="/contact" className="text-[#F7F2EA]/40 hover:text-[#D4A03A] transition-colors">
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
