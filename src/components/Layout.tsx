@@ -37,14 +37,25 @@ export default function Layout({ children }: LayoutProps) {
   ]
 
   const destinations = [
-    { name: 'Kenya', path: '/destinations/kenya' },
-    { name: 'Tanzania', path: '/destinations/tanzania' },
-    { name: 'South Africa', path: '/destinations/south-africa' },
-    { name: 'Botswana', path: '/destinations/botswana' },
-    { name: 'Uganda', path: '/destinations/uganda' },
-    { name: 'Namibia', path: '/destinations/namibia' },
-    { name: 'Zimbabwe', path: '/destinations/zimbabwe' },
-    { name: 'Rwanda', path: '/destinations/rwanda' },
+    { name: 'Kenya', path: '/destinations/kenya', description: 'The birthplace of safari' },
+    { name: 'Tanzania', path: '/destinations/tanzania', description: 'Serengeti & Ngorongoro' },
+    { name: 'Uganda', path: '/destinations/uganda', description: 'Gorilla trekking paradise' },
+    { name: 'Rwanda', path: '/destinations/rwanda', description: 'Land of a thousand hills' },
+  ]
+
+  const southernAfrica = [
+    { name: 'Botswana', path: '/destinations/botswana', description: 'Okavango Delta paradise' },
+    { name: 'Zambia', path: '/destinations/zambia', description: 'Walking safari capital' },
+    { name: 'Zimbabwe', path: '/destinations/zimbabwe', description: 'Victoria Falls & wildlife' },
+    { name: 'Namibia', path: '/destinations/namibia', description: 'Desert landscapes' },
+    { name: 'South Africa', path: '/destinations/south-africa', description: 'Big Five & winelands' },
+  ]
+
+  const islandsAndBeaches = [
+    { name: 'Zanzibar Island', path: '/destinations/tanzania/zanzibar', description: 'Spice island paradise' },
+    { name: 'Lamu Island', path: '/destinations/kenya/lamu', description: 'Ancient Swahili culture' },
+    { name: 'Nosy Be Island', path: '/destinations/nosy-be', description: 'Madagascar beaches' },
+    { name: 'Mafia Island', path: '/destinations/mafia', description: 'Marine park sanctuary' },
   ]
 
   return (
@@ -93,25 +104,98 @@ export default function Layout({ children }: LayoutProps) {
                 {/* Destinations Dropdown */}
                 {link.path === '/destinations' && isDestinationsOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-48 bg-[#1a1410] rounded-xl shadow-2xl p-4 border border-[#F7F2EA]/10"
+                    className="absolute top-full left-0 mt-2 w-[600px] bg-[#1a1410] rounded-xl shadow-2xl border border-[#F7F2EA]/10"
                     onMouseEnter={() => setIsDestinationsOpen(true)}
                     onMouseLeave={() => setIsDestinationsOpen(false)}
                   >
-                    <Link
-                      to="/destinations"
-                      className="block text-sm text-[#D4A03A] hover:text-[#F7F2EA] mb-3 pb-2 border-b border-[#F7F2EA]/10"
-                    >
-                      All Destinations
-                    </Link>
-                    {destinations.map((dest) => (
-                      <Link
-                        key={dest.path}
-                        to={dest.path}
-                        className="block text-sm text-[#F7F2EA]/70 hover:text-[#D4A03A] py-1.5 transition-colors"
-                      >
-                        {dest.name}
-                      </Link>
-                    ))}
+                    <div className="grid grid-cols-3 gap-6 p-6">
+                      {/* Eastern Africa */}
+                      <div>
+                        <h4 className="text-[#D4A03A] font-semibold text-sm mb-4 uppercase tracking-wider">Eastern Africa</h4>
+                        <div className="space-y-3">
+                          {destinations.map((dest) => (
+                            <Link
+                              key={dest.path}
+                              to={dest.path}
+                              className="block group"
+                              onClick={() => setIsDestinationsOpen(false)}
+                            >
+                              <div className="text-sm text-[#F7F2EA]/80 group-hover:text-[#D4A03A] transition-colors mb-1">
+                                {dest.name}
+                              </div>
+                              <div className="text-xs text-[#F7F2EA]/50 line-clamp-2">
+                                {dest.description}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                        <Link
+                          to="/destinations"
+                          className="inline-flex items-center gap-2 text-xs text-[#D4A03A] hover:text-[#F7F2EA] mt-4 transition-colors"
+                          onClick={() => setIsDestinationsOpen(false)}
+                        >
+                          View All Eastern Africa →
+                        </Link>
+                      </div>
+
+                      {/* Southern Africa */}
+                      <div>
+                        <h4 className="text-[#D4A03A] font-semibold text-sm mb-4 uppercase tracking-wider">Southern Africa</h4>
+                        <div className="space-y-3">
+                          {southernAfrica.map((dest) => (
+                            <Link
+                              key={dest.path}
+                              to={dest.path}
+                              className="block group"
+                              onClick={() => setIsDestinationsOpen(false)}
+                            >
+                              <div className="text-sm text-[#F7F2EA]/80 group-hover:text-[#D4A03A] transition-colors mb-1">
+                                {dest.name}
+                              </div>
+                              <div className="text-xs text-[#F7F2EA]/50 line-clamp-2">
+                                {dest.description}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                        <Link
+                          to="/destinations"
+                          className="inline-flex items-center gap-2 text-xs text-[#D4A03A] hover:text-[#F7F2EA] mt-4 transition-colors"
+                          onClick={() => setIsDestinationsOpen(false)}
+                        >
+                          View All Southern Africa →
+                        </Link>
+                      </div>
+
+                      {/* Islands & Beaches */}
+                      <div>
+                        <h4 className="text-[#D4A03A] font-semibold text-sm mb-4 uppercase tracking-wider">Islands & Beaches</h4>
+                        <div className="space-y-3">
+                          {islandsAndBeaches.map((dest) => (
+                            <Link
+                              key={dest.path}
+                              to={dest.path}
+                              className="block group"
+                              onClick={() => setIsDestinationsOpen(false)}
+                            >
+                              <div className="text-sm text-[#F7F2EA]/80 group-hover:text-[#D4A03A] transition-colors mb-1">
+                                {dest.name}
+                              </div>
+                              <div className="text-xs text-[#F7F2EA]/50 line-clamp-2">
+                                {dest.description}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                        <Link
+                          to="/destinations"
+                          className="inline-flex items-center gap-2 text-xs text-[#D4A03A] hover:text-[#F7F2EA] mt-4 transition-colors"
+                          onClick={() => setIsDestinationsOpen(false)}
+                        >
+                          View All Beach Destinations →
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

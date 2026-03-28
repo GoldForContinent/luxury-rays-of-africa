@@ -1081,6 +1081,190 @@ export const destinations: Country[] = [
         ]
       }
     ]
+  },
+  {
+    id: 'zambia',
+    name: 'Zambia',
+    description: 'Africa\'s best-kept secret offers exceptional walking safaris, Victoria Falls from the Zambian side, and pristine wilderness areas with fewer crowds.',
+    image: '/zambia_hero.jpg',
+    highlights: ['Victoria Falls', 'Walking Safaris', 'South Luangwa', 'Lower Zambezi'],
+    places: [
+      {
+        id: 'south-luangwa',
+        name: 'South Luangwa National Park',
+        description: 'The birthplace of walking safaris, South Luangwa offers exceptional wildlife viewing and some of Africa\'s best leopard sightings.',
+        image: '/south_luangwa.jpg',
+        highlights: ['Walking Safaris', 'Leopard Viewing', 'Luangwa River', 'Night Drives'],
+        bestTime: 'May to October for dry season',
+        packages: [
+          {
+            id: 'luangwa-family',
+            name: 'Family Walking Safari',
+            type: 'family',
+            duration: '5 Days / 4 Nights',
+            price: 3200,
+            description: 'Introduction to walking safaris for families with teens.',
+            includes: ['Transfers', 'Bush camp', 'All meals', 'Walking safaris', 'Game drives']
+          },
+          {
+            id: 'luangwa-solo',
+            name: 'Solo Walking Experience',
+            type: 'solo',
+            duration: '4 Days / 3 Nights',
+            price: 2800,
+            description: 'Immersive walking safari experience.',
+            includes: ['Transfers', 'Bush camp', 'All meals', 'Walking focus', 'Expert guide']
+          },
+          {
+            id: 'luangwa-group',
+            name: 'Group Walking Safari',
+            type: 'group',
+            duration: '6 Days / 5 Nights',
+            price: 3000,
+            description: 'In-depth walking safari for groups.',
+            includes: ['Private camp', 'All meals', 'Walking & drives', 'Guide', 'Park fees']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'lamu',
+    name: 'Lamu Island',
+    description: 'A UNESCO World Heritage site offering ancient Swahili culture, pristine beaches, and a peaceful escape from the modern world.',
+    image: '/lamu_hero.jpg',
+    highlights: ['Ancient Swahili Town', 'Pristine Beaches', 'Dhow Sailing', 'Cultural Experience'],
+    places: [
+      {
+        id: 'lamu-town',
+        name: 'Lamu Town',
+        description: 'Kenya\'s oldest living town and UNESCO World Heritage site, offering authentic Swahili culture and architecture.',
+        image: '/lamu_town.jpg',
+        highlights: ['UNESCO Site', 'Swahili Culture', 'Dhow Building', 'Narrow Streets'],
+        bestTime: 'August to March for best weather',
+        packages: [
+          {
+            id: 'lamu-family',
+            name: 'Family Cultural Experience',
+            type: 'family',
+            duration: '4 Days / 3 Nights',
+            price: 2400,
+            description: 'Discover Swahili culture as a family.',
+            includes: ['Transfers', 'Historic hotel', 'All meals', 'Cultural tours', 'Beach time']
+          },
+          {
+            id: 'lamu-solo',
+            name: 'Solo Cultural Retreat',
+            type: 'solo',
+            duration: '5 Days / 4 Nights',
+            price: 1800,
+            description: 'Immersive cultural experience at your own pace.',
+            includes: ['Transfers', 'Boutique hotel', 'Breakfast', 'Cultural tours', 'Dhow sailing']
+          },
+          {
+            id: 'lamu-group',
+            name: 'Group Island Adventure',
+            type: 'group',
+            duration: '4 Days / 3 Nights',
+            price: 2200,
+            description: 'Share Lamu\'s magic with friends.',
+            includes: ['Group transfers', 'Hotel', 'All meals', 'Cultural experiences', 'Dhow cruise']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'nosy-be',
+    name: 'Nosy Be Island',
+    description: 'Madagascar\'s premier beach destination offering pristine beaches, marine life, and unique island experiences.',
+    image: '/nosy_be_hero.jpg',
+    highlights: ['Pristine Beaches', 'Marine Life', 'Island Hopping', 'Lemur Viewing'],
+    places: [
+      {
+        id: 'nosy-be-main',
+        name: 'Nosy Be Main Island',
+        description: 'The main island offering beautiful beaches, water sports, and access to surrounding marine reserves.',
+        image: '/nosy_be_main.jpg',
+        highlights: ['Beaches', 'Water Sports', 'Local Markets', 'Island Tours'],
+        bestTime: 'April to December for best weather',
+        packages: [
+          {
+            id: 'nosy-family',
+            name: 'Family Beach Adventure',
+            type: 'family',
+            duration: '5 Days / 4 Nights',
+            price: 2800,
+            description: 'Beach holiday with marine activities for families.',
+            includes: ['Transfers', 'Beach resort', 'All meals', 'Water sports', 'Island tours']
+          },
+          {
+            id: 'nosy-solo',
+            name: 'Solo Island Escape',
+            type: 'solo',
+            duration: '4 Days / 3 Nights',
+            price: 2200,
+            description: 'Relax and explore the islands at your own pace.',
+            includes: ['Transfers', 'Boutique hotel', 'Breakfast', 'Island hopping', 'Snorkeling']
+          },
+          {
+            id: 'nosy-group',
+            name: 'Group Island Experience',
+            type: 'group',
+            duration: '5 Days / 4 Nights',
+            price: 2600,
+            description: 'Share the island paradise with friends.',
+            includes: ['Group transfers', 'Resort', 'All meals', 'Boat tours', 'Marine activities']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'mafia',
+    name: 'Mafia Island',
+    description: 'A pristine marine park offering exceptional diving, snorkeling, and a peaceful alternative to more crowded beach destinations.',
+    image: '/mafia_hero.jpg',
+    highlights: ['Marine Park', 'Diving Paradise', 'Whale Sharks', 'Peaceful Beaches'],
+    places: [
+      {
+        id: 'mafia-main',
+        name: 'Mafia Island Marine Park',
+        description: 'Tanzania\'s first marine protected area offering world-class diving and pristine coral reefs.',
+        image: '/mafia_marine.jpg',
+        highlights: ['Marine Park', 'Diving', 'Whale Sharks', 'Coral Reefs'],
+        bestTime: 'October to March for whale sharks',
+        packages: [
+          {
+            id: 'mafia-family',
+            name: 'Family Marine Adventure',
+            type: 'family',
+            duration: '5 Days / 4 Nights',
+            price: 3200,
+            description: 'Discover marine life as a family.',
+            includes: ['Transfers', 'Beach lodge', 'All meals', 'Snorkeling', 'Island tours']
+          },
+          {
+            id: 'mafia-solo',
+            name: 'Solo Diving Experience',
+            type: 'solo',
+            duration: '6 Days / 5 Nights',
+            price: 3600,
+            description: 'World-class diving for solo travelers.',
+            includes: ['Transfers', 'Dive resort', 'All meals', 'Diving package', 'Marine tours']
+          },
+          {
+            id: 'mafia-group',
+            name: 'Group Marine Safari',
+            type: 'group',
+            duration: '5 Days / 4 Nights',
+            price: 3400,
+            description: 'Share the marine paradise with friends.',
+            includes: ['Group transfers', 'Resort', 'All meals', 'Diving & snorkeling', 'Boat trips']
+          }
+        ]
+      }
+    ]
   }
 ]
 
