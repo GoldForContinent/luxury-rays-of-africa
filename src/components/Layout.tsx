@@ -10,6 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false)
+  const [isTravelInfoOpen, setIsTravelInfoOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -25,15 +26,45 @@ export default function Layout({ children }: LayoutProps) {
   }, [location.pathname])
 
   const navLinks = [
+    { path: '/travel-info', label: 'Travel Info' },
     { path: '/', label: 'Home' },
     { path: '/safari-types', label: 'Safari Types' },
     { path: '/packages', label: 'Packages' },
     { path: '/destinations', label: 'Destinations' },
     { path: '/wildlife', label: 'Wildlife' },
     { path: '/impact', label: 'Impact' },
-    { path: '/travel-info', label: 'Travel Info' },
     { path: '/journal', label: 'Journal' },
     { path: '/contact', label: 'Contact' },
+  ]
+
+  const travelInfoSections = [
+    {
+      title: 'Start Your Journey Here',
+      items: [
+        { name: 'Your First Safari', path: '/travel-info/first-safari' },
+        { name: 'Where To Visit', path: '/travel-info/where-to-visit' },
+        { name: 'Best Time To Visit', path: '/travel-info/best-time-to-visit' },
+        { name: 'What To Pack For Safari', path: '/travel-info/what-to-pack' },
+      ]
+    },
+    {
+      title: 'Experiences and Activities',
+      items: [
+        { name: 'Balloon Safari', path: '/travel-info/balloon-safari' },
+        { name: 'Cultural Visits And Experiences', path: '/travel-info/cultural-visits' },
+        { name: 'Walking Safaris', path: '/travel-info/walking-safaris' },
+        { name: 'Helicopter Safaris', path: '/travel-info/helicopter-safaris' },
+      ]
+    },
+    {
+      title: 'Travel Guide',
+      items: [
+        { name: 'Apply For Visas', path: '/travel-info/visas' },
+        { name: 'Month To Month Safari Guide', path: '/travel-info/monthly-guide' },
+        { name: 'Health And Safety On Safari', path: '/travel-info/health-safety' },
+        { name: 'Safest Countries For Safaris', path: '/travel-info/safest-countries' },
+      ]
+    }
   ]
 
   const destinations = [
@@ -88,6 +119,19 @@ export default function Layout({ children }: LayoutProps) {
                     {link.label}
                     <ChevronDown className="w-4 h-4" />
                   </button>
+                ) : link.path === '/travel-info' ? (
+                  <button 
+                    className={`text-sm transition-colors flex items-center gap-1 ${
+                      location.pathname.startsWith('/travel-info')
+                        ? 'text-[#D4A03A]' 
+                        : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA]'
+                    }`}
+                    onMouseEnter={() => setIsTravelInfoOpen(true)}
+                    onMouseLeave={() => setIsTravelInfoOpen(false)}
+                  >
+                    {link.label}
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
                 ) : (
                   <Link
                     to={link.path}
@@ -99,6 +143,39 @@ export default function Layout({ children }: LayoutProps) {
                   >
                     {link.label}
                   </Link>
+                )}
+                
+                {/* Travel Info Dropdown */}
+                {link.path === '/travel-info' && isTravelInfoOpen && (
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-[600px] bg-[#1a1410] rounded-xl shadow-2xl border border-[#F7F2EA]/10"
+                    onMouseEnter={() => setIsTravelInfoOpen(true)}
+                    onMouseLeave={() => setIsTravelInfoOpen(false)}
+                  >
+                    <div className="grid grid-cols-3 gap-6 p-6">
+                      {travelInfoSections.map((section) => (
+                        <div key={section.title}>
+                          <h4 className="text-[#D4A03A] font-semibold text-sm mb-4 uppercase tracking-wider">
+                            {section.title}
+                          </h4>
+                          <div className="space-y-3">
+                            {section.items.map((item) => (
+                              <Link
+                                key={item.path}
+                                to={item.path}
+                                className="block group"
+                                onClick={() => setIsTravelInfoOpen(false)}
+                              >
+                                <div className="text-sm text-[#F7F2EA]/80 group-hover:text-[#D4A03A] transition-colors">
+                                  {item.name}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
                 
                 {/* Destinations Dropdown */}
@@ -250,6 +327,37 @@ export default function Layout({ children }: LayoutProps) {
                           >
                             {dest.name}
                           </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : link.path === '/travel-info' ? (
+                  <>
+                    <button
+                      className="block w-full text-left py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
+                      onClick={() => setIsTravelInfoOpen(!isTravelInfoOpen)}
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isTravelInfoOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isTravelInfoOpen && (
+                      <div className="pl-4">
+                        {travelInfoSections.map((section) => (
+                          <div key={section.title} className="mb-4">
+                            <div className="py-2 text-sm text-[#D4A03A] font-semibold">
+                              {section.title}
+                            </div>
+                            {section.items.map((item) => (
+                              <Link
+                                key={item.path}
+                                to={item.path}
+                                className="block py-2 text-sm text-[#F7F2EA]/60 pl-4"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
                         ))}
                       </div>
                     )}
