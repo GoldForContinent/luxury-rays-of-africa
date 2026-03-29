@@ -267,7 +267,7 @@ export default function FirstSafari() {
               },
               {
                 title: 'Respect Wildlife',
-                description: 'Keep a safe distance, never feed animals, and follow your guide's instructions at all times.',
+                description: 'Keep a safe distance, never feed animals, and follow your guide instructions at all times.',
                 icon: <Compass className="w-6 h-6" />
               }
             ].map((tip, index) => (
