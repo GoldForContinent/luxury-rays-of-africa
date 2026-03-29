@@ -41,10 +41,10 @@ export default function Layout({ children }: LayoutProps) {
     {
       title: 'Start Your Journey Here',
       items: [
-        { name: 'Your First Safari', path: '/travel-info/first-safari' },
-        { name: 'Where To Visit', path: '/travel-info/where-to-visit' },
-        { name: 'Best Time To Visit', path: '/travel-info/best-time-to-visit' },
-        { name: 'What To Pack For Safari', path: '/travel-info/what-to-pack' },
+        { name: 'Your First Safari', path: '/first-safari' },
+        { name: 'Where To Visit', path: '/where-to-visit' },
+        { name: 'Best Time To Visit', path: '/best-time-to-visit' },
+        { name: 'What To Pack For Safari', path: '/what-to-pack' },
       ]
     },
     {

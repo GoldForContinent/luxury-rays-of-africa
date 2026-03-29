@@ -11,6 +11,10 @@ import Journal from './pages/Journal'
 import SafariTypes from './pages/SafariTypes'
 import Packages from './pages/Packages'
 import TravelInfo from './pages/TravelInfo'
+import FirstSafari from './pages/FirstSafari'
+import WhereToVisit from './pages/WhereToVisit'
+import BestTimeToVisit from './pages/BestTimeToVisit'
+import WhatToPack from './pages/WhatToPack'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -29,6 +33,10 @@ function App() {
         <Route path="/wildlife" element={<Wildlife />} />
         <Route path="/impact" element={<Impact />} />
         <Route path="/travel-info" element={<TravelInfo />} />
+        <Route path="/first-safari" element={<FirstSafari />} />
+        <Route path="/where-to-visit" element={<WhereToVisit />} />
+        <Route path="/best-time-to-visit" element={<BestTimeToVisit />} />
+        <Route path="/what-to-pack" element={<WhatToPack />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
