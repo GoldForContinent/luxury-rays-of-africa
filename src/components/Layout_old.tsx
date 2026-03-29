@@ -9,6 +9,8 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false)
+  const [isTravelInfoOpen, setIsTravelInfoOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const location = useLocation()
 
@@ -300,13 +302,13 @@ export default function Layout({ children }: LayoutProps) {
                   <>
                     <button
                       className="block w-full text-left py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
-                      onClick={() => setActiveDropdown(activeDropdown === 'destinations' ? null : 'destinations')}
+                      onClick={() => setIsDestinationsOpen(!isDestinationsOpen)}
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'destinations' ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isDestinationsOpen ? 'rotate-180' : ''}`} />
                     </button>
-                    {activeDropdown === 'destinations' && (
-                      <div className="pl-4 space-y-2">
+                    {isDestinationsOpen && (
+                      <div className="pl-4">
                         <Link
                           to="/destinations"
                           className="block py-2 text-sm text-[#D4A03A]"
@@ -331,23 +333,23 @@ export default function Layout({ children }: LayoutProps) {
                   <>
                     <button
                       className="block w-full text-left py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
-                      onClick={() => setActiveDropdown(activeDropdown === 'travel-info' ? null : 'travel-info')}
+                      onClick={() => setIsTravelInfoOpen(!isTravelInfoOpen)}
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'travel-info' ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isTravelInfoOpen ? 'rotate-180' : ''}`} />
                     </button>
-                    {activeDropdown === 'travel-info' && (
-                      <div className="pl-4 space-y-2">
+                    {isTravelInfoOpen && (
+                      <div className="pl-4">
                         {travelInfoSections.map((section) => (
-                          <div key={section.title} className="py-2">
-                            <h5 className="text-xs text-[#D4A03A] font-semibold uppercase tracking-wider mb-2">
+                          <div key={section.title} className="mb-4">
+                            <div className="py-2 text-sm text-[#D4A03A] font-semibold">
                               {section.title}
-                            </h5>
+                            </div>
                             {section.items.map((item) => (
                               <Link
                                 key={item.path}
                                 to={item.path}
-                                className="block py-1 text-sm text-[#F7F2EA]/60"
+                                className="block py-2 text-sm text-[#F7F2EA]/60 pl-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
                                 {item.name}
@@ -369,71 +371,117 @@ export default function Layout({ children }: LayoutProps) {
                 )}
               </div>
             ))}
-            
             <Link 
               to="/contact" 
-              className="block w-full btn-outline text-sm py-2 px-4 mt-4 text-center"
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-4 btn-primary w-full text-center py-3"
             >
-              Plan a Trip
+              <Phone size={14} className="inline mr-2" /> Plan a Trip
             </Link>
           </div>
         )}
       </nav>
 
       {/* Main Content */}
-      <main className="pt-20">
-        {children}
-      </main>
+      <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-[#1a1410] border-t border-[#F7F2EA]/10">
-        <div className="px-4 md:px-[8vw] py-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <footer className="bg-[#1a1410] py-16 px-4 md:px-[8vw]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
-              <h3 className="font-display font-bold text-xl text-[#F7F2EA] mb-4">
-                Luxury Rays of Africa
+              <h3 className="font-display font-bold text-lg text-[#F7F2EA] mb-4">
+                Rays of Africa
               </h3>
-              <p className="text-[#F7F2EA]/60 text-sm leading-relaxed">
-                Your gateway to extraordinary African safari experiences. 
-                Discover the wild beauty of Africa with our expert-guided luxury tours.
+              <p className="text-[#F7F2EA]/60 text-sm mb-4">
+                Luxury safaris designed around light, land, and legacy. Creating unforgettable African adventures since 2010.
               </p>
+              <div className="flex gap-4">
+                {['facebook', 'instagram', 'twitter', 'youtube'].map((social) => (
+                  <a 
+                    key={social}
+                    href={`https://${social}.com`}
+                    className="w-10 h-10 rounded-full bg-[#2B1E1A] flex items-center justify-center text-[#F7F2EA]/60 hover:text-[#D4A03A] hover:bg-[#D4A03A]/10 transition-colors"
+                    aria-label={social}
+                  >
+                    <span className="text-xs uppercase">{social[0]}</span>
+                  </a>
+                ))}
+              </div>
             </div>
-            
             <div>
-              <h4 className="font-semibold text-[#D4A03A] mb-4">Quick Links</h4>
+              <h4 className="font-semibold text-[#F7F2EA] mb-4">Safari Experiences</h4>
               <ul className="space-y-2">
-                <li><Link to="/destinations" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Destinations</Link></li>
-                <li><Link to="/safari-types" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Safari Types</Link></li>
-                <li><Link to="/packages" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Packages</Link></li>
-                <li><Link to="/contact" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Contact</Link></li>
+                {[
+                  { name: 'Safari Types', path: '/safari-types' },
+                  { name: 'Packages & Pricing', path: '/packages' },
+                  { name: 'Destinations', path: '/destinations' },
+                  { name: 'Wildlife', path: '/wildlife' },
+                  { name: 'Travel Info', path: '/travel-info' }
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link 
+                      to={item.path} 
+                      className="text-[#F7F2EA]/60 hover:text-[#D4A03A] text-sm transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-            
             <div>
-              <h4 className="font-semibold text-[#D4A03A] mb-4">Travel Info</h4>
+              <h4 className="font-semibold text-[#F7F2EA] mb-4">Destinations</h4>
               <ul className="space-y-2">
-                <li><Link to="/first-safari" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Your First Safari</Link></li>
-                <li><Link to="/where-to-visit" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Where to Visit</Link></li>
-                <li><Link to="/best-time-to-visit" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Best Time to Visit</Link></li>
-                <li><Link to="/what-to-pack" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">What to Pack</Link></li>
+                {destinations.slice(0, 6).map((dest) => (
+                  <li key={dest.path}>
+                    <Link 
+                      to={dest.path} 
+                      className="text-[#F7F2EA]/60 hover:text-[#D4A03A] text-sm transition-colors"
+                    >
+                      {dest.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-            
             <div>
-              <h4 className="font-semibold text-[#D4A03A] mb-4">Contact Us</h4>
-              <div className="space-y-2 text-[#F7F2EA]/60 text-sm">
-                <p>Email: safaris@luxuryrays.com</p>
-                <p>Phone: +254 729 744 244</p>
-                <p>Location: Nairobi, Kenya</p>
+              <h4 className="font-semibold text-[#F7F2EA] mb-4">Contact</h4>
+              <ul className="space-y-2 text-sm text-[#F7F2EA]/60">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
+                  hello@raysofafrica.travel
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
+                  +255 123 456 789
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
+                  Arusha, Tanzania
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-[#F7F2EA]/10">
+                <p className="text-xs text-[#F7F2EA]/40">
+                  Emergency Support: +255 987 654 321
+                </p>
               </div>
             </div>
           </div>
-          
-          <div className="border-t border-[#F7F2EA]/10 mt-8 pt-8 text-center">
+          <div className="border-t border-[#F7F2EA]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#F7F2EA]/40 text-sm">
-              © 2024 Luxury Rays of Africa. All rights reserved.
+              © 2026 Rays of Africa Safari. All rights reserved.
             </p>
+            <div className="flex gap-6 text-sm">
+              <Link to="/about" className="text-[#F7F2EA]/40 hover:text-[#D4A03A] transition-colors">
+                About Us
+              </Link>
+              <Link to="/impact" className="text-[#F7F2EA]/40 hover:text-[#D4A03A] transition-colors">
+                Sustainability
+              </Link>
+              <Link to="/contact" className="text-[#F7F2EA]/40 hover:text-[#D4A03A] transition-colors">
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
