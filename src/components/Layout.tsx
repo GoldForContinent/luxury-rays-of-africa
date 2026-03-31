@@ -21,6 +21,7 @@ export default function Layout({ children }: LayoutProps) {
     { path: '/safari-types', label: 'Safari Types' },
     { path: '/packages', label: 'Packages' },
     { path: '/destinations', label: 'Destinations' },
+    { path: '/kenya-safaris', label: 'Kenya Safaris' },
     { path: '/wildlife', label: 'Wildlife' },
     { path: '/impact', label: 'Impact' },
     { path: '/journal', label: 'Journal' },
@@ -289,7 +290,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link, index) => (
               <div key={link.path}>
-                {link.path === '/destinations' || link.path === '/travel-info' ? (
+                {link.path === '/destinations' || link.path === '/travel-info' || link.path === '/kenya-safaris' ? (
                   <>
                     <button
                       className={`block w-full text-left py-3 font-bold transition-colors flex items-center justify-between ${
@@ -300,7 +301,9 @@ export default function Layout({ children }: LayoutProps) {
                       onClick={() => setActiveDropdown(activeDropdown === link.path.slice(1) ? null : link.path.slice(1))}
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.path.slice(1) ? 'rotate-180' : ''}`} />
+                      {link.path === '/destinations' || link.path === '/travel-info' ? (
+                        <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.path.slice(1) ? 'rotate-180' : ''}`} />
+                      ) : null}
                     </button>
                     {activeDropdown === link.path.slice(1) && (
                       <div className="pl-4 space-y-2">
@@ -345,6 +348,15 @@ export default function Layout({ children }: LayoutProps) {
                               </div>
                             ))}
                           </>
+                        )}
+                        {link.path === '/kenya-safaris' && (
+                          <Link
+                            to="/kenya-safaris"
+                            className="block py-2 text-sm text-[#D4A03A]"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            Explore Kenya Safaris
+                          </Link>
                         )}
                       </div>
                     )}
