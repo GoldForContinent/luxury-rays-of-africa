@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronDown, MapPin, Calendar, Star, Phone, Mail, Clock, Check, X } from 'lucide-react'
+import { ArrowRight, MapPin, Check } from 'lucide-react'
 
 const faqData = [
   {
