@@ -7,13 +7,14 @@
 export interface Package {
   id: string
   name: string
-  type: 'family' | 'solo' | 'group' | 'honeymoon' | 'luxury'
+  type: 'family' | 'solo' | 'group' | 'honeymoon' | 'luxury' | 'migration'
   duration: string
   price: number
   description: string
   includes: string[]
   excludes?: string[]
   bestTime?: string
+  itinerary?: string | string[]
 }
 
 export interface Place {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowLeft, Check, Calendar, MapPin, Clock, Users, DollarSign, Package as PackageIcon } from 'lucide-react'
+import { ArrowLeft, Check, Calendar, Clock, DollarSign, Package as PackageIcon } from 'lucide-react'
 import { allFeaturedPackages } from '../data/destinations'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -59,8 +59,8 @@ export default function PackageDetail() {
 
   // Parse itinerary if it exists, otherwise create default
   const itinerary = pkg.itinerary && typeof pkg.itinerary === 'string'
-    ? pkg.itinerary.split('\n').filter(line => line.trim().startsWith('Day'))
-    : pkg.itinerary || []
+    ? pkg.itinerary.split('\n').filter((line: string) => line.trim().startsWith('Day'))
+    : (Array.isArray(pkg.itinerary) ? pkg.itinerary : [])
 
   return (
     <div className="pt-20">
@@ -123,7 +123,7 @@ export default function PackageDetail() {
 
           <div className="fade-section" style={{ opacity: 0, transform: 'translateY(20px)' }}>
             <div className="flex items-center gap-3 mb-2">
-              <users className="text-[#D4A574]" size={20} />
+              <DollarSign className="text-[#D4A574]" size={20} />
               <span className="text-[#F7F2EA]/60 text-sm">Group Size</span>
             </div>
             <p className="font-semibold text-white">2-8 people</p>

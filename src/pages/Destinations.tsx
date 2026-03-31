@@ -33,6 +33,10 @@ export default function Destinations() {
     ['botswana', 'zambia', 'zimbabwe', 'namibia', 'south-africa'].includes(d.id)
   )
 
+  const islandsAndBeaches = destinationsToDisplay.filter(d => 
+    ['seychelles', 'mauritius', 'zanzibar'].includes(d.id)
+  )
+
   return (
     <div className="pt-20">
       {/* Hero */}
