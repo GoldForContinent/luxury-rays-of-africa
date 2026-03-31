@@ -80,18 +80,19 @@ export default function Layout({ children }: LayoutProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-[#2B1E1A]">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
       <nav 
         className="fixed top-0 left-0 right-0 z-50 py-4 bg-transparent"
       >
-        <div className="px-4 md:px-[4vw] flex items-center justify-between">
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <img src="/logo3.png" alt="Rays of Africa Logo" className="h-20 w-auto" />
+        <div className="px-4 md:px-[4vw] flex items-center justify-between gap-8">
+          {/* Logo - Left */}
+          <Link to="/" className="hover:opacity-80 transition-opacity shrink-0">
+            <img src="/logo3.png" alt="Rays of Africa Logo" className="h-16 w-auto" />
           </Link>
           
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6">
+          {/* Desktop Nav - Center */}
+          <div className="hidden lg:flex items-center justify-center gap-6 flex-1">
             {navLinks.map((link) => (
               <div key={link.path} className="relative">
                 {link.path === '/destinations' ? (
@@ -264,9 +265,10 @@ export default function Layout({ children }: LayoutProps) {
             ))}
           </div>
 
+          {/* CTA Button - Right */}
           <Link 
             to="/contact" 
-            className="hidden lg:flex btn-outline text-sm py-2 px-4 items-center gap-2 text-[#D4A03A] border-[#D4A03A] hover:bg-[#D4A03A] hover:text-black"
+            className="hidden lg:flex btn-outline text-sm py-2 px-4 items-center gap-2 text-[#D4A03A] border-[#D4A03A] hover:bg-[#D4A03A] hover:text-black shrink-0"
           >
             <Phone size={14} /> Plan a Trip
           </Link>
