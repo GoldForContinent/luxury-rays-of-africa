@@ -1,8 +1,23 @@
 import { Link } from 'react-router-dom'
 import { Check, Clock, MapPin, Star, ArrowRight } from 'lucide-react'
-import { featuredPackages, pricingTiers } from '../data/destinations'
+import { allFeaturedPackages, pricingTiers } from '../data/destinations'
+
+// Use complete featured packages or fallback to const if import fails
+const featuredPackagesToUse = allFeaturedPackages?.length > 0 ? allFeaturedPackages : [
+  // Fallback data
+  {
+    id: 'featured-1',
+    name: 'Serengeti Great Migration Safari',
+    type: 'group',
+    duration: '5 days / 4 nights',
+    price: 5200,
+    description: 'Witness the world\'s greatest wildlife spectacle as millions of wildebeest cross the Serengeti plains.',
+    includes: ['National park fees', 'Daily game drives', 'Migration hotspot locations', 'Expert guides', 'Quality accommodation', 'All meals included']
+  }
+]
 
 export default function Packages() {
+  const packagesToDisplay = featuredPackagesToUse.slice(0, 6) // Show first 6 packages
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -37,7 +52,7 @@ export default function Packages() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPackages.map((pkg, index) => (
+            {packagesToDisplay.map((pkg, index) => (
               <div 
                 key={pkg.id}
                 className="group relative bg-[#1a1410] rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500"
@@ -59,13 +74,13 @@ export default function Packages() {
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-[#D4A03A] mb-2">
                     <MapPin className="w-4 h-4" />
-                    <span className="text-sm font-medium">{pkg.destination}</span>
+                    <span className="text-sm font-medium">{pkg.type}</span>
                   </div>
                   
                   <h3 className="font-display font-bold text-xl text-[#F7F2EA] mb-1">
                     {pkg.name}
                   </h3>
-                  <p className="text-sm text-[#D4A03A] mb-4">{pkg.tagline}</p>
+                  <p className="text-sm text-[#D4A03A] mb-4">{pkg.duration}</p>
 
                   <div className="flex items-center gap-4 text-sm text-[#F7F2EA]/60 mb-4">
                     <span className="flex items-center gap-1">
@@ -75,26 +90,19 @@ export default function Packages() {
                   </div>
 
                   <div className="border-t border-[#F7F2EA]/10 pt-4 mb-4">
-                    <p className="text-xs text-[#F7F2EA]/40 uppercase tracking-wider mb-2">Highlights</p>
-                    <ul className="space-y-1">
-                      {pkg.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-center gap-2 text-sm text-[#F7F2EA]/70">
-                          <Check className="w-4 h-4 text-[#D4A03A]" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-xs text-[#F7F2EA]/40 uppercase tracking-wider mb-2">Description</p>
+                    <p className="text-sm text-[#F7F2EA]/70">{pkg.description}</p>
                   </div>
 
                   <div className="border-t border-[#F7F2EA]/10 pt-4 mb-4">
                     <p className="text-xs text-[#F7F2EA]/40 uppercase tracking-wider mb-2">Includes</p>
                     <div className="flex flex-wrap gap-2">
-                      {pkg.includes.slice(0, 4).map((item) => (
+                      {pkg.includes && pkg.includes.slice(0, 4).map((item) => (
                         <span key={item} className="text-xs bg-[#2B1E1A] text-[#F7F2EA]/60 px-2 py-1 rounded">
                           {item}
                         </span>
                       ))}
-                      {pkg.includes.length > 4 && (
+                      {pkg.includes && pkg.includes.length > 4 && (
                         <span className="text-xs text-[#D4A03A]">
                           +{pkg.includes.length - 4} more
                         </span>

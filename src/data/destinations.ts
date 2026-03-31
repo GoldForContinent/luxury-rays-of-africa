@@ -1,7 +1,7 @@
 export interface Package {
   id: string
   name: string
-  type: 'family' | 'solo' | 'group'
+  type: 'family' | 'solo' | 'group' | 'honeymoon' | 'luxury' | 'migration' | 'adventure'
   duration: string
   price: number
   description: string
@@ -1288,4 +1288,30 @@ export function getSafariTypeById(id: string): SafariType | undefined {
 
 export function getFeaturedPackageById(id: string) {
   return featuredPackages.find(pkg => pkg.id === id)
+}
+
+// ============================================================================
+// COMPLETE DATA INTEGRATION FROM RAYS DESTINATIONS
+// This includes all extracted pricing and packages from Cheetah Safaris
+// ============================================================================
+import {
+  kenyaDestination,
+  tanzaniaDestination,
+  ugandaDestination,
+  botswanaDestination,
+  southAfricaDestination,
+  allDestinations as completeDestinations,
+  allFeaturedPackages as completeFeaturedPackages
+} from './raysDestinationsComplete'
+
+// Export complete destinations (enhanced with full package data)
+export const allDestinations = completeDestinations
+
+// Export complete featured packages
+export const allFeaturedPackages = completeFeaturedPackages
+
+// Export by region for easier filtering
+export const destinationsByRegion = {
+  eastern: [kenyaDestination, tanzaniaDestination, ugandaDestination],
+  southern: [botswanaDestination, southAfricaDestination]
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, MapPin, Compass, Umbrella } from 'lucide-react'
-import { destinations } from '../data/destinations'
+import { allDestinations } from '../data/destinations'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -23,16 +23,14 @@ export default function Destinations() {
   }, [])
 
   // Organize destinations by regions
-  const easternAfrica = destinations.filter(d => 
+  const destinationsToDisplay = allDestinations && allDestinations.length > 0 ? allDestinations : []
+  
+  const easternAfrica = destinationsToDisplay.filter(d => 
     ['kenya', 'tanzania', 'uganda', 'rwanda'].includes(d.id)
   )
   
-  const southernAfrica = destinations.filter(d => 
+  const southernAfrica = destinationsToDisplay.filter(d => 
     ['botswana', 'zambia', 'zimbabwe', 'namibia', 'south-africa'].includes(d.id)
-  )
-  
-  const islandsAndBeaches = destinations.filter(d => 
-    ['lamu', 'nosy-be', 'mafia'].includes(d.id)
   )
 
   return (
