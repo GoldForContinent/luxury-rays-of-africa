@@ -64,7 +64,7 @@ export default function Home() {
             AFRICA.<br />UNFILTERED.
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-8">
-            Luxury safaris designed around light, land, and legacy.
+            Exciting adventures lie ahead.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/destinations" className="btn-primary flex items-center justify-center gap-2">
