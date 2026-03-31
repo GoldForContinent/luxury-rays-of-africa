@@ -97,7 +97,7 @@ export default function Layout({ children }: LayoutProps) {
         }`}
       >
         <div className="px-4 md:px-[4vw] flex items-center justify-between">
-          <Link to="/" className="font-display font-bold text-xl text-[#F7F2EA]">
+          <Link to="/" className="font-display font-bold text-xl text-black">
             Rays of Africa
           </Link>
           
@@ -114,8 +114,8 @@ export default function Layout({ children }: LayoutProps) {
                     <button 
                       className={`text-sm transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
                         location.pathname.startsWith('/destinations')
-                          ? 'text-[#D4A03A] bg-[#D4A03A]/10' 
-                          : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA] hover:bg-[#F7F2EA]/10'
+                          ? 'text-black bg-white/80' 
+                          : 'text-black/80 hover:text-black hover:bg-white/60'
                       }`}
                     >
                       {link.label}
@@ -216,8 +216,8 @@ export default function Layout({ children }: LayoutProps) {
                     <button 
                       className={`text-sm transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
                         location.pathname.startsWith('/travel-info')
-                          ? 'text-[#D4A03A] bg-[#D4A03A]/10' 
-                          : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA] hover:bg-[#F7F2EA]/10'
+                          ? 'text-black bg-white/80' 
+                          : 'text-black/80 hover:text-black hover:bg-white/60'
                       }`}
                     >
                       {link.label}
@@ -264,8 +264,8 @@ export default function Layout({ children }: LayoutProps) {
                     to={link.path}
                     className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg ${
                       location.pathname === link.path 
-                        ? 'text-[#D4A03A] bg-[#D4A03A]/10' 
-                        : 'text-[#F7F2EA]/80 hover:text-[#F7F2EA] hover:bg-[#F7F2EA]/10'
+                        ? 'text-black bg-white/80' 
+                        : 'text-black/80 hover:text-black hover:bg-white/60'
                     }`}
                   >
                     {link.label}
@@ -284,7 +284,7 @@ export default function Layout({ children }: LayoutProps) {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden text-[#F7F2EA]"
+            className="lg:hidden text-black"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -299,7 +299,7 @@ export default function Layout({ children }: LayoutProps) {
                 {link.path === '/destinations' ? (
                   <>
                     <button
-                      className="block w-full text-left py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
+                      className="block w-full text-left py-3 text-black/80 hover:text-black transition-colors flex items-center justify-between"
                       onClick={() => setActiveDropdown(activeDropdown === 'destinations' ? null : 'destinations')}
                     >
                       {link.label}
@@ -309,7 +309,7 @@ export default function Layout({ children }: LayoutProps) {
                       <div className="pl-4 space-y-2">
                         <Link
                           to="/destinations"
-                          className="block py-2 text-sm text-[#D4A03A]"
+                          className="block py-2 text-sm text-black"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           All Destinations
@@ -318,7 +318,7 @@ export default function Layout({ children }: LayoutProps) {
                           <Link
                             key={dest.path}
                             to={dest.path}
-                            className="block py-2 text-sm text-[#F7F2EA]/60"
+                            className="block py-2 text-sm text-black/60"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {dest.name}
@@ -330,7 +330,7 @@ export default function Layout({ children }: LayoutProps) {
                 ) : link.path === '/travel-info' ? (
                   <>
                     <button
-                      className="block w-full text-left py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
+                      className="block w-full text-left py-3 text-black/80 hover:text-black transition-colors flex items-center justify-between"
                       onClick={() => setActiveDropdown(activeDropdown === 'travel-info' ? null : 'travel-info')}
                     >
                       {link.label}
@@ -340,14 +340,14 @@ export default function Layout({ children }: LayoutProps) {
                       <div className="pl-4 space-y-2">
                         {travelInfoSections.map((section) => (
                           <div key={section.title} className="py-2">
-                            <h5 className="text-xs text-[#D4A03A] font-semibold uppercase tracking-wider mb-2">
+                            <h5 className="text-xs text-black font-semibold uppercase tracking-wider mb-2">
                               {section.title}
                             </h5>
                             {section.items.map((item) => (
                               <Link
                                 key={item.path}
                                 to={item.path}
-                                className="block py-1 text-sm text-[#F7F2EA]/60"
+                                className="block py-1 text-sm text-black/60"
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
                                 {item.name}
@@ -361,7 +361,7 @@ export default function Layout({ children }: LayoutProps) {
                 ) : (
                   <Link
                     to={link.path}
-                    className="block py-3 text-[#F7F2EA]/80 hover:text-[#D4A03A] transition-colors"
+                    className="block py-3 text-black/80 hover:text-black transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
