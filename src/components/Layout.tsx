@@ -86,8 +86,12 @@ export default function Layout({ children }: LayoutProps) {
         className="fixed top-0 left-0 right-0 z-50 py-4 bg-transparent"
       >
         <div className="px-4 md:px-[4vw] flex items-center justify-between">
-          <Link to="/" className="font-display font-bold text-xl text-[#D4A03A]">
-            Rays of Africa
+          <Link to="/" className="inline-block">
+            <img 
+              src="/dist/logo2.png" 
+              alt="Rays of Africa"
+              className="h-12 w-auto hover:opacity-80 transition-opacity"
+            />
           </Link>
           
           {/* Desktop Nav */}
