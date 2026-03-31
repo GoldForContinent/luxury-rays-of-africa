@@ -86,12 +86,12 @@ export default function Layout({ children }: LayoutProps) {
         <div className="px-4 md:px-[4vw] flex items-center justify-between gap-8">
           {/* Logo - Left */}
           <Link to="/" className="hover:opacity-80 transition-opacity shrink-0">
-            <img src="/logo3.png" alt="Rays of Africa Logo" className="h-16 w-auto" />
+            <img src="/logo3.png" alt="Rays of Africa Logo" className="h-24 w-auto" />
           </Link>
           
           {/* Desktop Nav - Center */}
           <div className="hidden lg:flex items-center justify-center gap-6 flex-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <div key={link.path} className="relative">
                 {link.path === '/destinations' ? (
                   <div 
@@ -100,10 +100,10 @@ export default function Layout({ children }: LayoutProps) {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button 
-                      className={`text-sm transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
+                      className={`text-sm font-bold transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
                         location.pathname.startsWith('/destinations')
-                          ? 'text-[#D4A03A]' 
-                          : 'text-[#D4A03A]/70 hover:text-[#D4A03A]'
+                          ? index % 2 === 0 ? 'text-[#D4A03A]' : 'text-white'
+                          : index % 2 === 0 ? 'text-white hover:text-[#D4A03A]' : 'text-[#D4A03A] hover:text-white'
                       }`}
                     >
                       {link.label}
@@ -202,10 +202,10 @@ export default function Layout({ children }: LayoutProps) {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button 
-                      className={`text-sm transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
+                      className={`text-sm font-bold transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
                         location.pathname.startsWith('/travel-info')
-                          ? 'text-[#D4A03A]' 
-                          : 'text-[#D4A03A]/70 hover:text-[#D4A03A]'
+                          ? index % 2 === 0 ? 'text-white' : 'text-[#D4A03A]'
+                          : index % 2 === 0 ? 'text-white hover:text-[#D4A03A]' : 'text-[#D4A03A] hover:text-white'
                       }`}
                     >
                       {link.label}
@@ -250,10 +250,14 @@ export default function Layout({ children }: LayoutProps) {
                 ) : (
                   <Link
                     to={link.path}
-                    className={`text-sm transition-all duration-300 px-3 py-2 rounded-lg ${
-                      location.pathname === link.path 
-                        ? 'text-[#D4A03A]' 
-                        : 'text-[#D4A03A]/70 hover:text-[#D4A03A]'
+                    className={`text-sm font-bold transition-all duration-300 px-3 py-2 rounded-lg ${
+                      index % 2 === 0
+                        ? location.pathname === link.path 
+                          ? 'text-[#D4A03A]' 
+                          : 'text-white hover:text-[#D4A03A]'
+                        : location.pathname === link.path 
+                          ? 'text-white' 
+                          : 'text-[#D4A03A] hover:text-white'
                     }`}
                   >
                     {link.label}
@@ -283,74 +287,76 @@ export default function Layout({ children }: LayoutProps) {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <div key={link.path}>
-                {link.path === '/destinations' ? (
+                {link.path === '/destinations' || link.path === '/travel-info' ? (
                   <>
                     <button
-                      className="block w-full text-left py-3 text-[#D4A03A]/70 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
-                      onClick={() => setActiveDropdown(activeDropdown === 'destinations' ? null : 'destinations')}
+                      className={`block w-full text-left py-3 font-bold transition-colors flex items-center justify-between ${
+                        index % 2 === 0 
+                          ? 'text-white hover:text-[#D4A03A]' 
+                          : 'text-[#D4A03A] hover:text-white'
+                      }`}
+                      onClick={() => setActiveDropdown(activeDropdown === link.path.slice(1) ? null : link.path.slice(1))}
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'destinations' ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.path.slice(1) ? 'rotate-180' : ''}`} />
                     </button>
-                    {activeDropdown === 'destinations' && (
+                    {activeDropdown === link.path.slice(1) && (
                       <div className="pl-4 space-y-2">
-                        <Link
-                          to="/destinations"
-                          className="block py-2 text-sm text-[#D4A03A]"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          All Destinations
-                        </Link>
-                        {destinations.map((dest) => (
-                          <Link
-                            key={dest.path}
-                            to={dest.path}
-                            className="block py-2 text-sm text-[#D4A03A]/60"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {dest.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : link.path === '/travel-info' ? (
-                  <>
-                    <button
-                      className="block w-full text-left py-3 text-[#D4A03A]/70 hover:text-[#D4A03A] transition-colors flex items-center justify-between"
-                      onClick={() => setActiveDropdown(activeDropdown === 'travel-info' ? null : 'travel-info')}
-                    >
-                      {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'travel-info' ? 'rotate-180' : ''}`} />
-                    </button>
-                    {activeDropdown === 'travel-info' && (
-                      <div className="pl-4 space-y-2">
-                        {travelInfoSections.map((section) => (
-                          <div key={section.title} className="py-2">
-                            <h5 className="text-xs text-[#D4A03A] font-semibold uppercase tracking-wider mb-2">
-                              {section.title}
-                            </h5>
-                            {section.items.map((item) => (
+                        {link.path === '/destinations' && (
+                          <>
+                            <Link
+                              to="/destinations"
+                              className="block py-2 text-sm text-[#D4A03A]"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              All Destinations
+                            </Link>
+                            {destinations.map((dest) => (
                               <Link
-                                key={item.path}
-                                to={item.path}
-                                className="block py-1 text-sm text-[#D4A03A]/60"
+                                key={dest.path}
+                                to={dest.path}
+                                className="block py-2 text-sm text-[#D4A03A]/60"
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
-                                {item.name}
+                                {dest.name}
                               </Link>
                             ))}
-                          </div>
-                        ))}
+                          </>
+                        )}
+                        {link.path === '/travel-info' && (
+                          <>
+                            {travelInfoSections.map((section) => (
+                              <div key={section.title} className="py-2">
+                                <h5 className="text-xs text-[#D4A03A] font-semibold uppercase tracking-wider mb-2">
+                                  {section.title}
+                                </h5>
+                                {section.items.map((item) => (
+                                  <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    className="block py-1 text-sm text-[#D4A03A]/60"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    {item.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </>
+                        )}
                       </div>
                     )}
                   </>
                 ) : (
                   <Link
                     to={link.path}
-                    className="block py-3 text-[#D4A03A]/70 hover:text-[#D4A03A] transition-colors"
+                    className={`block py-3 font-bold transition-colors ${
+                      index % 2 === 0 
+                        ? 'text-white hover:text-[#D4A03A]' 
+                        : 'text-[#D4A03A] hover:text-white'
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
