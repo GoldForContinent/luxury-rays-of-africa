@@ -89,7 +89,7 @@ export default function Layout({ children }: LayoutProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-[#2B1E1A]">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${

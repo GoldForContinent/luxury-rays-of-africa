@@ -6,11 +6,11 @@
 
 @layer base {
   :root {
-    --background: 18 25% 14%;
+    --background: 0 0% 0%;
     --foreground: 36 33% 95%;
-    --card: 18 25% 14%;
+    --card: 0 0% 0%;
     --card-foreground: 36 33% 95%;
-    --popover: 18 25% 14%;
+    --popover: 0 0% 0%;
     --popover-foreground: 36 33% 95%;
     --primary: 42 65% 53%;
     --primary-foreground: 18 25% 14%;
@@ -45,7 +45,7 @@
   }
   
   body {
-    @apply bg-[#2B1E1A] text-[#F7F2EA] antialiased;
+    @apply bg-black text-[#F7F2EA] antialiased;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
