@@ -82,9 +82,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <nav 
-        className="fixed top-0 left-0 right-0 z-50 py-4 bg-transparent"
-      >
+      <nav className="fixed top-0 left-0 right-0 z-50 py-4">
         <div className="px-4 md:px-[4vw] flex items-center justify-between gap-8">
           {/* Logo - Left */}
           <Link to="/" className="hover:opacity-80 transition-opacity shrink-0">
@@ -284,7 +282,7 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-transparent py-4 px-4 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
               <div key={link.path}>
                 {link.path === '/destinations' ? (
@@ -373,7 +371,7 @@ export default function Layout({ children }: LayoutProps) {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main className="pt-0">
         {children}
       </main>
 
