@@ -63,7 +63,7 @@ export default function Home() {
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
             AFRICA.<br />UNFILTERED.
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-8">
+          <p className="text-2xl md:text-3xl italic text-white/90 max-w-2xl mb-8">
             Exciting adventures lie ahead.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
