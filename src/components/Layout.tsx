@@ -93,7 +93,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Navigation */}
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-[#2B1E1A]/95 backdrop-blur-md py-3' : 'bg-transparent py-4'
+          isScrolled ? 'bg-black/20 backdrop-blur-md border-b border-white/5 py-3' : 'bg-transparent py-4'
         }`}
       >
         <div className="px-4 md:px-[4vw] flex items-center justify-between">
@@ -293,7 +293,7 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#2B1E1A]/98 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto border-b border-white/10">
             {navLinks.map((link) => (
               <div key={link.path}>
                 {link.path === '/destinations' ? (
