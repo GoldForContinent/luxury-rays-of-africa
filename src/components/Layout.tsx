@@ -7,18 +7,9 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const location = useLocation()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -92,9 +83,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-[#2B1E1A]">
       {/* Navigation */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-transparent py-3' : 'bg-transparent py-4'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-transparent py-4"
       >
         <div className="px-4 md:px-[4vw] flex items-center justify-between">
           <Link to="/" className="font-display font-bold text-xl text-[#D4A03A]">
