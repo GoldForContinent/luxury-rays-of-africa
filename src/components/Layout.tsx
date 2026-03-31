@@ -87,7 +87,7 @@ export default function Layout({ children }: LayoutProps) {
       >
         <div className="px-4 md:px-[4vw] flex items-center justify-between">
           <Link to="/" className="hover:opacity-80 transition-opacity">
-            <img src="/logo3.png" alt="Rays of Africa Logo" className="h-12 w-auto" />
+            <img src="/logo3.png" alt="Rays of Africa Logo" className="h-20 w-auto" />
           </Link>
           
           {/* Desktop Nav */}
