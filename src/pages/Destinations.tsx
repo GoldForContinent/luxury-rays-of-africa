@@ -270,7 +270,7 @@ export default function Destinations() {
         <div className="max-w-4xl mx-auto text-center">
           <span className="eyebrow mb-4 block">Why Travel With Us</span>
           <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F7F2EA] mb-8">
-            The Luxury Rays of Africa Difference
+            The Rays of Africa Difference
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">

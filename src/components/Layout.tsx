@@ -268,9 +268,9 @@ export default function Layout({ children }: LayoutProps) {
         <div className="px-4 md:px-[8vw] py-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-display font-bold text-xl text-[#F7F2EA] mb-4">
-                Luxury Rays of Africa
-              </h3>
+              <Link to="/" className="inline-block mb-4">
+                <img src="/logo4.png" alt="Rays of Africa Logo" className="h-16" />
+              </Link>
               <p className="text-[#F7F2EA]/60 text-sm leading-relaxed">
                 Your gateway to extraordinary African safari experiences. 
                 Discover the wild beauty of Africa with our expert-guided luxury tours.
@@ -298,9 +298,9 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
           
-          <div className="border-t border-[#F7F2EA]/10 mt-8 pt-8 text-center">
+            <div className="border-t border-[#F7F2EA]/10 mt-8 pt-8 text-center">
             <p className="text-[#F7F2EA]/40 text-sm">
-              © 2024 Luxury Rays of Africa. All rights reserved.
+              © 2026 Rays of Africa. All rights reserved.
             </p>
           </div>
         </div>
