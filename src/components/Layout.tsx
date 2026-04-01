@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -86,7 +86,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="px-4 md:px-[4vw] flex items-center justify-between gap-8">
           {/* Logo - Left */}
           <Link to="/" className="hover:opacity-80 transition-opacity shrink-0">
-            <img src="/logo4.png" alt="Rays of Africa Logo" className="h-24 w-auto" />
+            <img src="/logo4.png" alt="Rays of Africa Logo" className="h-16 md:h-20 w-auto" />
           </Link>
           
           {/* Desktop Nav - Center */}
@@ -266,14 +266,6 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             ))}
           </div>
-
-          {/* CTA Button - Right */}
-          <Link 
-            to="/contact" 
-            className="hidden lg:flex btn-outline text-sm py-2 px-4 items-center gap-2 text-[#D4A03A] border-[#D4A03A] hover:bg-[#D4A03A] hover:text-black shrink-0"
-          >
-            <Phone size={14} /> Plan a Trip
-          </Link>
 
           {/* Mobile Menu Button */}
           <button 
