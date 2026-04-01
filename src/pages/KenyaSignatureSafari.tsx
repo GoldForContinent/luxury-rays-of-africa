@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, MapPin, Clock, Check, X, Star, Mail, Phone, Plane, LandPlot, Trees, Sun } from 'lucide-react'
+import { MapPin, Clock, Check, X, Star, Plane, LandPlot, Trees, Sun } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -108,10 +108,10 @@ const includes = [
   "Scheduled flight from Lumo Wildlife Conservancy to Nairobi Wilson Airport on Day 11 – Based on a minimum of 04 persons",
   "All Park Entry Fees & community levy for Samburu Game Reserve, Masai Mara Game Reserve, Lumo Wildlife Conservancy",
   "01 Night Bed & Breakfast accommodation at FOUR POINTS BY SHERATON HOTEL / CROWNE PLAZA AIRPORT HOTEL in a superior room",
-  "03 Nights Full Board at Soroi Larsens Camp (3 meals per day, hot & cold canape, soft drinks, beers, house wines, non-luxury spirits, sundowner, tea/coffee with cookies, mineral water, campfire nibbles, children's activities)",
-  "03 Nights Full Board at Soroi Luxury Migration Camp (3 meals per day, house wines, beer, mineral water, soft drinks, vodka & gin, afternoon tea/coffee, campfire nibbles, children's activities)",
-  "03 Nights Full Board at Soroi Lions Bluff Lodge (3 meals per day, house wines, beer, gin/vodka, sodas, fresh juices, game drives, 1 night game drive, sundowners, 30-min massage per person, laundry)",
-  "Emergency evacuation insurance (cost of hospitalization & treatment is payable directly)"
+  "03 Nights Full Board at Soroi Larsens Camp",
+  "03 Nights Full Board at Soroi Luxury Migration Camp",
+  "03 Nights Full Board at Soroi Lions Bluff Lodge",
+  "Emergency evacuation insurance"
 ]
 
 const excludes = [
@@ -149,9 +149,8 @@ const mealPlanKey = [
 ]
 
 export default function KenyaSignatureSafari() {
-  const [activeTab, setActiveTab] = useState<'brief' | 'itinerary' | 'pricing' | 'details'>('brief')
-  const [openDay, setOpenDay] = useState<string | number | null>(1)
   const heroRef = useRef<HTMLDivElement>(null)
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -159,9 +158,34 @@ export default function KenyaSignatureSafari() {
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.3 }
       )
+
+      contentRefs.current.forEach((el) => {
+        if (el) {
+          gsap.fromTo(el,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          )
+        }
+      })
     }, heroRef)
     return () => ctx.revert()
   }, [])
+
+  const addToRefs = (el: HTMLDivElement | null) => {
+    if (el && !contentRefs.current.includes(el)) {
+      contentRefs.current.push(el)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[#FFF8F0]">
@@ -208,7 +232,7 @@ export default function KenyaSignatureSafari() {
               Have you ever wondered what some of THE VERY BEST SAFARI destinations are in Kenya? You can explore Kenya's prime parks and best kept secrets by air! The beautiful and rugged North (Samburu) with its Northern 5 species, the fantastic and ever wildlife rich Maasai Mara Game Reserve and the stunning Tsavo West / Lumo Conservancy, infamous for amazing views and landscape and Southern Wildlife species!
             </p>
             <p className="text-[#2C3E50] text-lg leading-relaxed max-w-4xl mx-auto mt-4">
-              For the best connection from one destination to the next, you are flying from one to the other! What makes this Safari unique? It is the "Safari experience" in our open game drive vehicles, exciting night game drives in Lumo, bush breakfasts and dinners out in the wild and getting spoilt at each luxury camp with the best service and little extras! Meet local communities and immerse yourself in our colourful local culture by meeting the Maasai, Samburu & Taita Communities!
+              For the best connection from one destination to the next, you are flying from one to the other! What makes this Safari unique? It is the "Safari experience" in our open game drive vehicles, exciting night game drives in Lumo, bush breakfasts and dinners out in the wild and getting spoilt at each luxury camp with the best service and little extras!
             </p>
           </div>
 
@@ -232,7 +256,7 @@ export default function KenyaSignatureSafari() {
       </section>
 
       {/* Route Map */}
-      <section className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
+      <section ref={addToRefs} className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-4">
@@ -265,270 +289,198 @@ export default function KenyaSignatureSafari() {
         </div>
       </section>
 
-      {/* Tabs Section */}
-      <section className="py-8 px-4 md:px-[8vw] bg-[#2B1E1A] sticky top-0 z-40">
+      {/* Brief Itinerary */}
+      <section ref={addToRefs} className="py-16 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { id: 'brief', label: 'Brief Itinerary' },
-              { id: 'itinerary', label: 'Detailed Itinerary' },
-              { id: 'pricing', label: 'Pricing' },
-              { id: 'details', label: 'Other Information' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                  activeTab === tab.id 
-                    ? 'bg-[#D4A03A] text-black' 
-                    : 'bg-[#1a1410] text-[#F7F2EA] hover:bg-[#2B1E1A] border border-[#F7F2EA]/20'
-                }`}
-              >
-                {tab.label}
-              </button>
+          <div className="text-center mb-12">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-4">
+              Kenya Signature Safari Brief Itinerary
+            </h2>
+          </div>
+
+          <div className="bg-white rounded-2xl overflow-hidden shadow-xl overflow-x-auto">
+            <table className="w-full min-w-[800px]">
+              <thead>
+                <tr className="bg-[#D4A03A]">
+                  <th className="p-4 text-left text-black font-bold">Day</th>
+                  <th className="p-4 text-left text-black font-bold">Place</th>
+                  <th className="p-4 text-left text-black font-bold">Highlights</th>
+                  <th className="p-4 text-left text-black font-bold">Property</th>
+                </tr>
+              </thead>
+              <tbody>
+                {briefItinerary.map((row, index) => (
+                  <tr key={index} className="border-b border-[#D4C5B9] hover:bg-[#FAF3E0]">
+                    <td className="p-4 text-[#2C3E50] font-semibold">{row.day}</td>
+                    <td className="p-4 text-[#2C3E50]">{row.place}</td>
+                    <td className="p-4 text-[#2C3E50]/80">{row.highlights}</td>
+                    <td className="p-4 text-[#CD7F32] font-medium">{row.property}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-12 bg-[#2B1E1A] rounded-2xl p-8 text-[#F7F2EA]">
+            <h3 className="font-bold text-xl mb-4 text-center">Key</h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              {mealPlanKey.map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="bg-[#D4A03A] text-black px-4 py-2 rounded-full font-bold inline-block mb-2">{item.abbr}</div>
+                  <p className="text-sm">{item.meaning}</p>
+                  <p className="text-xs text-[#F7F2EA]/60">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Itinerary */}
+      <section ref={addToRefs} className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-4">
+              Detailed Itinerary
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {itineraryDays.map((day) => (
+              <div key={day.day} className="bg-white rounded-2xl overflow-hidden shadow-lg">
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 bg-[#D4A03A] rounded-full flex items-center justify-center">
+                      <span className="text-black font-bold text-xl">{day.day}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl text-[#2C3E50]">Day {day.day}: {day.title}</h3>
+                      <p className="text-sm text-[#CD7F32]">{day.accommodation} • {day.mealPlan}</p>
+                    </div>
+                  </div>
+                  <img 
+                    src={day.image} 
+                    alt={day.title}
+                    className="w-full h-64 object-cover rounded-xl mb-6"
+                  />
+                  <p className="text-[#2C3E50] leading-relaxed mb-4">{day.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {day.highlights.map((highlight, i) => (
+                      <span key={i} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-3 py-1 rounded-full">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Brief Itinerary Tab */}
-      {activeTab === 'brief' && (
-        <section className="py-16 px-4 md:px-[8vw] bg-[#FFF8F0]">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-4">
-                Kenya Signature Safari Brief Itinerary
-              </h2>
-            </div>
-
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl overflow-x-auto">
-              <table className="w-full min-w-[800px]">
-                <thead>
-                  <tr className="bg-[#D4A03A]">
-                    <th className="p-4 text-left text-black font-bold">Day</th>
-                    <th className="p-4 text-left text-black font-bold">Place</th>
-                    <th className="p-4 text-left text-black font-bold">Highlights</th>
-                    <th className="p-4 text-left text-black font-bold">Property</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {briefItinerary.map((row, index) => (
-                    <tr key={index} className="border-b border-[#D4C5B9] hover:bg-[#FAF3E0]">
-                      <td className="p-4 text-[#2C3E50] font-semibold">{row.day}</td>
-                      <td className="p-4 text-[#2C3E50]">{row.place}</td>
-                      <td className="p-4 text-[#2C3E50]/80">{row.highlights}</td>
-                      <td className="p-4 text-[#CD7F32] font-medium">{row.property}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-12 bg-[#2B1E1A] rounded-2xl p-8 text-[#F7F2EA]">
-              <h3 className="font-bold text-xl mb-4 text-center">Key</h3>
-              <div className="grid md:grid-cols-4 gap-6">
-                {mealPlanKey.map((item, index) => (
-                  <div key={index} className="text-center">
-                    <div className="bg-[#D4A03A] text-black px-4 py-2 rounded-full font-bold inline-block mb-2">{item.abbr}</div>
-                    <p className="text-sm">{item.meaning}</p>
-                    <p className="text-xs text-[#F7F2EA]/60">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* Pricing */}
+      <section ref={addToRefs} className="py-16 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-4">
+              Safari Pricing
+            </h2>
+            <p className="text-[#2C3E50]/70">The cost of this safari is based on a minimum of 4 participants</p>
           </div>
-        </section>
-      )}
 
-      {/* Detailed Itinerary Tab */}
-      {activeTab === 'itinerary' && (
-        <section className="py-16 px-4 md:px-[8vw] bg-[#FFF8F0]">
-          <div className="max-w-5xl mx-auto">
-            <div className="space-y-6">
-              {itineraryDays.map((day) => (
-                <div 
-                  key={day.day}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
-                >
-                  <div 
-                    className="p-6 cursor-pointer flex items-center justify-between"
-                    onClick={() => setOpenDay(openDay === day.day ? null : day.day)}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-[#D4A03A] rounded-full flex items-center justify-center">
-                        <span className="text-black font-bold text-xl">{day.day}</span>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl text-[#2C3E50]">Day {day.day}: {day.title}</h3>
-                        <p className="text-sm text-[#CD7F32]">{day.accommodation} • {day.mealPlan}</p>
-                      </div>
-                    </div>
-                    <div className={`transform transition-transform ${openDay === day.day ? 'rotate-180' : ''}`}>
-                      <ArrowRight className="text-[#D4A03A]" />
-                    </div>
+          <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-8">
+            <div className="grid grid-cols-3 bg-[#D4A03A] text-black font-bold p-4">
+              <div>Validity Dates</div>
+              <div className="text-center">Price Per Person</div>
+              <div className="text-right">Group Size</div>
+            </div>
+            {pricingData.map((price, index) => (
+              <div key={index} className="grid grid-cols-3 p-4 border-b border-[#D4C5B9] hover:bg-[#FAF3E0]">
+                <div className="text-[#2C3E50]">{price.period}</div>
+                <div className="text-center text-[#CD7F32] font-bold text-lg">US$ {price.price}</div>
+                <div className="text-right text-[#2C3E50]/70">{price.Pax}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-[#2B1E1A] rounded-2xl p-8 text-[#F7F2EA] mb-8">
+            <h3 className="font-bold text-xl mb-4">Value Addons Included</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {valueAddons.map((addon, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <Check className="text-green-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold">{addon.title}</span>
+                    <span className="text-[#D4A03A]"> - {addon.value}</span>
+                    <p className="text-xs text-[#F7F2EA]/60">{addon.location}</p>
                   </div>
-                  
-                  {openDay === day.day && (
-                    <div className="px-6 pb-6 border-t border-[#D4C5B9]">
-                      <div className="pt-6">
-                        <img 
-                          src={day.image} 
-                          alt={day.title}
-                          className="w-full h-64 object-cover rounded-xl mb-6"
-                        />
-                        <p className="text-[#2C3E50] leading-relaxed mb-4">{day.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {day.highlights.map((highlight, i) => (
-                            <span key={i} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-3 py-1 rounded-full">
-                              {highlight}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
           </div>
-        </section>
-      )}
 
-      {/* Pricing Tab */}
-      {activeTab === 'pricing' && (
-        <section className="py-16 px-4 md:px-[8vw] bg-[#FFF8F0]">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-4">
-                Safari Pricing
-              </h2>
-              <p className="text-[#2C3E50]/70">The cost of this safari is based on a minimum of 4 participants</p>
-            </div>
+          <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
+            <p className="text-yellow-800 text-sm">
+              <strong>Terms & Conditions:</strong> The pricing is indicative & depends on the season and number of travellers. The cost of this safari is based on a minimum of 4 participants.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-8">
-              <div className="grid grid-cols-3 bg-[#D4A03A] text-black font-bold p-4">
-                <div>Validity Dates</div>
-                <div className="text-center">Price Per Person</div>
-                <div className="text-right">Group Size</div>
-              </div>
-              {pricingData.map((price, index) => (
-                <div key={index} className="grid grid-cols-3 p-4 border-b border-[#D4C5B9] hover:bg-[#FAF3E0]">
-                  <div className="text-[#2C3E50]">{price.period}</div>
-                  <div className="text-center text-[#CD7F32] font-bold text-lg">US$ {price.price}</div>
-                  <div className="text-right text-[#2C3E50]/70">{price.Pax}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-[#2B1E1A] rounded-2xl p-8 text-[#F7F2EA] mb-8">
-              <h3 className="font-bold text-xl mb-4">Value Addons Included</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {valueAddons.map((addon, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="text-green-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold">{addon.title}</span>
-                      <span className="text-[#D4A03A]"> - {addon.value}</span>
-                      <p className="text-xs text-[#F7F2EA]/60">{addon.location}</p>
-                    </div>
-                  </div>
+      {/* Other Information */}
+      <section ref={addToRefs} className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Includes */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="font-bold text-xl text-[#2C3E50] mb-6 flex items-center gap-2">
+                <Check className="text-green-500" /> What's Included
+              </h3>
+              <ul className="space-y-3 max-h-[400px] overflow-y-auto">
+                {includes.map((item, index) => (
+                  <li key={index} className="text-[#2C3E50]/80 text-sm flex items-start gap-2">
+                    <Check className="text-green-500 w-4 h-4 mt-1 flex-shrink-0" />
+                    {item}
+                  </li>
                 ))}
-              </div>
-              <p className="text-xs text-[#F7F2EA]/60 mt-4">The Star Bed Sleep Out and Photographic Hide are subject to availability upon arrival at Camp.</p>
+              </ul>
             </div>
 
-            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
-              <p className="text-yellow-800 text-sm">
-                <strong>Terms & Conditions:</strong> The pricing is indicative & depends on the season and number of travellers. The cost of this safari is based on a minimum of 4 participants. Sunworld Safaris reserves the right to amend the applicable costs in case of changes in government taxes & levies or increase in park fees. In this case, we shall advise on the supplement & the cost shall be passed directly to the guest.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Details Tab */}
-      {activeTab === 'details' && (
-        <section className="py-16 px-4 md:px-[8vw] bg-[#FFF8F0]">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Includes */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="font-bold text-xl text-[#2C3E50] mb-6 flex items-center gap-2">
-                  <Check className="text-green-500" /> What's Included
-                </h3>
-                <ul className="space-y-3 max-h-[400px] overflow-y-auto">
-                  {includes.map((item, index) => (
-                    <li key={index} className="text-[#2C3E50]/80 text-sm flex items-start gap-2">
-                      <Check className="text-green-500 w-4 h-4 mt-1 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Excludes */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="font-bold text-xl text-[#2C3E50] mb-6 flex items-center gap-2">
-                  <X className="text-red-500" /> What's Excluded
-                </h3>
-                <ul className="space-y-3">
-                  {excludes.map((item, index) => (
-                    <li key={index} className="text-[#2C3E50]/80 text-sm flex items-start gap-2">
-                      <X className="text-red-500 w-4 h-4 mt-1 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Extra Add-ons */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="font-bold text-xl text-[#2C3E50] mb-6 flex items-center gap-2">
-                  <Star className="text-[#D4A03A]" /> Extra Holiday Addons
-                </h3>
-                <ul className="space-y-3">
-                  {extraAddons.map((item, index) => (
-                    <li key={index} className="text-[#2C3E50]/80 text-sm flex items-start gap-2">
-                      <Star className="text-[#D4A03A] w-4 h-4 mt-1 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Excludes */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="font-bold text-xl text-[#2C3E50] mb-6 flex items-center gap-2">
+                <X className="text-red-500" /> What's Excluded
+              </h3>
+              <ul className="space-y-3">
+                {excludes.map((item, index) => (
+                  <li key={index} className="text-[#2C3E50]/80 text-sm flex items-start gap-2">
+                    <X className="text-red-500 w-4 h-4 mt-1 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Contact Section */}
-            <div className="bg-[#2B1E1A] rounded-2xl p-8 text-[#F7F2EA]">
-              <div className="text-center mb-6">
-                <h3 className="font-bold text-xl">Questions about this safari?</h3>
-                <p className="text-[#F7F2EA]/70">Contact our safari expert</p>
-              </div>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-[#D4A03A] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-black text-2xl font-bold">JK</span>
-                  </div>
-                  <h4 className="font-bold text-lg">Joanne Kiao</h4>
-                  <p className="text-[#D4A03A]">Senior Safari Planner</p>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <a href="mailto:joanne@sunworldsafaris.com" className="flex items-center gap-3 text-[#F7F2EA] hover:text-[#D4A03A] transition-colors">
-                    <Mail size={20} />
-                    <span>joanne@sunworldsafaris.com</span>
-                  </a>
-                  <a href="tel:+254733888027" className="flex items-center gap-3 text-[#F7F2EA] hover:text-[#D4A03A] transition-colors">
-                    <Phone size={20} />
-                    <span>+254 733 888 027</span>
-                  </a>
-                </div>
-              </div>
+            {/* Extra Add-ons */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="font-bold text-xl text-[#2C3E50] mb-6 flex items-center gap-2">
+                <Star className="text-[#D4A03A]" /> Extra Holiday Addons
+              </h3>
+              <ul className="space-y-3">
+                {extraAddons.map((item, index) => (
+                  <li key={index} className="text-[#2C3E50]/80 text-sm flex items-start gap-2">
+                    <Star className="text-[#D4A03A] w-4 h-4 mt-1 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
+      <section ref={addToRefs} className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA] mb-6">
             Ready to Book This Safari?
