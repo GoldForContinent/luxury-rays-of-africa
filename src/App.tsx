@@ -19,6 +19,7 @@ import WhatToPack from './pages/WhatToPack'
 import KenyaSafari from './pages/KenyaSafari'
 import TanzaniaSafari from './pages/TanzaniaSafari'
 import UgandaSafari from './pages/UgandaSafari'
+import RwandaSafari from './pages/RwandaSafari'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/kenya-safaris" element={<KenyaSafari />} />
         <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
+        <Route path="/rwandasafaris" element={<RwandaSafari />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

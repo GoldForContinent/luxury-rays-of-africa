@@ -61,7 +61,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: 'Kenya', path: '/kenya-safaris', description: 'The birthplace of safari' },
     { name: 'Tanzania', path: '/tanzania-safaris', description: 'Serengeti & Ngorongoro' },
     { name: 'Uganda', path: '/uganda-safaris', description: 'Gorilla trekking paradise' },
-    { name: 'Rwanda', path: '/destinations/rwanda', description: 'Land of a thousand hills' },
+    { name: 'Rwanda', path: '/rwandasafaris', description: 'Land of a thousand hills' },
   ]
 
   const southernAfrica = [
