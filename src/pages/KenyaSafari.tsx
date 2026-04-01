@@ -128,12 +128,12 @@ const safariTypes = [
 ]
 
 const samplePackages = [
-  { title: "Kenya Signature Safari", nights: 11, price: "9,100", destinations: ["Maasai Mara", "Samburu", "Amboseli"] },
-  { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"] },
-  { title: "Wings Over the Wilderness Safari", nights: "4 Days / 3 Nights", price: "5,105", destinations: ["Nairobi", "Masai Mara"] },
-  { title: "Soul of the Savannah: An Intimate Escape", nights: "7 Days / 6 Nights", price: "7,111", destinations: ["Lake Nakuru", "Masai Mara"] },
-  { title: "Women's Ethical & Empowering Safari", nights: 11, price: "7,950", destinations: ["Masai Mara", "Samburu", "Ol Pejeta"] },
-  { title: "Wild North & Mount Kenya Expedition", nights: 10, price: "5,490", destinations: ["Samburu", "Mount Kenya", "Ol Pejeta"] }
+  { title: "Kenya Signature Safari", nights: 11, price: "9,100", destinations: ["Maasai Mara", "Samburu", "Amboseli"], path: "/kenya-signature-safari" },
+  { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"], path: "/kenya-wings-wilderness" },
+  { title: "Wings Over the Wilderness Safari", nights: "4 Days / 3 Nights", price: "5,105", destinations: ["Nairobi", "Masai Mara"], path: "/kenya-wings-wilderness-4days" },
+  { title: "Soul of the Savannah: An Intimate Escape", nights: "7 Days / 6 Nights", price: "7,111", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-soul-savannah" },
+  { title: "Women's Ethical & Empowering Safari", nights: 11, price: "7,950", destinations: ["Masai Mara", "Samburu", "Ol Pejeta"], path: "/kenya-womens-safari" },
+  { title: "Wild North & Mount Kenya Expedition", nights: 10, price: "5,490", destinations: ["Samburu", "Mount Kenya", "Ol Pejeta"], path: "/kenya-wild-north" }
 ]
 
 const accommodations = [
@@ -633,7 +633,7 @@ export default function KenyaSafari() {
                     <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
                     <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
                   </div>
-                  <Link to="/contact" className="text-[#CD7F32] font-semibold text-sm hover:underline">View Itinerary</Link>
+                  <Link to={pkg.path} className="text-[#CD7F32] font-semibold text-sm hover:underline">View Itinerary</Link>
                 </div>
               </div>
             ))}
