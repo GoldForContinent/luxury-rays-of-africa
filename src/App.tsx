@@ -18,6 +18,7 @@ import BestTimeToVisit from './pages/BestTimeToVisit'
 import WhatToPack from './pages/WhatToPack'
 import KenyaSafari from './pages/KenyaSafari'
 import KenyaSignatureSafari from './pages/KenyaSignatureSafari'
+import KenyaWingsOverWilderness from './pages/KenyaWingsOverWilderness'
 import TanzaniaSafari from './pages/TanzaniaSafari'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
@@ -45,6 +46,7 @@ function App() {
         <Route path="/what-to-pack" element={<WhatToPack />} />
         <Route path="/kenya-safaris" element={<KenyaSafari />} />
         <Route path="/kenya-signature-safari" element={<KenyaSignatureSafari />} />
+        <Route path="/kenya-wings-over-wilderness" element={<KenyaWingsOverWilderness />} />
         <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />

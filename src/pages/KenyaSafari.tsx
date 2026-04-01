@@ -129,7 +129,7 @@ const safariTypes = [
 
 const samplePackages = [
   { title: "Kenya Signature Safari", nights: 11, price: "9,100", destinations: ["Maasai Mara", "Samburu", "Amboseli"], path: "/kenya-signature-safari" },
-  { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"], path: "/kenya-wings-wilderness" },
+  { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"], path: "/kenya-wings-over-wilderness" },
   { title: "Wings Over the Wilderness Safari", nights: "4 Days / 3 Nights", price: "5,105", destinations: ["Nairobi", "Masai Mara"], path: "/kenya-wings-wilderness-4days" },
   { title: "Soul of the Savannah: An Intimate Escape", nights: "7 Days / 6 Nights", price: "7,111", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-soul-savannah" },
   { title: "Women's Ethical & Empowering Safari", nights: 11, price: "7,950", destinations: ["Masai Mara", "Samburu", "Ol Pejeta"], path: "/kenya-womens-safari" },
@@ -612,9 +612,9 @@ export default function KenyaSafari() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              SAMPLE SAFARI PACKAGES
-            </h2>
+              <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+                OUR RECOMMENDED BEST SAFARIS IN KENYA
+              </h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
