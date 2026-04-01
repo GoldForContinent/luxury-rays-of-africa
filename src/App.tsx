@@ -17,6 +17,7 @@ import WhereToVisit from './pages/WhereToVisit'
 import BestTimeToVisit from './pages/BestTimeToVisit'
 import WhatToPack from './pages/WhatToPack'
 import KenyaSafari from './pages/KenyaSafari'
+import TanzaniaSafari from './pages/TanzaniaSafari'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/best-time-to-visit" element={<BestTimeToVisit />} />
         <Route path="/what-to-pack" element={<WhatToPack />} />
         <Route path="/kenya-safaris" element={<KenyaSafari />} />
+        <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
