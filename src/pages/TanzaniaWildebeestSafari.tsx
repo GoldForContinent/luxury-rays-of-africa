@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Calendar, Clock, DollarSign, Star, CheckCircle, X, Menu, Coffee, Sun, Sunset, Moon, Car, Plane, Users, Briefcase, Camera, Heart, Shield, Utensils, Wifi, ChevronDown } from 'lucide-react'
+import { ArrowRight, MapPin, Calendar, Clock, DollarSign, Star, CheckCircle, X, Users, Car, ChevronDown } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 

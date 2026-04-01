@@ -6,28 +6,6 @@ import { MapPin, Clock, Check, X, Star, LandPlot, Mountain, Map } from 'lucide-r
 
 gsap.registerPlugin(ScrollTrigger)
 
-const briefItinerary = [
-  { day: "1", place: "Arusha – Arrival", highlights: "Welcome, briefing", property: "Arusha Lodge" },
-  { day: "2", place: "Arusha → Tarangire", highlights: "Drive to Tarangire, afternoon game", property: "Tarangire Lodge" },
-  { day: "3", place: "Tarangire – Full Day", highlights: "Elephant herds, baobab views", property: "Tarangire Lodge" },
-  { day: "4", place: "Tarangire → Serengeti", highlights: "Drive to Serengeti, evening game", property: "Serengeti Lodge" },
-  { day: "5", place: "Serengeti – Full Day", highlights: "Full day wildlife", property: "Serengeti Lodge" },
-  { day: "6", place: "Serengeti → Ngorongoro", highlights: "Drive to crater, evening at rim", property: "Ngorongoro Lodge" },
-  { day: "7", place: "Ngorongoro Crater", highlights: "Full day crater safari", property: "Ngorongoro Lodge" },
-  { day: "8", place: "Ngorongoro → Arusha", highlights: "Return drive, departure", property: "N/A" }
-]
-
-const itineraryDays = [
-  { day: 1, title: "Arusha · Arrival", highlights: ["Airport meet", "Welcome dinner", "Itinerary briefing"], description: "Arrive at Kilimanjaro International Airport. Your guide welcomes you and transfers you to your lodge in Arusha. Evening welcome dinner with briefing on the safari ahead.", accommodation: "Arusha Lodge", mealPlan: "Dinner", image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 2, title: "Arusha → Tarangire", highlights: ["Drive to Tarangire", "Afternoon game drive", "Elephant viewing"], description: "Depart Arusha for Tarangire National Park. Known as the 'Elephant Playground,' Tarangire holds large herds of elephants and iconic baobab trees. Afternoon game drive explores the diverse habitats.", accommodation: "Tarangire Lodge", mealPlan: "Full Board", image: "https://images.pexels.com/photos/1684428/pexels-photo-1684428.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 3, title: "Tarangire · Full Day", highlights: ["Full day safari", "Elephant herds", "Baobab landscape"], description: "Full day in Tarangire. Morning game drive captures the elephants against the dramatic baobab landscape. The park also hosts lions, giraffes, and abundant birdlife. Return to the lodge for lunch. Afternoon continues exploration.", accommodation: "Tarangire Lodge", mealPlan: "Full Board", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 4, title: "Tarangire → Serengeti", highlights: ["Drive to Serengeti", "Central Serengeti", "Evening game drive"], description: "Depart Tarangire for the Serengeti — world's most famous national park. The drive passes through varied terrain. Arrive at your camp by late afternoon. Evening game drive explores the endless plains.", accommodation: "Serengeti Lodge", mealPlan: "Full Board", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 5, title: "Serengeti · Full Day", highlights: ["Full day wildlife", "Big Five tracking", "Migration viewing"], description: "Full day in the Serengeti. Morning game drive follows the wildlife — the park holds the largest concentration of large mammals on Earth. Search for lion, leopard, elephant, buffalo, and rhino. Afternoon continues exploration.", accommodation: "Serengeti Lodge", mealPlan: "Full Board", image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 6, title: "Serengeti → Ngorongoro", highlights: ["Drive to Ngorongoro", "Crater rim arrival", "Evening at lodge"], description: "Depart the Serengeti for Ngorongoro Conservation Area. The descent into the crater is spectacular. Arrive at your lodge on the crater rim in time for sunset views over this natural wonder.", accommodation: "Ngorongoro Lodge", mealPlan: "Full Board", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 7, title: "Ngorongoro Crater", highlights: ["Full day crater safari", "Big Five", "Flamingo lake"], description: "Descend into the Ngorongoro Crater for a full day of wildlife viewing. The crater is a natural amphitheater holding 30,000 animals. Search for all members of the Big Five in this incredible setting.", accommodation: "Ngorongoro Lodge", mealPlan: "Full Board", image: "https://images.pexels.com/photos/4614229/pexels-photo-4614229.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 8, title: "Ngorongoro → Arusha", highlights: ["Return drive", "Arrival in Arusha", "Departure"], description: "Depart Ngorongoro for Arusha. The journey passes through the Rift Valley landscape. Arrive in Arusha by early afternoon. Transfer to the airport for your departure flight.", accommodation: "N/A", mealPlan: "Breakfast", image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800" }
-]
-
 const pricingData = [
   { period: "Green Season: Mar - May 2026", price: "$5,840", supplement: "$780" },
   { period: "High Season: Jun - Oct 2026", price: "$6,540", supplement: "$920" },

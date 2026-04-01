@@ -6,14 +6,6 @@ import { MapPin, Clock, Check, X, Star, Palmtree, Sun, Waves } from 'lucide-reac
 
 gsap.registerPlugin(ScrollTrigger)
 
-const briefItinerary = [
-  { day: "1", place: "Mombasa – Arrival", highlights: "Airport meet, transfer to Diani", property: "Diani Beach Resort" },
-  { day: "2", place: "Diani – Full Day", highlights: "Beach relaxation, swimming", property: "Diani Beach Resort" },
-  { day: "3", place: "Diani – Water Sports", highlights: "Snorkeling, kayaking, sunset", property: "Diani Beach Resort" },
-  { day: "4", place: "Diani – Exploration", highlights: "Fort Jesus, city tour", property: "Diani Beach Resort" },
-  { day: "5", place: "Diani – Final Day", highlights: "Beach relaxation, departure", property: "N/A" }
-]
-
 const pricingData = [
   { period: "Green Season: Apr - May 2026", price: "$1,070", supplement: "$180" },
   { period: "High Season: Jun - Nov 2026", price: "$1,270", supplement: "$220" },

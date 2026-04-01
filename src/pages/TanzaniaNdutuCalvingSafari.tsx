@@ -6,20 +6,6 @@ import { MapPin, Clock, Check, X, Star, LandPlot, Baby, Sun } from 'lucide-react
 
 gsap.registerPlugin(ScrollTrigger)
 
-const briefItinerary = [
-  { day: "1", place: "Arusha – Arrival", highlights: "Welcome, briefing", property: "Arusha Lodge" },
-  { day: "2", place: "Arusha → Ndutu", highlights: "Flight to Ndutu, afternoon game", property: "Ndutu Camp" },
-  { day: "3", place: "Ndutu – Full Day", highlights: "Calving viewing, predator action", property: "Ndutu Camp" },
-  { day: "4", place: "Ndutu – Final Day", highlights: "Morning safari, return flight", property: "N/A" }
-]
-
-const itineraryDays = [
-  { day: 1, title: "Arusha · Arrival", highlights: ["Airport meet", "Welcome briefing", "Overnight"], description: "Arrive at Kilimanjaro International Airport. Your guide welcomes you and transfers you to your lodge in Arusha. Evening briefing on the calving safari ahead.", accommodation: "Arusha Lodge", mealPlan: "Dinner", image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 2, title: "Arusha → Ndutu", highlights: ["Flight to Ndutu", "Afternoon game drive", "Migration viewing"], description: "Morning flight from Arusha to Ndutu in the southern Serengeti. Arrive at your luxury camp by early afternoon. Afternoon game drive — this is the calving season where hundreds of thousands of wildebeest give birth.", accommodation: "Ndutu Camp", mealPlan: "Full Board", image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 3, title: "Ndutu · Calving Day", highlights: ["Calving season", "Predator action", "Full day safari"], description: "Full day in Ndutu witnessing the miracle of life — thousands of calves born in a matter of weeks. The concentration of prey attracts predators — lions, cheetahs, leopards, and hyenas. Morning and afternoon game drives.", accommodation: "Ndutu Camp", mealPlan: "Full Board", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 4, title: "Ndutu → Arusha", highlights: ["Morning game drive", "Flight to Arusha", "Departure"], description: "Early morning game drive captures the calving action at dawn. Return to camp for breakfast, then transfer to the airstrip for your flight back to Arusha.", accommodation: "N/A", mealPlan: "Breakfast", image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800" }
-]
-
 const pricingData = [
   { period: "Calving Season: Jan - Mar 2026", price: "$3,228", supplement: "$480" }
 ]

@@ -6,24 +6,6 @@ import { MapPin, Clock, Check, X, Star, Palmtree, Sun, Waves } from 'lucide-reac
 
 gsap.registerPlugin(ScrollTrigger)
 
-const briefItinerary = [
-  { day: "1", place: "Zanzibar – Arrival", highlights: "Airport meet, transfer to resort", property: "Zanzibar Resort" },
-  { day: "2", place: "Zanzibar – Full Day", highlights: "Beach relaxation, water activities", property: "Zanzibar Resort" },
-  { day: "3", place: "Zanzibar – Stone Town", highlights: "Historic tour, culture exploration", property: "Zanzibar Resort" },
-  { day: "4", place: "Zanzibar – Beach Day", highlights: "Snorkeling, sunset cruise", property: "Zanzibar Resort" },
-  { day: "5", place: "Zanzibar – Full Day", highlights: "Spice tour, beach relaxation", property: "Zanzibar Resort" },
-  { day: "6", place: "Zanzibar – Departure", highlights: "Final beach morning, airport transfer", property: "N/A" }
-]
-
-const itineraryDays = [
-  { day: 1, title: "Zanzibar · Arrival", highlights: ["Airport meet", "Beach resort transfer", "Evening at leisure"], description: "Arrive at Zanzibar International Airport. Your private guide welcomes you and transfers you to your beach resort on the spice island. The rest of the day is at leisure to unpack, relax, and enjoy the pristine beaches.", accommodation: "Zanzibar Beach Resort", mealPlan: "Dinner", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 2, title: "Zanzibar · Beach Day One", highlights: ["Beach relaxation", "Swimming", "Sunset views"], description: "Full day at the beach. Lounge by the pool or on the white sand beaches. The Indian Ocean offers calm waters perfect for swimming. Optional water activities available — kayaking, paddleboarding, or simply relaxing in a hammock.", accommodation: "Zanzibar Beach Resort", mealPlan: "Full Board", image: "https://images.pexels.com/photos/1684428/pexels-photo-1684428.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 3, title: "Zanzibar · Stone Town", highlights: ["Historic Stone Town", "Narrow streets", "Culture tour"], description: "Morning visit to Stone Town, a UNESCO World Heritage Site. Explore the narrow winding streets, the Sultan’s Palace, the Old Fort, and the bustling markets. Learn about Zanzibar's rich history as a trading hub. Return to the resort for afternoon relaxation.", accommodation: "Zanzibar Beach Resort", mealPlan: "Breakfast, Dinner", image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 4, title: "Zanzibar · Water Adventures", highlights: ["Snorkeling trip", "Dhow sunset cruise", "Beach BBQ"], description: "Morning snorkeling trip to a nearby reef — the waters around Zanzibar are crystal clear with vibrant marine life. Return to the resort for lunch. Afternoon at leisure. Evening — traditional dhow sunset cruise with champagne and canapés.", accommodation: "Zanzibar Beach Resort", mealPlan: "Full Board", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 5, title: "Zanzibar · Spice Tour", highlights: ["Spice plantation tour", "Beach relaxation", "Final evening"], description: "Morning visit to a spice plantation — Zanzibar is famous for cloves, nutmeg, and cinnamon. Learn about the spices, sample fresh fruits, and enjoy a traditional lunch. Return to the resort for a final afternoon of beach relaxation.", accommodation: "Zanzibar Beach Resort", mealPlan: "Breakfast, Lunch, Dinner", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { day: 6, title: "Zanzibar · Departure", highlights: ["Final morning", "Beach walk", "Airport transfer"], description: "Final morning at the beach — a last swim in the Indian Ocean, a walk along the sand. Late morning transfer to Zanzibar International Airport for your departure flight.", accommodation: "N/A", mealPlan: "Breakfast", image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800" }
-]
-
 const pricingData = [
   { period: "Green Season: Apr - May 2026", price: "$2,570", supplement: "$380" },
   { period: "High Season: Jun - Nov 2026", price: "$2,970", supplement: "$450" },
