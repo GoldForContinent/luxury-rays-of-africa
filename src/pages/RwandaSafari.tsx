@@ -6,16 +6,9 @@ import { ArrowRight } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const CheckIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
-)
-
-const MapPinIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-    <circle cx="12" cy="10" r="3"></circle>
+const StarIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
   </svg>
 )
 
@@ -53,7 +46,7 @@ const faqData = [
   },
   {
     question: "Can I combine Rwanda with other East African countries?",
-    answer: "Absolutely! Rwanda is perfectly positioned to combine with Uganda forgorilla trekking and Kenya or Tanzania for classic savannah safaris. Many itineraries include multi-country options."
+    answer: "Absolutely! Rwanda is perfectly positioned to combine with Uganda for gorilla trekking and Kenya or Tanzania for classic savannah safaris. Many itineraries include multi-country options."
   },
   {
     question: "What wildlife can I see in Rwanda besides Gorillas?",
@@ -113,7 +106,7 @@ const safariTypes = [
 ]
 
 const samplePackages = [
-  { title: "5-Day Rwanda Gorilla Adventure", nights: 5, price: "3,895", destinations: ["Kigali", "Volcanoes National Park"] },
+  { title: "5-Day Rwanda Gorilla Adventure", nights: 5, price: "3,895", destinations: ["Kigali", "Volcanoes"] },
   { title: "7-Day Rwanda Wildlife Explorer", nights: "7 Days / 6 Nights", price: "4,560", destinations: ["Volcanoes", "Nyungwe", "Akagera"] },
   { title: "10-Day Ultimate Rwanda Safari", nights: "10 Days / 9 Nights", price: "7,840", destinations: ["Kigali", "Volcanoes", "Nyungwe", "Akagera", "Lake Kivu"] }
 ]
@@ -121,8 +114,7 @@ const samplePackages = [
 const accommodations = [
   { name: "Virunga Lodge", location: "Volcanoes", description: "Luxury lodge with stunning volcano views." },
   { name: "One & Only Nyungwe House", location: "Nyungwe", description: "Forest resort with canopy walkways." },
-  { name: "Akagera Luxury Tented Camp", location: "Akagera", description: "Exclusive savannah camp in Big Five territory." },
-  { name: "Kigali Marriott Hotel", location: "Kigali", description: "Modern luxury in the heart of the city." }
+  { name: "Akagera Luxury Tented Camp", location: "Akagera", description: "Exclusive savannah camp in Big Five territory." }
 ]
 
 const seasonalData = [
@@ -185,6 +177,10 @@ export default function RwandaSafari() {
     return () => ctx.revert()
   }, [])
 
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index)
+  }
+
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !contentRefs.current.includes(el)) {
       contentRefs.current.push(el)
@@ -192,484 +188,390 @@ export default function RwandaSafari() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F7F2EA]">
+    <div className="min-h-screen bg-[#FFF8F0]">
       {/* Hero Section */}
-      <div ref={heroRef} className="relative h-screen overflow-hidden">
-        <div className="absolute inset-0 hero-bg">
-          <img 
-            src="/rwandasafaris.jpg" 
-            alt="Rwanda Safari" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
-        </div>
+      <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
+        <img 
+          src="/rwandasafaris.jpg" 
+          alt="Rwanda Safari" 
+          className="hero-bg absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         
-        <div className="hero-content relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
-          <div className="mb-4 text-[#D4A03A] font-medium tracking-[0.3em] text-sm md:text-base">
-            LUXURY RWANDA SAFARIS
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 max-w-4xl leading-tight">
-            Discover the Land of a Thousand Hills
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 text-white/80 text-sm">
+          <Link to="/" className="hover:text-[#D4A03A] transition-colors">Home</Link> 
+          <span className="mx-2">/</span>
+          <Link to="/destinations" className="hover:text-[#D4A03A] transition-colors">Destinations</Link>
+          <span className="mx-2">/</span>
+          <span className="text-[#D4A03A]">Rwanda Safaris</span>
+        </div>
+
+        <div className="hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-2 tracking-tight">
+            RWANDA
           </h1>
-          <p className="text-lg md:text-xl text-[#F7F2EA]/80 max-w-2xl mb-8">
-            Experience extraordinary gorilla trekking, pristine rainforests, and savannah wildlife in Rwanda's stunning landscapes
+          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-6 tracking-tight">
+            SAFARIS
+          </h1>
+          <p className="text-[#D4A03A] text-lg md:text-xl uppercase tracking-[0.3em] mb-8">
+            The Land of a Thousand Hills
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link 
-              to="/contact" 
-              className="bg-[#D4A03A] text-black px-8 py-4 font-semibold rounded-lg hover:bg-[#B8922F] transition-all duration-300 transform hover:scale-105"
-            >
-              Plan Your Safari
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+              Help Me Plan <ArrowRight size={18} />
             </Link>
-            <Link 
-              to="/packages" 
-              className="border-2 border-[#F7F2EA]/30 text-[#F7F2EA] px-8 py-4 font-semibold rounded-lg hover:bg-[#F7F2EA]/10 transition-all duration-300"
-            >
-              View Packages
+            <Link to="/packages" className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all">
+              Our Safaris
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowRight className="w-6 h-6 text-[#F7F2EA]/50 rotate-90" />
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
         </div>
-      </div>
+      </section>
 
-      {/* Introduction Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw]">
+      {/* Why Visit Rwanda */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Discover</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              WHY RWANDA FOR YOUR SAFARI
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+          
+          <p className="text-[#2C3E50] text-xl leading-relaxed text-center max-w-4xl mx-auto">
+            Rwanda, also known as the "Land of a Thousand Hills," offers incredible gorilla trekking experiences. As an exclusive gorilla tour destination, Rwanda is one of the best places for exciting excursions, golden monkey tracking, and exploring its rich history.
+          </p>
+        </div>
+      </section>
+
+      {/* Key Highlights with Alternating Layout */}
+      <section className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-[#D4A03A]">
-                Why Visit Rwanda For Safaris
-              </h2>
-              <p className="text-[#F7F2EA]/70 mb-6 leading-relaxed">
-                Rwanda, also known as the "Land of a Thousand Hills," offers incredible gorilla trekking experiences. As an exclusive gorilla tour destination, Rwanda is one of the best places you can choose for exciting excursions, golden monkey tracking, and learning about its history.
-              </p>
-              <p className="text-[#F7F2EA]/70 mb-6 leading-relaxed">
-                Additional tour adventures in Rwanda include trips to Akagera National Park's savannah grasslands, home to the Big Five. Nyungwe National Park entices bird watchers with its 500+ bird species and chimpanzees. Depending on what wildlife you want to see, a minimum of 4 days ensures you will enjoy the best of what Rwanda can offer.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#D4A03A]/20">
-                  <div className="text-2xl font-bold text-[#D4A03A]">4</div>
-                  <div className="text-sm text-[#F7F2EA]/60">National Parks</div>
-                </div>
-                <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#D4A03A]/20">
-                  <div className="text-2xl font-bold text-[#D4A03A]">500+</div>
-                  <div className="text-sm text-[#F7F2EA]/60">Bird Species</div>
-                </div>
-                <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#D4A03A]/20">
-                  <div className="text-2xl font-bold text-[#D4A03A]">10+</div>
-                  <div className="text-sm text-[#F7F2EA]/60">Gorilla Families</div>
-                </div>
-                <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#D4A03A]/20">
-                  <div className="text-2xl font-bold text-[#D4A03A]">15</div>
-                  <div className="text-sm text-[#F7F2EA]/60">Years Experience</div>
-                </div>
+          <div ref={addToRefs} className="mb-24">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
+                  Gorillas & Primates
+                </h3>
+                <p className="text-[#2C3E50] text-lg leading-relaxed mb-4">
+                  Rwanda offers the most accessible gorilla trekking experiences in the world. Volcanoes National Park is home to ten habituated gorilla families, offering intimate encounters with these magnificent creatures.
+                </p>
+                <p className="text-[#2C3E50] text-lg leading-relaxed">
+                  Beyond gorillas, track golden monkeys in bamboo forests and chimpanzees in Nyungwe Forest, one of Africa's oldest rainforests.
+                </p>
+              </div>
+              <div className="order-1 md:order-2 relative">
+                <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
+                <img src="/rwandasafaris.jpg" alt="Gorillas" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src="/rwandasafaris.jpg" 
-                alt="Rwanda Gorilla" 
-                className="rounded-2xl w-full"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = '/hero_sunrise.jpg'
-                }}
-              />
-              <div className="absolute -bottom-6 -left-6 bg-[#D4A03A] text-black p-6 rounded-xl">
-                <div className="text-3xl font-bold">99%</div>
-                <div className="text-sm">Happy Travelers</div>
+          </div>
+
+          <div ref={addToRefs} className="mb-24">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
+                <img src="/hero_sunrise.jpg" alt="Akagera" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
+                  Big Five Savannah Safaris
+                </h3>
+                <p className="text-[#2C3E50] text-lg leading-relaxed mb-4">
+                  Akagera National Park offers classic savannah wildlife experiences, home to lions, elephants, rhinos, buffaloes, and leopards.
+                </p>
+                <p className="text-[#2C3E50] text-lg leading-relaxed">
+                  Explore diverse ecosystems from wetlands to savannah, with boat safaris on Lake Akagera offering unique hippo and crocodile sightings.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div ref={addToRefs}>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
+                  Rich Culture & History
+                </h3>
+                <p className="text-[#2C3E50] text-lg leading-relaxed mb-4">
+                  Experience Rwanda's vibrant culture through the energetic Intore dance, the tradition of Umuganda (community service), and the intricate art of Agaseke basket weaving.
+                </p>
+                <p className="text-[#2C3E50] text-lg leading-relaxed">
+                  Visit the Kigali Genocide Memorial for a powerful historical experience, and discover a nation that has risen from tragedy to become one of Africa's safest and most progressive countries.
+                </p>
+              </div>
+              <div className="order-1 md:order-2 relative">
+                <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
+                <img src="/destinations_hero.jpg" alt="Rwanda Culture" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Wildlife Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw] bg-[#111111]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Wildlife to See in Rwanda
-            </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Rwanda is commonly known for gorillas alone, but it's easy to spot the Big Five, including lions, elephants, rhinos, buffaloes, and leopards in their natural habitat.
+      {/* CTA Banner */}
+      <section ref={addToRefs} className="py-20 px-4 md:px-[8vw] bg-[#F5E6D3]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          <div className="flex-1">
+            <h3 className="font-display font-bold text-3xl text-[#2C3E50] mb-4">
+              LOOKING FOR A SAFARI IN AFRICA?
+            </h3>
+            <p className="text-[#2C3E50] text-lg">
+              Explore 70+ luxury African safaris. Contact us to design your bespoke adventure.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Mountain Gorillas", description: "The iconic residents of Volcanoes National Park", icon: "🦍" },
-              { name: "Golden Monkeys", description: "Endangered primates in bamboo forests", icon: "🐒" },
-              { name: "Chimpanzees", description: "Nyungwe Forest's habituated troop", icon: "🐆" },
-              { name: "African Elephants", description: "Gentle giants roaming Akagera's plains", icon: "🐘" },
-              { name: "Lions", description: "The pride of Akagera National Park", icon: "🦁" },
-              { name: "Rhinos", description: "Both black and white rhinos in Akagera", icon: "🦏" },
-              { name: "Buffaloes", description: "Massive herds in savannah grasslands", icon: "🐃" },
-              { name: "Leopards", description: "Elusive predators of the African bush", icon: "🐅" },
-            ].map((animal, index) => (
-              <div key={index} className="bg-[#1A1A1A] p-6 rounded-xl border border-[#D4A03A]/10 hover:border-[#D4A03A]/30 transition-all duration-300 group">
-                <div className="text-4xl mb-4">{animal.icon}</div>
-                <h3 className="text-lg font-semibold text-[#D4A03A] mb-2">{animal.name}</h3>
-                <p className="text-sm text-[#F7F2EA]/60">{animal.description}</p>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link to="/packages" className="btn-primary">Explore Our Safaris</Link>
+            <Link to="/contact" className="px-8 py-3 border-2 border-[#2C3E50] text-[#2C3E50] rounded-full font-semibold hover:bg-[#2C3E50] hover:text-white transition-all">
+              Speak to an Expert
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Culture Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw]">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <img 
-                src="/rwandasafaris.jpg" 
-                alt="Rwanda Culture" 
-                className="rounded-2xl w-full"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = '/unfiltered_collage_01.jpg'
-                }}
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-[#D4A03A]">
-                Culture and Traditions of Rwanda
-              </h2>
-              <p className="text-[#F7F2EA]/70 mb-6 leading-relaxed">
-                Before visiting Rwanda, it's important to also understand their culture, traditions, and lifestyle to be able to integrate with them easily. The culture of Rwanda is a vibrant blend of traditions that foster community, respect, and creativity.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="bg-[#D4A03A]/20 p-3 rounded-full">
-                    <CheckIcon />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#D4A03A]">Intore Dance</h4>
-                    <p className="text-sm text-[#F7F2EA]/60">The energetic traditional dance expressing Rwandan heritage</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="bg-[#D4A03A]/20 p-3 rounded-full">
-                    <CheckIcon />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#D4A03A]">Umuganda</h4>
-                    <p className="text-sm text-[#F7F2EA]/60">Monthly community service bringing people together</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="bg-[#D4A03A]/20 p-3 rounded-full">
-                    <CheckIcon />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#D4A03A]">Agaseke</h4>
-                    <p className="text-sm text-[#F7F2EA]/60">The intricate art of basket weaving</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="bg-[#D4A03A]/20 p-3 rounded-full">
-                    <CheckIcon />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#D4A03A]">Hospitality</h4>
-                    <p className="text-sm text-[#F7F2EA]/60">Deep-rooted tradition of welcoming guests</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Parks Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw] bg-[#111111]">
-        <div className="max-w-6xl mx-auto">
+      {/* Top Safari Destinations */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Best Places to Visit in Rwanda
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Explore</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4">
+              BEST PLACES TO VISIT IN RWANDA
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Explore Rwanda's stunning national parks, each offering unique wildlife experiences
-            </p>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {rwandaParks.map((park, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer">
-                <img 
-                  src={park.image} 
-                  alt={park.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement
-                    target.src = '/destinations_hero.jpg'
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-bold mb-2 text-[#D4A03A]">{park.name}</h3>
-                  <p className="text-sm text-[#F7F2EA]/80 line-clamp-2">{park.description}</p>
-                  <Link 
-                    to="/contact"
-                    className="inline-flex items-center gap-2 mt-4 text-sm text-[#D4A03A] opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    Explore <ArrowRight className="w-4 h-4" />
+              <div 
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={park.image} 
+                    alt={park.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = '/destinations_hero.jpg'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="font-display font-bold text-lg text-white">{park.name}</h4>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-[#2C3E50]/80 text-sm leading-relaxed mb-4 line-clamp-2">
+                    {park.description}
+                  </p>
+                  <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
+                    View Park <ArrowRight size={14} />
                   </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Activities Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw]">
-        <div className="max-w-6xl mx-auto">
+      {/* Safari Types & Costs */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Safari Activities in Rwanda
+            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Investment</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#F7F2EA] mt-4">
+              SAFARI TYPES & COSTS
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              From gorilla trekking to savannah game drives, Rwanda offers unforgettable experiences
-            </p>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {safariActivities.map((activity, index) => (
-              <div key={index} className="bg-[#1A1A1A] p-6 rounded-xl border border-[#D4A03A]/10 hover:border-[#D4A03A]/30 transition-all duration-300">
-                <div className="text-3xl mb-4">{activity.icon}</div>
-                <h3 className="text-lg font-semibold text-[#D4A03A] mb-2">{activity.title}</h3>
-                <p className="text-sm text-[#F7F2EA]/60 mb-3">{activity.description}</p>
-                <div className="flex items-center gap-2 text-xs text-[#F7F2EA]/40">
-                  <ClockIcon />
-                  <span>{activity.timing}</span>
+          
+          <p className="text-[#F7F2EA]/80 text-lg text-center mb-12 max-w-3xl mx-auto">
+            Prices range from $500 to $4,500+ per person per day. Peak season (June-September & December-February) commands higher rates.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {safariTypes.map((type, index) => (
+              <div key={index} className="bg-[#1a1410] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A]/50 transition-all group">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-display font-bold text-xl text-[#F7F2EA]">{type.title}</h3>
+                  <span className="bg-[#D4A03A]/20 text-[#D4A03A] px-4 py-2 rounded-full font-bold">
+                    {type.price}
+                  </span>
+                </div>
+                <p className="text-[#F7F2EA]/60 text-sm mb-4">{type.perPerson}</p>
+                <p className="text-[#F7F2EA]/80 mb-6 leading-relaxed">{type.description}</p>
+                <div className="space-y-2">
+                  {type.features.map((feature, fIndex) => (
+                    <div key={fIndex} className="flex items-center gap-3 text-[#F7F2EA]/80">
+                      <div className="w-1.5 h-1.5 bg-[#D4A03A] rounded-full"></div>
+                      <span className="text-sm">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Best Time Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw] bg-[#111111]">
+      {/* Safari Activities */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Experiences</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4">
+              UNFORGETTABLE SAFARI EXPERIENCES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {safariActivities.map((activity, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#D4C5B9]">
+                <div className="text-4xl mb-4">{activity.icon}</div>
+                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2">{activity.title}</h4>
+                <p className="text-[#2C3E50]/80 text-sm mb-3">{activity.description}</p>
+                <div className="flex items-center gap-2 text-[#CD7F32] text-xs">
+                  <ClockIcon /> {activity.timing}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seasonal Guide */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              What is the Best Time to Visit Rwanda
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Timing</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+              BEST TIME TO VISIT RWANDA
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Plan your safari for the best wildlife viewing experiences
-            </p>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <div className="bg-[#1A1A1A] p-6 rounded-xl border border-green-500/30">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <h3 className="text-xl font-bold text-green-400">Peak Season</h3>
-              </div>
-              <p className="text-[#F7F2EA]/70 mb-4">June - September & December - February</p>
-              <p className="text-sm text-[#F7F2EA]/60">
-                Dry seasons are the peak in Rwanda, preferred by tourists who value comfort and easy access. Forest paths are more visible, fewer mosquitoes, and best for gorilla trekking permits.
-              </p>
-            </div>
-            <div className="bg-[#1A1A1A] p-6 rounded-xl border border-yellow-500/30">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <h3 className="text-xl font-bold text-yellow-400">Shoulder Season</h3>
-              </div>
-              <p className="text-[#F7F2EA]/70 mb-4">May & October</p>
-              <p className="text-sm text-[#F7F2EA]/60">
-                Perfect for those who want to avoid crowds but still enjoy pleasant weather. A unique mixture of dry and rainy weather with lowest crowds.
-              </p>
-            </div>
-            <div className="bg-[#1A1A1A] p-6 rounded-xl border border-blue-500/30">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                <h3 className="text-xl font-bold text-blue-400">Low Season</h3>
-              </div>
-              <p className="text-[#F7F2EA]/70 mb-4">March - May & November</p>
-              <p className="text-sm text-[#F7F2EA]/60">
-                Rainy season brings lush green landscapes, fewer tourists, and lower lodge rates. Ideal for photographers and birdwatchers.
-              </p>
-            </div>
-          </div>
-
-          {/* Seasonal Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg mb-12 overflow-x-auto">
+            <h3 className="font-display font-bold text-2xl text-[#2C3E50] text-center mb-2">Rwanda Safari Seasonal Guide</h3>
+            <p className="text-center text-[#CD7F32] mb-6">Best Weather Guide</p>
+            <table className="w-full min-w-[800px]">
               <thead>
-                <tr className="border-b border-[#D4A03A]/20">
-                  <th className="text-left py-4 px-4 text-[#D4A03A] font-semibold">Destination</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Jan</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Feb</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Mar</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Apr</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">May</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Jun</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Jul</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Aug</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Sep</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Oct</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Nov</th>
-                  <th className="py-4 px-2 text-[#F7F2EA]/60">Dec</th>
+                <tr className="bg-[#F5E6D3]">
+                  <th className="p-3 text-left text-[#2C3E50] font-semibold">Park</th>
+                  {['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map(m => (
+                    <th key={m} className="p-3 text-center text-[#2C3E50] font-semibold">{m}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {seasonalData.map((row, index) => (
-                  <tr key={index} className="border-b border-[#D4A03A]/10">
-                    <td className="py-4 px-4 font-medium text-[#D4A03A]">{row.park}</td>
-                    {['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'].map((month) => (
-                      <td key={month} className="py-4 px-2 text-center">
-                        <span className={`inline-block px-2 py-1 rounded text-xs ${getRatingColor(row[month as keyof typeof row])}`}>
-                          {row[month as keyof typeof row]}
-                        </span>
-                      </td>
+                {seasonalData.map((row, i) => (
+                  <tr key={i} className="border-b border-[#D4C5B9]">
+                    <td className="p-3 text-left font-semibold text-[#2C3E50]">{row.park}</td>
+                    {Object.entries(row).slice(1).map(([_, val], j) => (
+                      <td key={j} className={`p-3 text-center text-xs ${getRatingColor(val)}`}>{val}</td>
                     ))}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
 
-      {/* Safari Types Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Safari Types & Pricing
-            </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Choose your perfect Rwanda safari experience
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {safariTypes.map((safari, index) => (
-              <div key={index} className="bg-[#1A1A1A] p-6 rounded-xl border border-[#D4A03A]/10 hover:border-[#D4A03A]/40 transition-all duration-300 group">
-                <h3 className="text-lg font-semibold text-[#D4A03A] mb-2">{safari.title}</h3>
-                <div className="text-2xl font-bold mb-1">{safari.price}</div>
-                <div className="text-xs text-[#F7F2EA]/40 mb-4">{safari.perPerson}</div>
-                <p className="text-sm text-[#F7F2EA]/70 mb-4">{safari.description}</p>
-                <ul className="space-y-2">
-                  {safari.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-[#F7F2EA]/60">
-                      <CheckIcon />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link 
-                  to="/contact"
-                  className="mt-6 block text-center bg-[#D4A03A] text-black py-3 rounded-lg font-semibold group-hover:bg-[#B8922F] transition-colors"
-                >
-                  Inquire Now
-                </Link>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #2D5016' }}>
+              <span className="inline-block px-3 py-1 bg-green-900 text-white rounded-full text-xs font-semibold uppercase mb-3">Peak Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">June - September & December - February</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Dry seasons - best for gorilla trekking, visible trails, fewer mosquitoes.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #E67E22' }}>
+              <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold uppercase mb-3">Shoulder Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">May & October</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Mix of dry and rainy weather, fewer crowds, pleasant conditions.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #556B2F' }}>
+              <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Low Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">March - May & November</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Rainy season - lush green landscapes, lower prices, ideal for photographers.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Sample Packages */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw] bg-[#111111]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Rwanda Safari Packages
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+              SAMPLE SAFARI PACKAGES
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Curated itineraries showcasing the best of Rwanda
-            </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {samplePackages.map((pkg, index) => (
-              <div key={index} className="bg-[#1A1A1A] rounded-xl overflow-hidden border border-[#D4A03A]/10 hover:border-[#D4A03A]/30 transition-all duration-300">
-                <div className="h-48 bg-[#0A0A0A] flex items-center justify-center">
-                  <MapPinIcon />
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {samplePackages.map((pkg, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9]">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
+                  <StarIcon />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">{pkg.title}</h3>
-                  <p className="text-sm text-[#F7F2EA]/60 mb-4">{pkg.nights}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {pkg.destinations.map((dest, i) => (
-                      <span key={i} className="text-xs bg-[#D4A03A]/10 text-[#D4A03A] px-2 py-1 rounded">
-                        {dest}
-                      </span>
-                    ))}
+                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {pkg.destinations.map((d, j) => (
+                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
+                  <div>
+                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
+                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
                   </div>
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <div className="text-xs text-[#F7F2EA]/40">From</div>
-                      <div className="text-2xl font-bold text-[#D4A03A]">${pkg.price}</div>
-                    </div>
-                    <Link 
-                      to="/contact"
-                      className="bg-[#D4A03A] text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#B8922F] transition-colors"
-                    >
-                      Book Now
-                    </Link>
-                  </div>
+                  <Link to="/contact" className="text-[#CD7F32] font-semibold text-sm hover:underline">View Itinerary</Link>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              to="/packages"
-              className="inline-flex items-center gap-2 text-[#D4A03A] hover:text-[#F7F2EA] transition-colors"
-            >
-              View All Rwanda Packages <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
         </div>
-      </div>
+      </section>
 
       {/* Accommodations */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Where to Stay
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Stays</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+              TOP SAFARI ACCOMMODATIONS
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Luxury lodges and camps offering authentic Rwandan hospitality
-            </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {accommodations.map((lodging, index) => (
-              <div key={index} className="bg-[#1A1A1A] p-6 rounded-xl border border-[#D4A03A]/10 hover:border-[#D4A03A]/30 transition-all duration-300">
-                <h3 className="text-lg font-semibold text-[#D4A03A] mb-2">{lodging.name}</h3>
-                <div className="flex items-center gap-2 text-sm text-[#F7F2EA]/60 mb-3">
-                  <MapPinIcon />
-                  <span>{lodging.location}</span>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {accommodations.map((camp, i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+                <div className="h-40 bg-gradient-to-br from-[#2B1E1A] to-[#4a3528] flex items-center justify-center">
+                  <span className="text-white/30 text-6xl font-bold">{camp.name[0]}</span>
                 </div>
-                <p className="text-sm text-[#F7F2EA]/70">{lodging.description}</p>
+                <div className="p-6">
+                  <h4 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{camp.name}</h4>
+                  <p className="text-[#CD7F32] text-sm font-semibold mb-3">{camp.location}</p>
+                  <p className="text-[#2C3E50]/80 text-sm">{camp.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Why Book With Us */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw] bg-[#111111]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#1a1410]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Why Book a Rwanda Safari With Us
+            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Why Us</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#F7F2EA] mt-4">
+              BOOK YOUR RWANDA SAFARI WITH US
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Unmatched expertise in crafting unforgettable Rwandan adventures
-            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -677,51 +579,38 @@ export default function RwandaSafari() {
               { title: "15+ Years Experience", description: "Our team has decades of combined experience in East African safaris, ensuring you get the best guidance." },
               { title: "Expert Guides", description: "Our Silver and Gold rated guides provide deep insights into Rwandan wildlife and culture." },
               { title: "Sustainable Practices", description: "We are committed to sustainable travel and positive impact on local communities and wildlife." },
-              { title: "Flexible Booking", description: "Free changes and full refund up to 30 days before departure for peace of mind." },
-              { title: "24/7 Support", description: "Round-the-clock support from arrival to departure, ensuring a seamless experience." },
-              { title: "Best Value", description: "Competitive pricing with no hidden costs, guaranteeing the best value for your safari." }
             ].map((reason, index) => (
-              <div key={index} className="bg-[#1A1A1A] p-6 rounded-xl border border-[#D4A03A]/10">
+              <div key={index} className="bg-[#2B1E1A] p-8 rounded-2xl border border-[#F7F2EA]/10">
                 <div className="w-12 h-12 bg-[#D4A03A]/20 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#D4A03A] font-bold">{index + 1}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#D4A03A] mb-2">{reason.title}</h3>
+                <h3 className="text-lg font-semibold text-[#F7F2EA] mb-2">{reason.title}</h3>
                 <p className="text-sm text-[#F7F2EA]/60">{reason.description}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* FAQ Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Frequently Asked Questions
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Help</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+              FREQUENTLY ASKED QUESTIONS
             </h2>
-            <p className="text-[#F7F2EA]/60">
-              Everything you need to know about your Rwanda safari
-            </p>
           </div>
-
+          
           <div className="space-y-4">
-            {faqData.map((faq, index) => (
-              <div 
-                key={index} 
-                className="bg-[#1A1A1A] rounded-xl border border-[#D4A03A]/10 overflow-hidden"
-              >
-                <button
-                  className="w-full p-6 text-left flex justify-between items-center"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <span className="font-semibold text-[#F7F2EA] pr-4">{faq.question}</span>
-                  <span className={`text-[#D4A03A] text-2xl transition-transform ${openFaq === index ? 'rotate-45' : ''}`}>
-                    +
-                  </span>
+            {faqData.map((faq, i) => (
+              <div key={i} className="bg-white rounded-xl border border-[#D4C5B9] overflow-hidden">
+                <button className="w-full px-6 py-5 text-left flex justify-between items-center" onClick={() => toggleFaq(i)}>
+                  <span className="font-semibold text-[#2C3E50]">{faq.question}</span>
+                  <span className={`text-[#D4A03A] text-2xl font-light transition-transform ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-40' : 'max-h-0'}`}>
-                  <div className="px-6 pb-6 text-[#F7F2EA]/70">
+                <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-40' : 'max-h-0'}`}>
+                  <div className="px-6 pb-5 text-[#2C3E50]/70">
                     {faq.answer}
                   </div>
                 </div>
@@ -729,33 +618,27 @@ export default function RwandaSafari() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div ref={addToRefs} className="py-20 px-4 md:px-[4vw] bg-gradient-to-r from-[#1A1A1A] to-[#0A0A0A]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-[#F7F2EA] mb-6">
             Ready for Your Rwanda Adventure?
           </h2>
           <p className="text-lg text-[#F7F2EA]/70 mb-8">
             Let our experts help you plan the perfect safari. From gorilla trekking to Big Five game drives, we'll create an unforgettable experience.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link 
-              to="/contact"
-              className="bg-[#D4A03A] text-black px-8 py-4 font-semibold rounded-lg hover:bg-[#B8922F] transition-all duration-300"
-            >
+            <Link to="/contact" className="btn-primary">
               Speak to an Expert
             </Link>
-            <Link 
-              to="/packages"
-              className="border-2 border-[#F7F2EA]/30 text-[#F7F2EA] px-8 py-4 font-semibold rounded-lg hover:bg-[#F7F2EA]/10 transition-all duration-300"
-            >
+            <Link to="/packages" className="px-8 py-3 border-2 border-[#F7F2EA]/30 text-[#F7F2EA] rounded-full font-semibold hover:bg-[#F7F2EA] hover:text-[#2C3E50] transition-all">
               Browse Packages
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
