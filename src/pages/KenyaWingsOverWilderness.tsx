@@ -83,12 +83,11 @@ const includes = [
 ]
 
 const excludes = [
-  "International airfare and visa fees",
-  "Travel and medical insurance",
-  "Tips and gratuities for driver/guide and hotel staff",
-  "Items of personal nature",
-  "Balloon safaris (available at additional cost)",
-  "Any extra activities not mentioned"
+  "Pre and post-arrangements to and from Wilson Airport",
+  "Visas (if applicable)",
+  "All extra meals, premium drinks, spirits, whiskies, private cellar wines, and champagne",
+  "Additional activities",
+  "Gratuities & tips and items of a personal nature"
 ]
 
 const extraAddons = [
