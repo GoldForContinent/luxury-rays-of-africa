@@ -31,6 +31,21 @@ import KenyaGuidedPhotoSafariDavidDouglas from './pages/KenyaGuidedPhotoSafariDa
 import KenyaRoadPackageMaasaiMara from './pages/KenyaRoadPackageMaasaiMara'
 import KenyaUkuleleMusicalSafari from './pages/KenyaUkuleleMusicalSafari'
 import KenyaMagicalMaasaiMara from './pages/KenyaMagicalMaasaiMara'
+import KenyaDiscoverKenyaSafari from './pages/KenyaDiscoverKenyaSafari'
+import KenyaTanzaniaSafari from './pages/KenyaTanzaniaSafari'
+import KenyaNorthernFrontierLakeTurkana from './pages/KenyaNorthernFrontierLakeTurkana'
+import KenyaMigrationSafariMara from './pages/KenyaMigrationSafariMara'
+import KenyaLuxurySafariKenya from './pages/KenyaLuxurySafariKenya'
+import KenyaFlyKenyaSafari from './pages/KenyaFlyKenyaSafari'
+import KenyaGreatRiftValleyMaraExplorer from './pages/KenyaGreatRiftValleyMaraExplorer'
+import KenyaLakeTurkanaExpedition from './pages/KenyaLakeTurkanaExpedition'
+import KenyaGorillaTrekkingMigrationSafari from './pages/KenyaGorillaTrekkingMigrationSafari'
+import KenyaFunFamilySafariKenya from './pages/KenyaFunFamilySafariKenya'
+import KenyaNorthernKenyaCulturalWildlifeTour from './pages/KenyaNorthernKenyaCulturalWildlifeTour'
+import KenyaSafariBeachCombo from './pages/KenyaSafariBeachCombo'
+import KenyaSaveTheElephantSafari from './pages/KenyaSaveTheElephantSafari'
+import KenyaSaveTheRhinoSafari from './pages/KenyaSaveTheRhinoSafari'
+import KenyaUltimateFamilySafariKenya from './pages/KenyaUltimateFamilySafariKenya'
 import TanzaniaSafari from './pages/TanzaniaSafari'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
@@ -71,6 +86,21 @@ function App() {
         <Route path="/kenya-road-package-maasai-mara" element={<KenyaRoadPackageMaasaiMara />} />
         <Route path="/kenya-ukulele-musical-safari" element={<KenyaUkuleleMusicalSafari />} />
         <Route path="/kenya-magical-maasai-mara" element={<KenyaMagicalMaasaiMara />} />
+        <Route path="/kenya-discover-kenya-safari" element={<KenyaDiscoverKenyaSafari />} />
+        <Route path="/kenya-tanzania-safari" element={<KenyaTanzaniaSafari />} />
+        <Route path="/kenya-northern-frontier-lake-turkana" element={<KenyaNorthernFrontierLakeTurkana />} />
+        <Route path="/kenya-migration-safari-mara" element={<KenyaMigrationSafariMara />} />
+        <Route path="/kenya-luxury-safari-kenya" element={<KenyaLuxurySafariKenya />} />
+        <Route path="/kenya-fly-kenya-safari" element={<KenyaFlyKenyaSafari />} />
+        <Route path="/kenya-great-rift-valley-mara-explorer" element={<KenyaGreatRiftValleyMaraExplorer />} />
+        <Route path="/kenya-lake-turkana-expedition" element={<KenyaLakeTurkanaExpedition />} />
+        <Route path="/kenya-gorilla-trekking-migration-safari" element={<KenyaGorillaTrekkingMigrationSafari />} />
+        <Route path="/kenya-fun-family-safari-kenya" element={<KenyaFunFamilySafariKenya />} />
+        <Route path="/kenya-northern-kenya-cultural-wildlife-tour" element={<KenyaNorthernKenyaCulturalWildlifeTour />} />
+        <Route path="/kenya-safari-beach-combo" element={<KenyaSafariBeachCombo />} />
+        <Route path="/kenya-save-the-elephant-safari" element={<KenyaSaveTheElephantSafari />} />
+        <Route path="/kenya-save-the-rhino-safari" element={<KenyaSaveTheRhinoSafari />} />
+        <Route path="/kenya-ultimate-family-safari-kenya" element={<KenyaUltimateFamilySafariKenya />} />
         <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
