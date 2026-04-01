@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, MapPin, Clock, Check, X, Star, Mail, Phone } from 'lucide-react'
+import { ArrowRight, MapPin, Clock, Check, X, Star, Mail, Phone, Plane, LandPlot, Trees, Sun } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -214,13 +214,15 @@ export default function KenyaSignatureSafari() {
 
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { icon: "🦁", title: "Big Five", desc: "Lion, Leopard, Elephant, Rhino, Buffalo" },
-              { icon: "🦅", title: "Northern 5", desc: "Gerenuk, Ostrich, Zebra, Oryx, Giraffe" },
-              { icon: "🌅", title: "Migration", desc: "Witness the Great Wildebeest Migration" },
-              { icon: "✈️", title: "Fly-In", desc: "Seamless air connections between parks" }
+              { Icon: LandPlot, title: "Big Five", desc: "Lion, Leopard, Elephant, Rhino, Buffalo", color: "#D4A03A" },
+              { Icon: Trees, title: "Northern 5", desc: "Gerenuk, Ostrich, Zebra, Oryx, Giraffe", color: "#D4A03A" },
+              { Icon: Sun, title: "Migration", desc: "Witness the Great Wildebeest Migration", color: "#D4A03A" },
+              { Icon: Plane, title: "Fly-In", desc: "Seamless air connections between parks", color: "#D4A03A" }
             ].map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center">
-                <div className="text-4xl mb-3">{item.icon}</div>
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center group hover:-translate-y-1 transition-all">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#D4A03A]/10 flex items-center justify-center group-hover:bg-[#D4A03A]/20 transition-colors">
+                  <item.Icon size={28} className="text-[#D4A03A]" />
+                </div>
                 <h4 className="font-bold text-[#2C3E50] mb-2">{item.title}</h4>
                 <p className="text-sm text-[#2C3E50]/70">{item.desc}</p>
               </div>

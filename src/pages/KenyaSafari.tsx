@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Car, Bike, Footprints, Wind, Anchor, Utensils, Users, Plane } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,16 +92,16 @@ const kenyaBeaches = [
 ]
 
 const safariActivities = [
-  { icon: "🚙", title: "Classic Safari Game Drives", description: "Using 4×4 vehicles to find the Big Five. Best at Masai Mara (July-October).", timing: "June-October & January-March" },
-  { icon: "🐎", title: "Horseback Safaris", description: "A peaceful encounter with the wild in Laikipia and Ol Pejeta.", timing: "June-October" },
-  { icon: "🚶", title: "Guided Bush Walks", description: "Track wildlife on foot with armed guides in private conservancies.", timing: "Year-round" },
-  { icon: "🎈", title: "Hot Air Balloon", description: "Sunrise views over Maasai Mara, ending with champagne breakfast.", timing: "June-October" },
-  { icon: "🚣", title: "Boat Safaris", description: "Lake Naivasha and Lake Baringo for hippos and birdlife.", timing: "Year-round" },
-  { icon: "🏍️", title: "Mountain Biking", description: "Explore Hell's Gate National Park on two wheels.", timing: "June-October" },
-  { icon: "🚁", title: "Helicopter Excursions", description: "Luxury adventure to remote locations and Mount Kenya glaciers.", timing: "Jan-March & July-Oct" },
-  { icon: "🍽️", title: "Bush Dinners", description: "Dining under African stars with lantern-lit settings.", timing: "Year-round" },
-  { icon: "🤝", title: "Cultural Visits", description: "Visit Maasai or Samburu villages for authentic culture.", timing: "Year-round" },
-  { icon: "🤿", title: "Marine Safaris", description: "Snorkeling and diving at Diani and Watamu coral reefs.", timing: "October-March" }
+  { icon: Car, title: "Classic Safari Game Drives", description: "Using 4×4 vehicles to find the Big Five. Best at Masai Mara (July-October).", timing: "June-October & January-March" },
+  { icon: Footprints, title: "Horseback Safaris", description: "A peaceful encounter with the wild in Laikipia and Ol Pejeta.", timing: "June-October" },
+  { icon: Wind, title: "Guided Bush Walks", description: "Track wildlife on foot with armed guides in private conservancies.", timing: "Year-round" },
+  { icon: Wind, title: "Hot Air Balloon", description: "Sunrise views over Maasai Mara, ending with champagne breakfast.", timing: "June-October" },
+  { icon: Anchor, title: "Boat Safaris", description: "Lake Naivasha and Lake Baringo for hippos and birdlife.", timing: "Year-round" },
+  { icon: Bike, title: "Mountain Biking", description: "Explore Hell's Gate National Park on two wheels.", timing: "June-October" },
+  { icon: Plane, title: "Helicopter Excursions", description: "Luxury adventure to remote locations and Mount Kenya glaciers.", timing: "Jan-March & July-Oct" },
+  { icon: Utensils, title: "Bush Dinners", description: "Dining under African stars with lantern-lit settings.", timing: "Year-round" },
+  { icon: Users, title: "Cultural Visits", description: "Visit Maasai or Samburu villages for authentic culture.", timing: "Year-round" },
+  { icon: Anchor, title: "Marine Safaris", description: "Snorkeling and diving at Diani and Watamu coral reefs.", timing: "October-March" }
 ]
 
 const safariTypes = [
@@ -501,7 +501,9 @@ export default function KenyaSafari() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {safariActivities.map((activity, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#D4C5B9]">
-                <div className="text-4xl mb-4">{activity.icon}</div>
+                <div className="w-14 h-14 mb-4 rounded-full bg-[#D4A03A]/10 flex items-center justify-center">
+                  <activity.icon size={24} className="text-[#D4A03A]" />
+                </div>
                 <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2">{activity.title}</h4>
                 <p className="text-[#2C3E50]/80 text-sm mb-3">{activity.description}</p>
                 <div className="flex items-center gap-2 text-[#CD7F32] text-xs">

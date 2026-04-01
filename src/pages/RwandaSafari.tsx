@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Footprints, Bird, Mountain, Car, Anchor, Trees, Users, Wind } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -70,16 +70,16 @@ const rwandaParks = [
 ]
 
 const safariActivities = [
-  { icon: "🦍", title: "Gorilla Trekking", description: "An unforgettable hour with mountain gorillas in Volcanoes National Park.", timing: "Year-round" },
-  { icon: "🐒", title: "Golden Monkey Tracking", description: "Track the endangered golden monkeys in their bamboo forest habitat.", timing: "Year-round" },
-  { icon: "🐆", title: "Chimpanzee Tracking", description: "Explore Nyungwe Forest to find habituated chimpanzee families.", timing: "Year-round" },
-  { icon: "🚙", title: "Big Five Game Drives", description: "Explore Akagera's savannah for lions, elephants, rhinos, buffaloes, and leopards.", timing: "June-September" },
-  { icon: "🦅", title: "Bird Watching", description: "Discover over 500 bird species including the Rwenzori turaco.", timing: "Year-round" },
-  { icon: "🛶", title: "Canopy Walks", description: "Walk through the forest canopy on elevated walkways in Nyungwe.", timing: "Year-round" },
-  { icon: "🏔️", title: "Volcano Hiking", description: "Hike the Virunga volcanoes with stunning views and rare wildlife.", timing: "June-September" },
-  { icon: "🎣", title: "Fishing", description: "Catch Nile perch and tilapia in Lake Kivu's pristine waters.", timing: "Year-round" },
-  { icon: "🏛️", title: "Cultural Tours", description: "Visit the Kigali Genocide Memorial and experience local traditions.", timing: "Year-round" },
-  { icon: "🌿", title: "Nature Walks", description: "Guided walks through Rwanda's diverse ecosystems.", timing: "Year-round" }
+  { icon: Footprints, title: "Gorilla Trekking", description: "An unforgettable hour with mountain gorillas in Volcanoes National Park.", timing: "Year-round" },
+  { icon: Bird, title: "Golden Monkey Tracking", description: "Track the endangered golden monkeys in their bamboo forest habitat.", timing: "Year-round" },
+  { icon: Bird, title: "Chimpanzee Tracking", description: "Explore Nyungwe Forest to find habituated chimpanzee families.", timing: "Year-round" },
+  { icon: Car, title: "Big Five Game Drives", description: "Explore Akagera's savannah for lions, elephants, rhinos, buffaloes, and leopards.", timing: "June-September" },
+  { icon: Bird, title: "Bird Watching", description: "Discover over 500 bird species including the Rwenzori turaco.", timing: "Year-round" },
+  { icon: Trees, title: "Canopy Walks", description: "Walk through the forest canopy on elevated walkways in Nyungwe.", timing: "Year-round" },
+  { icon: Mountain, title: "Volcano Hiking", description: "Hike the Virunga volcanoes with stunning views and rare wildlife.", timing: "June-September" },
+  { icon: Anchor, title: "Fishing", description: "Catch Nile perch and tilapia in Lake Kivu's pristine waters.", timing: "Year-round" },
+  { icon: Users, title: "Cultural Tours", description: "Visit the Kigali Genocide Memorial and experience local traditions.", timing: "Year-round" },
+  { icon: Wind, title: "Nature Walks", description: "Guided walks through Rwanda's diverse ecosystems.", timing: "Year-round" }
 ]
 
 const safariTypes = [
@@ -433,7 +433,9 @@ export default function RwandaSafari() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {safariActivities.map((activity, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#D4C5B9]">
-                <div className="text-4xl mb-4">{activity.icon}</div>
+                <div className="w-14 h-14 mb-4 rounded-full bg-[#D4A03A]/10 flex items-center justify-center">
+                  <activity.icon size={24} className="text-[#D4A03A]" />
+                </div>
                 <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2">{activity.title}</h4>
                 <p className="text-[#2C3E50]/80 text-sm mb-3">{activity.description}</p>
                 <div className="flex items-center gap-2 text-[#CD7F32] text-xs">
