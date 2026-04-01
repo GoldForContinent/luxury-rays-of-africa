@@ -124,9 +124,13 @@ const safariTypes = [
 ]
 
 const samplePackages = [
-  { title: "Ndutu Calving Safari", nights: "4 Days / 3 Nights", price: "3,228", destinations: ["Ndutu"] },
-  { title: "Tarangire, Serengeti & Ngorongoro Luxury", nights: "8 Days / 7 Nights", price: "6,540", destinations: ["Ngorongoro", "Serengeti", "Tarangire"] },
-  { title: "Serengeti Wildebeest Safari", nights: "8 Days / 7 Nights", price: "8,052", destinations: ["Ngorongoro", "Serengeti"] }
+  { title: "Kenya - Tanzania Safari", nights: 16, price: "7,150", destinations: ["Kenya", "Tanzania"], path: "/kenya-tanzania-safari" },
+  { title: "Classic Sky Safari in Tanzania", nights: "8 Days / 7 Nights", price: "12,500", destinations: ["Tarangire", "Ngorongoro", "Serengeti"], path: "/tanzania-classic-sky-safari" },
+  { title: "Best of Zanzibar Beach Extension", nights: "6 Days / 5 Nights", price: "2,970", destinations: ["Zanzibar"], path: "/tanzania-best-of-zanzibar" },
+  { title: "Diani Beach Extension", nights: "5 Days / 4 Nights", price: "1,270", destinations: ["Diani Beach"], path: "/tanzania-diani-beach-extension" },
+  { title: "Ndutu Calving Safari", nights: "4 Days / 3 Nights", price: "3,228", destinations: ["Ndutu"], path: "/tanzania-ndutu-calving-safari" },
+  { title: "Tarangire, Serengeti & Ngorongoro Luxury", nights: "8 Days / 7 Nights", price: "6,540", destinations: ["Ngorongoro", "Serengeti", "Tarangire"], path: "/tanzania-luxury-safari-8days" },
+  { title: "Serengeti Wildebeest Safari", nights: "8 Days / 7 Nights", price: "8,052", destinations: ["Ngorongoro", "Serengeti"], path: "/tanzania-wildebeest-safari" }
 ]
 
 const accommodations = [

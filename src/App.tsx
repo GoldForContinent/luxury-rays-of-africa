@@ -47,6 +47,12 @@ import KenyaSaveTheElephantSafari from './pages/KenyaSaveTheElephantSafari'
 import KenyaSaveTheRhinoSafari from './pages/KenyaSaveTheRhinoSafari'
 import KenyaUltimateFamilySafariKenya from './pages/KenyaUltimateFamilySafariKenya'
 import TanzaniaSafari from './pages/TanzaniaSafari'
+import TanzaniaClassicSkySafari from './pages/TanzaniaClassicSkySafari'
+import TanzaniaBestOfZanzibar from './pages/TanzaniaBestOfZanzibar'
+import TanzaniaDianiBeachExtension from './pages/TanzaniaDianiBeachExtension'
+import TanzaniaNdutuCalvingSafari from './pages/TanzaniaNdutuCalvingSafari'
+import TanzaniaLuxurySafari8Days from './pages/TanzaniaLuxurySafari8Days'
+import TanzaniaWildebeestSafari from './pages/TanzaniaWildebeestSafari'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
 import Layout from './components/Layout'
@@ -102,6 +108,12 @@ function App() {
         <Route path="/kenya-save-the-rhino-safari" element={<KenyaSaveTheRhinoSafari />} />
         <Route path="/kenya-ultimate-family-safari-kenya" element={<KenyaUltimateFamilySafariKenya />} />
         <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
+        <Route path="/tanzania-classic-sky-safari" element={<TanzaniaClassicSkySafari />} />
+        <Route path="/tanzania-best-of-zanzibar" element={<TanzaniaBestOfZanzibar />} />
+        <Route path="/tanzania-diani-beach-extension" element={<TanzaniaDianiBeachExtension />} />
+        <Route path="/tanzania-ndutu-calving-safari" element={<TanzaniaNdutuCalvingSafari />} />
+        <Route path="/tanzania-luxury-safari-8days" element={<TanzaniaLuxurySafari8Days />} />
+        <Route path="/tanzania-wildebeest-safari" element={<TanzaniaWildebeestSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
         <Route path="/journal" element={<Journal />} />
