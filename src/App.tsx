@@ -19,6 +19,9 @@ import WhatToPack from './pages/WhatToPack'
 import KenyaSafari from './pages/KenyaSafari'
 import KenyaSignatureSafari from './pages/KenyaSignatureSafari'
 import KenyaWingsOverWilderness from './pages/KenyaWingsOverWilderness'
+import KenyaWildNorthMountKenya from './pages/KenyaWildNorthMountKenya'
+import KenyaWomensEthicalEmpoweringSafari from './pages/KenyaWomensEthicalEmpoweringSafari'
+import KenyaSoulOfTheSavannah from './pages/KenyaSoulOfTheSavannah'
 import KenyaWingsOverWilderness4Days from './pages/KenyaWingsOverWilderness4Days'
 import TanzaniaSafari from './pages/TanzaniaSafari'
 import UgandaSafari from './pages/UgandaSafari'
@@ -49,6 +52,9 @@ function App() {
         <Route path="/kenya-signature-safari" element={<KenyaSignatureSafari />} />
         <Route path="/kenya-wings-over-wilderness" element={<KenyaWingsOverWilderness />} />
         <Route path="/kenya-wings-over-wilderness-4days" element={<KenyaWingsOverWilderness4Days />} />
+        <Route path="/kenya-soul-of-the-savannah" element={<KenyaSoulOfTheSavannah />} />
+        <Route path="/kenya-womens-ethical-empowering-safari" element={<KenyaWomensEthicalEmpoweringSafari />} />
+        <Route path="/kenya-wild-north-mount-kenya" element={<KenyaWildNorthMountKenya />} />
         <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
