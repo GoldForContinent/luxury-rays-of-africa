@@ -16,45 +16,12 @@ export default function Layout({ children }: LayoutProps) {
   }, [location.pathname])
 
   const navLinks = [
-    { path: '/travel-info', label: 'Travel Info' },
-    { path: '/', label: 'Home' },
     { path: '/safari-types', label: 'Safari Types' },
     { path: '/packages', label: 'Packages' },
     { path: '/destinations', label: 'Destinations' },
     { path: '/wildlife', label: 'Wildlife' },
-    { path: '/impact', label: 'Impact' },
-    { path: '/journal', label: 'Journal' },
+    { path: '/impact', label: 'About Us' },
     { path: '/contact', label: 'Contact' },
-  ]
-
-  const travelInfoSections = [
-    {
-      title: 'Start Your Journey Here',
-      items: [
-        { name: 'Your First Safari', path: '/first-safari' },
-        { name: 'Where To Visit', path: '/where-to-visit' },
-        { name: 'Best Time To Visit', path: '/best-time-to-visit' },
-        { name: 'What To Pack For Safari', path: '/what-to-pack' },
-      ]
-    },
-    {
-      title: 'Experiences and Activities',
-      items: [
-        { name: 'Balloon Safari', path: '/travel-info/balloon-safari' },
-        { name: 'Cultural Visits And Experiences', path: '/travel-info/cultural-visits' },
-        { name: 'Walking Safaris', path: '/travel-info/walking-safaris' },
-        { name: 'Helicopter Safaris', path: '/travel-info/helicopter-safaris' },
-      ]
-    },
-    {
-      title: 'Travel Guide',
-      items: [
-        { name: 'Apply For Visas', path: '/travel-info/visas' },
-        { name: 'Month To Month Safari Guide', path: '/travel-info/monthly-guide' },
-        { name: 'Health And Safety On Safari', path: '/travel-info/health-safety' },
-        { name: 'Safest Countries For Safaris', path: '/travel-info/safest-countries' },
-      ]
-    }
   ]
 
   const destinations = [
@@ -195,59 +162,7 @@ export default function Layout({ children }: LayoutProps) {
                       </div>
                     </div>
                   </div>
-                ) : link.path === '/travel-info' ? (
-                  <div 
-                    className="relative"
-                    onMouseEnter={() => setActiveDropdown('travel-info')}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <button 
-                      className={`text-sm font-bold transition-all duration-300 flex items-center gap-1 px-3 py-2 rounded-lg ${
-                        location.pathname.startsWith('/travel-info')
-                          ? index % 2 === 0 ? 'text-white' : 'text-[#D4A03A]'
-                          : index % 2 === 0 ? 'text-white hover:text-[#D4A03A]' : 'text-[#D4A03A] hover:text-white'
-                      }`}
-                    >
-                      {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${
-                        activeDropdown === 'travel-info' ? 'rotate-180' : ''
-                      }`} />
-                    </button>
-                    
-                    {/* Glass-like Travel Info Dropdown */}
-                    <div className={`absolute top-full left-0 mt-2 transition-all duration-300 ${
-                      activeDropdown === 'travel-info' 
-                        ? 'opacity-100 translate-y-0 visible' 
-                        : 'opacity-0 -translate-y-2 invisible'
-                    }`}>
-                      <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-6 min-w-[600px]">
-                        <div className="grid grid-cols-3 gap-6">
-                          {travelInfoSections.map((section) => (
-                            <div key={section.title}>
-                              <h4 className="text-[#D4A03A] font-semibold text-sm mb-4 uppercase tracking-wider">
-                                {section.title}
-                              </h4>
-                              <div className="space-y-3">
-                                {section.items.map((item) => (
-                                  <Link
-                                    key={item.path}
-                                    to={item.path}
-                                    className="block group"
-                                    onClick={() => setActiveDropdown(null)}
-                                  >
-                                    <div className="text-sm text-[#F7F2EA]/80 group-hover:text-[#D4A03A] transition-colors duration-200 py-1">
-                                      {item.name}
-                                    </div>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
+                  ) : (
                   <Link
                     to={link.path}
                     className={`text-sm font-bold transition-all duration-300 px-3 py-2 rounded-lg ${
@@ -281,7 +196,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md py-4 px-4 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link, index) => (
               <div key={link.path}>
-                {link.path === '/destinations' || link.path === '/travel-info' ? (
+                {link.path === '/destinations' ? (
                   <>
                     <button
                       className={`block w-full text-left py-3 font-bold transition-colors flex items-center justify-between ${
@@ -289,57 +204,30 @@ export default function Layout({ children }: LayoutProps) {
                           ? 'text-white hover:text-[#D4A03A]' 
                           : 'text-[#D4A03A] hover:text-white'
                       }`}
-                      onClick={() => setActiveDropdown(activeDropdown === link.path.slice(1) ? null : link.path.slice(1))}
+                      onClick={() => setActiveDropdown(activeDropdown === 'destinations' ? null : 'destinations')}
                     >
                       {link.label}
-                      {link.path === '/destinations' || link.path === '/travel-info' ? (
-                        <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.path.slice(1) ? 'rotate-180' : ''}`} />
-                      ) : null}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'destinations' ? 'rotate-180' : ''}`} />
                     </button>
-                    {activeDropdown === link.path.slice(1) && (
+                    {activeDropdown === 'destinations' && (
                       <div className="pl-4 space-y-2">
-                        {link.path === '/destinations' && (
-                          <>
-                            <Link
-                              to="/destinations"
-                              className="block py-2 text-sm text-[#D4A03A]"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              All Destinations
-                            </Link>
-                            {destinations.map((dest) => (
-                              <Link
-                                key={dest.path}
-                                to={dest.path}
-                                className="block py-2 text-sm text-[#D4A03A]/60"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                              >
-                                {dest.name}
-                              </Link>
-                            ))}
-                          </>
-                        )}
-                        {link.path === '/travel-info' && (
-                          <>
-                            {travelInfoSections.map((section) => (
-                              <div key={section.title} className="py-2">
-                                <h5 className="text-xs text-[#D4A03A] font-semibold uppercase tracking-wider mb-2">
-                                  {section.title}
-                                </h5>
-                                {section.items.map((item) => (
-                                  <Link
-                                    key={item.path}
-                                    to={item.path}
-                                    className="block py-1 text-sm text-[#D4A03A]/60"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                  >
-                                    {item.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            ))}
-                          </>
-                        )}
+                        <Link
+                          to="/destinations"
+                          className="block py-2 text-sm text-[#D4A03A]"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          All Destinations
+                        </Link>
+                        {destinations.map((dest) => (
+                          <Link
+                            key={dest.path}
+                            to={dest.path}
+                            className="block py-2 text-sm text-[#D4A03A]/60"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {dest.name}
+                          </Link>
+                        ))}
                       </div>
                     )}
                   </>
@@ -390,22 +278,13 @@ export default function Layout({ children }: LayoutProps) {
             </div>
             
             <div>
-              <h4 className="font-semibold text-[#D4A03A] mb-4">Quick Links</h4>
+              <h4 className="font-semibold text-[#D4A03A] mb-4">Explore</h4>
               <ul className="space-y-2">
-                <li><Link to="/destinations" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Destinations</Link></li>
                 <li><Link to="/safari-types" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Safari Types</Link></li>
+                <li><Link to="/destinations" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Destinations</Link></li>
                 <li><Link to="/packages" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Packages</Link></li>
-                <li><Link to="/contact" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-[#D4A03A] mb-4">Travel Info</h4>
-              <ul className="space-y-2">
-                <li><Link to="/first-safari" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Your First Safari</Link></li>
-                <li><Link to="/where-to-visit" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Where to Visit</Link></li>
-                <li><Link to="/best-time-to-visit" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Best Time to Visit</Link></li>
-                <li><Link to="/what-to-pack" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">What to Pack</Link></li>
+                <li><Link to="/journal" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Journal</Link></li>
+                <li><Link to="/impact" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">About Us</Link></li>
               </ul>
             </div>
             
