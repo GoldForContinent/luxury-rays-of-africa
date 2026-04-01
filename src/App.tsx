@@ -23,6 +23,14 @@ import KenyaWildNorthMountKenya from './pages/KenyaWildNorthMountKenya'
 import KenyaWomensEthicalEmpoweringSafari from './pages/KenyaWomensEthicalEmpoweringSafari'
 import KenyaSoulOfTheSavannah from './pages/KenyaSoulOfTheSavannah'
 import KenyaWingsOverWilderness4Days from './pages/KenyaWingsOverWilderness4Days'
+import KenyaEcoAdventureSafariBudget from './pages/KenyaEcoAdventureSafariBudget'
+import KenyaEcoAdventureSafariLuxury from './pages/KenyaEcoAdventureSafariLuxury'
+import KenyaTwinTreasuresMaraLumo from './pages/KenyaTwinTreasuresMaraLumo'
+import KenyaPhotographicSafari14Days from './pages/KenyaPhotographicSafari14Days'
+import KenyaGuidedPhotoSafariDavidDouglas from './pages/KenyaGuidedPhotoSafariDavidDouglas'
+import KenyaRoadPackageMaasaiMara from './pages/KenyaRoadPackageMaasaiMara'
+import KenyaUkuleleMusicalSafari from './pages/KenyaUkuleleMusicalSafari'
+import KenyaMagicalMaasaiMara from './pages/KenyaMagicalMaasaiMara'
 import TanzaniaSafari from './pages/TanzaniaSafari'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
@@ -55,6 +63,14 @@ function App() {
         <Route path="/kenya-soul-of-the-savannah" element={<KenyaSoulOfTheSavannah />} />
         <Route path="/kenya-womens-ethical-empowering-safari" element={<KenyaWomensEthicalEmpoweringSafari />} />
         <Route path="/kenya-wild-north-mount-kenya" element={<KenyaWildNorthMountKenya />} />
+        <Route path="/kenya-eco-adventure-safari-budget" element={<KenyaEcoAdventureSafariBudget />} />
+        <Route path="/kenya-eco-adventure-safari-luxury" element={<KenyaEcoAdventureSafariLuxury />} />
+        <Route path="/kenya-twin-treasures-mara-lumo" element={<KenyaTwinTreasuresMaraLumo />} />
+        <Route path="/kenya-photographic-safari-14days" element={<KenyaPhotographicSafari14Days />} />
+        <Route path="/kenya-guided-photo-safari-david-douglas" element={<KenyaGuidedPhotoSafariDavidDouglas />} />
+        <Route path="/kenya-road-package-maasai-mara" element={<KenyaRoadPackageMaasaiMara />} />
+        <Route path="/kenya-ukulele-musical-safari" element={<KenyaUkuleleMusicalSafari />} />
+        <Route path="/kenya-magical-maasai-mara" element={<KenyaMagicalMaasaiMara />} />
         <Route path="/tanzania-safaris" element={<TanzaniaSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />

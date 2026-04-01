@@ -133,7 +133,15 @@ const samplePackages = [
   { title: "Wings Over the Wilderness Safari", nights: "4 Days / 3 Nights", price: "5,105", destinations: ["Nairobi", "Masai Mara"], path: "/kenya-wings-over-wilderness-4days" },
   { title: "Soul of the Savannah: An Intimate Escape", nights: "7 Days / 6 Nights", price: "7,111", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-soul-of-the-savannah" },
   { title: "Women's Ethical & Empowering Safari", nights: 11, price: "7,950", destinations: ["Masai Mara", "Samburu", "Ol Pejeta"], path: "/kenya-womens-ethical-empowering-safari" },
-  { title: "Wild North & Mount Kenya Expedition", nights: 10, price: "5,490", destinations: ["Samburu", "Mount Kenya", "Ol Pejeta"], path: "/kenya-wild-north-mount-kenya" }
+  { title: "Wild North & Mount Kenya Expedition", nights: 10, price: "5,490", destinations: ["Samburu", "Mount Kenya", "Ol Pejeta"], path: "/kenya-wild-north-mount-kenya" },
+  { title: "Eco Adventure Safari - Budget", nights: 9, price: "4,180", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-eco-adventure-safari-budget" },
+  { title: "Eco Adventure Safari - Luxury", nights: 9, price: "4,320", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-eco-adventure-safari-luxury" },
+  { title: "Twin Treasures: Mara to Lumo", nights: 7, price: "5,020", destinations: ["Masai Mara", "Lumo", "Shompole"], path: "/kenya-twin-treasures-mara-lumo" },
+  { title: "Kenya Photographic Safari", nights: 14, price: "12,190", destinations: ["Samburu", "Lake Nakuru", "Masai Mara"], path: "/kenya-photographic-safari-14days" },
+  { title: "Guided Photo Safari - David Douglas", nights: 10, price: "13,200", destinations: ["Masai Mara", "Samburu"], path: "/kenya-guided-photo-safari-david-douglas" },
+  { title: "Road Package to Maasai Mara", nights: 3, price: "1,150", destinations: ["Masai Mara"], path: "/kenya-road-package-maasai-mara" },
+  { title: "Ukulele Musical Safari", nights: 10, price: "4,600", destinations: ["Lake Nakuru", "Masai Mara", "Amboseli"], path: "/kenya-ukulele-musical-safari" },
+  { title: "Magical Maasai Mara", nights: 4, price: "3,130", destinations: ["Masai Mara"], path: "/kenya-magical-maasai-mara" }
 ]
 
 const accommodations = [
