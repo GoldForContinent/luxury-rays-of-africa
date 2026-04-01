@@ -76,15 +76,19 @@ const faqData = [
 ]
 
 const kenyaParks = [
-  { name: "Masai Mara National Reserve", description: "The world-famous reserve hosting the Great Migration, with exceptional Big Five viewing.", image: "/masai_mara.jpg" },
-  { name: "Amboseli National Park", description: "Famous for massive elephant herds framed against Mount Kilimanjaro.", image: "/amboseli.jpg" },
-  { name: "Samburu National Reserve", description: "Home to the unique 'Special Five' species found nowhere else.", image: "/samburu.jpg" },
-  { name: "Lake Nakuru National Park", description: "A birdwatcher's paradise famous for flamingos and rhino populations.", image: "/kenya_card.jpg" },
-  { name: "Tsavo East & West", description: "Kenya's largest parks offering remote wilderness and red elephants.", image: "/destinations_hero.jpg" },
-  { name: "Ol Pejeta Conservancy", description: "Premier rhino conservation sanctuary with exclusive luxury camps.", image: "/hero_sunrise.jpg" },
-  { name: "Marsabit National Park", description: "A densely forested mountain sanctuary with crater lakes.", image: "/unfiltered_collage_01.jpg" },
-  { name: "Loisaba Conservancy", description: "56,000-acre pristine wilderness in Kenya's northern frontier.", image: "/unfiltered_collage_02.jpg" },
-  { name: "Lake Naivasha", description: "Beautiful freshwater lake famous for hippos and boat safaris.", image: "/migration_collage_01.jpg" }
+  { name: "Maasai Mara Game Reserve", description: "World-famous reserve hosting the Great Migration with exceptional Big Five viewing.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Amboseli National Park", description: "Famous for massive elephant herds framed against Mount Kilimanjaro.", image: "https://images.pexels.com/photos/2835439/pexels-photo-2835439.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Samburu Game Reserve", description: "Home to the unique 'Special Five' species found nowhere else in Kenya.", image: "https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Lake Naivasha", description: "Kenya's largest freshwater lake with diverse bird species and hippos.", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Tsavo West", description: "Stunning landscapes with volcanic hills and diverse wildlife.", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Tsavo East", description: "Kenya's largest park with red elephants and dramatic wilderness.", image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Lumo Community Conservancy", description: "Community-run conservancy with excellent wildlife viewing.", image: "https://images.pexels.com/photos/4614229/pexels-photo-4614229.jpeg?auto=compress&cs=tinysrgb&w=800" }
+]
+
+const kenyaBeaches = [
+  { name: "Diani & Watamu", description: "White sandy beaches with turquoise waters and coral reefs.", image: "https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Lamu", description: "Ancient Swahili culture with pristine beaches and coral reefs.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { name: "Mombasa & Marine Park", description: "Historic city with marine parks for snorkeling and diving.", image: "https://images.pexels.com/photos/235956/pexels-photo-235956.jpeg?auto=compress&cs=tinysrgb&w=800" }
 ]
 
 const safariActivities = [
@@ -124,9 +128,12 @@ const safariTypes = [
 ]
 
 const samplePackages = [
-  { title: "Luxury Serengeti Safari - Kenya & Tanzania", nights: 10, price: "11,496", destinations: ["Amboseli", "Lake Manyara", "Masai Mara", "Ngorongoro", "Serengeti"] },
-  { title: "Flying Safari to Samburu and Maasai Mara", nights: "7 Days / 6 Nights", price: "4,825", destinations: ["Masai Mara", "Samburu"] },
-  { title: "Kenya Classic Safari", nights: "9 Days / 8 Nights", price: "6,856", destinations: ["Lake Naivasha", "Lake Nakuru", "Masai Mara", "Samburu"] }
+  { title: "Kenya Signature Safari", nights: 11, price: "9,100", destinations: ["Maasai Mara", "Samburu", "Amboseli"] },
+  { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"] },
+  { title: "Wings Over the Wilderness Safari", nights: "4 Days / 3 Nights", price: "5,105", destinations: ["Nairobi", "Masai Mara"] },
+  { title: "Soul of the Savannah: An Intimate Escape", nights: "7 Days / 6 Nights", price: "7,111", destinations: ["Lake Nakuru", "Masai Mara"] },
+  { title: "Women's Ethical & Empowering Safari", nights: 11, price: "7,950", destinations: ["Masai Mara", "Samburu", "Ol Pejeta"] },
+  { title: "Wild North & Mount Kenya Expedition", nights: 10, price: "5,490", destinations: ["Samburu", "Mount Kenya", "Ol Pejeta"] }
 ]
 
 const accommodations = [
@@ -390,6 +397,48 @@ export default function KenyaSafari() {
                   </p>
                   <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
                     View Park <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Beaches & Marine Parks */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Relax</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4">
+              BEACHES & MARINE PARKS
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {kenyaBeaches.map((beach, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={beach.image} 
+                    alt={beach.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h4 className="font-display font-bold text-lg text-white">{beach.name}</h4>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-[#2C3E50]/80 text-sm leading-relaxed mb-4 line-clamp-2">
+                    {beach.description}
+                  </p>
+                  <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
+                    Explore <ArrowRight size={14} />
                   </Link>
                 </div>
               </div>
