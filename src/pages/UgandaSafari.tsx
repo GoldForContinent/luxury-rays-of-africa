@@ -6,6 +6,46 @@ import { ArrowRight, CheckIcon, MapPinIcon, StarIcon, ClockIcon, PawPrint, Bird,
 
 gsap.registerPlugin(ScrollTrigger)
 
+const safariActivities = [
+  { icon: PawPrint, title: "Gorilla Trekking", description: "Bwindi hosts half the world's mountain gorillas. Intense one-hour encounter.", timing: "June-September & Dec-Feb" },
+  { icon: PawPrint, title: "Chimpanzee Tracking", description: "Kibale offers the best chimp viewing in Africa at close range.", timing: "Year-round" },
+  { icon: Camera, title: "Game Drives in Queen Elizabeth", description: "Spot tree-climbing lions, elephants, and herds of buffalo.", timing: "June-October" },
+  { icon: Waves, title: "Murchison Falls", description: "Boat cruise to dramatic waterfall where Nile squeezes through gorge.", timing: "June-October" },
+  { icon: Anchor, title: "White Water Rafting", description: "Jinja offers world-class rafting on the source of the Nile.", timing: "October-March" },
+  { icon: Bird, title: "Birdwatching", description: "Over 1,000 species including the prehistoric shoebill stork.", timing: "Year-round" },
+  { icon: Mountain, title: "Mountain Climbing", description: "Summit Mount Rwenzori or hike through the Rwenzori foothills.", timing: "June-October" },
+  { icon: Ship, title: "Boat Safaris", description: "Kazinga Channel cruises for hippos, crocodiles, and waterbirds.", timing: "Year-round" },
+  { icon: Landmark, title: "Cultural Tours", description: "Batwa village visits and community experiences near parks.", timing: "Year-round" }
+]
+
+const ugandaParks = [
+  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png" },
+  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg" },
+  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/family_safari.jpg" },
+  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/unfiltered_collage_01.jpg" },
+  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/unfiltered_collage_02.jpg" },
+  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/migration_collage_01.jpg" },
+  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/destinations_hero.jpg" },
+  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/hero_sunrise.jpg" },
+  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/kenya_card.jpg" }
+]
+
+const samplePackages = [
+  { title: "Gorilla Extension", nights: "4 Days / 3 Nights", price: "3,900", path: "/uganda-gorilla-extension", destinations: ["Entebbe", "Bwindi"] },
+  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,390", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
+  { title: "Discover Uganda", nights: "13 Days / 12 Nights", price: "7,920", path: "/uganda-discover-uganda", destinations: ["Murchison Falls", "Kibale", "Bwindi", "Queen Elizabeth"] }
+]
+
+const seasonalData = [
+  { park: "Bwindi", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Kibale", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Queen Elizabeth", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Murchison Falls", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Jinja", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Lake Mburo", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Mgahinga", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+]
+
 const faqData = [
   {
     question: "Is Uganda safe to visit for safaris?",
@@ -49,6 +89,7 @@ const faqData = [
   }
 ]
 
+<<<<<<< HEAD
 const ugandaParks = [
   { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png", price: "From $800/pp/day" },
   { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg", price: "From $800/pp/day" },
@@ -62,21 +103,51 @@ const ugandaParks = [
 ]
 
 const safariActivities = [
-  { icon: PawPrint, title: "Gorilla Trekking", description: "Bwindi hosts half the world's mountain gorillas. Intense one-hour encounter.", timing: "June-September & Dec-Feb" },
-  { icon: PawPrint, title: "Chimpanzee Tracking", description: "Kibale offers the best chimp viewing in Africa at close range.", timing: "Year-round" },
-  { icon: Camera, title: "Game Drives in Queen Elizabeth", description: "Spot tree-climbing lions, elephants, and herds of buffalo.", timing: "June-October" },
-  { icon: Waves, title: "Murchison Falls", description: "Boat cruise to dramatic waterfall where Nile squeezes through gorge.", timing: "June-October" },
-  { icon: Anchor, title: "White Water Rafting", description: "Jinja offers world-class rafting on the source of the Nile.", timing: "October-March" },
-  { icon: Bird, title: "Birdwatching", description: "Over 1,000 species including the prehistoric shoebill stork.", timing: "Year-round" },
-  { icon: Mountain, title: "Mountain Climbing", description: "Summit Mount Rwenzori or hike through the Rwenzori foothills.", timing: "June-October" },
-  { icon: Ship, title: "Boat Safaris", description: "Kazinga Channel cruises for hippos, crocodiles, and waterbirds.", timing: "Year-round" },
-  { icon: Landmark, title: "Cultural Tours", description: "Batwa village visits and community experiences near parks.", timing: "Year-round" }
+  { icon: "🦍", title: "Gorilla Trekking", description: "Bwindi hosts half the world's mountain gorillas. Intense one-hour encounter.", timing: "June-September & Dec-Feb" },
+  { icon: "🐒", title: "Chimpanzee Tracking", description: "Kibale offers the best chimp viewing in Africa at close range.", timing: "Year-round" },
+  { icon: "🦁", title: "Game Drives in Queen Elizabeth", description: "Spot tree-climbing lions, elephants, and herds of buffalo.", timing: "June-October" },
+  { icon: "🌊", title: "Murchison Falls", description: "Boat cruise to dramatic waterfall where Nile squeezes through gorge.", timing: "June-October" },
+  { icon: "🚣", title: "White Water Rafting", description: "Jinja offers world-class rafting on the source of the Nile.", timing: "October-March" },
+  { icon: "🐦", title: "Birdwatching", description: "Over 1,000 species including the prehistoric shoebill stork.", timing: "Year-round" },
+  { icon: "🏔️", title: "Mountain Climbing", description: "Summit Mount Rwenzori or hike through the Rwenzori foothills.", timing: "June-October" },
+  { icon: "🛶", title: "Boat Safaris", description: "Kazinga Channel cruises for hippos, crocodiles, and waterbirds.", timing: "Year-round" },
+  { icon: "🤿", title: "Scuba Diving", description: "Lake Mutanda and other spots for unique freshwater diving.", timing: "November-April" },
+  { icon: "🏛️", title: "Cultural Tours", description: "Batwa village visits and community experiences near parks.", timing: "Year-round" }
+]
+
+const safariTypes = [
+  {
+    title: "Gorilla & Chimp Trekking Safari", price: "$1,500 - $2,500", perPerson: "per person per day",
+    description: "Combine gorilla trekking in Bwindi with chimpanzee tracking in Kibale. The ultimate primate experience.",
+    features: ["Bwindi gorilla permit included", "Kibale chimp tracking", "Expert guides", "Forest lodge stay"]
+  },
+  {
+    title: "Luxury Uganda Fly-In Safari", price: "$2,500 - $4,000+", perPerson: "per person per day",
+    description: "Fly between parks in small aircraft. Stay in luxury lodges with all-inclusive service.",
+    features: ["Fly-in between camps", "Luxury lodge accommodation", "Private game drives", "All meals & drinks"]
+  },
+  {
+    title: "Uganda Complete Safari", price: "From $3,500", perPerson: "per person (10 days)",
+    description: "Cover gorillas, chimps, Queen Elizabeth, and Murchison Falls in one epic journey.",
+    features: ["All major parks", "Mixed activities", "Domestic flights", "Professional guide"]
+  },
+  {
+    title: "Primates & Wildlife Combo", price: "$2,000 - $3,500", perPerson: "per person per day",
+    description: "Primate experiences combined with classic Big Five game drives in savanna parks.",
+    features: ["Gorilla & chimp permits", "Queen Elizabeth game drives", "Boat safaris", "Expert naturalist guide"]
+  }
 ]
 
 const samplePackages = [
-  { title: "Gorilla Extension", nights: "4 Days / 3 Nights", price: "3,900", path: "/uganda-gorilla-extension", destinations: ["Entebbe", "Bwindi"] },
-  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,390", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
-  { title: "Discover Uganda", nights: "13 Days / 12 Nights", price: "7,920", path: "/uganda-discover-uganda", destinations: ["Murchison Falls", "Kibale", "Bwindi", "Queen Elizabeth"] }
+  { title: "Gorilla & Chimp Express", nights: "5 Days / 4 Nights", price: "2,800", destinations: ["Entebbe", "Kibale", "Bwindi"] },
+  { title: "Ultimate Uganda Safari", nights: "10 Days / 9 Nights", price: "5,500", destinations: ["Kibale", "Queen Elizabeth", "Murchison Falls", "Bwindi"] },
+  { title: "Luxury Fly-In Gorilla Safari", nights: "7 Days / 6 Nights", price: "6,200", destinations: ["Bwindi", "Kibale", "Queen Elizabeth"] }
+]
+
+const accommodations = [
+  { name: "Gorilla Safari Lodge", location: "Bwindi", description: "Luxury lodge overlooking the Impenetrable Forest." },
+  { name: "Elephant Plains Lodge", location: "Queen Elizabeth", description: "Premium savanna lodge with game drive access." },
+  { name: "Kibale Lodge", location: "Kibale", description: "Forest-edge eco-lodge for chimpanzee tracking." }
 ]
 
 const seasonalData = [
@@ -89,6 +160,8 @@ const seasonalData = [
   { park: "Mgahinga", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
 ]
 
+=======
+>>>>>>> 97ea7d41fe667eb483cdb7a0b5c86aa25ac0cc24
 function getRatingColor(rating: string) {
   switch (rating) {
     case "Best": return "bg-green-900 text-green-300"

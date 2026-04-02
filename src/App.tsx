@@ -72,9 +72,7 @@ import RwandaGorillaTrekkingExpress from './pages/RwandaGorillaTrekkingExpress'
 import RwandaThisIsAfricaWomensCenter from './pages/RwandaThisIsAfricaWomensCenter'
 import RwandaThousandHillsDistilleries from './pages/RwandaThousandHillsDistilleries'
 import RwandaKigaliCityTour from './pages/RwandaKigaliCityTour'
-import BotswanaMakgadikgadiPans from './pages/BotswanaMakgadikgadiPans'
-import BotswanaCentralKalahari from './pages/BotswanaCentralKalahari'
-import BotswanaChobeNationalPark from './pages/BotswanaChobeNationalPark'
+>>>>>>> 97ea7d41fe667eb483cdb7a0b5c86aa25ac0cc24
 import Layout from './components/Layout'
 import './App.css'
 
