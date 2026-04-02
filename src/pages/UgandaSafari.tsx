@@ -497,44 +497,6 @@ export default function UgandaSafari() {
         </div>
       </section>
 
-      {/* Sample Packages */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              SAMPLE UGANDA SAFARI PACKAGES
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, i) => (
-              <Link key={i} to={pkg.path} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9] block">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
-                  <StarIcon />
-                </div>
-                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {pkg.destinations.map((d, j) => (
-                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
-                  <div>
-                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
-                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
-                  </div>
-                  <span className="text-[#CD7F32] font-semibold text-sm hover:underline flex items-center gap-1">
-                    View Details <ArrowRight size={14} />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-4xl mx-auto">
