@@ -160,6 +160,7 @@ function getRatingColor(rating: string) {
 
 export default function KenyaSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showAllPackages, setShowAllPackages] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -267,7 +268,7 @@ export default function KenyaSafari() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, index) => (
+            {(showAllPackages ? samplePackages : samplePackages.slice(0, 6)).map((pkg, index) => (
               <Link 
                 key={index}
                 to={pkg.path}
@@ -304,12 +305,12 @@ export default function KenyaSafari() {
           </div>
           
           <div className="text-center mt-12">
-            <Link 
-              to="/kenya-safaris#packages" 
+            <button 
+              onClick={() => setShowAllPackages(!showAllPackages)}
               className="inline-flex items-center gap-2 bg-[#D4A03A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#B8922F] transition-all"
             >
-              View All Kenya Safaris <ArrowRight size={18} />
-            </Link>
+              {showAllPackages ? 'Show Less' : 'View All Kenya Safaris'} <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </section>
