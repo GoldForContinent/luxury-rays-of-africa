@@ -58,6 +58,11 @@ import UgandaGorillaExtension from './pages/UgandaGorillaExtension'
 import UgandaPrimatesIntensive from './pages/UgandaPrimatesIntensive'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
+import RwandaGoldenMonkeyGorillaTrekking from './pages/RwandaGoldenMonkeyGorillaTrekking'
+import RwandaGorillaTrekkingExpress from './pages/RwandaGorillaTrekkingExpress'
+import RwandaThisIsAfricaWomensCenter from './pages/RwandaThisIsAfricaWomensCenter'
+import RwandaThousandHillsDistilleries from './pages/RwandaThousandHillsDistilleries'
+import RwandaKigaliCityTour from './pages/RwandaKigaliCityTour'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -122,6 +127,11 @@ function App() {
         <Route path="/uganda-primates-intensive" element={<UgandaPrimatesIntensive />} />
         <Route path="/uganda-discover-uganda" element={<UgandaDiscoverUganda />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
+        <Route path="/rwanda-golden-monkey-gorilla-trekking" element={<RwandaGoldenMonkeyGorillaTrekking />} />
+        <Route path="/rwanda-gorilla-trekking-express" element={<RwandaGorillaTrekkingExpress />} />
+        <Route path="/rwanda-this-is-africa-womens-center" element={<RwandaThisIsAfricaWomensCenter />} />
+        <Route path="/rwanda-thousand-hills-distilleries" element={<RwandaThousandHillsDistilleries />} />
+        <Route path="/rwanda-kigali-city-tour" element={<RwandaKigaliCityTour />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

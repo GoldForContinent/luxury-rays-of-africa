@@ -6,12 +6,6 @@ import { ArrowRight, Footprints, Bird, Mountain, Car, Anchor, Trees, Users, Wind
 
 gsap.registerPlugin(ScrollTrigger)
 
-const StarIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-  </svg>
-)
-
 const ClockIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10"></circle>
@@ -106,9 +100,11 @@ const safariTypes = [
 ]
 
 const samplePackages = [
-  { title: "5-Day Rwanda Gorilla Adventure", nights: 5, price: "3,895", destinations: ["Kigali", "Volcanoes"] },
-  { title: "7-Day Rwanda Wildlife Explorer", nights: "7 Days / 6 Nights", price: "4,560", destinations: ["Volcanoes", "Nyungwe", "Akagera"] },
-  { title: "10-Day Ultimate Rwanda Safari", nights: "10 Days / 9 Nights", price: "7,840", destinations: ["Kigali", "Volcanoes", "Nyungwe", "Akagera", "Lake Kivu"] }
+  { title: "Golden Monkey & Gorilla Trekking Safari", nights: "7 Days / 6 Nights", price: "4,695", destinations: ["Kigali", "Nyungwe", "Lake Kivu", "Volcanoes"], path: "/rwanda-golden-monkey-gorilla-trekking" },
+  { title: "Gorilla Trekking Express Safari", nights: "3 Days / 2 Nights", price: "1,785", destinations: ["Kigali", "Volcanoes"], path: "/rwanda-gorilla-trekking-express" },
+  { title: "This is Africa - Women's Center", nights: "1 Day", price: "90", destinations: ["Kigali"], path: "/rwanda-this-is-africa-womens-center" },
+  { title: "Visit A Thousand Hills Distilleries", nights: "1 Day", price: "120", destinations: ["Kigali"], path: "/rwanda-thousand-hills-distilleries" },
+  { title: "Kigali City Tour", nights: "1 Day", price: "60", destinations: ["Kigali"], path: "/rwanda-kigali-city-tour" }
 ]
 
 const accommodations = [
@@ -507,33 +503,46 @@ export default function RwandaSafari() {
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              SAMPLE SAFARI PACKAGES
+              OUR BEST RECOMMENDED RWANDA SAFARIS
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9]">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
-                  <StarIcon />
-                </div>
-                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {pkg.destinations.map((d, j) => (
-                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
-                  <div>
-                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
-                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {samplePackages.map((pkg, index) => (
+              <Link 
+                key={index}
+                to={pkg.path}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={`https://images.pexels.com/photos/${[2619964, 2304775, 1390361, 1684428, 3601425][index % 5]}/pexels-photo-${[2619964, 2304775, 1390361, 1684428, 3601425][index % 5]}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                    alt={pkg.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4 bg-[#D4A03A] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    From ${pkg.price}
                   </div>
-                  <Link to="/contact" className="text-[#CD7F32] font-semibold text-sm hover:underline">View Itinerary</Link>
                 </div>
-              </div>
+                <div className="p-6">
+                  <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2 group-hover:text-[#D4A03A] transition-colors">
+                    {pkg.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-[#2C3E50]/60 text-sm mb-3">
+                    <ClockIcon />
+                    <span>{pkg.nights}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {pkg.destinations.slice(0, 3).map((dest, i) => (
+                      <span key={i} className="text-xs bg-[#FAF3E0] text-[#2C3E50]/70 px-3 py-1 rounded-full">
+                        {dest}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
