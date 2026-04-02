@@ -63,10 +63,10 @@ const faqData = [
 ]
 
 const rwandaParks = [
-  { name: "Volcanoes National Park", description: "Home to mountain gorillas, golden monkeys, and breathtaking volcanic landscapes.", image: "/volcanoes.jpg" },
-  { name: "Nyungwe National Park", description: "One of Africa's oldest rainforests with 500+ bird species and chimpanzee families.", image: "/nyungwe.jpg" },
-  { name: "Akagera National Park", description: "Rwanda's premier savannah park home to the Big Five and diverse wildlife.", image: "/akagera.jpg" },
-  { name: "Gishwati-Mukura National Park", description: "A newer protected area with lush forests and wildlife rehabilitation programs.", image: "/gishwati.jpg" }
+  { name: "Volcanoes National Park", description: "Home to mountain gorillas, golden monkeys, and breathtaking volcanic landscapes.", image: "/volcanoes.jpg", price: "From $800/pp/day" },
+  { name: "Nyungwe National Park", description: "One of Africa's oldest rainforests with 500+ bird species and chimpanzee families.", image: "/nyungwe.jpg", price: "From $800/pp/day" },
+  { name: "Akagera National Park", description: "Rwanda's premier savannah park home to the Big Five and diverse wildlife.", image: "/akagera.jpg", price: "From $800/pp/day" },
+  { name: "Gishwati-Mukura National Park", description: "A newer protected area with lush forests and wildlife rehabilitation programs.", image: "/gishwati.jpg", price: "From $800/pp/day" }
 ]
 
 const safariActivities = [
@@ -369,6 +369,9 @@ export default function RwandaSafari() {
                   <p className="text-[#2C3E50]/80 text-sm leading-relaxed mb-4 line-clamp-2">
                     {park.description}
                   </p>
+                  <div className="mb-4 pt-3 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                   <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
                     View Park <ArrowRight size={14} />
                   </Link>

@@ -76,13 +76,13 @@ const faqData = [
 ]
 
 const kenyaParks = [
-  { name: "Maasai Mara Game Reserve", description: "World-famous reserve hosting the Great Migration with exceptional Big Five viewing.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Amboseli National Park", description: "Famous for massive elephant herds framed against Mount Kilimanjaro.", image: "https://images.pexels.com/photos/2835439/pexels-photo-2835439.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Samburu Game Reserve", description: "Home to the unique 'Special Five' species found nowhere else in Kenya.", image: "https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Lake Naivasha", description: "Kenya's largest freshwater lake with diverse bird species and hippos.", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Tsavo West", description: "Stunning landscapes with volcanic hills and diverse wildlife.", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Tsavo East", description: "Kenya's largest park with red elephants and dramatic wilderness.", image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Lumo Community Conservancy", description: "Community-run conservancy with excellent wildlife viewing.", image: "https://images.pexels.com/photos/4614229/pexels-photo-4614229.jpeg?auto=compress&cs=tinysrgb&w=800" }
+  { name: "Maasai Mara Game Reserve", description: "World-famous reserve hosting the Great Migration with exceptional Big Five viewing.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
+  { name: "Amboseli National Park", description: "Famous for massive elephant herds framed against Mount Kilimanjaro.", image: "https://images.pexels.com/photos/2835439/pexels-photo-2835439.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
+  { name: "Samburu Game Reserve", description: "Home to the unique 'Special Five' species found nowhere else in Kenya.", image: "https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
+  { name: "Lake Naivasha", description: "Kenya's largest freshwater lake with diverse bird species and hippos.", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
+  { name: "Tsavo West", description: "Stunning landscapes with volcanic hills and diverse wildlife.", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
+  { name: "Tsavo East", description: "Kenya's largest park with red elephants and dramatic wilderness.", image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
+  { name: "Lumo Community Conservancy", description: "Community-run conservancy with excellent wildlife viewing.", image: "https://images.pexels.com/photos/4614229/pexels-photo-4614229.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" }
 ]
 
 const kenyaBeaches = [
@@ -418,6 +418,9 @@ export default function KenyaSafari() {
                   <p className="text-[#2C3E50]/80 text-sm leading-relaxed mb-4 line-clamp-2">
                     {park.description}
                   </p>
+                  <div className="mb-4 pt-3 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                   <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
                     View Park <ArrowRight size={14} />
                   </Link>

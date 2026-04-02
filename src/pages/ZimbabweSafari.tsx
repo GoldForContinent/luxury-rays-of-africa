@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const zimbabweParks = [
-  { name: "Hwange National Park", description: "Zimbabwe's largest park with the country's biggest elephant population. Exceptional predator sightings and diverse wildlife.", image: "/zimbabwe_hwange.jpg" },
-  { name: "Mana Pools National Park", description: "UNESCO World Heritage site along the Zambezi. Famous for walking safaris and incredible leopard sightings.", image: "/zimbabwe_mana_pools.jpg" },
-  { name: "Victoria Falls", description: "One of the Seven Natural Wonders of the World. The magnificent Falls offer adventure activities and stunning views.", image: "/zimbabwe_victoria_falls.jpg" },
-  { name: "Lake Kariba", description: "Massive man-made lake with excellent fishing and boat-based wildlife viewing. Famous for tiger fish.", image: "/zimbabwe_lake_kariba.jpg" },
-  { name: "Gonarezhou National Park", description: "Zimbabwe's second largest park. Known for elephants, crocodiles, and the iconic Chilojo Cliffs.", image: "/zimbabwe_gonarezhou.jpg" },
-  { name: "Matobo National Park", description: "Ancient granite hills with San rock art. Home to rare black eagles and rhino populations.", image: "/zimbabwe_matobo.jpg" }
+  { name: "Hwange National Park", description: "Zimbabwe's largest park with the country's biggest elephant population. Exceptional predator sightings and diverse wildlife.", image: "/zimbabwe_hwange.jpg", price: "From $2,450/pp/day" },
+  { name: "Mana Pools National Park", description: "UNESCO World Heritage site along the Zambezi. Famous for walking safaris and incredible leopard sightings.", image: "/zimbabwe_mana_pools.jpg", price: "From $2,450/pp/day" },
+  { name: "Victoria Falls", description: "One of the Seven Natural Wonders of the World. The magnificent Falls offer adventure activities and stunning views.", image: "/zimbabwe_victoria_falls.jpg", price: "From $2,450/pp/day" },
+  { name: "Lake Kariba", description: "Massive man-made lake with excellent fishing and boat-based wildlife viewing. Famous for tiger fish.", image: "/zimbabwe_lake_kariba.jpg", price: "From $2,450/pp/day" },
+  { name: "Gonarezhou National Park", description: "Zimbabwe's second largest park. Known for elephants, crocodiles, and the iconic Chilojo Cliffs.", image: "/zimbabwe_gonarezhou.jpg", price: "From $2,450/pp/day" },
+  { name: "Matobo National Park", description: "Ancient granite hills with San rock art. Home to rare black eagles and rhino populations.", image: "/zimbabwe_matobo.jpg", price: "From $2,450/pp/day" }
 ]
 
 const safariActivities = [
@@ -55,9 +55,33 @@ const safariActivities = [
 ]
 
 const accommodations = [
-  { name: "Somalisa Acacia Camp", location: "Hwange", description: "Luxury camp in a private concession with excellent elephant and predator sightings.", image: "/zimbabwe_luxury1.jpg" },
-  { name: "Musango Safari Camp", location: "Mana Pools", description: "Intimate camp on the Zambezi with guided walking safaris and river activities.", image: "/zimbabwe_luxury2.jpg" },
-  { name: "Victoria Falls Hotel", location: "Victoria Falls", description: "Historic luxury hotel with panoramic views of the falls and excellent service.", image: "/zimbabwe_luxury3.jpg" }
+  { name: "Somalisa Acacia Camp", location: "Hwange", description: "Luxury camp in a private concession with excellent elephant and predator sightings.", image: "/zimbabwe_somalisa_camp.jpg" },
+  { name: "Musango Safari Camp", location: "Mana Pools", description: "Intimate camp on the Zambezi with guided walking safaris and river activities.", image: "/zimbabwe_musango_camp.jpg" },
+  { name: "Victoria Falls Hotel", location: "Victoria Falls", description: "Historic luxury hotel with panoramic views of the falls and excellent service.", image: "/zimbabwe_victoria_falls_hotel.jpg" }
+]
+
+const safariPackages = [
+  {
+    name: "5 Days Victoria Falls & Hwange Safari",
+    price: "$2,450",
+    description: "Experience the magic of Victoria Falls and wildlife in Hwange National Park",
+    duration: "5 Days / 4 Nights",
+    highlights: ["Victoria Falls tour", "Hwange game drives", "Big Five viewing", "Sunset cruises"]
+  },
+  {
+    name: "7 Days Zimbabwe Wilderness Adventure",
+    price: "$3,250",
+    description: "Explore Hwange, Mana Pools and Victoria Falls in one epic journey",
+    duration: "7 Days / 6 Nights",
+    highlights: ["Hwange National Park", "Mana Pools walking safari", "Victoria Falls", "Zambezi cruise"]
+  },
+  {
+    name: "10 Days Ultimate Zimbabwe Experience",
+    price: "$4,850",
+    description: "Complete Zimbabwe safari from Victoria Falls to Great Zimbabwe",
+    duration: "10 Days / 9 Nights",
+    highlights: ["Victoria Falls", "Hwange", "Mana Pools", "Matobo Hills", "Lake Kariba"]
+  }
 ]
 
 const seasonalData = [
@@ -264,6 +288,9 @@ export default function ZimbabweSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -348,6 +375,46 @@ export default function ZimbabweSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">May to October</h4>
               <p className="text-[#2C3E50]/70 text-sm">Dry season - excellent wildlife viewing, animals congregate at water sources.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safari Packages */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Packages</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              ZIMBABWE PACKAGES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {safariPackages.map((pkg, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="p-6 border-b border-[#D4C5B9]">
+                  <span className="text-[#D4A03A] text-sm font-semibold uppercase">{pkg.duration}</span>
+                  <h3 className="font-display font-bold text-xl text-[#2C3E50] mt-2 mb-2">{pkg.name}</h3>
+                  <p className="text-[#2C3E50]/70 text-sm mb-4">{pkg.description}</p>
+                </div>
+                <div className="p-6 bg-[#FFF8F0]">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {pkg.highlights.map((highlight, i) => (
+                      <span key={i} className="px-3 py-1 bg-[#D4A03A]/20 text-[#D4A03A] rounded-full text-xs font-medium">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display font-bold text-3xl text-[#2C3E50]">{pkg.price}</span>
+                    <Link to="/contact" className="btn-primary text-sm py-2 px-4">
+                      Book Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

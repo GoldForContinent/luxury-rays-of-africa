@@ -76,15 +76,15 @@ const faqData = [
 ]
 
 const ugandaParks = [
-  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png" },
-  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg" },
-  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/family_safari.jpg" },
-  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/unfiltered_collage_01.jpg" },
-  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/unfiltered_collage_02.jpg" },
-  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/migration_collage_01.jpg" },
-  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/destinations_hero.jpg" },
-  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/hero_sunrise.jpg" },
-  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/kenya_card.jpg" }
+  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png", price: "From $800/pp/day" },
+  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg", price: "From $800/pp/day" },
+  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/family_safari.jpg", price: "From $800/pp/day" },
+  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/unfiltered_collage_01.jpg", price: "From $800/pp/day" },
+  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/unfiltered_collage_02.jpg", price: "From $800/pp/day" },
+  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/migration_collage_01.jpg", price: "From $800/pp/day" },
+  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/destinations_hero.jpg", price: "From $800/pp/day" },
+  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/hero_sunrise.jpg", price: "From $800/pp/day" },
+  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/kenya_card.jpg", price: "From $800/pp/day" }
 ]
 
 const safariActivities = [
@@ -385,6 +385,9 @@ export default function UgandaSafari() {
                   <p className="text-[#2C3E50]/80 text-sm leading-relaxed mb-4 line-clamp-2">
                     {park.description}
                   </p>
+                  <div className="mb-4 pt-3 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                   <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
                     Discover <ArrowRight size={14} />
                   </Link>

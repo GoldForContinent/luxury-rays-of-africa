@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const botswanaParks = [
-  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg" },
-  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg" },
-  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg" },
-  { name: "Makgadikgadi Pans", description: "Vast salt pans offering otherworldly landscapes. Ancient archaeological sites and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg" },
-  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg" },
-  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg" }
+  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg", price: "From $2,500/pp/day" },
+  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg", price: "From $2,500/pp/day" },
+  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg", price: "From $2,500/pp/day" },
+  { name: "Makgadikgadi Pans", description: "Vast salt pans offering otherworldly landscapes. Ancient archaeological sites and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg", price: "From $2,500/pp/day" },
+  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg", price: "From $2,500/pp/day" },
+  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "From $2,500/pp/day" }
 ]
 
 const safariActivities = [
@@ -58,6 +58,30 @@ const accommodations = [
   { name: "Xaranna Okavango Delta Camp", location: "Okavango Delta", description: "Luxury tented camp on a private island with stunning delta views and excellent wildlife.", image: "/botswana_luxury1.jpg" },
   { name: "Chobe Game Lodge", location: "Chobe", description: "Elegant lodge on the Chobe River with panoramic views and exceptional elephant sightings.", image: "/botswana_luxury2.jpg" },
   { name: "Camp Kalahari", location: "Makgadikgadi", description: "Authentic safari camp in the ancient salt pans with adventuresome excursions.", image: "/botswana_luxury3.jpg" }
+]
+
+const safariPackages = [
+  {
+    name: "7 Days Okavango Delta Explorer",
+    price: "$3,850",
+    description: "Experience the magic of the delta with mokoro safaris and Big Five wildlife",
+    duration: "7 Days / 6 Nights",
+    highlights: ["Mokoro safaris", "Big Five viewing", "Delta flights", "Luxury camps"]
+  },
+  {
+    name: "9 Days Botswana Wildlife Odyssey",
+    price: "$4,950",
+    description: "Explore Okavango, Chobe and Moremi in one comprehensive journey",
+    duration: "9 Days / 8 Nights",
+    highlights: ["Okavango Delta", "Chobe River cruise", "Moremi Game Reserve", "Elephant viewing"]
+  },
+  {
+    name: "12 Days Ultimate Botswana Safari",
+    price: "$6,850",
+    description: "Complete Botswana experience from delta to desert pans",
+    duration: "12 Days / 11 Nights",
+    highlights: ["Okavango Delta", "Chobe", "Makgadikgadi Pans", "Central Kalahari"]
+  }
 ]
 
 const seasonalData = [
@@ -264,6 +288,9 @@ export default function BotswanaSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -348,6 +375,46 @@ export default function BotswanaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">May to October</h4>
               <p className="text-[#2C3E50]/70 text-sm">Dry season - excellent wildlife viewing, animals congregate at water sources.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safari Packages */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Packages</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              BOTSWANA PACKAGES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {safariPackages.map((pkg, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="p-6 border-b border-[#D4C5B9]">
+                  <span className="text-[#D4A03A] text-sm font-semibold uppercase">{pkg.duration}</span>
+                  <h3 className="font-display font-bold text-xl text-[#2C3E50] mt-2 mb-2">{pkg.name}</h3>
+                  <p className="text-[#2C3E50]/70 text-sm mb-4">{pkg.description}</p>
+                </div>
+                <div className="p-6 bg-[#FFF8F0]">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {pkg.highlights.map((highlight, i) => (
+                      <span key={i} className="px-3 py-1 bg-[#D4A03A]/20 text-[#D4A03A] rounded-full text-xs font-medium">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display font-bold text-3xl text-[#2C3E50]">{pkg.price}</span>
+                    <Link to="/contact" className="btn-primary text-sm py-2 px-4">
+                      Book Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

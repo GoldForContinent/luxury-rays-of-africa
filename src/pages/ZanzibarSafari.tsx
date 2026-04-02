@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const zanzibarBeaches = [
-  { name: "Nungwi Beach", description: "Famous white sand beach in the north. Perfect for sunset views and traditional dhow sailing.", image: "/zanzibar_nungwi.jpg" },
-  { name: "Kendwa Beach", description: "Pristine beach known for its stunning rock formations and lively beach parties.", image: "/zanzibar_kendwa.jpg" },
-  { name: "Paje Beach", description: "Popular kitesurfing destination on the east coast with consistent winds.", image: "/zanzibar_paje.jpg" },
-  { name: "Stone Town", description: "UNESCO World Heritage site with narrow streets, markets, and rich Swahili culture.", image: "/zanzibar_stone_town.jpg" },
-  { name: "Mnemba Atoll", description: "Private island paradise with world-class snorkeling and diving reefs.", image: "/zanzibar_mnemba.jpg" },
-  { name: "Kizimkazi", description: "Southern beach famous for dolphin watching and snorkeling with dolphins.", image: "/zanzibar_kizimkazi.jpg" }
+  { name: "Nungwi Beach", description: "Famous white sand beach in the north. Perfect for sunset views and traditional dhow sailing.", image: "/zanzibar_nungwi.jpg", price: "From $400/pp/day" },
+  { name: "Kendwa Beach", description: "Pristine beach known for its stunning rock formations and lively beach parties.", image: "/zanzibar_kendwa.jpg", price: "From $400/pp/day" },
+  { name: "Paje Beach", description: "Popular kitesurfing destination on the east coast with consistent winds.", image: "/zanzibar_paje.jpg", price: "From $400/pp/day" },
+  { name: "Stone Town", description: "UNESCO World Heritage site with narrow streets, markets, and rich Swahili culture.", image: "/zanzibar_stone_town.jpg", price: "From $400/pp/day" },
+  { name: "Mnemba Atoll", description: "Private island paradise with world-class snorkeling and diving reefs.", image: "/zanzibar_mnemba.jpg", price: "From $400/pp/day" },
+  { name: "Kizimkazi", description: "Southern beach famous for dolphin watching and snorkeling with dolphins.", image: "/zanzibar_kizimkazi.jpg", price: "From $400/pp/day" }
 ]
 
 const activities = [
@@ -58,6 +58,30 @@ const accommodations = [
   { name: "The Residence Zanzibar", location: "West Coast", description: "Luxury villas with private pools on pristine beachfront.", image: "/zanzibar_luxury1.jpg" },
   { name: "Baraza Resort & Spa", location: "East Coast", description: "Elegant boutique hotel with Swahili-inspired architecture.", image: "/zanzibar_luxury2.jpg" },
   { name: "Zanzibar Serena Hotel", location: "Stone Town", description: "Historic luxury hotel overlooking the harbor and Spice Market.", image: "/zanzibar_luxury3.jpg" }
+]
+
+const safariPackages = [
+  {
+    name: "5 Days Zanzibar Beach Paradise",
+    price: "$1,850",
+    description: "Relax on pristine beaches with optional spice tours and Stone Town exploration",
+    duration: "5 Days / 4 Nights",
+    highlights: ["Nungwi Beach", "Stone Town tour", "Spice plantation", "Sunset dhow cruise"]
+  },
+  {
+    name: "7 Days Safari & Zanzibar Adventure",
+    price: "$3,250",
+    description: "Combine Serengeti wildlife with the paradise beaches of Zanzibar",
+    duration: "7 Days / 6 Nights",
+    highlights: ["Serengeti game drives", "Ngorongoro Crater", "Zanzibar beaches", "Snorkeling"]
+  },
+  {
+    name: "10 Days Grand Tanzania Experience",
+    price: "$4,850",
+    description: "Complete Tanzania circuit ending with luxury beach time in Zanzibar",
+    duration: "10 Days / 9 Nights",
+    highlights: ["Tarangire", "Serengeti", "Ngorongoro", "Zanzibar relaxation", "Spice tour"]
+  }
 ]
 
 const seasonalData = [
@@ -264,6 +288,9 @@ export default function ZanzibarSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{beach.description}</p>
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{beach.price}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -348,6 +375,46 @@ export default function ZanzibarSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">December to March</h4>
               <p className="text-[#2C3E50]/70 text-sm">Warm and sunny, perfect for beach and diving. Great for whale shark encounters.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safari Packages */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Packages</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              ZANZIBAR PACKAGES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {safariPackages.map((pkg, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="p-6 border-b border-[#D4C5B9]">
+                  <span className="text-[#D4A03A] text-sm font-semibold uppercase">{pkg.duration}</span>
+                  <h3 className="font-display font-bold text-xl text-[#2C3E50] mt-2 mb-2">{pkg.name}</h3>
+                  <p className="text-[#2C3E50]/70 text-sm mb-4">{pkg.description}</p>
+                </div>
+                <div className="p-6 bg-[#FFF8F0]">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {pkg.highlights.map((highlight, i) => (
+                      <span key={i} className="px-3 py-1 bg-[#D4A03A]/20 text-[#D4A03A] rounded-full text-xs font-medium">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display font-bold text-3xl text-[#2C3E50]">{pkg.price}</span>
+                    <Link to="/contact" className="btn-primary text-sm py-2 px-4">
+                      Book Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

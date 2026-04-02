@@ -76,15 +76,15 @@ const faqData = [
 ]
 
 const tanzaniaParks = [
-  { name: "Serengeti National Park", description: "Home to millions of wildlife and the legendary Great Migration.", image: "/tanzania_card.jpg" },
-  { name: "Ngorongoro Crater", description: "The largest unbroken caldera in the world with unmatched wildlife density.", image: "/destinations_hero.jpg" },
-  { name: "Tarangire National Park", description: "Known for massive elephant herds and ancient baobab trees.", image: "/hero_sunrise.jpg" },
-  { name: "Lake Manyara National Park", description: "Famous for tree-climbing lions and flamingo-filled alkaline lake.", image: "/kenya_card.jpg" },
-  { name: "Ruaha National Park", description: "Remote wilderness with impressive wild dog populations.", image: "/unfiltered_collage_01.jpg" },
-  { name: "Ndutu Conservation Area", description: "The calving ground for thousands of wildebeest each year.", image: "/migration_collage_01.jpg" },
-  { name: "Mkomazi National Park", description: "Remote park in northern Tanzania with diverse ecosystems.", image: "/unfiltered_collage_02.jpg" },
-  { name: "Arusha National Park", description: "Gateway park with Mount Meru views and diverse wildlife.", image: "/family_safari.jpg" },
-  { name: "Gombe Stream National Park", description: "Famous chimpanzee tracking destination on Lake Tanganyika.", image: "/photo_safari.jpg" }
+  { name: "Serengeti National Park", description: "Home to millions of wildlife and the legendary Great Migration.", image: "/tanzania_card.jpg", price: "From $800/pp/day" },
+  { name: "Ngorongoro Crater", description: "The largest unbroken caldera in the world with unmatched wildlife density.", image: "/destinations_hero.jpg", price: "From $800/pp/day" },
+  { name: "Tarangire National Park", description: "Known for massive elephant herds and ancient baobab trees.", image: "/hero_sunrise.jpg", price: "From $800/pp/day" },
+  { name: "Lake Manyara National Park", description: "Famous for tree-climbing lions and flamingo-filled alkaline lake.", image: "/kenya_card.jpg", price: "From $800/pp/day" },
+  { name: "Ruaha National Park", description: "Remote wilderness with impressive wild dog populations.", image: "/unfiltered_collage_01.jpg", price: "From $800/pp/day" },
+  { name: "Ndutu Conservation Area", description: "The calving ground for thousands of wildebeest each year.", image: "/migration_collage_01.jpg", price: "From $800/pp/day" },
+  { name: "Mkomazi National Park", description: "Remote park in northern Tanzania with diverse ecosystems.", image: "/unfiltered_collage_02.jpg", price: "From $800/pp/day" },
+  { name: "Arusha National Park", description: "Gateway park with Mount Meru views and diverse wildlife.", image: "/family_safari.jpg", price: "From $800/pp/day" },
+  { name: "Gombe Stream National Park", description: "Famous chimpanzee tracking destination on Lake Tanganyika.", image: "/photo_safari.jpg", price: "From $800/pp/day" }
 ]
 
 const safariActivities = [
@@ -390,6 +390,9 @@ export default function TanzaniaSafari() {
                   <p className="text-[#2C3E50]/80 text-sm leading-relaxed mb-4 line-clamp-2">
                     {park.description}
                   </p>
+                  <div className="mb-4 pt-3 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                   <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
                     Discover <ArrowRight size={14} />
                   </Link>

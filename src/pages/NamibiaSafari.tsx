@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const namibiaParks = [
-  { name: "Etosha National Park", description: "Famous salt pan with excellent wildlife viewing at waterholes. Home to lions, elephants, giraffes, and springboks.", image: "/namibia_etosha.jpg" },
-  { name: "Sossusvlei & Deadvlei", description: "Iconic red sand dunes including Dune 45 and Deadvlei clay pan with ancient camel thorn trees.", image: "/namibia_sossusvlei.jpg" },
-  { name: "Skeleton Coast", description: "Remote and dramatic coastline with shipwrecks, seal colonies, and desert-adapted elephants.", image: "/namibia_skeleton_coast.jpg" },
-  { name: "Damaraland", description: "Home to desert-adapted elephants, black rhinos, and the famous Twyfelfontein rock engravings.", image: "/namibia_damaraland.jpg" },
-  { name: "Namib Desert", description: "One of the oldest deserts in the world, spanning along the Atlantic coast with towering dunes.", image: "/namibia_namib_desert.jpg" },
-  { name: "Kaokoveld", description: "Remote wilderness area in the northwest, known for desert lions and Himba communities.", image: "/namibia_kalahari.jpg" }
+  { name: "Etosha National Park", description: "Famous salt pan with excellent wildlife viewing at waterholes. Home to lions, elephants, giraffes, and springboks.", image: "/namibia_etosha.jpg", price: "From $2,400/pp/day" },
+  { name: "Sossusvlei & Deadvlei", description: "Iconic red sand dunes including Dune 45 and Deadvlei clay pan with ancient camel thorn trees.", image: "/namibia_sossusvlei.jpg", price: "From $2,400/pp/day" },
+  { name: "Skeleton Coast", description: "Remote and dramatic coastline with shipwrecks, seal colonies, and desert-adapted elephants.", image: "/namibia_skeleton_coast.jpg", price: "From $2,400/pp/day" },
+  { name: "Damaraland", description: "Home to desert-adapted elephants, black rhinos, and the famous Twyfelfontein rock engravings.", image: "/namibia_damaraland.jpg", price: "From $2,400/pp/day" },
+  { name: "Namib Desert", description: "One of the oldest deserts in the world, spanning along the Atlantic coast with towering dunes.", image: "/namibia_namib_desert.jpg", price: "From $2,400/pp/day" },
+  { name: "Kaokoveld", description: "Remote wilderness area in the northwest, known for desert lions and Himba communities.", image: "/namibia_kalahari.jpg", price: "From $2,400/pp/day" }
 ]
 
 const safariActivities = [
@@ -58,6 +58,30 @@ const accommodations = [
   { name: "Ongava Lodge", location: "Etosha", description: "Luxury lodge overlooking a private waterhole with excellent game viewing.", image: "/namibia_ongava.jpg" },
   { name: "Sossusvlei Lodge", location: "Sossusvlei", description: "Premium desert lodge with views of the dunes and star-filled skies.", image: "/namibia_luxury_desert.jpg" },
   { name: "Okonjima Lodge", location: "DamaraLand", description: "Home to the AfriCat Foundation with leopard and rhino tracking.", image: "/namibia_okonjima.jpg" }
+]
+
+const safariPackages = [
+  {
+    name: "10 Days Namibia Desert & Wildlife",
+    price: "$3,850",
+    description: "Experience the dunes of Sossusvlei and wildlife of Etosha in this classic journey",
+    duration: "10 Days / 9 Nights",
+    highlights: ["Sossusvlei dunes", "Etosha wildlife", "Desert adaptations", "Luxury lodges"]
+  },
+  {
+    name: "14 Days Complete Namibia Experience",
+    price: "$5,250",
+    description: "From the Namib Desert to the Skeleton Coast and Damaraland",
+    duration: "14 Days / 13 Nights",
+    highlights: ["Namib Desert", "Skeleton Coast", "Damaraland", "Himba culture"]
+  },
+  {
+    name: "18 Days Ultimate Namibia Safari",
+    price: "$7,450",
+    description: "The complete Namibian adventure covering all major highlights",
+    duration: "18 Days / 17 Nights",
+    highlights: ["Sossusvlei", "Etosha", "Skeleton Coast", "Kaokoveld", "Caprivi Strip"]
+  }
 ]
 
 const seasonalData = [
@@ -264,6 +288,9 @@ export default function NamibiaSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -348,6 +375,46 @@ export default function NamibiaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">May to October</h4>
               <p className="text-[#2C3E50]/70 text-sm">Cooler temperatures, excellent wildlife viewing, animals gather at waterholes.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safari Packages */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Packages</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              NAMIBIA PACKAGES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {safariPackages.map((pkg, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="p-6 border-b border-[#D4C5B9]">
+                  <span className="text-[#D4A03A] text-sm font-semibold uppercase">{pkg.duration}</span>
+                  <h3 className="font-display font-bold text-xl text-[#2C3E50] mt-2 mb-2">{pkg.name}</h3>
+                  <p className="text-[#2C3E50]/70 text-sm mb-4">{pkg.description}</p>
+                </div>
+                <div className="p-6 bg-[#FFF8F0]">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {pkg.highlights.map((highlight, i) => (
+                      <span key={i} className="px-3 py-1 bg-[#D4A03A]/20 text-[#D4A03A] rounded-full text-xs font-medium">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display font-bold text-3xl text-[#2C3E50]">{pkg.price}</span>
+                    <Link to="/contact" className="btn-primary text-sm py-2 px-4">
+                      Book Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

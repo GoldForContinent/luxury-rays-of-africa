@@ -41,12 +41,12 @@ const faqData = [
 ]
 
 const southAfricaParks = [
-  { name: "Kruger National Park", description: "One of Africa's largest and most famous game reserves. Home to the highest concentration of Big Five in South Africa.", image: "/south_africa_kruger.jpg" },
-  { name: "Sabi Sands Reserve", description: "World-renowned for exceptional leopard sightings. Exclusive private reserve bordering Kruger with luxury lodges.", image: "/south_africa_sabi_sands.jpg" },
-  { name: "Madikwe Game Reserve", description: "Top malaria-free destination. Famous for African wild dog sightings and complete Big Five experience.", image: "/south_africa_madikwe.jpg" },
-  { name: "Addo Elephant Park", description: "Third largest national park in South Africa. Features large elephant herds and diverse wildlife.", image: "/south_africa_addo.jpg" },
-  { name: "Table Mountain National Park", description: "Iconic Cape Town landmark. Cable car to summit offers panoramic views of the city and coastline.", image: "/south_africa_table_mountain.jpg" },
-  { name: "Garden Route", description: "Scenic coastal drive featuring forests, beaches, and wildlife. Tsitsikamma and Knysna highlights.", image: "/south_africa_garden_route.jpg" }
+  { name: "Kruger National Park", description: "One of Africa's largest and most famous game reserves. Home to the highest concentration of Big Five in South Africa.", image: "/south_africa_kruger.jpg", price: "From $650/pp/day" },
+  { name: "Sabi Sands Reserve", description: "World-renowned for exceptional leopard sightings. Exclusive private reserve bordering Kruger with luxury lodges.", image: "/south_africa_sabi_sands.jpg", price: "From $650/pp/day" },
+  { name: "Madikwe Game Reserve", description: "Top malaria-free destination. Famous for African wild dog sightings and complete Big Five experience.", image: "/south_africa_madikwe.jpg", price: "From $650/pp/day" },
+  { name: "Addo Elephant Park", description: "Third largest national park in South Africa. Features large elephant herds and diverse wildlife.", image: "/south_africa_addo.jpg", price: "From $650/pp/day" },
+  { name: "Table Mountain National Park", description: "Iconic Cape Town landmark. Cable car to summit offers panoramic views of the city and coastline.", image: "/south_africa_table_mountain.jpg", price: "From $650/pp/day" },
+  { name: "Garden Route", description: "Scenic coastal drive featuring forests, beaches, and wildlife. Tsitsikamma and Knysna highlights.", image: "/south_africa_garden_route.jpg", price: "From $650/pp/day" }
 ]
 
 const safariActivities = [
@@ -64,6 +64,30 @@ const accommodations = [
   { name: "Singita Boulders Lodge", location: "Sabi Sands", description: "Ultra-luxury lodge with private suites, plunge pools, and world-class game viewing.", image: "/south_africa_luxury1.jpg" },
   { name: "Lion Sands Ivory Lodge", location: "Sabi Sands", description: "Exclusive suites with floor-to-ceiling glass walls. Personal trackers and intimate wildlife encounters.", image: "/south_africa_luxury2.jpg" },
   { name: "Madikwe Safari Lodge", location: "Madikwe Reserve", description: "Malaria-free luxury in a Big Five reserve. Excellent wild dog and rhino sightings.", image: "/south_africa_luxury3.jpg" }
+]
+
+const safariPackages = [
+  {
+    name: "6 Days Kruger Big Five Safari",
+    price: "$2,850",
+    description: "Experience the best of Kruger National Park with expert guides and luxury lodges",
+    duration: "6 Days / 5 Nights",
+    highlights: ["Kruger National Park", "Big Five viewing", "Private reserves", "Luxury lodges"]
+  },
+  {
+    name: "10 Days South Africa Safari & Cape",
+    price: "$4,450",
+    description: "Combine world-class safaris with Cape Town and wine country experiences",
+    duration: "10 Days / 9 Nights",
+    highlights: ["Kruger", "Cape Town", "Wine tasting", "Table Mountain"]
+  },
+  {
+    name: "14 Days Ultimate South Africa",
+    price: "$6,250",
+    description: "Complete South Africa experience from Kruger to the Garden Route",
+    duration: "14 Days / 13 Nights",
+    highlights: ["Kruger", "Sabi Sands", "Garden Route", "Cape Town", "Whale watching"]
+  }
 ]
 
 const seasonalData = [
@@ -290,6 +314,9 @@ export default function SouthAfricaSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                    <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -374,6 +401,46 @@ export default function SouthAfricaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">May to September</h4>
               <p className="text-[#2C3E50]/70 text-sm">Peak safari season - dry weather, excellent wildlife viewing, animals at waterholes.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safari Packages */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Packages</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              SOUTH AFRICA PACKAGES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {safariPackages.map((pkg, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+                <div className="p-6 border-b border-[#D4C5B9]">
+                  <span className="text-[#D4A03A] text-sm font-semibold uppercase">{pkg.duration}</span>
+                  <h3 className="font-display font-bold text-xl text-[#2C3E50] mt-2 mb-2">{pkg.name}</h3>
+                  <p className="text-[#2C3E50]/70 text-sm mb-4">{pkg.description}</p>
+                </div>
+                <div className="p-6 bg-[#FFF8F0]">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {pkg.highlights.map((highlight, i) => (
+                      <span key={i} className="px-3 py-1 bg-[#D4A03A]/20 text-[#D4A03A] rounded-full text-xs font-medium">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display font-bold text-3xl text-[#2C3E50]">{pkg.price}</span>
+                    <Link to="/contact" className="btn-primary text-sm py-2 px-4">
+                      Book Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
