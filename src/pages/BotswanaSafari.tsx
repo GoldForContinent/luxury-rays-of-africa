@@ -274,7 +274,7 @@ export default function BotswanaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {botswanaParks.map((park, index) => (
-              <Link key={index} to={park.path} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block">
+              <a key={index} href={park.path} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -295,7 +295,7 @@ export default function BotswanaSafari() {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
