@@ -53,6 +53,9 @@ import TanzaniaDianiBeachExtension from './pages/TanzaniaDianiBeachExtension'
 import TanzaniaNdutuCalvingSafari from './pages/TanzaniaNdutuCalvingSafari'
 import TanzaniaLuxurySafari8Days from './pages/TanzaniaLuxurySafari8Days'
 import TanzaniaWildebeestSafari from './pages/TanzaniaWildebeestSafari'
+import UgandaDiscoverUganda from './pages/UgandaDiscoverUganda'
+import UgandaGorillaExtension from './pages/UgandaGorillaExtension'
+import UgandaPrimatesIntensive from './pages/UgandaPrimatesIntensive'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
 import Layout from './components/Layout'
@@ -115,6 +118,9 @@ function App() {
         <Route path="/tanzania-luxury-safari-8days" element={<TanzaniaLuxurySafari8Days />} />
         <Route path="/tanzania-wildebeest-safari" element={<TanzaniaWildebeestSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
+        <Route path="/uganda-gorilla-extension" element={<UgandaGorillaExtension />} />
+        <Route path="/uganda-primates-intensive" element={<UgandaPrimatesIntensive />} />
+        <Route path="/uganda-discover-uganda" element={<UgandaDiscoverUganda />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />

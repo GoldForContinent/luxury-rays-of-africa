@@ -124,9 +124,9 @@ const safariTypes = [
 ]
 
 const samplePackages = [
-  { title: "Gorilla & Chimp Express", nights: "5 Days / 4 Nights", price: "2,800", destinations: ["Entebbe", "Kibale", "Bwindi"] },
-  { title: "Ultimate Uganda Safari", nights: "10 Days / 9 Nights", price: "5,500", destinations: ["Kibale", "Queen Elizabeth", "Murchison Falls", "Bwindi"] },
-  { title: "Luxury Fly-In Gorilla Safari", nights: "7 Days / 6 Nights", price: "6,200", destinations: ["Bwindi", "Kibale", "Queen Elizabeth"] }
+  { title: "Gorilla Extension", nights: "4 Days / 3 Nights", price: "3,900", path: "/uganda-gorilla-extension", destinations: ["Entebbe", "Bwindi"] },
+  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,390", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
+  { title: "Discover Uganda", nights: "13 Days / 12 Nights", price: "7,920", path: "/uganda-discover-uganda", destinations: ["Murchison Falls", "Kibale", "Bwindi", "Queen Elizabeth"] }
 ]
 
 const accommodations = [
@@ -565,7 +565,7 @@ export default function UgandaSafari() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {samplePackages.map((pkg, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9]">
+              <Link key={i} to={pkg.path} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9] block">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
                   <StarIcon />
@@ -581,9 +581,11 @@ export default function UgandaSafari() {
                     <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
                     <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
                   </div>
-                  <Link to="/contact" className="text-[#CD7F32] font-semibold text-sm hover:underline">View Details</Link>
+                  <span className="text-[#CD7F32] font-semibold text-sm hover:underline flex items-center gap-1">
+                    View Details <ArrowRight size={14} />
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
