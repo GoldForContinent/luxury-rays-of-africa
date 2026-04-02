@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const botswanaParks = [
-  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg", price: "From $2,500/pp/day" },
-  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg", price: "From $2,500/pp/day" },
-  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg", price: "From $2,500/pp/day" },
-  { name: "Makgadikgadi Pans", description: "Vast salt pans offering otherworldly landscapes. Ancient archaeological sites and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg", price: "From $2,500/pp/day" },
-  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg", price: "From $2,500/pp/day" },
-  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "From $2,500/pp/day" }
+  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg", price: "From $2,500/pp/day", path: "/botswana-safaris" },
+  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg", price: "From $2,500/pp/day", path: "/botswana-chobe-national-park" },
+  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg", price: "From $2,500/pp/day", path: "/botswana-safaris" },
+  { name: "Makgadikgadi Pans", description: "Vast salt pans offering otherworldly landscapes. Ancient archaeological sites and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg", price: "From $2,500/pp/day", path: "/botswana-makgadikgadi-pans" },
+  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg", price: "From $2,500/pp/day", path: "/botswana-central-kalahari" },
+  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "From $2,500/pp/day", path: "/botswana-safaris" }
 ]
 
 const safariActivities = [
@@ -274,7 +274,7 @@ export default function BotswanaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {botswanaParks.map((park, index) => (
-              <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <Link key={index} to={park.path} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -288,11 +288,14 @@ export default function BotswanaSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
-                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9] flex items-center justify-between">
                     <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                    <span className="text-[#D4A03A] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Explore <ArrowRight size={14} />
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

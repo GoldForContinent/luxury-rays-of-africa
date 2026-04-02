@@ -58,7 +58,6 @@ import UgandaGorillaExtension from './pages/UgandaGorillaExtension'
 import UgandaPrimatesIntensive from './pages/UgandaPrimatesIntensive'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
-<<<<<<< HEAD
 import NamibiaSafari from './pages/NamibiaSafari'
 import SouthAfricaSafari from './pages/SouthAfricaSafari'
 import BotswanaSafari from './pages/BotswanaSafari'
@@ -68,13 +67,14 @@ import ZanzibarSafari from './pages/ZanzibarSafari'
 import LamuSafari from './pages/LamuSafari'
 import NosyBeSafari from './pages/NosyBeSafari'
 import MafiaSafari from './pages/MafiaSafari'
-=======
 import RwandaGoldenMonkeyGorillaTrekking from './pages/RwandaGoldenMonkeyGorillaTrekking'
 import RwandaGorillaTrekkingExpress from './pages/RwandaGorillaTrekkingExpress'
 import RwandaThisIsAfricaWomensCenter from './pages/RwandaThisIsAfricaWomensCenter'
 import RwandaThousandHillsDistilleries from './pages/RwandaThousandHillsDistilleries'
 import RwandaKigaliCityTour from './pages/RwandaKigaliCityTour'
->>>>>>> 97ea7d41fe667eb483cdb7a0b5c86aa25ac0cc24
+import BotswanaMakgadikgadiPans from './pages/BotswanaMakgadikgadiPans'
+import BotswanaCentralKalahari from './pages/BotswanaCentralKalahari'
+import BotswanaChobeNationalPark from './pages/BotswanaChobeNationalPark'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -139,23 +139,23 @@ function App() {
         <Route path="/uganda-primates-intensive" element={<UgandaPrimatesIntensive />} />
         <Route path="/uganda-discover-uganda" element={<UgandaDiscoverUganda />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
-<<<<<<< HEAD
         <Route path="/namibia-safaris" element={<NamibiaSafari />} />
         <Route path="/south-africa-safaris" element={<SouthAfricaSafari />} />
         <Route path="/botswana-safaris" element={<BotswanaSafari />} />
+        <Route path="/botswana-makgadikgadi-pans" element={<BotswanaMakgadikgadiPans />} />
+        <Route path="/botswana-central-kalahari" element={<BotswanaCentralKalahari />} />
+        <Route path="/botswana-chobe-national-park" element={<BotswanaChobeNationalPark />} />
         <Route path="/zambia-safaris" element={<ZambiaSafari />} />
         <Route path="/zimbabwe-safaris" element={<ZimbabweSafari />} />
         <Route path="/zanzibar-island" element={<ZanzibarSafari />} />
         <Route path="/lamu-island" element={<LamuSafari />} />
         <Route path="/nosy-be-island" element={<NosyBeSafari />} />
         <Route path="/mafia-island" element={<MafiaSafari />} />
-=======
         <Route path="/rwanda-golden-monkey-gorilla-trekking" element={<RwandaGoldenMonkeyGorillaTrekking />} />
         <Route path="/rwanda-gorilla-trekking-express" element={<RwandaGorillaTrekkingExpress />} />
         <Route path="/rwanda-this-is-africa-womens-center" element={<RwandaThisIsAfricaWomensCenter />} />
         <Route path="/rwanda-thousand-hills-distilleries" element={<RwandaThousandHillsDistilleries />} />
         <Route path="/rwanda-kigali-city-tour" element={<RwandaKigaliCityTour />} />
->>>>>>> 97ea7d41fe667eb483cdb7a0b5c86aa25ac0cc24
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
