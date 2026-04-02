@@ -262,7 +262,7 @@ export default function KenyaSafari() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
-              BEST RECOMMENDED SAFARIS IN KENYA
+              OUR BEST RECOMMENDED KENYA SAFARIS
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
