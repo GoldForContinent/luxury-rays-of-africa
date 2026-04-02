@@ -55,6 +55,8 @@ import TanzaniaLuxurySafari8Days from './pages/TanzaniaLuxurySafari8Days'
 import TanzaniaWildebeestSafari from './pages/TanzaniaWildebeestSafari'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
+import NamibiaSafari from './pages/NamibiaSafari'
+import SouthAfricaSafari from './pages/SouthAfricaSafari'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -116,6 +118,8 @@ function App() {
         <Route path="/tanzania-wildebeest-safari" element={<TanzaniaWildebeestSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
+        <Route path="/namibia-safaris" element={<NamibiaSafari />} />
+        <Route path="/south-africa-safaris" element={<SouthAfricaSafari />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

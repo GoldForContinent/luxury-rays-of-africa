@@ -35,8 +35,8 @@ export default function Layout({ children }: LayoutProps) {
     { name: 'Botswana', path: '/destinations/botswana', description: 'Okavango Delta paradise' },
     { name: 'Zambia', path: '/destinations/zambia', description: 'Walking safari capital' },
     { name: 'Zimbabwe', path: '/destinations/zimbabwe', description: 'Victoria Falls & wildlife' },
-    { name: 'Namibia', path: '/destinations/namibia', description: 'Desert landscapes' },
-    { name: 'South Africa', path: '/destinations/south-africa', description: 'Big Five & winelands' },
+    { name: 'Namibia', path: '/namibia-safaris', description: 'Desert landscapes' },
+    { name: 'South Africa', path: '/south-africa-safaris', description: 'Big Five & winelands' },
   ]
 
   const islandsAndBeaches = [

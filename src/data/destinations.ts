@@ -1304,8 +1304,52 @@ import {
   allFeaturedPackages as completeFeaturedPackages
 } from './raysDestinationsComplete'
 
-// Export complete destinations (enhanced with full package data)
-export const allDestinations = completeDestinations
+// Create a map of complete destinations by ID for easy lookup
+const completeDestinationsMap = new Map(completeDestinations.map(d => [d.id, d]))
+
+// Build the final destinations array - use complete destinations where available
+// otherwise keep the original (for Namibia, Zambia, Zimbabwe which are missing in complete)
+const allDestinationsList: Country[] = [...completeDestinations]
+
+// Add Namibia if missing
+if (!completeDestinationsMap.has('namibia')) {
+  // Namibia data - will be added from raysDestinationsComplete or use placeholder
+  allDestinationsList.push({
+    id: 'namibia',
+    name: 'Namibia',
+    description: 'A land of stark beauty and dramatic landscapes, Namibia offers unique desert-adapted wildlife, towering dunes, and some of Africa\'s darkest skies.',
+    image: '/destinations/namibia.jpg',
+    highlights: ['Sossusvlei Dunes', 'Etosha National Park', 'Skeleton Coast', 'Dark Skies'],
+    places: []
+  })
+}
+
+// Add Zambia if missing
+if (!completeDestinationsMap.has('zambia')) {
+  allDestinationsList.push({
+    id: 'zambia',
+    name: 'Zambia',
+    description: 'Africa\'s best-kept secret offers exceptional walking safaris, Victoria Falls from the Zambian side, and pristine wilderness areas with fewer crowds.',
+    image: '/destinations/zambia.jpg',
+    highlights: ['Victoria Falls', 'Walking Safaris', 'South Luangwa', 'Lower Zambezi'],
+    places: []
+  })
+}
+
+// Add Zimbabwe if missing
+if (!completeDestinationsMap.has('zimbabwe')) {
+  allDestinationsList.push({
+    id: 'zimbabwe',
+    name: 'Zimbabwe',
+    description: 'Home to Victoria Falls and excellent wildlife viewing, Zimbabwe offers authentic safari experiences with some of Africa\'s best-trained guides.',
+    image: '/destinations/zimbabwe.jpg',
+    highlights: ['Victoria Falls', 'Hwange National Park', 'Mana Pools', 'Great Zimbabwe'],
+    places: []
+  })
+}
+
+// Export complete destinations
+export const allDestinations = allDestinationsList
 
 // Export complete featured packages
 export const allFeaturedPackages = completeFeaturedPackages
