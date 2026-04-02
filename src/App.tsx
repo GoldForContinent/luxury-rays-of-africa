@@ -57,6 +57,13 @@ import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
 import NamibiaSafari from './pages/NamibiaSafari'
 import SouthAfricaSafari from './pages/SouthAfricaSafari'
+import BotswanaSafari from './pages/BotswanaSafari'
+import ZambiaSafari from './pages/ZambiaSafari'
+import ZimbabweSafari from './pages/ZimbabweSafari'
+import ZanzibarSafari from './pages/ZanzibarSafari'
+import LamuSafari from './pages/LamuSafari'
+import NosyBeSafari from './pages/NosyBeSafari'
+import MafiaSafari from './pages/MafiaSafari'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -120,6 +127,13 @@ function App() {
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
         <Route path="/namibia-safaris" element={<NamibiaSafari />} />
         <Route path="/south-africa-safaris" element={<SouthAfricaSafari />} />
+        <Route path="/botswana-safaris" element={<BotswanaSafari />} />
+        <Route path="/zambia-safaris" element={<ZambiaSafari />} />
+        <Route path="/zimbabwe-safaris" element={<ZimbabweSafari />} />
+        <Route path="/zanzibar-island" element={<ZanzibarSafari />} />
+        <Route path="/lamu-island" element={<LamuSafari />} />
+        <Route path="/nosy-be-island" element={<NosyBeSafari />} />
+        <Route path="/mafia-island" element={<MafiaSafari />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

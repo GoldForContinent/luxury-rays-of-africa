@@ -32,18 +32,18 @@ export default function Layout({ children }: LayoutProps) {
   ]
 
   const southernAfrica = [
-    { name: 'Botswana', path: '/destinations/botswana', description: 'Okavango Delta paradise' },
-    { name: 'Zambia', path: '/destinations/zambia', description: 'Walking safari capital' },
-    { name: 'Zimbabwe', path: '/destinations/zimbabwe', description: 'Victoria Falls & wildlife' },
+    { name: 'Botswana', path: '/botswana-safaris', description: 'Okavango Delta paradise' },
+    { name: 'Zambia', path: '/zambia-safaris', description: 'Walking safari capital' },
+    { name: 'Zimbabwe', path: '/zimbabwe-safaris', description: 'Victoria Falls & wildlife' },
     { name: 'Namibia', path: '/namibia-safaris', description: 'Desert landscapes' },
     { name: 'South Africa', path: '/south-africa-safaris', description: 'Big Five & winelands' },
   ]
 
   const islandsAndBeaches = [
-    { name: 'Zanzibar Island', path: '/destinations/tanzania/zanzibar', description: 'Spice island paradise' },
-    { name: 'Lamu Island', path: '/destinations/kenya/lamu', description: 'Ancient Swahili culture' },
-    { name: 'Nosy Be Island', path: '/destinations/nosy-be', description: 'Madagascar beaches' },
-    { name: 'Mafia Island', path: '/destinations/mafia', description: 'Marine park sanctuary' },
+    { name: 'Zanzibar Island', path: '/zanzibar-island', description: 'Spice island paradise' },
+    { name: 'Lamu Island', path: '/lamu-island', description: 'Ancient Swahili culture' },
+    { name: 'Nosy Be Island', path: '/nosy-be-island', description: 'Madagascar beaches' },
+    { name: 'Mafia Island', path: '/mafia-island', description: 'Marine park sanctuary' },
   ]
 
   return (
