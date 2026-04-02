@@ -76,41 +76,12 @@ const safariActivities = [
   { icon: Wind, title: "Nature Walks", description: "Guided walks through Rwanda's diverse ecosystems.", timing: "Year-round" }
 ]
 
-const safariTypes = [
-  {
-    title: "Gorilla Trekking Safari", price: "$1,500 - $3,500", perPerson: "per person per day",
-    description: "Exclusive gorilla and golden monkey tracking experiences in Volcanoes National Park with luxury lodge accommodation.",
-    features: ["Gorilla permit included", "Golden monkey tracking", "Luxury volcano-view lodges", "Private 4×4 vehicle"]
-  },
-  {
-    title: "Big Five Savannah Safari", price: "$500 - $1,500", perPerson: "per person per day",
-    description: "Explore Akagera National Park for classic savannah wildlife experiences.",
-    features: ["Big Five game drives", "Boat safaris on Lake Akagera", "Night drives", "Luxury tented camps"]
-  },
-  {
-    title: "Primates & Wildlife Combo", price: "$1,000 - $2,500", perPerson: "per person per day",
-    description: "Combine gorilla trekking with chimpanzee tracking and savannah safaris.",
-    features: ["Gorilla & chimp permits", "Nyungwe Forest stay", "Akagera game drives", "All transfers included"]
-  },
-  {
-    title: "Luxury Rwanda Experience", price: "$2,500 - $4,500+", perPerson: "per person per day",
-    description: "The ultimate Rwanda journey with exclusive experiences and premium accommodations.",
-    features: ["Private gorilla trek", "Charter flights", "5-star lodges", "Personal guide"]
-  }
-]
-
 const samplePackages = [
   { title: "Golden Monkey & Gorilla Trekking Safari", nights: "7 Days / 6 Nights", price: "4,695", destinations: ["Kigali", "Nyungwe", "Lake Kivu", "Volcanoes"], path: "/rwanda-golden-monkey-gorilla-trekking" },
   { title: "Gorilla Trekking Express Safari", nights: "3 Days / 2 Nights", price: "1,785", destinations: ["Kigali", "Volcanoes"], path: "/rwanda-gorilla-trekking-express" },
   { title: "This is Africa - Women's Center", nights: "1 Day", price: "90", destinations: ["Kigali"], path: "/rwanda-this-is-africa-womens-center" },
   { title: "Visit A Thousand Hills Distilleries", nights: "1 Day", price: "120", destinations: ["Kigali"], path: "/rwanda-thousand-hills-distilleries" },
   { title: "Kigali City Tour", nights: "1 Day", price: "60", destinations: ["Kigali"], path: "/rwanda-kigali-city-tour" }
-]
-
-const accommodations = [
-  { name: "Virunga Lodge", location: "Volcanoes", description: "Luxury lodge with stunning volcano views." },
-  { name: "One & Only Nyungwe House", location: "Nyungwe", description: "Forest resort with canopy walkways." },
-  { name: "Akagera Luxury Tented Camp", location: "Akagera", description: "Exclusive savannah camp in Big Five territory." }
 ]
 
 const seasonalData = [
@@ -188,7 +159,7 @@ export default function RwandaSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/rwandasafaris.jpg" 
+          src="/journal_gorilla.jpg" 
           alt="Rwanda Safari" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -244,6 +215,55 @@ export default function RwandaSafari() {
         </div>
       </section>
 
+      {/* Sample Packages - Top Section */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+              OUR BEST RECOMMENDED RWANDA SAFARIS
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {samplePackages.map((pkg, index) => (
+              <Link 
+                key={index}
+                to={pkg.path}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={`https://images.pexels.com/photos/${[2619964, 2304775, 1390361, 1684428, 3601425][index % 5]}/pexels-photo-${[2619964, 2304775, 1390361, 1684428, 3601425][index % 5]}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                    alt={pkg.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4 bg-[#D4A03A] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    From ${pkg.price}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2 group-hover:text-[#D4A03A] transition-colors">
+                    {pkg.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-[#2C3E50]/60 text-sm mb-3">
+                    <ClockIcon />
+                    <span>{pkg.nights}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {pkg.destinations.slice(0, 3).map((dest, i) => (
+                      <span key={i} className="text-xs bg-[#FAF3E0] text-[#2C3E50]/70 px-3 py-1 rounded-full">
+                        {dest}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Key Highlights with Alternating Layout */}
       <section className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div className="max-w-6xl mx-auto">
@@ -262,17 +282,17 @@ export default function RwandaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/rwandasafaris.jpg" alt="Gorillas" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/journal_gorilla.jpg" alt="Gorillas" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
 
           <div ref={addToRefs} className="mb-24">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/hero_sunrise.jpg" alt="Akagera" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
-              </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
+              <img src="/bigfive_background.jpg" alt="Akagera" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+            </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
                   Big Five Savannah Safaris
@@ -302,7 +322,7 @@ export default function RwandaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/destinations_hero.jpg" alt="Rwanda Culture" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/communities_background.jpg" alt="Rwanda Culture" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
@@ -334,8 +354,8 @@ export default function RwandaSafari() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Explore</span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4">
-              BEST PLACES TO VISIT IN RWANDA
+              <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4">
+              PLACES TO VISIT IN RWANDA
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
           </div>
@@ -371,46 +391,6 @@ export default function RwandaSafari() {
                   <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
                     View Park <ArrowRight size={14} />
                   </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Safari Types & Costs */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Investment</span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#F7F2EA] mt-4">
-              SAFARI TYPES & COSTS
-            </h2>
-            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
-          </div>
-          
-          <p className="text-[#F7F2EA]/80 text-lg text-center mb-12 max-w-3xl mx-auto">
-            Prices range from $500 to $4,500+ per person per day. Peak season (June-September & December-February) commands higher rates.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {safariTypes.map((type, index) => (
-              <div key={index} className="bg-[#1a1410] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A]/50 transition-all group">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-display font-bold text-xl text-[#F7F2EA]">{type.title}</h3>
-                  <span className="bg-[#D4A03A]/20 text-[#D4A03A] px-4 py-2 rounded-full font-bold">
-                    {type.price}
-                  </span>
-                </div>
-                <p className="text-[#F7F2EA]/60 text-sm mb-4">{type.perPerson}</p>
-                <p className="text-[#F7F2EA]/80 mb-6 leading-relaxed">{type.description}</p>
-                <div className="space-y-2">
-                  {type.features.map((feature, fIndex) => (
-                    <div key={fIndex} className="flex items-center gap-3 text-[#F7F2EA]/80">
-                      <div className="w-1.5 h-1.5 bg-[#D4A03A] rounded-full"></div>
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
             ))}
@@ -498,82 +478,6 @@ export default function RwandaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">March - May & November</h4>
               <p className="text-[#2C3E50]/70 text-sm">Rainy season - lush green landscapes, lower prices, ideal for photographers.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Packages */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              OUR BEST RECOMMENDED RWANDA SAFARIS
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, index) => (
-              <Link 
-                key={index}
-                to={pkg.path}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={`https://images.pexels.com/photos/${[2619964, 2304775, 1390361, 1684428, 3601425][index % 5]}/pexels-photo-${[2619964, 2304775, 1390361, 1684428, 3601425][index % 5]}.jpeg?auto=compress&cs=tinysrgb&w=800`}
-                    alt={pkg.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 right-4 bg-[#D4A03A] text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    From ${pkg.price}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2 group-hover:text-[#D4A03A] transition-colors">
-                    {pkg.title}
-                  </h4>
-                  <div className="flex items-center gap-2 text-[#2C3E50]/60 text-sm mb-3">
-                    <ClockIcon />
-                    <span>{pkg.nights}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {pkg.destinations.slice(0, 3).map((dest, i) => (
-                      <span key={i} className="text-xs bg-[#FAF3E0] text-[#2C3E50]/70 px-3 py-1 rounded-full">
-                        {dest}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodations */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Stays</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              TOP SAFARI ACCOMMODATIONS
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {accommodations.map((camp, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-                <div className="h-40 bg-gradient-to-br from-[#2B1E1A] to-[#4a3528] flex items-center justify-center">
-                  <span className="text-white/30 text-6xl font-bold">{camp.name[0]}</span>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{camp.name}</h4>
-                  <p className="text-[#CD7F32] text-sm font-semibold mb-3">{camp.location}</p>
-                  <p className="text-[#2C3E50]/80 text-sm">{camp.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

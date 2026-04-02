@@ -319,16 +319,16 @@ export default function TanzaniaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/tanzania_card.jpg" alt="Serengeti" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/migration_background.jpg" alt="Serengeti" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
 
-          <div ref={addToRefs} className="mb-24">
+            <div ref={addToRefs} className="mb-24">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/destinations_hero.jpg" alt="Ngorongoro" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/bigfive_background.jpg" alt="Ngorongoro" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
@@ -359,7 +359,7 @@ export default function TanzaniaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/migration_collage_01.jpg" alt="Tanzania Adventure" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/landscapes_background.jpg" alt="Tanzania Adventure" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
