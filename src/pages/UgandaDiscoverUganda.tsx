@@ -105,26 +105,29 @@ const pricingOptions = [
     period: "April / May / November 2026",
     price: "7,920",
     perPerson: "per person sharing (4 pax)",
+    singleSupplement: "900",
     highlights: [
-      "Full board accommodation throughout",
-      "All park entrance fees",
+      "Arrival / departure transfers in Entebbe",
+      "Transport and exclusive use of custom safari built 4 x 4 Landcruiser with pop-up roof",
+      "All Park entrance fees to mentioned parks",
       "English speaking driver/guide",
-      "Private 4x4 safari vehicle with pop-up roof",
-      "Unlimited game drives as per itinerary",
+      "Unlimited game drives / activities as per itinerary",
+      "Bed & breakfast accommodation in Entebbe, otherwise full board",
+      "House drinks included at Baker's Lodge, Ishasha Wilderness Camp, Buhoma Lodge",
+      "Unlimited drinking water & fruits in the car",
       "Two gorilla trekking permits",
-      "Two chimpanzee tracking permits",
+      "One chimpanzee tracking permit",
+      "Ziwa Rhino Sanctuary walk",
       "River cruises on Nile and Kazinga Channel",
-      "Ziwa Rhino tracking",
-      "House drinks at selected lodges",
-      "Unlimited drinking water & fruits in vehicle"
+      "Bigodi Swamp walk"
     ],
     notIncluded: [
       "International flights",
-      "Visa fees",
+      "Uganda visa fees",
       "Travel insurance",
       "Tips and gratuities",
       "Personal expenses",
-      "Cultural visit fees"
+      "Cultural visits and school fees"
     ]
   }
 ]
@@ -406,12 +409,21 @@ export default function UgandaDiscoverUganda() {
           <div className="grid md:grid-cols-2 gap-8">
             {pricingOptions.map((option, index) => (
               <div key={index} className="bg-white rounded-3xl p-8 shadow-xl">
-                <div className="text-center mb-8">
+                <div className="text-center mb-6">
                   <h3 className="font-display font-bold text-2xl text-[#2C3E50] mb-2">{option.title}</h3>
                   <p className="text-[#2C3E50]/60 mb-4">{option.period}</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold text-[#D4A03A]">${option.price}</span>
-                    <span className="text-[#2C3E50]/70">/ pp</span>
+                </div>
+                
+                <div className="bg-[#FFF8F0] rounded-2xl p-4 mb-6">
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-[#2C3E50]/80">4 pax</span>
+                      <span className="font-bold text-[#D4A03A]">${option.price}</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-[#D4C5B9] flex justify-between text-sm">
+                    <span className="text-[#2C3E50]/80">Single Room Supplement</span>
+                    <span className="font-bold text-[#D4A03A]">${option.singleSupplement}</span>
                   </div>
                 </div>
                 

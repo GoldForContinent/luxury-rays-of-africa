@@ -10,70 +10,70 @@ const itinerary = [
   {
     day: 1,
     title: "Arrival in Entebbe",
-    description: "Arrival at Entebbe Int. Airport. You will be met and transferred to Protea Hotel. Transfer to the jetty for Mabamba excursion to search for the legendary Shoebill stork.",
+    description: "Arrival at Entebbe Int. Airport. You will be met and transferred to Protea Hotel. Transfer to the jetty for Mabamba excursion (boat departs at 1400 hours). You will board a small Mokoro (dugout boat) to explore the narrow canals of the Papyrus marsh, searching for the legendary Shoebill stork - named after its mighty beak and one of Uganda's landmarks. Return to your hotel for overnight stay. (Bed & Breakfast)",
     meals: "Dinner",
     accommodation: "Protea Hotel"
   },
   {
     day: 2,
-    title: "Flight to Kibale - Chimpanzee Trekking",
-    description: "Morning flight to Kasese. Transfer to Primate Lodge in Kibale. Afternoon chimpanzee trekking in Kibale Forest - home to one of the highest concentrations of chimpanzees in East Africa.",
+    title: "Mabamba Excursion & Transfer to Kibale",
+    description: "Early breakfast and transfer to Entebbe International Airport for your morning scheduled flight to Kasese (ETD 0700 ETA 1005). Baggage allowance is strictly 15kg in soft-sided duffel bags. Upon arrival, you will be met and transferred to your lodge (approximately 2 hours) for lunch. Check in and the rest of the day at leisure. Dinner and overnight at The Primate Lodge - Luxury cottage (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "The Primate Lodge"
   },
   {
     day: 3,
-    title: "Full Day Kibale - Bigodi Swamp Walk",
-    description: "Second chimpanzee trekking session and guided walk in Bigodi Swamp, excellent for birders and other primates. Over 300 bird species in the forest.",
+    title: "Full Day Kibale - Chimpanzee Trekking & Bigodi Swamp",
+    description: "Breakfast at your lodge and transfer to the chimpanzee trekking base. After a brief orientation, start your trek with your local ranger to see these amazing creatures. Chimps are highly social animals, care for their offspring for years and can live to be over 50 years. The probability of finding the primates is 95%. Over 300 species of birds and 140 species of butterflies make the forest an oasis for nature lovers. The chimpanzee trekking takes about 2-4 hours covering 3-5km. Afternoon guided walk in Bigodi Swamp, excellent for birders and other primates. All meals and overnight at The Primate Lodge - Luxury cottage (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "The Primate Lodge"
   },
   {
     day: 4,
     title: "Drive to Queen Elizabeth National Park",
-    description: "Drive to Queen Elizabeth National Park along the Rwenzori Mountains. Afternoon game drive in search of lions, buffalos, elephants, and Uganda Kobs.",
+    description: "In the morning proceed to Queen Elizabeth National Park driving along the mighty Rwenzori Mountains to arrive at your accommodation in time for lunch. Rest of the evening at your leisure with dinner and overnight in Elephant Plains Lodge - Luxury cottage (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Elephant Plains Lodge"
   },
   {
     day: 5,
     title: "Full Day Queen Elizabeth - Kazinga Channel Cruise",
-    description: "Full day game drive with packed lunches. Afternoon boat cruise on the Kazinga Channel - great opportunity to observe hippos, crocodiles and wildlife up close.",
+    description: "Breakfast at the lodge and depart for a full day game drive with packed lunches in search for lions, buffalos, elephants, Uganda Kobs and other antelopes. In the afternoon embark on a boat cruise on the Kazinga Channel (approximately 2 hours). In addition to the hippos and crocodiles in the water, you can see much wildlife near the shore - a great opportunity to observe the animals from the boat up close and take pictures. Return to your lodge for dinner and overnight at Elephant Plains Lodge - Luxury cottage (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Elephant Plains Lodge"
   },
   {
     day: 6,
     title: "Drive to Ishasha - Tree Climbing Lions",
-    description: "Drive to Ishasha area, famous for tree-climbing lions. Afternoon game drive to spot lions resting in the branches of fig trees.",
+    description: "Depart after breakfast for Ishasha area, famous for its tree climbing lions that can sometimes be spotted resting in the branches of the large fig trees. Arrive at your camp set along a river in time for lunch. Afternoon game drive at your convenience. Dinner and overnight at Ishasha Wilderness Camp - Standard tent (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Ishasha Wilderness Camp"
   },
   {
     day: 7,
     title: "Drive to Bwindi Impenetrable National Park",
-    description: "Morning game drive, then travel to Bwindi Impenetrable National Park - home to half the world's mountain gorillas. Check in and relax.",
+    description: "Depart after breakfast and drive to Bwindi Impenetrable National Park, home to half of the world's endangered mountain gorillas. Check in on arrival and enjoy the rest of the day at your leisure. Dinner and overnight in Mahogany Springs Lodge - Superior room (Full Board) with laundry services, a glass of wine or beer or soft drink at dinner, and visit to Ride 4 a Woman and Buhoma hospital",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Mahogany Springs Lodge"
   },
   {
     day: 8,
     title: "Gorilla Trekking in Bwindi",
-    description: "Early breakfast followed by gorilla trekking in Bwindi Forest. Spend one hour with a gorilla family - a life-changing experience.",
+    description: "Early breakfast at your lodge followed by transfer to the park reception for check-in/registration of your Bwindi Forest gorilla trek adventure. The largest of the great apes, gorillas share 98.3% of their genetic code with humans, making them our closest cousins after chimpanzees and bonobos. After the trek, drive to your lodge for lunch. Rest of the day at leisure with dinner and overnight in Mahogany Springs Lodge - Superior room (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Mahogany Springs Lodge"
   },
   {
     day: 9,
     title: "Drive to Lake Mburo National Park",
-    description: "Drive to Uganda's smallest national park - Lake Mburo. Afternoon game drive to view buffalo, eland, oribis and other plains wildlife.",
+    description: "After an early breakfast, head to Lake Mburo National Park, Uganda's smallest national park. It offers beautiful scenery and bird paradise. More than 250 different species such as the papyrus bush shrike, black-headed lapwing or the white winged warbler can be found here. Afternoon game drive to view Buffalo, Eland, Oris and other animals. Dinner and overnight in Kigambira Safari Lodge - Deluxe Banda (Full Board)",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Kigambira Safari Lodge"
   },
   {
     day: 10,
     title: "Return to Entebbe - Departure",
-    description: "Morning guided walk and game drive before departing for Entebbe. Stop at the equator in Kayabwe. Lunch on arrival and transfer to airport for departure.",
+    description: "Check out after an early breakfast and embark on a morning game drive before your departure for Entebbe. Short stopover at the equator in Kayabwe. Lunch on arrival and thereafter drop off at Entebbe International Airport for your international flight departure. END OF SERVICES!",
     meals: "Breakfast, Lunch"
   }
 ]
@@ -81,25 +81,45 @@ const itinerary = [
 const pricingOptions = [
   {
     title: "High Season",
-    period: "June-Sept & Dec 2026",
+    period: "Jan-Feb, June-Sept & Dec 2026",
     price: "7,500",
     perPerson: "per person sharing (4 pax)",
+    singleSupplement: "1,406",
+    tiers: [
+      { pax: "2 pax", price: "8,700" },
+      { pax: "4 pax", price: "7,500" },
+      { pax: "6 pax", price: "7,900" }
+    ],
     highlights: [
+      "Airport transfers on arrival and departure in Entebbe",
+      "Transport in custom 7-seater safari land cruiser",
+      "English-speaking driver/guide",
+      "Park entrance fees",
       "One Gorilla trek permit",
-      "Two Chimp trek permits",
-      "Domestic flight Entebbe - Kasese",
-      "9 nights full board accommodation",
-      "All park entrance fees",
-      "Kazinga Channel cruise",
-      "Mabamba boat excursion",
-      "Private 4x4 vehicle with guide"
+      "One Chimp trek permit",
+      "Swamp walk in Bigodi area",
+      "Shared Kazinga channel cruise",
+      "Mabamba excursion (Shoebill tour)",
+      "Scheduled one-way flight Entebbe/Kasese",
+      "1 night bed & breakfast at Protea Hotel Entebbe (deluxe rooms)",
+      "2 nights full board at Primate Lodge (luxury cottages)",
+      "2 nights full board at Elephant Plains Lodge (luxury cottages)",
+      "1 night full board at Ishasha Wilderness Camp (standard tents)",
+      "2 nights full board at Mahogany Springs Lodge (superior room)",
+      "1 night full board at Kigambira Safari Lodge (deluxe bandas)",
+      "Laundry services at Mahogany Springs",
+      "Glass of wine/beer/soft drink at dinner at Mahogany Springs",
+      "Visit to Ride 4 a Woman and Buhoma hospital",
+      "Unlimited bottled mineral water in vehicle",
+      "Emergency medical evacuation insurance"
     ],
     notIncluded: [
       "International flights",
-      "Visa fees",
+      "Uganda visa fees",
       "Travel insurance",
       "Tips and gratuities",
-      "Personal expenses"
+      "Personal expenses",
+      "Cultural visits fees"
     ]
   },
   {
@@ -107,22 +127,42 @@ const pricingOptions = [
     period: "March-May & Oct-Nov 2026",
     price: "7,100",
     perPerson: "per person sharing (4 pax)",
+    singleSupplement: "1,390",
+    tiers: [
+      { pax: "2 pax", price: "8,300" },
+      { pax: "4 pax", price: "7,100" },
+      { pax: "6 pax", price: "7,500" }
+    ],
     highlights: [
+      "Airport transfers on arrival and departure in Entebbe",
+      "Transport in custom 7-seater safari land cruiser",
+      "English-speaking driver/guide",
+      "Park entrance fees",
       "One Gorilla trek permit",
-      "Two Chimp trek permits",
-      "Domestic flight Entebbe - Kasese",
-      "9 nights full board accommodation",
-      "All park entrance fees",
-      "Kazinga Channel cruise",
-      "Mabamba boat excursion",
-      "Private 4x4 vehicle with guide"
+      "One Chimp trek permit",
+      "Swamp walk in Bigodi area",
+      "Shared Kazinga channel cruise",
+      "Mabamba excursion (Shoebill tour)",
+      "Scheduled one-way flight Entebbe/Kasese",
+      "1 night bed & breakfast at Protea Hotel Entebbe (deluxe rooms)",
+      "2 nights full board at Primate Lodge (luxury cottages)",
+      "2 nights full board at Elephant Plains Lodge (luxury cottages)",
+      "1 night full board at Ishasha Wilderness Camp (standard tents)",
+      "2 nights full board at Mahogany Springs Lodge (superior room)",
+      "1 night full board at Kigambira Safari Lodge (deluxe bandas)",
+      "Laundry services at Mahogany Springs",
+      "Glass of wine/beer/soft drink at dinner at Mahogany Springs",
+      "Visit to Ride 4 a Woman and Buhoma hospital",
+      "Unlimited bottled mineral water in vehicle",
+      "Emergency medical evacuation insurance"
     ],
     notIncluded: [
       "International flights",
-      "Visa fees",
+      "Uganda visa fees",
       "Travel insurance",
       "Tips and gratuities",
-      "Personal expenses"
+      "Personal expenses",
+      "Cultural visits fees"
     ]
   }
 ]
@@ -451,12 +491,24 @@ export default function UgandaPrimatesIntensive() {
           <div className="grid md:grid-cols-2 gap-8">
             {pricingOptions.map((option, index) => (
               <div key={index} className="bg-white rounded-3xl p-8 shadow-xl">
-                <div className="text-center mb-8">
+                <div className="text-center mb-6">
                   <h3 className="font-display font-bold text-2xl text-[#2C3E50] mb-2">{option.title}</h3>
                   <p className="text-[#2C3E50]/60 mb-4">{option.period}</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold text-[#D4A03A]">${option.price}</span>
-                    <span className="text-[#2C3E50]/70">/ pp</span>
+                </div>
+                
+                <div className="bg-[#FFF8F0] rounded-2xl p-4 mb-6">
+                  <h4 className="font-semibold text-[#2C3E50] text-sm mb-3">Per Person Sharing:</h4>
+                  <div className="space-y-2">
+                    {option.tiers?.map((tier, i) => (
+                      <div key={i} className="flex justify-between text-sm">
+                        <span className="text-[#2C3E50]/80">{tier.pax}</span>
+                        <span className="font-bold text-[#D4A03A]">${tier.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-[#D4C5B9] flex justify-between text-sm">
+                    <span className="text-[#2C3E50]/80">Single Room Supplement</span>
+                    <span className="font-bold text-[#D4A03A]">${option.singleSupplement} pp</span>
                   </div>
                 </div>
                 

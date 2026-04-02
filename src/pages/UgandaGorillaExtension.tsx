@@ -9,29 +9,29 @@ gsap.registerPlugin(ScrollTrigger)
 const itinerary = [
   {
     day: 1,
-    title: "Arrival in Entebbe - Transfer to Bwindi",
-    description: "Upon arrival at Entebbe International Airport, connect on your scheduled flight to Bwindi NP. You will be met by the Lodge vehicle on arrival at Kihihi airstrip and transferred to the lodge for lunch. Afternoon at leisure.",
+    title: "Fly Entebbe/Kihihi - Transfer to Bwindi National Park",
+    description: "Upon arrival at Entebbe International Airport, connect on your scheduled flight to Bwindi NP (ETD 0700 ETA 0835). Baggage allowance is 15 kg in soft-sided duffel bags. You will be met by the Lodge vehicle on arrival at Kihihi airstrip and transferred to the lodge for lunch. Afternoon at leisure with dinner and overnight at Mahogany Springs Lodge - Superior room (Full Board)",
     meals: "Lunch, Dinner",
     accommodation: "Mahogany Springs Lodge"
   },
   {
     day: 2,
     title: "1st Gorilla Trekking - Bwindi Impenetrable National Park",
-    description: "Early breakfast at your lodge followed by transfer to the park reception for check-in and gorilla trek registration. The largest of the great apes, gorillas share 98.3% of their genetic code with humans, making them our closest cousins. After the trek, drive to your lodge for lunch and rest.",
+    description: "Early breakfast at your lodge followed by transfer to the park reception for check-in and gorilla trek registration. The largest of the great apes, gorillas are stocky animals with broad chests and shoulders, large human-like hands and small eyes set into hairless faces. Gorillas display many human-like behaviors and emotions, such as laughter and sadness. They even make their own tools to help them survive in the forest. In fact, gorillas share 98.3% of their genetic code with humans, making them our closest cousins after chimpanzees and bonobos. After the trek, drive to your lodge for lunch. Rest of the day at leisure with dinner and overnight.",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Mahogany Springs Lodge"
   },
   {
     day: 3,
     title: "2nd Gorilla Trekking - Bwindi Impenetrable National Park",
-    description: "Follow the same program as the previous day with a different gorilla family. Experience another hour with these magnificent creatures in their natural habitat.",
+    description: "Follow the same program as the previous day with a different gorilla family. Each gorilla family has its own unique character and dynamics, offering a different experience. After the trek, return to your lodge for lunch and rest. Afternoon at leisure with dinner and overnight at Mahogany Springs Lodge.",
     meals: "Breakfast, Lunch, Dinner",
     accommodation: "Mahogany Springs Lodge"
   },
   {
     day: 4,
-    title: "Transfer to Entebbe - Departure",
-    description: "After breakfast, transfer to Kihihi airstrip for your morning scheduled light flight to Entebbe International airport. Connect to your international flight departure.",
+    title: "Bwindi National Park - Entebbe - Departure",
+    description: "Check out after breakfast and transfer to Kihihi airstrip (approximately 90 minutes) for your morning scheduled light flight to Entebbe (ETD 0945 ETA 1125). Baggage allowance is strictly 15 kg in soft-sided duffel bags. Upon arrival at Entebbe International Airport, connect to your international flight departure. END OF SERVICES!",
     meals: "Breakfast"
   }
 ]
@@ -42,21 +42,31 @@ const pricingOptions = [
     period: "Jan-Feb, June-Oct & Dec 2026",
     price: "4,400",
     perPerson: "per person sharing (2 pax)",
+    singleSupplement: "417",
+    tiers: [
+      { pax: "2 pax", price: "4,400" },
+      { pax: "4 pax", price: "4,250" },
+      { pax: "6 pax", price: "4,200" }
+    ],
     highlights: [
-      "Two Gorilla trek permits",
-      "One-way flight Entebbe - Bwindi",
+      "Kihihi airstrip and gorilla trek transfers",
+      "One-way scheduled flight Entebbe - Bwindi",
+      "Two Gorilla trek permits (Buhoma sector)",
       "3 nights full board accommodation",
       "Mahogany Springs Lodge - Superior room",
       "Laundry services",
-      "Unlimited bottled water in vehicle",
+      "Glass of wine or beer or soft drink at dinner",
+      "Visit to Ride 4 a Woman and Buhoma hospital",
+      "Unlimited bottled mineral water in vehicle",
       "Emergency medical evacuation"
     ],
     notIncluded: [
       "International flights",
-      "Visa fees",
+      "Uganda visa fees",
       "Travel insurance",
       "Tips and gratuities",
-      "Personal expenses"
+      "Personal expenses",
+      "Cultural visits fees"
     ]
   },
   {
@@ -64,21 +74,31 @@ const pricingOptions = [
     period: "March-May & Nov 2026",
     price: "4,100",
     perPerson: "per person sharing (2 pax)",
+    singleSupplement: "397",
+    tiers: [
+      { pax: "2 pax", price: "4,100" },
+      { pax: "4 pax", price: "3,950" },
+      { pax: "6 pax", price: "3,900" }
+    ],
     highlights: [
-      "Two Gorilla trek permits",
-      "One-way flight Entebbe - Bwindi",
+      "Kihihi airstrip and gorilla trek transfers",
+      "One-way scheduled flight Entebbe - Bwindi",
+      "Two Gorilla trek permits (Buhoma sector)",
       "3 nights full board accommodation",
       "Mahogany Springs Lodge - Superior room",
       "Laundry services",
-      "Unlimited bottled water in vehicle",
+      "Glass of wine or beer or soft drink at dinner",
+      "Visit to Ride 4 a Woman and Buhoma hospital",
+      "Unlimited bottled mineral water in vehicle",
       "Emergency medical evacuation"
     ],
     notIncluded: [
       "International flights",
-      "Visa fees",
+      "Uganda visa fees",
       "Travel insurance",
       "Tips and gratuities",
-      "Personal expenses"
+      "Personal expenses",
+      "Cultural visits fees"
     ]
   }
 ]
@@ -349,12 +369,24 @@ export default function UgandaGorillaExtension() {
           <div className="grid md:grid-cols-2 gap-8">
             {pricingOptions.map((option, index) => (
               <div key={index} className="bg-white rounded-3xl p-8 shadow-xl">
-                <div className="text-center mb-8">
+                <div className="text-center mb-6">
                   <h3 className="font-display font-bold text-2xl text-[#2C3E50] mb-2">{option.title}</h3>
                   <p className="text-[#2C3E50]/60 mb-4">{option.period}</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold text-[#D4A03A]">${option.price}</span>
-                    <span className="text-[#2C3E50]/70">/ pp</span>
+                </div>
+                
+                <div className="bg-[#FFF8F0] rounded-2xl p-4 mb-6">
+                  <h4 className="font-semibold text-[#2C3E50] text-sm mb-3">Per Person Sharing:</h4>
+                  <div className="space-y-2">
+                    {option.tiers?.map((tier, i) => (
+                      <div key={i} className="flex justify-between text-sm">
+                        <span className="text-[#2C3E50]/80">{tier.pax}</span>
+                        <span className="font-bold text-[#D4A03A]">${tier.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-[#D4C5B9] flex justify-between text-sm">
+                    <span className="text-[#2C3E50]/80">Single Supplement</span>
+                    <span className="font-bold text-[#D4A03A]">${option.singleSupplement}</span>
                   </div>
                 </div>
                 
