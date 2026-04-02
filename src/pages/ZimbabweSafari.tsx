@@ -60,6 +60,24 @@ const accommodations = [
   { name: "Victoria Falls Hotel", location: "Victoria Falls", description: "Historic luxury hotel with panoramic views of the falls and excellent service.", image: "/zimbabwe_luxury3.jpg" }
 ]
 
+const seasonalData = [
+  { park: "Hwange", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Mana Pools", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Victoria Falls", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Lake Kariba", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Gonarezhou", jan: "Fair", feb: "Fair", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Fair" },
+  { park: "Matobo", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+]
+
+function getRatingColor(rating: string) {
+  switch (rating) {
+    case "Best": return "bg-green-900 text-green-300"
+    case "Good": return "bg-green-100 text-green-800"
+    case "Fair": return "bg-orange-100 text-orange-800"
+    default: return "text-gray-500"
+  }
+}
+
 export default function ZimbabweSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const heroRef = useRef<HTMLDivElement>(null)
@@ -276,6 +294,60 @@ export default function ZimbabweSafari() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Best Time to Visit */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">When to Go</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              BEST TIME TO VISIT ZIMBABWE
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="overflow-x-auto mb-12">
+            <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+              <thead>
+                <tr className="bg-[#2C3E50]">
+                  <th className="p-3 text-left text-white font-semibold">Destination</th>
+                  {['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map(m => (
+                    <th key={m} className="p-3 text-center text-white font-semibold">{m}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {seasonalData.map((row, i) => (
+                  <tr key={i} className="border-b border-[#D4C5B9]">
+                    <td className="p-3 text-left font-semibold text-[#2C3E50]">{row.park}</td>
+                    {Object.entries(row).slice(1).map(([_, val], j) => (
+                      <td key={j} className={`p-3 text-center text-xs ${getRatingColor(val)}`}>{val}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #556B2F' }}>
+              <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Low Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">November to April</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Green season - lush landscapes, excellent birdwatching, lower prices, Victoria Falls at full flow.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #E67E22' }}>
+              <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold uppercase mb-3">Shoulder Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">April & November</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Transitional periods with good wildlife viewing and great value.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #2D5016' }}>
+              <span className="inline-block px-3 py-1 bg-green-900 text-white rounded-full text-xs font-semibold uppercase mb-3">Peak Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">May to October</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Dry season - excellent wildlife viewing, animals congregate at water sources.</p>
+            </div>
           </div>
         </div>
       </section>

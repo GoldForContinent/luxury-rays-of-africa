@@ -66,6 +66,24 @@ const accommodations = [
   { name: "Madikwe Safari Lodge", location: "Madikwe Reserve", description: "Malaria-free luxury in a Big Five reserve. Excellent wild dog and rhino sightings.", image: "/south_africa_luxury3.jpg" }
 ]
 
+const seasonalData = [
+  { park: "Kruger", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Sabi Sands", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Madikwe", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Addo", jan: "Good", feb: "Good", mar: "Good", apr: "Good", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Garden Route", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Good", jul: "Good", aug: "Good", sep: "Good", oct: "Best", nov: "Best", dec: "Best" },
+  { park: "Cape Town", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Fair", jul: "Fair", aug: "Fair", sep: "Good", oct: "Best", nov: "Best", dec: "Best" },
+]
+
+function getRatingColor(rating: string) {
+  switch (rating) {
+    case "Best": return "bg-green-900 text-green-300"
+    case "Good": return "bg-green-100 text-green-800"
+    case "Fair": return "bg-orange-100 text-orange-800"
+    default: return "text-gray-500"
+  }
+}
+
 export default function SouthAfricaSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const heroRef = useRef<HTMLDivElement>(null)
@@ -302,6 +320,60 @@ export default function SouthAfricaSafari() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Best Time to Visit */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">When to Go</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              BEST TIME TO VISIT SOUTH AFRICA
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="overflow-x-auto mb-12">
+            <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+              <thead>
+                <tr className="bg-[#2C3E50]">
+                  <th className="p-3 text-left text-white font-semibold">Destination</th>
+                  {['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map(m => (
+                    <th key={m} className="p-3 text-center text-white font-semibold">{m}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {seasonalData.map((row, i) => (
+                  <tr key={i} className="border-b border-[#D4C5B9]">
+                    <td className="p-3 text-left font-semibold text-[#2C3E50]">{row.park}</td>
+                    {Object.entries(row).slice(1).map(([_, val], j) => (
+                      <td key={j} className={`p-3 text-center text-xs ${getRatingColor(val)}`}>{val}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #556B2F' }}>
+              <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Summer</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">November to March</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Best for Cape Town and garden route. Warm weather, beach season, whale watching starts.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #E67E22' }}>
+              <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold uppercase mb-3">Shoulder Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">March-April & October</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Good weather, fewer crowds, excellent for game viewing in Kruger.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #2D5016' }}>
+              <span className="inline-block px-3 py-1 bg-green-900 text-white rounded-full text-xs font-semibold uppercase mb-3">Winter (Best)</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">May to September</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Peak safari season - dry weather, excellent wildlife viewing, animals at waterholes.</p>
+            </div>
           </div>
         </div>
       </section>

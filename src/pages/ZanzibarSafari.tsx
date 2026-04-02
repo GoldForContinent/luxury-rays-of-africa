@@ -60,6 +60,24 @@ const accommodations = [
   { name: "Zanzibar Serena Hotel", location: "Stone Town", description: "Historic luxury hotel overlooking the harbor and Spice Market.", image: "/zanzibar_luxury3.jpg" }
 ]
 
+const seasonalData = [
+  { beach: "Nungwi", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Best", dec: "Best" },
+  { beach: "Kendwa", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Best", dec: "Best" },
+  { beach: "Paje", jan: "Best", feb: "Best", mar: "Good", apr: "Fair", may: "Fair", jun: "Good", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Best", dec: "Best" },
+  { beach: "Stone Town", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Best", dec: "Best" },
+  { beach: "Mnemba", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Best", dec: "Best" },
+  { beach: "Kizimkazi", jan: "Best", feb: "Best", mar: "Best", apr: "Good", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Best", dec: "Best" },
+]
+
+function getRatingColor(rating: string) {
+  switch (rating) {
+    case "Best": return "bg-green-900 text-green-300"
+    case "Good": return "bg-green-100 text-green-800"
+    case "Fair": return "bg-orange-100 text-orange-800"
+    default: return "text-gray-500"
+  }
+}
+
 export default function ZanzibarSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const heroRef = useRef<HTMLDivElement>(null)
@@ -276,6 +294,60 @@ export default function ZanzibarSafari() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Best Time to Visit */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">When to Go</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              BEST TIME TO VISIT ZANZIBAR
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="overflow-x-auto mb-12">
+            <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+              <thead>
+                <tr className="bg-[#2C3E50]">
+                  <th className="p-3 text-left text-white font-semibold">Beach Area</th>
+                  {['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map(m => (
+                    <th key={m} className="p-3 text-center text-white font-semibold">{m}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {seasonalData.map((row, i) => (
+                  <tr key={i} className="border-b border-[#D4C5B9]">
+                    <td className="p-3 text-left font-semibold text-[#2C3E50]">{row.beach}</td>
+                    {Object.entries(row).slice(1).map(([_, val], j) => (
+                      <td key={j} className={`p-3 text-center text-xs ${getRatingColor(val)}`}>{val}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #556B2F' }}>
+              <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Rainy Seasons</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">April to May & November</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Short rains - fewer crowds, lower prices, still plenty of sunshine.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #E67E22' }}>
+              <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold uppercase mb-3">Dry Season</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">June to October</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Peak beach weather - sunny days, low humidity, perfect for water activities.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg" style={{ borderLeft: '4px solid #2D5016' }}>
+              <span className="inline-block px-3 py-1 bg-green-900 text-white rounded-full text-xs font-semibold uppercase mb-3">Best Overall</span>
+              <h4 className="font-bold text-[#2C3E50] mb-2">December to March</h4>
+              <p className="text-[#2C3E50]/70 text-sm">Warm and sunny, perfect for beach and diving. Great for whale shark encounters.</p>
+            </div>
           </div>
         </div>
       </section>
