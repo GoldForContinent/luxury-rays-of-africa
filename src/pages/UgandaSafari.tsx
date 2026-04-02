@@ -19,15 +19,15 @@ const safariActivities = [
 ]
 
 const ugandaParks = [
-  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png" },
-  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg" },
-  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/family_safari.jpg" },
-  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/unfiltered_collage_01.jpg" },
-  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/unfiltered_collage_02.jpg" },
-  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/migration_collage_01.jpg" },
-  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/destinations_hero.jpg" },
-  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/hero_sunrise.jpg" },
-  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/kenya_card.jpg" }
+  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/journal_gorilla.jpg" },
+  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/adventure_background.jpg" },
+  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/lion.jpg" },
+  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/landscapes_background.jpg" },
+  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/hero_sunrise.jpg" },
+  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/hippo.jpg" },
+  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/photo_safari.jpg" },
+  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/landscapes_background.jpg" },
+  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/adventure_collage_01.jpg" }
 ]
 
 const samplePackages = [
@@ -156,7 +156,7 @@ export default function UgandaSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/uganda.png" 
+          src="/journal_gorilla.jpg" 
           alt="Uganda Safari" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -268,16 +268,16 @@ export default function UgandaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/photo_safari.jpg" alt="Gorilla" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/adventure_background.jpg" alt="Chimpanzee" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
 
-          <div ref={addToRefs} className="mb-24">
+            <div ref={addToRefs} className="mb-24">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/family_safari.jpg" alt="Queen Elizabeth" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/cheetah.jpg" alt="Queen Elizabeth" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
@@ -308,7 +308,7 @@ export default function UgandaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/unfiltered_collage_01.jpg" alt="Adventure" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/conservation_background.jpg" alt="Adventure" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
@@ -575,7 +575,7 @@ export default function UgandaSafari() {
 
       {/* Final CTA */}
       <section className="py-28 px-4 md:px-[8vw] relative overflow-hidden">
-        <img src="/uganda.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/journal_gorilla.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-4">

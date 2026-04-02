@@ -76,15 +76,15 @@ const faqData = [
 ]
 
 const tanzaniaParks = [
-  { name: "Serengeti National Park", description: "Home to millions of wildlife and the legendary Great Migration.", image: "/tanzania_card.jpg" },
-  { name: "Ngorongoro Crater", description: "The largest unbroken caldera in the world with unmatched wildlife density.", image: "/destinations_hero.jpg" },
-  { name: "Tarangire National Park", description: "Known for massive elephant herds and ancient baobab trees.", image: "/hero_sunrise.jpg" },
-  { name: "Lake Manyara National Park", description: "Famous for tree-climbing lions and flamingo-filled alkaline lake.", image: "/kenya_card.jpg" },
-  { name: "Ruaha National Park", description: "Remote wilderness with impressive wild dog populations.", image: "/unfiltered_collage_01.jpg" },
-  { name: "Ndutu Conservation Area", description: "The calving ground for thousands of wildebeest each year.", image: "/migration_collage_01.jpg" },
-  { name: "Mkomazi National Park", description: "Remote park in northern Tanzania with diverse ecosystems.", image: "/unfiltered_collage_02.jpg" },
-  { name: "Arusha National Park", description: "Gateway park with Mount Meru views and diverse wildlife.", image: "/family_safari.jpg" },
-  { name: "Gombe Stream National Park", description: "Famous chimpanzee tracking destination on Lake Tanganyika.", image: "/photo_safari.jpg" }
+  { name: "Serengeti National Park", description: "Home to millions of wildlife and the legendary Great Migration.", image: "/migration_background.jpg" },
+  { name: "Ngorongoro Crater", description: "The largest unbroken caldera in the world with unmatched wildlife density.", image: "/bigfive_background.jpg" },
+  { name: "Tarangire National Park", description: "Known for massive elephant herds and ancient baobab trees.", image: "/elephant.jpg" },
+  { name: "Lake Manyara National Park", description: "Famous for tree-climbing lions and flamingo-filled alkaline lake.", image: "/lion.jpg" },
+  { name: "Ruaha National Park", description: "Remote wilderness with impressive wild dog populations.", image: "/cheetah.jpg" },
+  { name: "Ndutu Conservation Area", description: "The calving ground for thousands of wildebeest each year.", image: "/giraffe.jpg" },
+  { name: "Mkomazi National Park", description: "Remote park in northern Tanzania with diverse ecosystems.", image: "/landscapes_background.jpg" },
+  { name: "Arusha National Park", description: "Gateway park with Mount Meru views and diverse wildlife.", image: "/hero_sunrise.jpg" },
+  { name: "Gombe Stream National Park", description: "Famous chimpanzee tracking destination on Lake Tanganyika.", image: "/adventure_background.jpg" }
 ]
 
 const safariActivities = [
@@ -319,16 +319,16 @@ export default function TanzaniaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/tanzania_card.jpg" alt="Serengeti" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/migration_background.jpg" alt="Serengeti" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
 
-          <div ref={addToRefs} className="mb-24">
+            <div ref={addToRefs} className="mb-24">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/destinations_hero.jpg" alt="Ngorongoro" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/bigfive_background.jpg" alt="Ngorongoro" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
@@ -359,7 +359,7 @@ export default function TanzaniaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/migration_collage_01.jpg" alt="Tanzania Adventure" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/landscapes_background.jpg" alt="Tanzania Adventure" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>

@@ -57,10 +57,10 @@ const faqData = [
 ]
 
 const rwandaParks = [
-  { name: "Volcanoes National Park", description: "Home to mountain gorillas, golden monkeys, and breathtaking volcanic landscapes.", image: "/volcanoes.jpg" },
-  { name: "Nyungwe National Park", description: "One of Africa's oldest rainforests with 500+ bird species and chimpanzee families.", image: "/nyungwe.jpg" },
-  { name: "Akagera National Park", description: "Rwanda's premier savannah park home to the Big Five and diverse wildlife.", image: "/akagera.jpg" },
-  { name: "Gishwati-Mukura National Park", description: "A newer protected area with lush forests and wildlife rehabilitation programs.", image: "/gishwati.jpg" }
+  { name: "Volcanoes National Park", description: "Home to mountain gorillas, golden monkeys, and breathtaking volcanic landscapes.", image: "/journal_gorilla.jpg" },
+  { name: "Nyungwe National Park", description: "One of Africa's oldest rainforests with 500+ bird species and chimpanzee families.", image: "/adventure_background.jpg" },
+  { name: "Akagera National Park", description: "Rwanda's premier savannah park home to the Big Five and diverse wildlife.", image: "/bigfive_background.jpg" },
+  { name: "Gishwati-Mukura National Park", description: "A newer protected area with lush forests and wildlife rehabilitation programs.", image: "/landscapes_background.jpg" }
 ]
 
 const safariActivities = [
@@ -159,7 +159,7 @@ export default function RwandaSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/rwandasafaris.jpg" 
+          src="/journal_gorilla.jpg" 
           alt="Rwanda Safari" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -282,17 +282,17 @@ export default function RwandaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/rwandasafaris.jpg" alt="Gorillas" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/journal_gorilla.jpg" alt="Gorillas" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
 
           <div ref={addToRefs} className="mb-24">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/hero_sunrise.jpg" alt="Akagera" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
-              </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
+              <img src="/bigfive_background.jpg" alt="Akagera" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+            </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
                   Big Five Savannah Safaris
@@ -322,7 +322,7 @@ export default function RwandaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/destinations_hero.jpg" alt="Rwanda Culture" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/communities_background.jpg" alt="Rwanda Culture" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
