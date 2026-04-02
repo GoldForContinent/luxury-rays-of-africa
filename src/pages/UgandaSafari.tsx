@@ -2,35 +2,49 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckIcon, MapPinIcon, StarIcon, ClockIcon, PawPrint, Bird, Mountain, Waves, Anchor, Ship, Landmark, Camera } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const CheckIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
-)
+const safariActivities = [
+  { icon: PawPrint, title: "Gorilla Trekking", description: "Bwindi hosts half the world's mountain gorillas. Intense one-hour encounter.", timing: "June-September & Dec-Feb" },
+  { icon: PawPrint, title: "Chimpanzee Tracking", description: "Kibale offers the best chimp viewing in Africa at close range.", timing: "Year-round" },
+  { icon: Camera, title: "Game Drives in Queen Elizabeth", description: "Spot tree-climbing lions, elephants, and herds of buffalo.", timing: "June-October" },
+  { icon: Waves, title: "Murchison Falls", description: "Boat cruise to dramatic waterfall where Nile squeezes through gorge.", timing: "June-October" },
+  { icon: Anchor, title: "White Water Rafting", description: "Jinja offers world-class rafting on the source of the Nile.", timing: "October-March" },
+  { icon: Bird, title: "Birdwatching", description: "Over 1,000 species including the prehistoric shoebill stork.", timing: "Year-round" },
+  { icon: Mountain, title: "Mountain Climbing", description: "Summit Mount Rwenzori or hike through the Rwenzori foothills.", timing: "June-October" },
+  { icon: Ship, title: "Boat Safaris", description: "Kazinga Channel cruises for hippos, crocodiles, and waterbirds.", timing: "Year-round" },
+  { icon: Landmark, title: "Cultural Tours", description: "Batwa village visits and community experiences near parks.", timing: "Year-round" }
+]
 
-const MapPinIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-    <circle cx="12" cy="10" r="3"></circle>
-  </svg>
-)
+const ugandaParks = [
+  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png" },
+  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg" },
+  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/family_safari.jpg" },
+  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/unfiltered_collage_01.jpg" },
+  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/unfiltered_collage_02.jpg" },
+  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/migration_collage_01.jpg" },
+  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/destinations_hero.jpg" },
+  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/hero_sunrise.jpg" },
+  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/kenya_card.jpg" }
+]
 
-const StarIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-  </svg>
-)
+const samplePackages = [
+  { title: "Gorilla Extension", nights: "4 Days / 3 Nights", price: "3,900", path: "/uganda-gorilla-extension", destinations: ["Entebbe", "Bwindi"] },
+  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,390", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
+  { title: "Discover Uganda", nights: "13 Days / 12 Nights", price: "7,920", path: "/uganda-discover-uganda", destinations: ["Murchison Falls", "Kibale", "Bwindi", "Queen Elizabeth"] }
+]
 
-const ClockIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"></circle>
-    <polyline points="12 6 12 12 16 14"></polyline>
-  </svg>
-)
+const seasonalData = [
+  { park: "Bwindi", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Kibale", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Queen Elizabeth", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Murchison Falls", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Jinja", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Lake Mburo", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+  { park: "Mgahinga", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
+]
 
 const faqData = [
   {
@@ -73,76 +87,6 @@ const faqData = [
     question: "How long should I plan for a Uganda safari?",
     answer: "A minimum of 7-10 days is recommended to cover gorilla trekking, chimpanzee tracking, and savanna parks. For a comprehensive experience, plan 12-14 days."
   }
-]
-
-const ugandaParks = [
-  { name: "Bwindi Impenetrable National Park", description: "Home to half the world's mountain gorillas. Ultimate gorilla trekking destination.", image: "/uganda.png" },
-  { name: "Kibale Forest National Park", description: "Best place in Africa for chimpanzee tracking with 1,500+ chimpanzees.", image: "/photo_safari.jpg" },
-  { name: "Queen Elizabeth National Park", description: "Famous for tree-climbing lions and classic savanna wildlife.", image: "/family_safari.jpg" },
-  { name: "Murchison Falls National Park", description: "Dramatic waterfalls where the Nile squeezes through a gorge.", image: "/unfiltered_collage_01.jpg" },
-  { name: "Mgahinga Gorilla National Park", description: "Smallest park with volcano hiking and gorilla tracking.", image: "/unfiltered_collage_02.jpg" },
-  { name: "Lake Mburo National Park", description: "Compact park with zebra, hippos, and excellent birdlife.", image: "/migration_collage_01.jpg" },
-  { name: "Semuliki National Park", description: "Hot springs, forest birds, and cultural experiences.", image: "/destinations_hero.jpg" },
-  { name: "Mount Rwenzori National Park", description: "Mythical Mountains of the Moon with unique alpine flora.", image: "/hero_sunrise.jpg" },
-  { name: "Jinja & River Nile", description: "Adventure capital with white-water rafting and boat cruises.", image: "/kenya_card.jpg" }
-]
-
-const safariActivities = [
-  { icon: "🦍", title: "Gorilla Trekking", description: "Bwindi hosts half the world's mountain gorillas. Intense one-hour encounter.", timing: "June-September & Dec-Feb" },
-  { icon: "🐒", title: "Chimpanzee Tracking", description: "Kibale offers the best chimp viewing in Africa at close range.", timing: "Year-round" },
-  { icon: "🦁", title: "Game Drives in Queen Elizabeth", description: "Spot tree-climbing lions, elephants, and herds of buffalo.", timing: "June-October" },
-  { icon: "🌊", title: "Murchison Falls", description: "Boat cruise to dramatic waterfall where Nile squeezes through gorge.", timing: "June-October" },
-  { icon: "🚣", title: "White Water Rafting", description: "Jinja offers world-class rafting on the source of the Nile.", timing: "October-March" },
-  { icon: "🐦", title: "Birdwatching", description: "Over 1,000 species including the prehistoric shoebill stork.", timing: "Year-round" },
-  { icon: "🏔️", title: "Mountain Climbing", description: "Summit Mount Rwenzori or hike through the Rwenzori foothills.", timing: "June-October" },
-  { icon: "🛶", title: "Boat Safaris", description: "Kazinga Channel cruises for hippos, crocodiles, and waterbirds.", timing: "Year-round" },
-  { icon: "🤿", title: "Scuba Diving", description: "Lake Mutanda and other spots for unique freshwater diving.", timing: "November-April" },
-  { icon: "🏛️", title: "Cultural Tours", description: "Batwa village visits and community experiences near parks.", timing: "Year-round" }
-]
-
-const safariTypes = [
-  {
-    title: "Gorilla & Chimp Trekking Safari", price: "$1,500 - $2,500", perPerson: "per person per day",
-    description: "Combine gorilla trekking in Bwindi with chimpanzee tracking in Kibale. The ultimate primate experience.",
-    features: ["Bwindi gorilla permit included", "Kibale chimp tracking", "Expert guides", "Forest lodge stay"]
-  },
-  {
-    title: "Luxury Uganda Fly-In Safari", price: "$2,500 - $4,000+", perPerson: "per person per day",
-    description: "Fly between parks in small aircraft. Stay in luxury lodges with all-inclusive service.",
-    features: ["Fly-in between camps", "Luxury lodge accommodation", "Private game drives", "All meals & drinks"]
-  },
-  {
-    title: "Uganda Complete Safari", price: "From $3,500", perPerson: "per person (10 days)",
-    description: "Cover gorillas, chimps, Queen Elizabeth, and Murchison Falls in one epic journey.",
-    features: ["All major parks", "Mixed activities", "Domestic flights", "Professional guide"]
-  },
-  {
-    title: "Primates & Wildlife Combo", price: "$2,000 - $3,500", perPerson: "per person per day",
-    description: "Primate experiences combined with classic Big Five game drives in savanna parks.",
-    features: ["Gorilla & chimp permits", "Queen Elizabeth game drives", "Boat safaris", "Expert naturalist guide"]
-  }
-]
-
-const samplePackages = [
-  { title: "Gorilla Extension", nights: "4 Days / 3 Nights", price: "3,900", path: "/uganda-gorilla-extension", destinations: ["Entebbe", "Bwindi"] },
-  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,390", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
-  { title: "Discover Uganda", nights: "13 Days / 12 Nights", price: "7,920", path: "/uganda-discover-uganda", destinations: ["Murchison Falls", "Kibale", "Bwindi", "Queen Elizabeth"] }
-]
-
-const accommodations = [
-  { name: "Gorilla Safari Lodge", location: "Bwindi", description: "Luxury lodge overlooking the Impenetrable Forest." },
-  { name: "Elephant Plains Lodge", location: "Queen Elizabeth", description: "Premium savanna lodge with game drive access." },
-  { name: "Kibale Lodge", location: "Kibale", description: "Forest-edge eco-lodge for chimpanzee tracking." }
-]
-
-const seasonalData = [
-  { park: "Bwindi", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
-  { park: "Kibale", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
-  { park: "Queen Elizabeth", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
-  { park: "Murchison Falls", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
-  { park: "Jinja", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
-  { park: "Lake Mburo", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
-  { park: "Mgahinga", jan: "Fair", feb: "Fair", mar: "Fair", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Fair", dec: "Fair" },
 ]
 
 function getRatingColor(rating: string) {
@@ -265,6 +209,44 @@ export default function UgandaSafari() {
           <p className="text-[#2C3E50] text-xl leading-relaxed text-center max-w-4xl mx-auto">
             Known as the "Pearl of Africa," Uganda offers an extraordinary blend of biodiversity—rainforests, volcanic mountains, and the source of the Nile. Here, you can encounter both the Big Five and the majestic mountain gorillas in a single journey.
           </p>
+        </div>
+      </section>
+
+      {/* Best Recommended Uganda Safaris */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
+              OUR BEST RECOMMENDED UGANDA SAFARIS
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {samplePackages.map((pkg, i) => (
+              <Link key={i} to={pkg.path} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9] block">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
+                  <StarIcon />
+                </div>
+                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {pkg.destinations.map((d, j) => (
+                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
+                  <div>
+                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
+                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
+                  </div>
+                  <span className="text-[#CD7F32] font-semibold text-sm hover:underline flex items-center gap-1">
+                    View Details <ArrowRight size={14} />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -395,46 +377,6 @@ export default function UgandaSafari() {
         </div>
       </section>
 
-      {/* Safari Types & Costs */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Investment</span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#F7F2EA] mt-4">
-              UGANDA SAFARI OPTIONS & PRICING
-            </h2>
-            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
-          </div>
-          
-          <p className="text-[#F7F2EA]/80 text-lg text-center mb-12 max-w-3xl mx-auto">
-            Uganda safari costs range from $1,500 to $4,000+ per person per day. Gorilla permits are approximately $700 extra.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {safariTypes.map((type, index) => (
-              <div key={index} className="bg-[#1a1410] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A]/50 transition-all group">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-display font-bold text-xl text-[#F7F2EA]">{type.title}</h3>
-                  <span className="bg-[#D4A03A]/20 text-[#D4A03A] px-4 py-2 rounded-full font-bold">
-                    {type.price}
-                  </span>
-                </div>
-                <p className="text-[#F7F2EA]/60 text-sm mb-4">{type.perPerson}</p>
-                <p className="text-[#F7F2EA]/80 mb-6 leading-relaxed">{type.description}</p>
-                <div className="space-y-2">
-                  {type.features.map((feature, fIndex) => (
-                    <div key={fIndex} className="flex items-center gap-3 text-[#F7F2EA]/80">
-                      <div className="w-1.5 h-1.5 bg-[#D4A03A] rounded-full"></div>
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Safari Activities */}
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-7xl mx-auto">
@@ -449,7 +391,9 @@ export default function UgandaSafari() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {safariActivities.map((activity, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#D4C5B9]">
-                <div className="text-4xl mb-4">{activity.icon}</div>
+                <div className="w-12 h-12 bg-[#D4A03A]/10 rounded-xl flex items-center justify-center mb-4">
+                  <activity.icon className="text-[#D4A03A]" size={24} />
+                </div>
                 <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2">{activity.title}</h4>
                 <p className="text-[#2C3E50]/80 text-sm mb-3">{activity.description}</p>
                 <div className="flex items-center gap-2 text-[#CD7F32] text-xs">
@@ -586,33 +530,6 @@ export default function UgandaSafari() {
                   </span>
                 </div>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodations */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Stays</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              TOP UGANDA SAFARI LODGES
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {accommodations.map((camp, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-                <div className="h-40 bg-gradient-to-br from-[#2B1E1A] to-[#4a3528] flex items-center justify-center">
-                  <span className="text-white/30 text-6xl font-bold">{camp.name[0]}</span>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{camp.name}</h4>
-                  <p className="text-[#CD7F32] text-sm font-semibold mb-3">{camp.location}</p>
-                  <p className="text-[#2C3E50]/80 text-sm">{camp.description}</p>
-                </div>
-              </div>
             ))}
           </div>
         </div>
