@@ -53,8 +53,12 @@ import TanzaniaDianiBeachExtension from './pages/TanzaniaDianiBeachExtension'
 import TanzaniaNdutuCalvingSafari from './pages/TanzaniaNdutuCalvingSafari'
 import TanzaniaLuxurySafari8Days from './pages/TanzaniaLuxurySafari8Days'
 import TanzaniaWildebeestSafari from './pages/TanzaniaWildebeestSafari'
+import UgandaDiscoverUganda from './pages/UgandaDiscoverUganda'
+import UgandaGorillaExtension from './pages/UgandaGorillaExtension'
+import UgandaPrimatesIntensive from './pages/UgandaPrimatesIntensive'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
+<<<<<<< HEAD
 import NamibiaSafari from './pages/NamibiaSafari'
 import SouthAfricaSafari from './pages/SouthAfricaSafari'
 import BotswanaSafari from './pages/BotswanaSafari'
@@ -64,6 +68,13 @@ import ZanzibarSafari from './pages/ZanzibarSafari'
 import LamuSafari from './pages/LamuSafari'
 import NosyBeSafari from './pages/NosyBeSafari'
 import MafiaSafari from './pages/MafiaSafari'
+=======
+import RwandaGoldenMonkeyGorillaTrekking from './pages/RwandaGoldenMonkeyGorillaTrekking'
+import RwandaGorillaTrekkingExpress from './pages/RwandaGorillaTrekkingExpress'
+import RwandaThisIsAfricaWomensCenter from './pages/RwandaThisIsAfricaWomensCenter'
+import RwandaThousandHillsDistilleries from './pages/RwandaThousandHillsDistilleries'
+import RwandaKigaliCityTour from './pages/RwandaKigaliCityTour'
+>>>>>>> 97ea7d41fe667eb483cdb7a0b5c86aa25ac0cc24
 import Layout from './components/Layout'
 import './App.css'
 
@@ -124,7 +135,11 @@ function App() {
         <Route path="/tanzania-luxury-safari-8days" element={<TanzaniaLuxurySafari8Days />} />
         <Route path="/tanzania-wildebeest-safari" element={<TanzaniaWildebeestSafari />} />
         <Route path="/uganda-safaris" element={<UgandaSafari />} />
+        <Route path="/uganda-gorilla-extension" element={<UgandaGorillaExtension />} />
+        <Route path="/uganda-primates-intensive" element={<UgandaPrimatesIntensive />} />
+        <Route path="/uganda-discover-uganda" element={<UgandaDiscoverUganda />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
+<<<<<<< HEAD
         <Route path="/namibia-safaris" element={<NamibiaSafari />} />
         <Route path="/south-africa-safaris" element={<SouthAfricaSafari />} />
         <Route path="/botswana-safaris" element={<BotswanaSafari />} />
@@ -134,6 +149,13 @@ function App() {
         <Route path="/lamu-island" element={<LamuSafari />} />
         <Route path="/nosy-be-island" element={<NosyBeSafari />} />
         <Route path="/mafia-island" element={<MafiaSafari />} />
+=======
+        <Route path="/rwanda-golden-monkey-gorilla-trekking" element={<RwandaGoldenMonkeyGorillaTrekking />} />
+        <Route path="/rwanda-gorilla-trekking-express" element={<RwandaGorillaTrekkingExpress />} />
+        <Route path="/rwanda-this-is-africa-womens-center" element={<RwandaThisIsAfricaWomensCenter />} />
+        <Route path="/rwanda-thousand-hills-distilleries" element={<RwandaThousandHillsDistilleries />} />
+        <Route path="/rwanda-kigali-city-tour" element={<RwandaKigaliCityTour />} />
+>>>>>>> 97ea7d41fe667eb483cdb7a0b5c86aa25ac0cc24
         <Route path="/journal" element={<Journal />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

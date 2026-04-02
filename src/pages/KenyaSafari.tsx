@@ -104,29 +104,6 @@ const safariActivities = [
   { icon: Anchor, title: "Marine Safaris", description: "Snorkeling and diving at Diani and Watamu coral reefs.", timing: "October-March" }
 ]
 
-const safariTypes = [
-  {
-    title: "Mid-Range Luxury Safaris", price: "$650 - $1,500", perPerson: "per person per day",
-    description: "Permanent tented camps or well-equipped lodges with en-suite bathrooms, private 4×4 Land Cruiser, professional driver-guide.",
-    features: ["Private 4×4 Land Cruiser", "Professional driver-guide", "Higher-quality meals", "Inside national parks"]
-  },
-  {
-    title: "Luxury & Fly-In Safaris", price: "$1,500 - $3,500+", perPerson: "per person per day",
-    description: "5-star lodges, gourmet cuisine, fly between parks in small aircraft, private plunge pools, all-inclusive.",
-    features: ["Fly-in between destinations", "5-star boutique camps", "Private plunge pools", "All-inclusive", "Night game drives"]
-  },
-  {
-    title: "Family Safaris with Kids", price: "From $7,500", perPerson: "per person (12 days)",
-    description: "Kids' Clubs, shorter interactive game drives, expert Maasai guides, family-friendly accommodations.",
-    features: ["Kids' Clubs & Explorer programs", "Child-friendly activities", "Shorter game drives", "Educational experiences"]
-  },
-  {
-    title: "Beach & Bush Combos", price: "$7,500 - $10,500", perPerson: "per person (12 days)",
-    description: "Big Five safari then fly to pristine coast for beaches, snorkeling and marine safaris.",
-    features: ["Big Five game drives", "Beach resort stay", "Snorkeling & scuba", "Fly-in or by-road options"]
-  }
-]
-
 const samplePackages = [
   { title: "Kenya Signature Safari", nights: 11, price: "9,100", destinations: ["Maasai Mara", "Samburu", "Amboseli"], path: "/kenya-signature-safari" },
   { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"], path: "/kenya-wings-over-wilderness" },
@@ -159,12 +136,6 @@ const samplePackages = [
   { title: "Ultimate Family Safari in Kenya", nights: 14, price: "5,270", destinations: ["Nairobi", "Lake Nakuru", "Masai Mara", "Lake Naivasha", "Amboseli"], path: "/kenya-ultimate-family-safari-kenya" }
 ]
 
-const accommodations = [
-  { name: "Mbweha Camp", location: "Lake Nakuru", description: "Unique intimate safari in the Lemek Conservancy." },
-  { name: "Kibo Safari Camp", location: "Amboseli", description: "Luxury tented camp at foot of Mount Kilimanjaro." },
-  { name: "Soroi Larsens Camp", location: "Samburu", description: "Luxurious camp along Ewaso Ng'iro River." }
-]
-
 const seasonalData = [
   { park: "Masai Mara", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Fair", jun: "Good", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
   { park: "Amboseli", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Fair", jun: "Good", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
@@ -189,6 +160,7 @@ function getRatingColor(rating: string) {
 
 export default function KenyaSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showAllPackages, setShowAllPackages] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -281,6 +253,65 @@ export default function KenyaSafari() {
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
           <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
+        </div>
+      </section>
+
+      {/* Best Recommended Safaris in Kenya */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              OUR BEST RECOMMENDED KENYA SAFARIS
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(showAllPackages ? samplePackages : samplePackages.slice(0, 6)).map((pkg, index) => (
+              <Link 
+                key={index}
+                to={pkg.path}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={`https://images.pexels.com/photos/${[3601425, 1684428, 1708936, 2374659, 2251164, 4614229, 697922, 2835439][index % 8]}/pexels-photo-${[3601425, 1684428, 1708936, 2374659, 2251164, 4614229, 697922, 2835439][index % 8]}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                    alt={pkg.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4 bg-[#D4A03A] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    From ${pkg.price}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2 group-hover:text-[#D4A03A] transition-colors">
+                    {pkg.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-[#2C3E50]/60 text-sm mb-3">
+                    <ClockIcon />
+                    <span>{typeof pkg.nights === 'number' ? `${pkg.nights} Days / ${pkg.nights - 1} Nights` : pkg.nights}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {pkg.destinations.slice(0, 3).map((dest, i) => (
+                      <span key={i} className="text-xs bg-[#FAF3E0] text-[#2C3E50]/70 px-3 py-1 rounded-full">
+                        {dest}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <button 
+              onClick={() => setShowAllPackages(!showAllPackages)}
+              className="inline-flex items-center gap-2 bg-[#D4A03A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#B8922F] transition-all"
+            >
+              {showAllPackages ? 'Show Less' : 'View All Kenya Safaris'} <ArrowRight size={18} />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -473,46 +504,6 @@ export default function KenyaSafari() {
         </div>
       </section>
 
-      {/* Safari Types & Costs */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Investment</span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#F7F2EA] mt-4">
-              SAFARI TYPES & COSTS
-            </h2>
-            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
-          </div>
-          
-          <p className="text-[#F7F2EA]/80 text-lg text-center mb-12 max-w-3xl mx-auto">
-            Prices range from $650 to $3,500+ per person per day. Peak season (July-October) commands higher rates.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {safariTypes.map((type, index) => (
-              <div key={index} className="bg-[#1a1410] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A]/50 transition-all group">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-display font-bold text-xl text-[#F7F2EA]">{type.title}</h3>
-                  <span className="bg-[#D4A03A]/20 text-[#D4A03A] px-4 py-2 rounded-full font-bold">
-                    {type.price}
-                  </span>
-                </div>
-                <p className="text-[#F7F2EA]/60 text-sm mb-4">{type.perPerson}</p>
-                <p className="text-[#F7F2EA]/80 mb-6 leading-relaxed">{type.description}</p>
-                <div className="space-y-2">
-                  {type.features.map((feature, fIndex) => (
-                    <div key={fIndex} className="flex items-center gap-3 text-[#F7F2EA]/80">
-                      <div className="w-1.5 h-1.5 bg-[#D4A03A] rounded-full"></div>
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Safari Activities */}
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-7xl mx-auto">
@@ -629,69 +620,6 @@ export default function KenyaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">Mid June to October</h4>
               <p className="text-[#2C3E50]/70 text-sm">Great Migration (Aug-Oct), dry weather, animals at waterholes.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Packages */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-                OUR RECOMMENDED BEST SAFARIS IN KENYA
-              </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9]">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
-                  <StarIcon />
-                </div>
-                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {pkg.destinations.map((d, j) => (
-                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
-                  <div>
-                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
-                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
-                  </div>
-                  <Link to={pkg.path} className="text-[#CD7F32] font-semibold text-sm hover:underline">View Itinerary</Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodations */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Stays</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              TOP SAFARI ACCOMMODATIONS
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {accommodations.map((camp, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-                <div className="h-40 bg-gradient-to-br from-[#2B1E1A] to-[#4a3528] flex items-center justify-center">
-                  <span className="text-white/30 text-6xl font-bold">{camp.name[0]}</span>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{camp.name}</h4>
-                  <p className="text-[#CD7F32] text-sm font-semibold mb-3">{camp.location}</p>
-                  <p className="text-[#2C3E50]/80 text-sm">{camp.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

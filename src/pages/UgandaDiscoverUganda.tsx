@@ -2,120 +2,99 @@ import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, MapPin, Calendar, DollarSign, Star, CheckCircle, ChevronDown, Plane, Mountain, Camera, Ship } from 'lucide-react'
+import { ArrowRight, MapPin, Calendar, DollarSign, Star, CheckCircle, X, ChevronDown, Camera, Bird, TreePine, Mountain, Ship } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const itinerary = [
   {
     day: 1,
-    title: "Arrival in Nairobi",
-    description: "Upon your arrival at the Jomo Kenyatta International Airport, you will be met and transferred to the Four Points by Sheraton Nairobi Airport Hotel for an overnight stay. Depending on your arrival, we can arrange excursions (extra cost) such as visits to the famous Daphne Sheldrick Elephant Orphanage where you can see baby elephants at play, Giraffe Centre where you come in close contact with the endangered Rothschild Giraffes, Karen Blixen Museum, Nairobi National Park, City tour & shopping.",
-    meals: "Bed & Breakfast",
-    accommodation: "Four Points by Sheraton"
+    title: "Arrival in Entebbe",
+    description: "Arrival can take place at any time of the day. Upon arrival, your private safari guide/vehicle will be waiting to pick you up and transfer you to your overnight hotel. All meals on this day will be payable direct.",
+    meals: "Payable Direct",
+    accommodation: "Hotel No. 5"
   },
   {
     day: 2,
-    title: "Nairobi - Amboseli National Park (Approx.4.5 Hrs)",
-    description: "Pick up from your Nairobi hotel in the morning and depart for Amboseli National Park. Lunch on arrival at your safari lodge followed by an afternoon game drive to view Kenya's largest elephant herds, buffalo and plains game. Dinner and overnight in Soroi Amboseli Camp.",
-    meals: "Full Board",
-    accommodation: "Soroi Amboseli Camp"
+    title: "Entebbe to Murchison Falls via Ziwa Rhino Sanctuary",
+    description: "Early departure at 0700hrs. Drive through Kampala and local villages to Ziwa Rhino Sanctuary by 1130hrs. Track rhinos on foot with your local ranger. Continue to Murchison Falls National Park, arriving at your lodge early evening.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Baker's Lodge"
   },
   {
     day: 3,
-    title: "Full day Amboseli National Park",
-    description: "We recommend an early morning wake up to experience excellent game viewing & an unprecedented view of the snow-capped Mt. Kilimanjaro (weather permitting). Lunch followed by an afternoon game drive. Dinner and overnight in Soroi Amboseli Camp.",
-    meals: "Full Board",
-    accommodation: "Soroi Amboseli Camp"
+    title: "Full Day in Murchison Falls National Park",
+    description: "Early morning private river boat and game viewing to the delta. After picnic lunch, proceed on afternoon game drive. Evening sunset cruise along the Nile River with cheese and wine. Watch hippos and crocodiles.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Baker's Lodge"
   },
   {
     day: 4,
-    title: "Amboseli – Namanga border – Arusha – Tarangire NP",
-    description: "After an early breakfast depart for Namanga border. Upon arrival you will be met by our sister company, 4x4 Adventures and transferred to Arusha town for lunch at the Cultural Heritage Restaurant. Continue to Tarangire National Park. Dinner & overnight in Tarangire Sopa Lodge.",
-    meals: "Full Board",
-    accommodation: "Tarangire Sopa Lodge"
+    title: "Second Full Day in Murchison Falls",
+    description: "Morning game drive towards the Nile Delta. Board an exclusively hired river boat for game viewing. See hippos, crocodiles, elephants, and buffaloes. Trek up the spectacular Murchison Waterfalls where the Nile drops 44 meters.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Baker's Lodge"
   },
   {
     day: 5,
-    title: "Tarangire – Ngorongoro Conservation Area",
-    description: "After Breakfast, depart for a full morning game drive in the park with a packed lunch. Ranked 6th largest National Park in Tanzania and covering an area of 2,600 sq. km, Tarangire National Park is most popular for its large elephant herds and mini-wildlife migration that takes place during the dry season. In the afternoon continue to Ngorongoro Rim Lodge for dinner and overnight.",
-    meals: "Full Board",
-    accommodation: "Ngorongoro Rim Lodge"
+    title: "Chimps Tracking - Transfer to Lake Albert",
+    description: "Breakfast and check-out. Transfer to Budongo Forest for chimpanzee trekking. These amazing creatures share 98.3% of their genetic code with humans. Enjoy a packed lunch and proceed to Lake Albert.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Lake Albert Safari Lodge"
   },
   {
     day: 6,
-    title: "Full day in Ngorongoro Conservation Area",
-    description: "Breakfast and descend into the world-renowned crater. A jewel in Ngorongoro's crown, this is a deep, volcanic crater, the largest unflooded and unbroken caldera in the world. Enjoy a full day's game viewing on the magnificent crater floor. Later, ascend the crater and drive to your accommodation for leisure and rest. Dinner & overnight in Ngorongoro Rim Lodge.",
-    meals: "Full Board",
-    accommodation: "Ngorongoro Rim Lodge"
+    title: "Drive to Kibale Rainforest National Park",
+    description: "Depart for Kibale National Park, home to the largest chimpanzee population in Uganda. Arrive in time for lunch. In the afternoon, guided walk in Bigodi Swamp - excellent for birders and other primates.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Primate Lodge"
   },
   {
     day: 7,
-    title: "Ngorongoro – Serengeti National Park (Approx. 4.5 Hrs drive)",
-    description: "After breakfast depart for Serengeti National Park with a packed lunch. Embark on a game drive on your arrival. The vast savannah plains of Serengeti host the movement of two million wildebeests joined by thousands of gazelles and zebras – followed by their predators in their annual migration. Dinner & overnight in Kubu Kubu Tented Lodge.",
-    meals: "Full Board",
-    accommodation: "Kubu Kubu Tented Lodge"
+    title: "Chimp Tracking - Transfer to Queen Elizabeth National Park",
+    description: "Second chimpanzee tracking experience in Kibale Forest. After lunch, depart for Queen Elizabeth National Park. The drive offers scenic views of the Rwenzori Mountains.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Mweya Safari Lodge"
   },
   {
     day: 8,
-    title: "Full day in Serengeti National Park",
-    description: "Spend full days in central Serengeti with unlimited game drives during the day. Packed breakfast / lunches can be arranged. Meals & overnight in Kubu Kubu Tented Lodge.",
-    meals: "Full Board",
-    accommodation: "Kubu Kubu Tented Lodge"
+    title: "Full Day in Queen Elizabeth National Park",
+    description: "Extensive morning game drive. Afternoon relax by the pool. At 1600hrs, depart for about 2-hour boat cruise along the Kazinga Channel, 32km long connecting Lake George and Lake Edward. Perfect for wildlife and bird viewing.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Mweya Safari Lodge"
   },
   {
     day: 9,
-    title: "Full day in Serengeti National Park",
-    description: "Spend another full day in Serengeti with unlimited game drives. The park's biological diversity is very high with at least four globally threatened or endangered animal species: black rhino, elephant, wild dog, and cheetah. Meals & overnight in Kubu Kubu Tented Lodge.",
-    meals: "Full Board",
-    accommodation: "Kubu Kubu Tented Lodge"
+    title: "Drive to Ishasha Sector - Tree Climbing Lions",
+    description: "Morning game drive and breakfast. Depart for Ishasha area famous for its tree climbing lions. Arrive at your camp along the river in time for lunch. Afternoon game drive.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Ishasha Wilderness Camp"
   },
   {
     day: 10,
-    title: "Serengeti – Lake Victoria (approx. 4 Hrs drive)",
-    description: "After breakfast depart for Lake Victoria to arrive for lunch. Afternoon at leisure to undertake any activities available at the Lodge at extra cost. Dinner and overnight will be in Serenity on the Lake.",
-    meals: "Full Board",
-    accommodation: "Serenity on the Lake"
+    title: "Transfer to Bwindi Impenetrable National Park",
+    description: "Morning game drive with potential tree climbing lion sightings. Depart for Bwindi Impenetrable National Park - a 3-hour drive. Arrive at your lodge in time for late lunch. Rest of the afternoon at leisure.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Buhoma Lodge"
   },
   {
     day: 11,
-    title: "Lake Victoria – Isebania border – Maasai Mara National Reserve",
-    description: "After an early breakfast, you will be transferred to Isabenia Border, where you will process immigration formalities and thereafter proceed with our Sunworld Safaris driver/vehicle to the Maasai Mara. Late lunch on arrival and enjoy your first game drive in search of the famous 'BIG FIVE' animals. Dinner and overnight in Soroi Mara Bush Camp.",
-    meals: "Full Board",
-    accommodation: "Soroi Mara Bush Camp"
+    title: "1st Gorilla Trekking in Bwindi",
+    description: "Early breakfast followed by transfer to park reception for check-in and gorilla trek registration. The largest of the great apes, gorillas share 98.3% of their genetic code with humans. After the trek, drive back to your lodge for lunch and rest.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Buhoma Lodge"
   },
   {
     day: 12,
-    title: "Full day in Maasai Mara Game Reserve",
-    description: "Spend full days in the Maasai Mara with unlimited game drives during the day at your convenience. You may opt for packed breakfasts or lunches to enjoy by a scenic spot. Meals and overnight in Soroi Mara Bush Camp.",
-    meals: "Full Board",
-    accommodation: "Soroi Mara Bush Camp"
+    title: "2nd Gorilla Trekking in Bwindi",
+    description: "Second gorilla trekking experience with a different gorilla family. In the afternoon, enjoy a self-guided walk in the nearby town or bird watching. Experiences are always different with each family.",
+    meals: "Breakfast, Lunch, Dinner",
+    accommodation: "Buhoma Lodge"
   },
   {
     day: 13,
-    title: "Full day in Maasai Mara Game Reserve",
-    description: "Another full day in the Maasai Mara. The reserve is famous for the annual migration of wildebeest and zebra, and for its numerous Nile crocodiles and hippos. Meals and overnight in Soroi Mara Bush Camp.",
-    meals: "Full Board",
-    accommodation: "Soroi Mara Bush Camp"
-  },
-  {
-    day: 14,
-    title: "Maasai Mara National Reserve – Lake Nakuru National Park (Approx.5.5 Hrs drive)",
-    description: "After an early breakfast leave for Lake Nakuru National Park. Late lunch on arrival at your safari Lodge. Afternoon game drive around the scenic lake for wildlife sightings as well as spotting the black and southern white rhinos and the endangered Rothschild's Giraffe. Other attractions are the Makalia Falls and the famous Baboon cliff. Dinner & overnight will be in Nakuru Sopa Lodge.",
-    meals: "Full Board",
-    accommodation: "Nakuru Sopa Lodge"
-  },
-  {
-    day: 15,
-    title: "Lake Nakuru – Lake Naivasha",
-    description: "Early morning game drive. After a relaxed breakfast drive to Lake Naivasha arriving for lunch. Afternoon will be spent enjoying a boat ride on the lake as well as a visit to the nearby Crescent Island where you can walk amongst game such as giraffes, waterbucks, zebras etc. Dinner and overnight at the Naivasha Sopa Resort.",
-    meals: "Full Board",
-    accommodation: "Naivasha Sopa Lodge"
-  },
-  {
-    day: 16,
-    title: "Lake Naivasha – Nairobi",
-    description: "Depart for Nairobi after a leisurely breakfast. On arrival enjoy a few hours of shopping or sightseeing before your transfer to the JKIA for your Int. flight departure. Day room, meals can be arranged at extra cost. END OF SERVICES!",
+    title: "Departure - Transfer to Entebbe",
+    description: "After breakfast, transfer to Kihihi airstrip for your light scheduled flight to Entebbe. Upon arrival, transferred to Hotel No. 5 for day room use. Drop off at Entebbe International Airport for departure.",
     meals: "Breakfast"
   }
 ]
@@ -123,63 +102,58 @@ const itinerary = [
 const pricingOptions = [
   {
     title: "Green Season",
-    period: "04th January – 31st March 2026",
-    tiers: [
-      { pax: "2 pax", price: "10,200" },
-      { pax: "4 pax", price: "8,500" },
-      { pax: "6 pax", price: "7,900" }
-    ]
-  },
-  {
-    title: "Low Season",
-    period: "01st April – 31st May 2026",
-    tiers: [
-      { pax: "2 pax", price: "9,200" },
-      { pax: "4 pax", price: "7,500" },
-      { pax: "6 pax", price: "6,900" }
-    ]
-  },
-  {
-    title: "Peak Season",
-    period: "01st June – 31st October 2026",
-    tiers: [
-      { pax: "2 pax", price: "11,900" },
-      { pax: "4 pax", price: "10,100" },
-      { pax: "6 pax", price: "9,500" }
-    ]
-  },
-  {
-    title: "High Season",
-    period: "01st November – 19th December 2026",
-    tiers: [
-      { pax: "2 pax", price: "10,500" },
-      { pax: "4 pax", price: "8,700" },
-      { pax: "6 pax", price: "8,200" }
+    period: "April / May / November 2026",
+    price: "7,920",
+    perPerson: "per person sharing (4 pax)",
+    singleSupplement: "900",
+    highlights: [
+      "Arrival / departure transfers in Entebbe",
+      "Transport and exclusive use of custom safari built 4 x 4 Landcruiser with pop-up roof",
+      "All Park entrance fees to mentioned parks",
+      "English speaking driver/guide",
+      "Unlimited game drives / activities as per itinerary",
+      "Bed & breakfast accommodation in Entebbe, otherwise full board",
+      "House drinks included at Baker's Lodge, Ishasha Wilderness Camp, Buhoma Lodge",
+      "Unlimited drinking water & fruits in the car",
+      "Two gorilla trekking permits",
+      "One chimpanzee tracking permit",
+      "Ziwa Rhino Sanctuary walk",
+      "River cruises on Nile and Kazinga Channel",
+      "Bigodi Swamp walk"
+    ],
+    notIncluded: [
+      "International flights",
+      "Uganda visa fees",
+      "Travel insurance",
+      "Tips and gratuities",
+      "Personal expenses",
+      "Cultural visits and school fees"
     ]
   }
 ]
 
 const keyHighlights = [
-  "Visit both Kenya and Tanzania in one epic journey",
-  "Witness the Great Migration in Serengeti",
-  "Game drives in all major parks: Amboseli, Tarangire, Ngorongoro, Serengeti, Maasai Mara, Lake Nakuru",
-  "Scenic drive through the Great Rift Valley",
-  "Boat ride in Lake Naivasha & visit to Crescent Island",
-  "Cross border experience (Namanga to Isebania)",
-  "View Mount Kilimanjaro from Amboseli",
-  "See the Big Five across multiple parks"
+  "Two gorilla trekking experiences in Bwindi",
+  "Two chimpanzee tracking sessions in Kibale",
+  "Murchison Falls - the world's most powerful waterfall",
+  "Kazinga Channel boat cruise",
+  "Tree climbing lions in Ishasha",
+  "Rhino tracking at Ziwa Sanctuary",
+  "Visit the source of the Nile",
+  "13 days covering Uganda's prime parks"
 ]
 
 const importantInfo = [
-  { title: "Best Time to Visit", description: "June-October for best game viewing, December-March for calving season" },
-  { title: "Group Size", description: "Minimum 2 guests, maximum 6 per vehicle" },
-  { title: "Transport", description: "4x4 Safari Landcruiser in Kenya, Toyota Landcruiser in Tanzania" },
-  { title: "Visa Requirements", description: "Kenya visa ($50) and Tanzania visa ($50) - EAC visa available for $100" },
-  { title: "What to Bring", description: "Binoculars, camera, comfortable clothing, hiking boots, sunscreen" },
-  { title: "Health", description: "Yellow fever certificate recommended, malaria prophylaxis advised" }
+  { title: "Best Time to Visit", description: "Year-round; dry seasons (Jun-Sep, Dec-Feb) best for wildlife viewing" },
+  { title: "Group Size", description: "Maximum 8 people per gorilla family visit" },
+  { title: "Age Limit", description: "Minimum 15 years for gorilla and chimpanzee trekking" },
+  { title: "Fitness Level", description: "Moderate - requires hiking through forest terrain" },
+  { title: "What to Bring", description: "Hiking boots, long pants, rain jacket, camera with no flash" },
+  { title: "Visa Requirements", description: "Uganda visa required ($50 online or on arrival)" },
+  { title: "Yellow Fever", description: "Yellow fever certificate required" }
 ]
 
-export default function KenyaTanzaniaSafari() {
+export default function UgandaDiscoverUganda() {
   const [openDay, setOpenDay] = useState<number | null>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -237,8 +211,8 @@ export default function KenyaTanzaniaSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/tanzania_card.jpg" 
-          alt="Kenya Tanzania Safari" 
+          src="/uganda.png" 
+          alt="Discover Uganda Safari" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -248,17 +222,17 @@ export default function KenyaTanzaniaSafari() {
           <span className="mx-2">/</span>
           <Link to="/destinations" className="hover:text-[#D4A03A] transition-colors">Destinations</Link>
           <span className="mx-2">/</span>
-          <Link to="/tanzania-safaris" className="hover:text-[#D4A03A] transition-colors">Tanzania</Link>
+          <Link to="/uganda-safaris" className="hover:text-[#D4A03A] transition-colors">Uganda</Link>
           <span className="mx-2">/</span>
-          <span className="text-[#D4A03A]">Kenya Tanzania Safari</span>
+          <span className="text-[#D4A03A]">Discover Uganda</span>
         </div>
 
         <div className="hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
-            KENYA TANZANIA SAFARI
+            DISCOVER UGANDA
           </h1>
           <p className="text-[#D4A03A] text-lg md:text-xl uppercase tracking-[0.3em] mb-8">
-            16 Days / 15 Nights - From $7,150
+            13 Days / 12 Nights - From $7,920
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="bg-[#D4A03A] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#B8922F] transition-all flex items-center gap-2">
@@ -283,28 +257,28 @@ export default function KenyaTanzaniaSafari() {
               <Calendar className="text-[#D4A03A]" size={24} />
               <div>
                 <p className="text-xs text-white/60 uppercase">Duration</p>
-                <p className="font-semibold">16 Days / 15 Nights</p>
+                <p className="font-semibold">13 Days / 12 Nights</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="text-[#D4A03A]" size={24} />
               <div>
                 <p className="text-xs text-white/60 uppercase">Destinations</p>
-                <p className="font-semibold">Kenya & Tanzania</p>
+                <p className="font-semibold">6 National Parks</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <DollarSign className="text-[#D4A03A]" size={24} />
               <div>
                 <p className="text-xs text-white/60 uppercase">Price From</p>
-                <p className="font-semibold">$7,150 pp</p>
+                <p className="font-semibold">$7,920 pp</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Star className="text-[#D4A03A]" size={24} />
               <div>
                 <p className="text-xs text-white/60 uppercase">Best Time</p>
-                <p className="font-semibold">June-Oct</p>
+                <p className="font-semibold">Year-round</p>
               </div>
             </div>
           </div>
@@ -317,7 +291,7 @@ export default function KenyaTanzaniaSafari() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Overview</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
-              COMBINED KENYA & TANZANIA SAFARI
+              THE PEARL OF AFRICA
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -325,10 +299,10 @@ export default function KenyaTanzaniaSafari() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-[#2C3E50] text-xl leading-relaxed mb-6">
-                Explore your favourite spots in both Kenya and Tanzania with fantastic game viewing throughout the year! You'll be staying at Amboseli Serena Lodge through May 2026, after which you can look forward to experiencing our new luxury safari camp, Soroi Amboseli, from June onwards.
+                Discover Uganda Safari is suitable for those looking to explore Uganda's prime parks including touring the world's longest river, THE NILE. This comprehensive 13-day journey takes you through the heart of East Africa's most diverse landscapes.
               </p>
               <p className="text-[#2C3E50] text-xl leading-relaxed mb-8">
-                This comprehensive 16-day journey takes you through the best parks in both countries, including the Serengeti, Ngorongoro Crater, Maasai Mara, and Amboseli with stunning views of Mount Kilimanjaro.
+                Other highlights include chimpanzee and gorilla trekking, boat cruises on The Nile and Kazinga Channel, as well as game drives in the respective national parks. Uganda truly lives up to its name as the "Pearl of Africa" with its stunning biodiversity.
               </p>
               <div className="space-y-4">
                 {keyHighlights.map((highlight, index) => (
@@ -345,29 +319,36 @@ export default function KenyaTanzaniaSafari() {
                 <div className="flex items-start gap-4">
                   <Mountain className="text-[#D4A03A] mt-1" size={20} />
                   <div>
-                    <p className="font-semibold text-[#2C3E50]">Mount Kilimanjaro Views</p>
-                    <p className="text-[#2C3E50]/70 text-sm">See Africa's highest peak from Amboseli</p>
+                    <p className="font-semibold text-[#2C3E50]">Murchison Falls</p>
+                    <p className="text-[#2C3E50]/70 text-sm">World's most powerful waterfall</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Plane className="text-[#D4A03A] mt-1" size={20} />
+                  <TreePine className="text-[#D4A03A] mt-1" size={20} />
                   <div>
-                    <p className="font-semibold text-[#2C3E50]">Border Crossing Experience</p>
-                    <p className="text-[#2C3E50]/70 text-sm">Cross from Kenya to Tanzania via Namanga</p>
+                    <p className="font-semibold text-[#2C3E50]">Bwindi Impenetrable Forest</p>
+                    <p className="text-[#2C3E50]/70 text-sm">Home to half the world's gorillas</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Camera className="text-[#D4A03A] mt-1" size={20} />
+                  <Bird className="text-[#D4A03A] mt-1" size={20} />
                   <div>
-                    <p className="font-semibold text-[#2C3E50]">Big Five Across Multiple Parks</p>
-                    <p className="text-[#2C3E50]/70 text-sm">See lions, leopards, rhinos, elephants, buffalo</p>
+                    <p className="font-semibold text-[#2C3E50]">Kibale Forest</p>
+                    <p className="text-[#2C3E50]/70 text-sm">Largest chimp population in Uganda</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Ship className="text-[#D4A03A] mt-1" size={20} />
                   <div>
-                    <p className="font-semibold text-[#2C3E50]">Lake Victoria & Naivasha</p>
-                    <p className="text-[#2C3E50]/70 text-sm">Boat rides and Crescent Island walk</p>
+                    <p className="font-semibold text-[#2C3E50]">Kazinga Channel</p>
+                    <p className="text-[#2C3E50]/70 text-sm">32km boat cruise with abundant wildlife</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Camera className="text-[#D4A03A] mt-1" size={20} />
+                  <div>
+                    <p className="font-semibold text-[#2C3E50]">Tree Climbing Lions</p>
+                    <p className="text-[#2C3E50]/70 text-sm">Unique behavior in Ishasha sector</p>
                   </div>
                 </div>
               </div>
@@ -425,26 +406,50 @@ export default function KenyaTanzaniaSafari() {
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {pricingOptions.map((option, index) => (
-              <div key={index} className="bg-white rounded-3xl p-6 shadow-xl">
+              <div key={index} className="bg-white rounded-3xl p-8 shadow-xl">
                 <div className="text-center mb-6">
-                  <h3 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{option.title}</h3>
-                  <p className="text-[#2C3E50]/60 text-sm">{option.period}</p>
+                  <h3 className="font-display font-bold text-2xl text-[#2C3E50] mb-2">{option.title}</h3>
+                  <p className="text-[#2C3E50]/60 mb-4">{option.period}</p>
                 </div>
                 
-                <div className="space-y-3">
-                  {option.tiers?.map((tier, i) => (
-                    <div key={i} className="flex justify-between text-sm border-b border-[#D4C5B9] pb-2">
-                      <span className="text-[#2C3E50]/80">{tier.pax}</span>
-                      <span className="font-bold text-[#D4A03A]">${tier.price}</span>
+                <div className="bg-[#FFF8F0] rounded-2xl p-4 mb-6">
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-[#2C3E50]/80">4 pax</span>
+                      <span className="font-bold text-[#D4A03A]">${option.price}</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-[#D4C5B9] flex justify-between text-sm">
+                    <span className="text-[#2C3E50]/80">Single Room Supplement</span>
+                    <span className="font-bold text-[#D4A03A]">${option.singleSupplement}</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <h4 className="font-semibold text-[#2C3E50]">What's Included:</h4>
+                  {option.highlights.map((highlight, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle className="text-[#D4A03A] flex-shrink-0" size={18} />
+                      <span className="text-[#2C3E50]/80 text-sm">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-2 mb-8">
+                  <h4 className="font-semibold text-[#2C3E50]">Not Included:</h4>
+                  {option.notIncluded.map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <X className="text-red-500 flex-shrink-0" size={18} />
+                      <span className="text-[#2C3E50]/60 text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link 
                   to="/contact"
-                  className="block text-center mt-6 py-3 rounded-full font-semibold transition-all bg-[#D4A03A] text-white hover:bg-[#B8922F]"
+                  className="block text-center py-4 rounded-full font-semibold transition-all bg-[#D4A03A] text-white hover:bg-[#B8922F]"
                 >
                   Request Quote
                 </Link>
@@ -478,10 +483,10 @@ export default function KenyaTanzaniaSafari() {
       <section className="py-24 px-4 bg-[#2C3E50]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6">
-            READY FOR THE ULTIMATE SAFARI?
+            READY TO DISCOVER UGANDA?
           </h2>
           <p className="text-white/80 text-xl mb-8">
-            Experience the best of Kenya and Tanzania in one incredible journey.
+            Let us create your perfect Uganda safari experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -491,10 +496,10 @@ export default function KenyaTanzaniaSafari() {
               Start Planning <ArrowRight size={20} />
             </Link>
             <Link 
-              to="/tanzania-safaris"
+              to="/uganda-safaris"
               className="border-2 border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-[#2C3E50] transition-all"
             >
-              View More Tanzania Safaris
+              View More Uganda Safaris
             </Link>
           </div>
         </div>

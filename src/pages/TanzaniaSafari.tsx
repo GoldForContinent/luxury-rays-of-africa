@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Palmtree, Mountain, Footprints, Wind, Ship, Camera, Sun } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -88,55 +88,23 @@ const tanzaniaParks = [
 ]
 
 const safariActivities = [
-  { icon: "🦁", title: "Great Migration & Game Drives", description: "Witness millions crossing rivers in the Serengeti. Best June-October.", timing: "June-October" },
-  { icon: "🌋", title: "Ngorongoro Crater Game Drive", description: "Explore the world's largest caldera with all Big Five.", timing: "Year-round" },
-  { icon: "🎈", title: "Hot Air Balloon Safari", description: "Sunrise flight over Serengeti with champagne bush breakfast.", timing: "June-October" },
-  { icon: "🚶", title: "Walking Safaris", description: "Armed guides lead intimate walks exploring smaller ecosystems.", timing: "Year-round" },
-  { icon: "🌙", title: "Night Game Drives", description: "Spot leopards and hyenas hunting in Lake Manyara and Tarangire.", timing: "Year-round" },
-  { icon: "🐒", title: "Chimpanzee Tracking", description: "Trek through Gombe and Mahale forests to find our closest relatives.", timing: "June-March" },
-  { icon: "🚣", title: "Boat & Canoe Safaris", description: "Rufiji River cruises and Lake Manyara boat trips for hippos and birds.", timing: "Year-round" },
-  { icon: "🐎", title: "Horseback Safaris", description: "Ride through the wilderness for a unique wildlife perspective.", timing: "June-October" },
-  { icon: "🏔️", title: "Mount Kilimanjaro Climb", description: "Summit Africa's highest peak via multiple routes.", timing: "June-October" },
-  { icon: "🏖️", title: "Zanzibar Beach Holiday", description: "End with pristine beaches, coral reefs, and Swahili culture.", timing: "October-March" }
-]
-
-const safariTypes = [
-  {
-    title: "Mid-Range Tanzania Safaris", price: "$500 - $1,500", perPerson: "per person per day",
-    description: "Quality tented camps with en-suite bathrooms, professional guides, and well-maintained 4×4 vehicles.",
-    features: ["Private 4×4 Land Cruiser", "Expert driver-guide", "Quality meals", "Park entrance fees"]
-  },
-  {
-    title: "Luxury Fly-In Safaris", price: "$1,500 - $3,000+", perPerson: "per person per day",
-    description: "Five-star lodges, gourmet cuisine, and small aircraft between camps for maximum comfort.",
-    features: ["Fly-in between camps", "Luxury tented suites", "All-inclusive dining", "Private game drives"]
-  },
-  {
-    title: "Wildebeest Calving Safari", price: "From $3,228", perPerson: "per person (4 days)",
-    description: "Witness hundreds of thousands of calves born in Ndutu. Intense predator action.",
-    features: ["Ndutu location", "February-March timing", "Expert guides", "Compact itinerary"]
-  },
-  {
-    title: "Tanzania Complete Safari", price: "From $6,540", perPerson: "per person (8 days)",
-    description: "Cover Tarangire, Serengeti, and Ngorongoro in one epic journey.",
-    features: ["3 major parks", "Luxury camps", "Full board", "Domestic flights"]
-  }
+  { icon: <Camera className="w-10 h-10" />, title: "Great Migration & Game Drives", description: "Witness millions crossing rivers in the Serengeti. Best June-October.", timing: "June-October" },
+  { icon: <Mountain className="w-10 h-10" />, title: "Ngorongoro Crater Game Drive", description: "Explore the world's largest caldera with all Big Five.", timing: "Year-round" },
+  { icon: <Sun className="w-10 h-10" />, title: "Hot Air Balloon Safari", description: "Sunrise flight over Serengeti with champagne bush breakfast.", timing: "June-October" },
+  { icon: <Footprints className="w-10 h-10" />, title: "Walking Safaris", description: "Armed guides lead intimate walks exploring smaller ecosystems.", timing: "Year-round" },
+  { icon: <Wind className="w-10 h-10" />, title: "Night Game Drives", description: "Spot leopards and hyenas hunting in Lake Manyara and Tarangire.", timing: "Year-round" },
+  { icon: <Camera className="w-10 h-10" />, title: "Chimpanzee Tracking", description: "Trek through Gombe and Mahale forests to find our closest relatives.", timing: "June-March" },
+  { icon: <Ship className="w-10 h-10" />, title: "Boat & Canoe Safaris", description: "Rufiji River cruises and Lake Manyara boat trips for hippos and birds.", timing: "Year-round" },
+  { icon: <Wind className="w-10 h-10" />, title: "Horseback Safaris", description: "Ride through the wilderness for a unique wildlife perspective.", timing: "June-October" },
+  { icon: <Mountain className="w-10 h-10" />, title: "Mount Kilimanjaro Climb", description: "Summit Africa's highest peak via multiple routes.", timing: "June-October" },
+  { icon: <Palmtree className="w-10 h-10" />, title: "Zanzibar Beach Holiday", description: "End with pristine beaches, coral reefs, and Swahili culture.", timing: "October-March" }
 ]
 
 const samplePackages = [
   { title: "Kenya - Tanzania Safari", nights: 16, price: "7,150", destinations: ["Kenya", "Tanzania"], path: "/kenya-tanzania-safari" },
   { title: "Classic Sky Safari in Tanzania", nights: "8 Days / 7 Nights", price: "12,500", destinations: ["Tarangire", "Ngorongoro", "Serengeti"], path: "/tanzania-classic-sky-safari" },
   { title: "Best of Zanzibar Beach Extension", nights: "6 Days / 5 Nights", price: "2,970", destinations: ["Zanzibar"], path: "/tanzania-best-of-zanzibar" },
-  { title: "Diani Beach Extension", nights: "5 Days / 4 Nights", price: "1,270", destinations: ["Diani Beach"], path: "/tanzania-diani-beach-extension" },
-  { title: "Ndutu Calving Safari", nights: "4 Days / 3 Nights", price: "3,228", destinations: ["Ndutu"], path: "/tanzania-ndutu-calving-safari" },
-  { title: "Tarangire, Serengeti & Ngorongoro Luxury", nights: "8 Days / 7 Nights", price: "6,540", destinations: ["Ngorongoro", "Serengeti", "Tarangire"], path: "/tanzania-luxury-safari-8days" },
-  { title: "Serengeti Wildebeest Safari", nights: "8 Days / 7 Nights", price: "8,052", destinations: ["Ngorongoro", "Serengeti"], path: "/tanzania-wildebeest-safari" }
-]
-
-const accommodations = [
-  { name: "Into Wild Africa Camp", location: "Serengeti", description: "Authentic safari camp in the heart of the Serengeti wilderness." },
-  { name: "Cherero Camp", location: "Serengeti", description: "Secluded camp on Musabi Plains near the migration routes." },
-  { name: "Kuoom Serengeti Camp", location: "Serengeti", description: "Eco-friendly tented retreat in the heart of the park." }
+  { title: "Diani Beach Extension", nights: "5 Days / 4 Nights", price: "1,270", destinations: ["Diani Beach"], path: "/tanzania-diani-beach-extension" }
 ]
 
 const seasonalData = [
@@ -161,6 +129,7 @@ function getRatingColor(rating: string) {
 
 export default function TanzaniaSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showAllPackages, setShowAllPackages] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -273,6 +242,65 @@ export default function TanzaniaSafari() {
         </div>
       </section>
 
+      {/* Best Recommended Tanzania Safaris */}
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Featured</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              OUR BEST RECOMMENDED TANZANIA SAFARIS
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(showAllPackages ? samplePackages : samplePackages.slice(0, 6)).map((pkg, index) => (
+              <Link 
+                key={index}
+                to={pkg.path}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={`https://images.pexels.com/photos/${[3601425, 1684428, 1708936, 2374659, 2251164, 4614229, 697922, 2835439][index % 8]}/pexels-photo-${[3601425, 1684428, 1708936, 2374659, 2251164, 4614229, 697922, 2835439][index % 8]}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                    alt={pkg.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4 bg-[#D4A03A] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    From ${pkg.price}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2 group-hover:text-[#D4A03A] transition-colors">
+                    {pkg.title}
+                  </h4>
+                  <div className="flex items-center gap-2 text-[#2C3E50]/60 text-sm mb-3">
+                    <ClockIcon />
+                    <span>{typeof pkg.nights === 'number' ? `${pkg.nights} Days / ${pkg.nights - 1} Nights` : pkg.nights}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {pkg.destinations.slice(0, 3).map((dest, i) => (
+                      <span key={i} className="text-xs bg-[#FAF3E0] text-[#2C3E50]/70 px-3 py-1 rounded-full">
+                        {dest}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <button 
+              onClick={() => setShowAllPackages(!showAllPackages)}
+              className="inline-flex items-center gap-2 bg-[#D4A03A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#B8922F] transition-all"
+            >
+              {showAllPackages ? 'Show Less' : 'View All Tanzania Safaris'} <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Key Highlights */}
       <section className="py-16 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div className="max-w-6xl mx-auto">
@@ -358,13 +386,13 @@ export default function TanzaniaSafari() {
         </div>
       </section>
 
-      {/* Top Safari Destinations */}
+      {/* Tanzania Safari Regions */}
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Explore</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4">
-              BEST REGIONS FOR TANZANIA SAFARIS
+              TANZANIA SAFARI REGIONS
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
           </div>
@@ -403,46 +431,6 @@ export default function TanzaniaSafari() {
         </div>
       </section>
 
-      {/* Safari Types & Costs */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Investment</span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#F7F2EA] mt-4">
-              TANZANIA SAFARI OPTIONS & PRICING
-            </h2>
-            <div className="w-24 h-1 bg-[#D4A03A] mx-auto mt-6"></div>
-          </div>
-          
-          <p className="text-[#F7F2EA]/80 text-lg text-center mb-12 max-w-3xl mx-auto">
-            Tanzania safari costs range from $500 to over $3,000 per person per day, depending on accommodation level and season.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {safariTypes.map((type, index) => (
-              <div key={index} className="bg-[#1a1410] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A]/50 transition-all group">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-display font-bold text-xl text-[#F7F2EA]">{type.title}</h3>
-                  <span className="bg-[#D4A03A]/20 text-[#D4A03A] px-4 py-2 rounded-full font-bold">
-                    {type.price}
-                  </span>
-                </div>
-                <p className="text-[#F7F2EA]/60 text-sm mb-4">{type.perPerson}</p>
-                <p className="text-[#F7F2EA]/80 mb-6 leading-relaxed">{type.description}</p>
-                <div className="space-y-2">
-                  {type.features.map((feature, fIndex) => (
-                    <div key={fIndex} className="flex items-center gap-3 text-[#F7F2EA]/80">
-                      <div className="w-1.5 h-1.5 bg-[#D4A03A] rounded-full"></div>
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Safari Activities */}
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div className="max-w-7xl mx-auto">
@@ -457,7 +445,9 @@ export default function TanzaniaSafari() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {safariActivities.map((activity, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#D4C5B9]">
-                <div className="text-4xl mb-4">{activity.icon}</div>
+                <div className="w-14 h-14 mb-4 rounded-full bg-[#D4A03A]/10 flex items-center justify-center">
+                  <span className="text-[#D4A03A]">{activity.icon}</span>
+                </div>
                 <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-2">{activity.title}</h4>
                 <p className="text-[#2C3E50]/80 text-sm mb-3">{activity.description}</p>
                 <div className="flex items-center gap-2 text-[#CD7F32] text-xs">
@@ -557,69 +547,6 @@ export default function TanzaniaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">June to October</h4>
               <p className="text-[#2C3E50]/70 text-sm">Dry season with the Great Migration river crossings. Best wildlife viewing, but parks arebusiest.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Packages */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              SAMPLE TANZANIA SAFARI PACKAGES
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9]">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
-                  <StarIcon />
-                </div>
-                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {pkg.destinations.map((d, j) => (
-                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
-                  <div>
-                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
-                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
-                  </div>
-                  <Link to="/contact" className="text-[#CD7F32] font-semibold text-sm hover:underline">View Details</Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodations */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Stays</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-              TOP TANZANIA SAFARI CAMPS
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {accommodations.map((camp, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-                <div className="h-40 bg-gradient-to-br from-[#2B1E1A] to-[#4a3528] flex items-center justify-center">
-                  <span className="text-white/30 text-6xl font-bold">{camp.name[0]}</span>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{camp.name}</h4>
-                  <p className="text-[#CD7F32] text-sm font-semibold mb-3">{camp.location}</p>
-                  <p className="text-[#2C3E50]/80 text-sm">{camp.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
