@@ -267,7 +267,7 @@ export default function KenyaSafari() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {samplePackages.slice(0, 9).map((pkg, index) => (
+            {samplePackages.map((pkg, index) => (
               <Link 
                 key={index}
                 to={pkg.path}
@@ -305,7 +305,7 @@ export default function KenyaSafari() {
           
           <div className="text-center mt-12">
             <Link 
-              to="/packages" 
+              to="/kenya-safaris#packages" 
               className="inline-flex items-center gap-2 bg-[#D4A03A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#B8922F] transition-all"
             >
               View All Kenya Safaris <ArrowRight size={18} />
@@ -616,42 +616,6 @@ export default function KenyaSafari() {
               <h4 className="font-bold text-[#2C3E50] mb-2">Mid June to October</h4>
               <p className="text-[#2C3E50]/70 text-sm">Great Migration (Aug-Oct), dry weather, animals at waterholes.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Packages */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Itineraries</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4">
-                OUR RECOMMENDED BEST SAFARIS IN KENYA
-              </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {samplePackages.map((pkg, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-[#D4C5B9]">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[#CD7F32] font-semibold">{pkg.nights}</span>
-                  <StarIcon />
-                </div>
-                <h4 className="font-display font-bold text-lg text-[#2C3E50] mb-4">{pkg.title}</h4>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {pkg.destinations.map((d, j) => (
-                    <span key={j} className="text-xs bg-[#F5E6D3] text-[#2C3E50] px-2 py-1 rounded">{d}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#D4C5B9]">
-                  <div>
-                    <span className="text-[#CD7F32] font-bold text-2xl">${pkg.price}</span>
-                    <span className="text-[#2C3E50]/60 text-sm"> PPS</span>
-                  </div>
-                  <Link to={pkg.path} className="text-[#CD7F32] font-semibold text-sm hover:underline">View Itinerary</Link>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
