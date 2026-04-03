@@ -37,13 +37,13 @@ const faqData = [
 ]
 
 const zambiaParks = [
+  { name: "Mosi-oa-Tunya National Park", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World. Entry fee: $20 USD per person.", image: "/zambia_victoria_falls.jpg", price: "Entry $20 USD/pp", path: "/zambia-safaris" },
+  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings. Entry fee: $20 USD per person.", image: "/zambia_kafue.jpg", price: "Entry $20 USD/pp", path: "/zambia-kafue-national-park" },
+  { name: "Kasanka National Park", description: "Famous for the incredible bat migration - over 10 million straw-coloured fruit bats roost here annually. Entry fee: $25 USD per person.", image: "/zambia_kasanka.jpg", price: "Entry $25 USD/pp", path: "/zambia-safaris" },
   { name: "South Luangwa National Park", description: "The birthplace of walking safaris. Exceptional leopard sightings and large populations of elephants and buffaloes.", image: "/zambia_south_luangwa.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
   { name: "Lower Zambezi National Park", description: "Stunning riverside wilderness along the Zambezi River. Excellent canoeing and boat-based wildlife viewing.", image: "/zambia_lower_zambezi.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
-  { name: "Mosi-oa-Tunya (Victoria Falls)", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World.", image: "/zambia_victoria_falls.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
   { name: "North Luangwa National Park", description: "Remote and wild, offering authentic wilderness experiences. Known for large herds of buffalo and elephants.", image: "/zambia_north_luangwa.jpg", price: "From $500/pp/day", path: "/zambia-north-luangwa-national-park" },
-  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings.", image: "/zambia_kafue.jpg", price: "From $350/pp/day", path: "/zambia-kafue-national-park" },
-  { name: "Liuwa Plains National Park", description: "Remote wilderness famous for the second-largest wildebeest migration in Africa.", image: "/zambia_liuwa.jpg", price: "From $500/pp/day", path: "/zambia-liuwa-plains-national-park" },
-  { name: "Bangweulu Wetlands", description: "Remote wetlands famous for the elusive shoebill stork and unique birdlife.", image: "/zambia_bangweulu.jpg", price: "From $500/pp/day", path: "/zambia-safaris" }
+  { name: "Liuwa Plains National Park", description: "Remote wilderness famous for the second-largest wildebeest migration in Africa.", image: "/zambia_liuwa.jpg", price: "From $500/pp/day", path: "/zambia-liuwa-plains-national-park" }
 ]
 
 const safariActivities = [
@@ -56,9 +56,7 @@ const safariActivities = [
 ]
 
 const accommodations = [
-  { name: "Tafika Camp", location: "South Luangwa", description: "Intimate camp with excellent walking safari guides and authentic bush experience.", image: "/zambia_luxury1.jpg", path: "/zambia-tafika-camp" },
-  { name: "Anantara Zambezi Lodge", location: "Victoria Falls", description: "Luxury riverside lodge with stunning views of the Zambezi and Falls.", image: "/zambia_luxury2.jpg", path: "/zambia-anantara-lodge" },
-  { name: "Chundukai River Lodge", location: "Lower Zambezi", description: "Elegant tented camp on the banks of the Zambezi with excellent activities.", image: "/zambia_luxury3.jpg", path: "/zambia-chundukai-river-lodge" }
+  { name: "Royal Zambezi Lodge", location: "Lower Zambezi", description: "Luxury riverside lodge on the banks of the Zambezi River with stunning views and excellent wildlife viewing.", image: "/zambia_royal_zambezi.jpg", path: "/zambia-safaris" }
 ]
 
 const safariPackages = [
@@ -274,12 +272,12 @@ export default function ZambiaSafari() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {zambiaParks.map((park, index) => (
-              <div 
-                key={index}
-                onClick={() => window.location.href = park.path}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer"
-              >
+              {zambiaParks.map((park, index) => (
+                <Link 
+                  key={index}
+                  to={park.path}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block"
+                >
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -300,7 +298,7 @@ export default function ZambiaSafari() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -440,10 +438,10 @@ export default function ZambiaSafari() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {accommodations.map((lodging, index) => (
-              <div 
+              <Link 
                 key={index}
-                onClick={() => window.location.href = lodging.path}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer group"
+                to={lodging.path}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow group"
               >
                 <div className="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{ backgroundImage: `url(${lodging.image})` }}>
                   <div className="h-full bg-black/30"></div>
@@ -452,8 +450,8 @@ export default function ZambiaSafari() {
                   <h3 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{lodging.name}</h3>
                   <p className="text-[#D4A03A] text-sm mb-3">{lodging.location}</p>
                   <p className="text-[#2C3E50]">{lodging.description}</p>
-                </div>
-              </div>
+                  </div>
+                </Link>
             ))}
           </div>
         </div>
