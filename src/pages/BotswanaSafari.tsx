@@ -55,9 +55,9 @@ const safariActivities = [
 ]
 
 const accommodations = [
-  { name: "Xaranna Okavango Delta Camp", location: "Okavango Delta", description: "Luxury tented camp on a private island with stunning delta views and excellent wildlife.", image: "/botswana_luxury1.jpg", path: "/botswana-xaranna-camp" },
-  { name: "Chobe Game Lodge", location: "Chobe", description: "Elegant lodge on the Chobe River with panoramic views and exceptional elephant sightings.", image: "/botswana_luxury2.jpg", path: "/botswana-chobe-game-lodge" },
-  { name: "Camp Kalahari", location: "Makgadikgadi", description: "Authentic safari camp in the ancient salt pans with adventuresome excursions.", image: "/botswana_luxury3.jpg", path: "/botswana-camp-kalahari" }
+  { name: "Wilderness Tubu Tree Camp", location: "Okavango Delta", description: "An intimate safari camp set on Hunda Island in the Okavango Delta's Jao Concession, offering stunning floodplain views and excellent wildlife encounters.", image: "/botswana_luxury1.jpg", path: "/botswana-wilderness-tubu-tree-camp" },
+  { name: "Camp Kalahari", location: "Makgadikgadi", description: "A relaxed yet stylish safari camp on the edge of Botswana's Makgadikgadi Salt Pans, offering adventure and comfort in the desert.", image: "/botswana_luxury3.jpg", path: "/botswana-camp-kalahari" },
+  { name: "Chobe Safari Lodge", location: "Chobe", description: "A well-established property located on the banks of the Chobe River in Kasane, offering easy access to Chobe National Park.", image: "/botswana_luxury2.jpg", path: "/botswana-chobe-safari-lodge" }
 ]
 
 const safariPackages = [
