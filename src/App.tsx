@@ -69,6 +69,8 @@ import BotswanaNxaiPanNationalPark from './pages/BotswanaNxaiPanNationalPark'
 import BotswanaWildernessTubuTreeCamp from './pages/BotswanaWildernessTubuTreeCamp'
 import BotswanaCampKalahari from './pages/BotswanaCampKalahari'
 import BotswanaChobeSafariLodge from './pages/BotswanaChobeSafariLodge'
+import BotswanaOkavangoDelta from './pages/BotswanaOkavangoDelta'
+import BotswanaMoremiGameReserve from './pages/BotswanaMoremiGameReserve'
 import ZambiaSafari from './pages/ZambiaSafari'
 import ZambiaKafueNationalPark from './pages/ZambiaKafueNationalPark'
 import ZambiaLiuwaPlainsNationalPark from './pages/ZambiaLiuwaPlainsNationalPark'
@@ -164,6 +166,8 @@ function App() {
         <Route path="/botswana-wilderness-tubu-tree-camp" element={<BotswanaWildernessTubuTreeCamp />} />
         <Route path="/botswana-camp-kalahari" element={<BotswanaCampKalahari />} />
         <Route path="/botswana-chobe-safari-lodge" element={<BotswanaChobeSafariLodge />} />
+        <Route path="/botswana-okavango-delta" element={<BotswanaOkavangoDelta />} />
+        <Route path="/botswana-moremi-game-reserve" element={<BotswanaMoremiGameReserve />} />
         <Route path="/zambia-safaris" element={<ZambiaSafari />} />
         <Route path="/zambia-kafue-national-park" element={<ZambiaKafueNationalPark />} />
         <Route path="/zambia-liuwa-plains-national-park" element={<ZambiaLiuwaPlainsNationalPark />} />

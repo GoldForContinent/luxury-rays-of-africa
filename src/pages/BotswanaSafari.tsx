@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const botswanaParks = [
-  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg", price: "From $550/pp sharing", path: "/botswana-safaris" },
-  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg", price: "From $450/pp sharing", path: "/botswana-chobe-national-park" },
-  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg", price: "From $550/pp sharing", path: "/botswana-safaris" },
+  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg", price: "From $550/pp sharing", path: "/okavango-delta" },
+  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg", price: "From $120/pp per day", path: "/botswana-chobe-national-park" },
+  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg", price: "From $550/pp sharing", path: "/moremi-game-reserve" },
   { name: "Makgadikgadi Pans", description: "Vast salt pans offering otherworldly landscapes. Ancient archaeological sites and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg", price: "From $400/pp sharing", path: "/botswana-makgadikgadi-pans" },
-  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg", price: "From $400/pp sharing", path: "/botswana-central-kalahari" },
-  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "From $350/pp sharing", path: "/botswana-nxai-pan-national-park" }
+  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg", price: "From $190/pp per day", path: "/botswana-central-kalahari" },
+  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "From $10/pp per day", path: "/botswana-nxai-pan-national-park" }
 ]
 
 const safariActivities = [
