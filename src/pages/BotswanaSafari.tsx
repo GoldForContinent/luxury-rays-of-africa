@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const botswanaParks = [
-  { name: "Okavango Delta", description: "A UNESCO World Heritage site and Africa's largest inland delta. Experience water-based safaris through winding channels.", image: "/botswana_okavango.jpg", price: "From $550/pp sharing", path: "/okavango-delta" },
-  { name: "Chobe National Park", description: "Home to Africa's largest elephant population. Witness thousands of elephants gathering along the Chobe River.", image: "/botswana_chobe.jpg", price: "From $120/pp per day", path: "/botswana-chobe-national-park" },
-  { name: "Moremi Game Reserve", description: "One of Botswana's most beautiful reserves with diverse ecosystems. Excellent predator sightings including lions and leopards.", image: "/botswana_moremi.jpg", price: "From $550/pp sharing", path: "/moremi-game-reserve" },
-  { name: "Makgadikgadi Pans", description: "Vast salt pans offering otherworldly landscapes. Ancient archaeological sites and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg", price: "From $400/pp sharing", path: "/botswana-makgadikgadi-pans" },
-  { name: "Central Kalahari", description: "The second largest game reserve in the world. Desert-adapted wildlife and incredible stargazing opportunities.", image: "/botswana_kalahari.jpg", price: "From $190/pp per day", path: "/botswana-central-kalahari" },
-  { name: "Nxai Pan National Park", description: "Famous for the annual zebra migration. Excellent for big cat sightings and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "From $10/pp per day", path: "/botswana-nxai-pan-national-park" }
+  { name: "Central Kalahari Game Reserve", description: "Spanning over 52,800 square kilometers, the Central Kalahari Game Reserve is larger than Denmark and the second-largest game reserve in the world. It was established in 1961 to protect the unique ecosystem and provide a refuge for the San Bushmen.", image: "/botswana_kalahari.jpg", price: "190 BWP per person", path: "/botswana-central-kalahari" },
+  { name: "Nxai Pan National Park", description: "Located in the northeastern part of Botswana, Nxai Pan National Park is a captivating wilderness area of about 2,600 square kilometers, famous for its stunning salt pans and iconic baobab trees.", image: "/botswana_nxai.jpg", price: "10 USD per person", path: "/botswana-nxai-pan-national-park" },
+  { name: "Chobe National Park", description: "One of Africa's premier safari destinations, Chobe National Park covers approximately 11,700 square kilometers and is known for having the largest concentration of elephants on Earth.", image: "/botswana_chobe.jpg", price: "120 BWP per person", path: "/botswana-chobe-national-park" },
+  { name: "Okavango Delta", description: "A UNESCO World Heritage site and one of the world's largest inland deltas. This magical wetland sanctuary offers unique water-based safari experiences through winding channels and lagoons.", image: "/botswana_okavango.jpg", price: "From $550/pp sharing", path: "/botswana-okavango-delta" },
+  { name: "Moremi Game Reserve", description: "Located in the heart of the Okavango Delta, Moremi is one of Botswana's most beautiful reserves with diverse ecosystems and excellent predator sightings.", image: "/botswana_moremi.jpg", price: "From $550/pp sharing", path: "/botswana-moremi-game-reserve" },
+  { name: "Makgadikgadi Pans", description: "One of the largest salt pan systems in the world, offering otherworldly landscapes, ancient archaeological sites, and unique desert-adapted wildlife.", image: "/botswana_makgadikgadi.jpg", price: "From $400/pp sharing", path: "/botswana-makgadikgadi-pans" }
 ]
 
 const safariActivities = [
@@ -273,12 +273,12 @@ export default function BotswanaSafari() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {botswanaParks.map((park, index) => (
-              <div 
-                key={index}
-                onClick={() => window.location.href = park.path}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer"
-              >
+              {botswanaParks.map((park, index) => (
+                <Link 
+                  key={index}
+                  to={park.path}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer"
+                >
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -299,7 +299,7 @@ export default function BotswanaSafari() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -439,9 +439,9 @@ export default function BotswanaSafari() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {accommodations.map((lodging, index) => (
-              <div 
+              <Link 
                 key={index}
-                onClick={() => window.location.href = lodging.path}
+                to={lodging.path}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer group"
               >
                 <div className="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{ backgroundImage: `url(${lodging.image})` }}>
@@ -452,7 +452,7 @@ export default function BotswanaSafari() {
                   <p className="text-[#D4A03A] text-sm mb-3">{lodging.location}</p>
                   <p className="text-[#2C3E50]">{lodging.description}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
