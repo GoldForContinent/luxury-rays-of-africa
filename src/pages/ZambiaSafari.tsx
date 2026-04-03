@@ -56,9 +56,9 @@ const safariActivities = [
 ]
 
 const accommodations = [
-  { name: "Tafika Camp", location: "South Luangwa", description: "Intimate camp with excellent walking safari guides and authentic bush experience.", image: "/zambia_luxury1.jpg" },
-  { name: "Anantara Zambezi Lodge", location: "Victoria Falls", description: "Luxury riverside lodge with stunning views of the Zambezi and Falls.", image: "/zambia_luxury2.jpg" },
-  { name: "Chundukai River Lodge", location: "Lower Zambezi", description: "Elegant tented camp on the banks of the Zambezi with excellent activities.", image: "/zambia_luxury3.jpg" }
+  { name: "Tafika Camp", location: "South Luangwa", description: "Intimate camp with excellent walking safari guides and authentic bush experience.", image: "/zambia_luxury1.jpg", path: "/zambia-tafika-camp" },
+  { name: "Anantara Zambezi Lodge", location: "Victoria Falls", description: "Luxury riverside lodge with stunning views of the Zambezi and Falls.", image: "/zambia_luxury2.jpg", path: "/zambia-anantara-lodge" },
+  { name: "Chundukai River Lodge", location: "Lower Zambezi", description: "Elegant tented camp on the banks of the Zambezi with excellent activities.", image: "/zambia_luxury3.jpg", path: "/zambia-chundukai-river-lodge" }
 ]
 
 const safariPackages = [
@@ -440,8 +440,12 @@ export default function ZambiaSafari() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {accommodations.map((lodging, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${lodging.image})` }}>
+              <div 
+                key={index}
+                onClick={() => window.location.href = lodging.path}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer group"
+              >
+                <div className="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{ backgroundImage: `url(${lodging.image})` }}>
                   <div className="h-full bg-black/30"></div>
                 </div>
                 <div className="p-6">

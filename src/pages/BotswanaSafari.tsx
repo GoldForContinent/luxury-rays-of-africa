@@ -55,9 +55,9 @@ const safariActivities = [
 ]
 
 const accommodations = [
-  { name: "Xaranna Okavango Delta Camp", location: "Okavango Delta", description: "Luxury tented camp on a private island with stunning delta views and excellent wildlife.", image: "/botswana_luxury1.jpg" },
-  { name: "Chobe Game Lodge", location: "Chobe", description: "Elegant lodge on the Chobe River with panoramic views and exceptional elephant sightings.", image: "/botswana_luxury2.jpg" },
-  { name: "Camp Kalahari", location: "Makgadikgadi", description: "Authentic safari camp in the ancient salt pans with adventuresome excursions.", image: "/botswana_luxury3.jpg" }
+  { name: "Xaranna Okavango Delta Camp", location: "Okavango Delta", description: "Luxury tented camp on a private island with stunning delta views and excellent wildlife.", image: "/botswana_luxury1.jpg", path: "/botswana-xaranna-camp" },
+  { name: "Chobe Game Lodge", location: "Chobe", description: "Elegant lodge on the Chobe River with panoramic views and exceptional elephant sightings.", image: "/botswana_luxury2.jpg", path: "/botswana-chobe-game-lodge" },
+  { name: "Camp Kalahari", location: "Makgadikgadi", description: "Authentic safari camp in the ancient salt pans with adventuresome excursions.", image: "/botswana_luxury3.jpg", path: "/botswana-camp-kalahari" }
 ]
 
 const safariPackages = [
@@ -439,8 +439,12 @@ export default function BotswanaSafari() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {accommodations.map((lodging, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${lodging.image})` }}>
+              <div 
+                key={index}
+                onClick={() => window.location.href = lodging.path}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer group"
+              >
+                <div className="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{ backgroundImage: `url(${lodging.image})` }}>
                   <div className="h-full bg-black/30"></div>
                 </div>
                 <div className="p-6">
