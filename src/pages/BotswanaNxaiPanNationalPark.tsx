@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Moon, Sun, Mountain, Camera, Star, Wind, Footprints, Eye } from 'lucide-react'
+import { ArrowRight, Moon, Sun, Palmtree, Mountain, Camera, Star, Wind, Footprints, Eye } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,67 +21,57 @@ const MapPinIcon = () => (
 )
 
 const wildlifeData = [
-  { name: "Kalahari Lion", description: "Desert-adapted lions with lighter coats and exceptional hunting skills", image: "/lion.jpg" },
-  { name: "Cheetah", description: "Fastest land animals thriving in open savanna plains", image: "/cheetah.jpg" },
-  { name: "African Wild Dog", description: "Highly social predators with pack hunting dynamics", image: "/leopard.jpg" },
-  { name: "Brown Hyena", description: "Rare scavenger unique to Kalahari and surrounding regions", image: "/buffalo.jpg" },
+  { name: "Zebras", description: "The park hosts Africa's second-largest zebra migration", image: "/zebra.jpg" },
+  { name: "Lions", description: "Prides that have adapted to the harsh desert environment", image: "/lion.jpg" },
+  { name: "Cheetahs", description: "Fastest land animals thriving in open savanna", image: "/cheetah.jpg" },
+  { name: "Giraffes", description: "Elegant inhabitants of the acacia woodlands", image: "/giraffe.jpg" },
   { name: "Springbok", description: "Iconic antelope species famous for pronking displays", image: "/giraffe.jpg" },
-  { name: "Oryx (Gemsbok)", description: "Majestic antelope adapted to survive without drinking water", image: "/elephant.jpg" }
+  { name: "Wildebeest", description: "Part of the seasonal migration through the park", image: "/buffalo.jpg" }
 ]
 
 const activities = [
-  { icon: <Eye className="w-10 h-10" />, title: "Game Drives", description: "Explore the vast reserve in 4x4 vehicles with expert guides", timing: "Year-round" },
-  { icon: <Moon className="w-10 h-10" />, title: "Stargazing", description: "One of the world's darkest skies, perfect for astronomy", timing: "Year-round" },
-  { icon: <Footprints className="w-10 h-10" />, title: "Walking Safaris", description: "Bush walks with experienced trackers for intimate wildlife encounters", timing: "May-October" },
-  { icon: <Star className="w-10 h-10" />, title: "Bushmen Cultural Tours", description: "Learn ancient survival skills from indigenous San people", timing: "Year-round" },
-  { icon: <Camera className="w-10 h-10" />, title: "Photography Expeditions", description: "Capture predators in action and vast desert landscapes", timing: "Year-round" },
-  { icon: <Mountain className="w-10 h-10" />, title: "Salt Pan Visits", description: "Day trips to nearby pans for unique landscape photography", timing: "Year-round" }
+  { icon: <Eye className="w-10 h-10" />, title: "Game Drives", description: "Explore the park in 4x4 vehicles with expert guides", timing: "Year-round" },
+  { icon: <Camera className="w-10 h-10" />, title: "Photography Tours", description: "Capture the stunning landscapes and wildlife", timing: "Year-round" },
+  { icon: <Moon className="w-10 h-10" />, title: "Stargazing", description: "Crystal-clear skies with the Milky Way overhead", timing: "Year-round" },
+  { icon: <Star className="w-10 h-10" />, title: "Baobab Tree Views", description: "Visit the iconic ancient baobab trees", timing: "Year-round" },
+  { icon: <Footprints className="w-10 h-10" />, title: "Walking Safaris", description: "Guided bush walks with experienced trackers", timing: "May-October" },
+  { icon: <Palmtree className="w-10 h-10" />, title: "Self-Drive Safaris", description: "Explore the park at your own pace", timing: "Year-round" }
 ]
 
 const seasonalData = [
-  { period: "Dry Season (May - October)", bestFor: "Predator viewing, game drives, stargazing", conditions: "Clear skies, warm days, cold nights, sparse vegetation" },
-  { period: "Green Season (November - April)", bestFor: "Birdwatching, newborn wildlife, lush landscapes", conditions: "Rainfall transforms the desert, dramatic storms, excellent photography" },
-  { period: "Peak Season (June - August)", bestFor: "Optimal predator sightings, comfortable climate", conditions: "Mild temperatures, animals congregate around waterholes" }
-]
-
-const entryFees = [
-  { category: "Non-Residents (Adults)", fee: "190 BWP" },
-  { category: "Residents (Adults)", fee: "145 BWP" },
-  { category: "Citizens (Adults)", fee: "20 BWP" },
-  { category: "Children (8-15 years)", fee: "50% of adult rate" },
-  { category: "Children (under 8)", fee: "Free" },
-  { category: "Vehicle (Foreign Registered)", fee: "75 BWP" },
-  { category: "Vehicle (Botswana Registered)", fee: "20 BWP" }
+  { period: "Dry Season (May - October)", bestFor: "Wildlife viewing, game drives, best for predators", conditions: "Clear skies, warm days, cool nights, animals congregate" },
+  { period: "Green Season (November - April)", bestFor: "Birdwatching, migration viewing, lush landscapes", conditions: "Rainfall transforms the pans, migratory birds arrive" },
+  { period: "Peak Season (July - October)", bestFor: "Best wildlife concentration, excellent predator sightings", conditions: "Hot days, animals gather at waterholes" }
 ]
 
 const faqData = [
   {
-    question: "What makes Central Kalahari special?",
-    answer: "The Central Kalahari Game Reserve represents one of Africa's last true wilderness areas. Spanning over 52,000 square kilometers, this remote expanse offers unparalleled solitude and the chance to encounter wildlife in its most natural state—far from crowds and development. It's home to exceptional predator populations including lions, cheetahs, and African wild dogs."
+    question: "What makes Nxai Pan National Park special?",
+    answer: "Nxai Pan National Park is a captivating wilderness area in northeastern Botswana, covering approximately 2,600 square kilometers. The park is part of the larger Makgadikgadi Pan System and offers strikingly diverse environments, from arid desert plains to grasslands and seasonal wetlands. It's famous for its stunning salt pan, ancient baobab trees, and the annual zebra migration."
   },
   {
-    question: "When is the best time to visit Central Kalahari?",
-    answer: "The optimal period is May through October during the dry season. As water sources dwindle, wildlife concentrates around remaining watering holes, creating exceptional viewing opportunities. The clear skies and minimal humidity also make this the best time for stargazing."
+    question: "When is the best time to visit Nxai Pan?",
+    answer: "The best time to visit Nxai Pan National Park is during the dry season from May to October. This period offers excellent game viewing as animals concentrate around the remaining waterholes, and the sparse vegetation makes wildlife easier to spot. The weather is cooler, and conditions are perfect for safaris."
   },
   {
-    question: "What wildlife will I see in the Kalahari?",
-    answer: "The Kalahari hosts impressive populations of predators—lions, cheetahs, leopards, and African wild dogs thrive here. Prey species include springbok, oryx, wildebeest, and giraffes. The reserve also supports endangered brown hyenas and provides habitat for over 200 bird species."
+    question: "What wildlife will I see at Nxai Pan?",
+    answer: "Nxai Pan is known for its seasonal wildlife migration, particularly during the wet season when antelopes, zebras, and wildebeest move through the park. Predators such as lions and cheetahs follow the herds. The park also features iconic baobab trees and excellent birdwatching opportunities."
   },
   {
-    question: "Is Central Kalahari suitable for families?",
-    answer: "Yes, though the remote nature of the reserve makes it most suitable for families with older children who appreciate wildlife. Many camps offer child-friendly activities and experienced guides who can engage young minds with the bush. The lack of crowds creates a private, safe environment for exploration."
+    question: "What activities are available at Nxai Pan?",
+    answer: "Activities include game drives in 4x4 vehicles, walking safaris with experienced guides, self-drive safaris, photography tours, and stargazing. The park offers a more tranquil safari experience with fewer visitors compared to other parts of Botswana."
   },
   {
-    question: "How do I get to Central Kalahari?",
-    answer: "The main gateway is Maun, reachable by commercial flight from Johannesburg or direct from Cape Town. From Maun, light aircraft transfers to bush camps take approximately 1-2 hours depending on your destination. Some camps offer game drive transfers from Ghanzi, which is also accessible by road."
+    question: "How do I get to Nxai Pan National Park?",
+    answer: "Nxai Pan is accessible by road from Maun, about 240 km away with a 4-5 hour drive. A 4x4 vehicle is highly recommended. The nearest airstrip is Nxai Pan Airstrip, accessible via chartered flights from Maun, taking approximately 30 minutes."
   },
   {
-    question: "What should I pack for a Kalahari safari?",
-    answer: "Layered clothing is essential—temperatures can swing from freezing at night to 40°C+ during the day. Bring neutral-colored, breathable fabrics, a wide-brimmed hat, sunscreen, and quality binoculars. A camera with good zoom capabilities will help capture distant wildlife. Comfortable, broken-in walking shoes are recommended for bush walks."
+    question: "What is the entry fee for Nxai Pan?",
+    answer: "Park entry fees are approximately USD 10 per person per day for international visitors, USD 5 for SADC residents, and USD 2.50 for Botswana citizens. Fees may vary, so it's recommended to confirm when planning your visit."
   }
 ]
 
-export default function BotswanaCentralKalahari() {
+export default function BotswanaNxaiPanNationalPark() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -139,8 +129,8 @@ export default function BotswanaCentralKalahari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/botswana_kalahari.jpg" 
-          alt="Central Kalahari" 
+          src="/botswana_nxai.jpg" 
+          alt="Nxai Pan National Park" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -150,18 +140,18 @@ export default function BotswanaCentralKalahari() {
           <span className="mx-2">/</span>
           <Link to="/botswana-safaris" className="hover:text-[#D4A03A] transition-colors">Botswana Safaris</Link>
           <span className="mx-2">/</span>
-          <span className="text-[#D4A03A]">Central Kalahari</span>
+          <span className="text-[#D4A03A]">Nxai Pan</span>
         </div>
 
         <div className="hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-2 tracking-tight">
-            CENTRAL
+            NXAI PAN
           </h1>
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-6 tracking-tight">
-            KALAHARI
+            NATIONAL PARK
           </h1>
           <p className="text-[#D4A03A] text-lg md:text-xl uppercase tracking-[0.3em] mb-8">
-            True African Wilderness
+            Land of the Giants
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
@@ -184,13 +174,13 @@ export default function BotswanaCentralKalahari() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Discover</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
-              AFRICA'S LARGEST GAME RESERVE
+              BOTSWANA'S ZEBRA MIGRATION destination
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
           
           <p className="text-[#2C3E50] text-xl leading-relaxed text-center max-w-4xl mx-auto">
-            Welcome to the Central Kalahari Game Reserve—a vast, untamed wilderness that represents the soul of Botswana's safari tradition. Spanning over 52,000 square kilometers of undulating savanna, acacia woodlands, and ancient riverbeds, this extraordinary reserve offers an authentic wilderness experience unlike any other.
+            Welcome to Nxai Pan National Park—a captivating wilderness in northeastern Botswana where ancient baobab trees stand sentinel over vast salt pans and thousands of zebras traverse the landscape in one of Africa's most spectacular seasonal migrations.
           </p>
         </div>
       </section>
@@ -202,18 +192,18 @@ export default function BotswanaCentralKalahari() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
-                  Predators Paradise
+                  The Great Zebra Migration
                 </h3>
                 <p className="text-[#2C3E50] text-lg leading-relaxed mb-4">
-                  The Central Kalahari boasts one of Africa's highest concentrations of predators. Prides of desert-adapted lions roam these vast plains, while cheetahs leverage their exceptional speed across the open terrain.
+                  Nxai Pan is famous for hosting Africa's second-largest zebra migration, second only to the wildebeest migration in the Serengeti. Each year, thousands of zebras cross the salt pans in search of fresh grazing, creating one of nature's most awe-inspiring spectacles.
                 </p>
                 <p className="text-[#2C3E50] text-lg leading-relaxed">
-                  The reserve is particularly renowned for its African wild dog populations—the highest density anywhere in Botswana. Watching these highly coordinated hunters work together to pursue prey is an experience that will stay with you forever.
+                  The migration typically peaks during the wet season (November to April), when the pans transform into lush grasslands attracting not only zebras but also wildebeest, antelopes, and their predators—lions and cheetahs following the herds.
                 </p>
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/botswana_kalahari.jpg" alt="Kalahari Lion" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/botswana_nxai.jpg" alt="Zebra Migration" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
@@ -222,17 +212,17 @@ export default function BotswanaCentralKalahari() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/botswana_makgadikgadi.jpg" alt="Kalahari Stars" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="/botswana_kalahari.jpg" alt="Baobab Trees" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
-                  Celestial Displays
+                  Iconic Baobab Trees
                 </h3>
                 <p className="text-[#2C3E50] text-lg leading-relaxed mb-4">
-                  Far from any light pollution, the Central Kalahari offers some of the clearest stargazing on Earth. The Milky Way stretches across the sky in breathtaking detail, while shooting stars are a common nightly occurrence.
+                  Nxai Pan is home to some of Botswana's most iconic and photographically striking baobab trees. These ancient giants, with their distinctive swollen trunks and branches reaching toward the sky, create a surreal landscape unlike anywhere else in Africa.
                 </p>
                 <p className="text-[#2C3E50] text-lg leading-relaxed">
-                  Many camps offer astronomy tours led by expert guides who can identify constellations, planets, and deep-sky objects. There's something profound about watching the universe unfold while sitting around a campfire in the African bush.
+                  The baobabs of Nxai Pan are particularly impressive, standing as silent witnesses to millennia of history. They provide a stunning backdrop for photography and create unforgettable safari moments, especially during sunrise and sunset.
                 </p>
               </div>
             </div>
@@ -246,7 +236,7 @@ export default function BotswanaCentralKalahari() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Wildlife</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
-              DESERT PREDATORS & PREY
+              DESERT WILDLIFE & MIGRATION
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -278,7 +268,7 @@ export default function BotswanaCentralKalahari() {
           <div className="text-center mb-16">
             <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Experiences</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-white mt-4 mb-6">
-              KALAHARI ADVENTURES
+              NXAI PAN ADVENTURES
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -327,39 +317,6 @@ export default function BotswanaCentralKalahari() {
         </div>
       </section>
 
-      {/* Entry Fees */}
-      <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
-        <div ref={addToRefs} className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Plan</span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              ENTRY FEES
-            </h2>
-            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <table className="w-full">
-              <thead className="bg-[#2C3E50]">
-                <tr>
-                  <th className="p-4 text-left text-white font-semibold">Category</th>
-                  <th className="p-4 text-right text-white font-semibold">Fee (BWP)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {entryFees.map((item, index) => (
-                  <tr key={index} className="border-b border-[#D4C5B9]">
-                    <td className="p-4 text-[#2C3E50] font-medium">{item.category}</td>
-                    <td className="p-4 text-right text-[#D4A03A] font-bold">{item.fee}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-center text-[#2C3E50]/60 text-sm mt-4">Fees are approximate. Cash payment required at Matswere Gate entrance.</p>
-        </div>
-      </section>
-
       {/* Multi-Park Section */}
       <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#1a1410]">
         <div className="max-w-6xl mx-auto">
@@ -375,21 +332,21 @@ export default function BotswanaCentralKalahari() {
               <MapPinIcon />
               <h4 className="font-display font-bold text-xl text-[#F7F2EA] mt-4 mb-3 group-hover:text-[#D4A03A] transition-colors">Okavango Delta</h4>
               <p className="text-[#F7F2EA]/60 text-sm leading-relaxed">
-                Pair the desert with the delta's waterways for a complete Botswana experience. From dry savanna to water-based adventures.
+                Pair the pan experience with the delta's waterways for a complete Botswana safari experience.
               </p>
             </Link>
             <Link to="/botswana-makgadikgadi-pans" className="bg-[#2B1E1A] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A] transition-all group">
               <MapPinIcon />
               <h4 className="font-display font-bold text-xl text-[#F7F2EA] mt-4 mb-3 group-hover:text-[#D4A03A] transition-colors">Makgadikgadi Pans</h4>
               <p className="text-[#F7F2EA]/60 text-sm leading-relaxed">
-                Explore the neighboring salt pans for a contrasting landscape experience. Ancient lakebeds and unique wildlife await.
+                Extend your salt pan adventure to the larger Makgadikgadi system for more exploration.
               </p>
             </Link>
-            <Link to="/botswana-chobe-national-park" className="bg-[#2B1E1A] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A] transition-all group">
+            <Link to="/botswana-central-kalahari" className="bg-[#2B1E1A] p-8 rounded-2xl border border-[#F7F2EA]/10 hover:border-[#D4A03A] transition-all group">
               <MapPinIcon />
-              <h4 className="font-display font-bold text-xl text-[#F7F2EA] mt-4 mb-3 group-hover:text-[#D4A03A] transition-colors">Chobe National Park</h4>
+              <h4 className="font-display font-bold text-xl text-[#F7F2EA] mt-4 mb-3 group-hover:text-[#D4A03A] transition-colors">Central Kalahari</h4>
               <p className="text-[#F7F2EA]/60 text-sm leading-relaxed">
-                Add the river to your safari for elephant encounters and boat cruises. A completely different wildlife experience.
+                Venture into the vast desert wilderness for predator viewing and stargazing.
               </p>
             </Link>
           </div>
@@ -432,10 +389,10 @@ export default function BotswanaCentralKalahari() {
       <section className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
         <div ref={addToRefs} className="max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6">
-            READY FOR THE KALAHARI?
+            READY FOR NXAI PAN?
           </h2>
           <p className="text-white/80 text-xl mb-12 max-w-2xl mx-auto">
-            Discover one of Africa's last true wilderness areas. Let our experts craft your perfect Kalahari safari adventure.
+            Experience one of Botswana's most underrated safari destinations. Let our experts craft your perfect Nxai Pan adventure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">

@@ -44,6 +44,12 @@ const seasonalData = [
   { period: "Peak Season (June - August)", bestFor: "Optimal wildlife viewing, comfortable weather", conditions: "Warm days, cold nights, minimal rain" }
 ]
 
+const entryFees = [
+  { category: "International Visitors", fee: "10 USD per person per day" },
+  { category: "SADC Residents", fee: "5 USD per person per day" },
+  { category: "Botswana Citizens", fee: "2.50 USD per person per day" }
+]
+
 const faqData = [
   {
     question: "What makes Makgadikgadi Pans unique?",
@@ -314,6 +320,39 @@ export default function BotswanaMakgadikgadiPans() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Entry Fees */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div ref={addToRefs} className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Plan</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
+              ENTRY FEES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <table className="w-full">
+              <thead className="bg-[#2C3E50]">
+                <tr>
+                  <th className="p-4 text-left text-white font-semibold">Category</th>
+                  <th className="p-4 text-right text-white font-semibold">Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                {entryFees.map((item, index) => (
+                  <tr key={index} className="border-b border-[#D4C5B9]">
+                    <td className="p-4 text-[#2C3E50] font-medium">{item.category}</td>
+                    <td className="p-4 text-right text-[#D4A03A] font-bold">{item.fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-[#2C3E50]/60 text-sm mt-4">Fees may vary depending on specific activities. Confirm when planning your visit.</p>
         </div>
       </section>
 

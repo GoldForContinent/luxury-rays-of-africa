@@ -20,6 +20,13 @@ const MapPinIcon = () => (
   </svg>
 )
 
+const keyAreas = [
+  { name: "Chobe Riverfront", description: "The most popular and accessible area featuring lush riverbanks, home to a variety of animals and famous for boat safaris." },
+  { name: "Savuti Marsh", description: "A dynamic area known for predator-prey interactions with large lion prides, spotted hyenas, and leopards." },
+  { name: "Linyanti Marshes", description: "A remote and exclusive area with fewer visitors, known for tranquil scenery and excellent birdwatching." },
+  { name: "Nogatsaa Region", description: "Lesser-known with seasonal waterholes attracting elephants and antelope, perfect for those seeking solitude." }
+]
+
 const wildlifeData = [
   { name: "African Elephant", description: "The largest population on the continent, with over 120,000 elephants", image: "/elephant.jpg" },
   { name: "Cape Buffalo", description: "Massive herds often numbering in the thousands", image: "/buffalo.jpg" },
@@ -42,6 +49,14 @@ const seasonalData = [
   { period: "Dry Season (May - October)", bestFor: "Elephant viewing, river cruises, exceptional wildlife", conditions: "Warm days, cool nights, animals congregate at river" },
   { period: "Green Season (November - April)", bestFor: "Birdwatching, newborn wildlife, lush landscapes", conditions: "Rainfall, dramatic storms, fewer visitors" },
   { period: "Peak Season (July - October)", bestFor: "Best wildlife viewing, comfortable weather", conditions: "Optimal conditions, larger crowds, higher prices" }
+]
+
+const entryFees = [
+  { category: "International Visitors", fee: "120 BWP (~$9)" },
+  { category: "SADC Residents", fee: "70 BWP (~$5.30)" },
+  { category: "Botswana Citizens", fee: "10 BWP (~$0.75)" },
+  { category: "Vehicle (4x4)", fee: "50 BWP (~$3.75)" },
+  { category: "Children under 8", fee: "Free" }
 ]
 
 const faqData = [
@@ -230,6 +245,28 @@ export default function BotswanaChobeNationalPark() {
         </div>
       </section>
 
+      {/* Key Areas of Chobe */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Explore</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              REGIONS OF CHOBE
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {keyAreas.map((area, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="font-display font-bold text-xl text-[#2C3E50] mb-3">{area.name}</h3>
+                <p className="text-[#2C3E50]/80">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Wildlife Section */}
       <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
         <div ref={addToRefs} className="max-w-6xl mx-auto">
@@ -314,6 +351,39 @@ export default function BotswanaChobeNationalPark() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Entry Fees */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div ref={addToRefs} className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Plan</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
+              ENTRY FEES
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <table className="w-full">
+              <thead className="bg-[#2C3E50]">
+                <tr>
+                  <th className="p-4 text-left text-white font-semibold">Category</th>
+                  <th className="p-4 text-right text-white font-semibold">Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                {entryFees.map((item, index) => (
+                  <tr key={index} className="border-b border-[#D4C5B9]">
+                    <td className="p-4 text-[#2C3E50] font-medium">{item.category}</td>
+                    <td className="p-4 text-right text-[#D4A03A] font-bold">{item.fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-[#2C3E50]/60 text-sm mt-4">Fees are approximate and subject to change. Payable at park gates in Kasane.</p>
         </div>
       </section>
 
