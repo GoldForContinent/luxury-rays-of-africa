@@ -65,6 +65,9 @@ import BotswanaMakgadikgadiPans from './pages/BotswanaMakgadikgadiPans'
 import BotswanaCentralKalahari from './pages/BotswanaCentralKalahari'
 import BotswanaChobeNationalPark from './pages/BotswanaChobeNationalPark'
 import ZambiaSafari from './pages/ZambiaSafari'
+import ZambiaKafueNationalPark from './pages/ZambiaKafueNationalPark'
+import ZambiaLiuwaPlainsNationalPark from './pages/ZambiaLiuwaPlainsNationalPark'
+import ZambiaNorthLuangwaNationalPark from './pages/ZambiaNorthLuangwaNationalPark'
 import ZimbabweSafari from './pages/ZimbabweSafari'
 import ZanzibarSafari from './pages/ZanzibarSafari'
 import LamuSafari from './pages/LamuSafari'
@@ -146,6 +149,9 @@ function App() {
         <Route path="/botswana-central-kalahari" element={<BotswanaCentralKalahari />} />
         <Route path="/botswana-chobe-national-park" element={<BotswanaChobeNationalPark />} />
         <Route path="/zambia-safaris" element={<ZambiaSafari />} />
+        <Route path="/zambia-kafue-national-park" element={<ZambiaKafueNationalPark />} />
+        <Route path="/zambia-liuwa-plains-national-park" element={<ZambiaLiuwaPlainsNationalPark />} />
+        <Route path="/zambia-north-luangwa-national-park" element={<ZambiaNorthLuangwaNationalPark />} />
         <Route path="/zimbabwe-safaris" element={<ZimbabweSafari />} />
         <Route path="/zanzibar-island" element={<ZanzibarSafari />} />
         <Route path="/lamu-island" element={<LamuSafari />} />

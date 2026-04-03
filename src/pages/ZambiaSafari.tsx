@@ -37,12 +37,13 @@ const faqData = [
 ]
 
 const zambiaParks = [
-  { name: "South Luangwa National Park", description: "The birthplace of walking safaris. Exceptional leopard sightings and large populations of elephants and buffaloes.", image: "/zambia_south_luangwa.jpg", price: "From $2,200/pp/day" },
-  { name: "Lower Zambezi National Park", description: "Stunning riverside wilderness along the Zambezi River. Excellent canoeing and boat-based wildlife viewing.", image: "/zambia_lower_zambezi.jpg", price: "From $2,200/pp/day" },
-  { name: "Mosi-oa-Tunya (Victoria Falls)", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World.", image: "/zambia_victoria_falls.jpg", price: "From $2,200/pp/day" },
-  { name: "North Luangwa National Park", description: "Remote and wild, offering authentic wilderness experiences. Known for large herds of buffalo and elephants.", image: "/zambia_north_luangwa.jpg", price: "From $2,200/pp/day" },
-  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings.", image: "/zambia_kafue.jpg", price: "From $2,200/pp/day" },
-  { name: "Bangweulu Wetlands", description: "Remote wetlands famous for the elusive shoebill stork and unique birdlife.", image: "/zambia_bangweulu.jpg", price: "From $2,200/pp/day" }
+  { name: "South Luangwa National Park", description: "The birthplace of walking safaris. Exceptional leopard sightings and large populations of elephants and buffaloes.", image: "/zambia_south_luangwa.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" },
+  { name: "Lower Zambezi National Park", description: "Stunning riverside wilderness along the Zambezi River. Excellent canoeing and boat-based wildlife viewing.", image: "/zambia_lower_zambezi.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" },
+  { name: "Mosi-oa-Tunya (Victoria Falls)", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World.", image: "/zambia_victoria_falls.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" },
+  { name: "North Luangwa National Park", description: "Remote and wild, offering authentic wilderness experiences. Known for large herds of buffalo and elephants.", image: "/zambia_north_luangwa.jpg", price: "From $2,200/pp/day", path: "/zambia-north-luangwa-national-park" },
+  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings.", image: "/zambia_kafue.jpg", price: "From $2,200/pp/day", path: "/zambia-kafue-national-park" },
+  { name: "Liuwa Plains National Park", description: "Remote wilderness famous for the second-largest wildebeest migration in Africa.", image: "/zambia_liuwa.jpg", price: "From $2,200/pp/day", path: "/zambia-liuwa-plains-national-park" },
+  { name: "Bangweulu Wetlands", description: "Remote wetlands famous for the elusive shoebill stork and unique birdlife.", image: "/zambia_bangweulu.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" }
 ]
 
 const safariActivities = [
@@ -274,7 +275,7 @@ export default function ZambiaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {zambiaParks.map((park, index) => (
-              <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <a key={index} href={park.path} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -288,11 +289,14 @@ export default function ZambiaSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
-                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9] flex items-center justify-between">
                     <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                    <span className="text-[#D4A03A] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Explore <ArrowRight size={14} />
+                    </span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
