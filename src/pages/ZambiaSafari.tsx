@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, Eye, Anchor, Camera, Sun, Mountain, Ship } from 'lucide-react'
@@ -105,7 +105,6 @@ function getRatingColor(rating: string) {
 
 export default function ZambiaSafari() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const navigate = useNavigate()
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -276,10 +275,10 @@ export default function ZambiaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {zambiaParks.map((park, index) => (
-              <button 
+              <Link 
                 key={index} 
-                onClick={() => navigate(park.path)}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer text-left w-full"
+                to={park.path}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -301,7 +300,7 @@ export default function ZambiaSafari() {
                     </span>
                   </div>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
