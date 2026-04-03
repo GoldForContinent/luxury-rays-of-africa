@@ -75,6 +75,9 @@ import ZambiaSafari from './pages/ZambiaSafari'
 import ZambiaKafueNationalPark from './pages/ZambiaKafueNationalPark'
 import ZambiaLiuwaPlainsNationalPark from './pages/ZambiaLiuwaPlainsNationalPark'
 import ZambiaNorthLuangwaNationalPark from './pages/ZambiaNorthLuangwaNationalPark'
+import ZambiaMosiOaTunyaNationalPark from './pages/ZambiaMosiOaTunyaNationalPark'
+import ZambiaKasankaNationalPark from './pages/ZambiaKasankaNationalPark'
+import ZambiaRoyalZambeziLodge from './pages/ZambiaRoyalZambeziLodge'
 import ZimbabweSafari from './pages/ZimbabweSafari'
 import ZimbabweMatusadonaNationalPark from './pages/ZimbabweMatusadonaNationalPark'
 import ZimbabweGonarezhouNationalPark from './pages/ZimbabweGonarezhouNationalPark'
@@ -172,6 +175,9 @@ function App() {
         <Route path="/zambia-kafue-national-park" element={<ZambiaKafueNationalPark />} />
         <Route path="/zambia-liuwa-plains-national-park" element={<ZambiaLiuwaPlainsNationalPark />} />
         <Route path="/zambia-north-luangwa-national-park" element={<ZambiaNorthLuangwaNationalPark />} />
+        <Route path="/zambia-mosi-oa-tunya-national-park" element={<ZambiaMosiOaTunyaNationalPark />} />
+        <Route path="/zambia-kasanka-national-park" element={<ZambiaKasankaNationalPark />} />
+        <Route path="/zambia-royal-zambezi-lodge" element={<ZambiaRoyalZambeziLodge />} />
         <Route path="/zimbabwe-safaris" element={<ZimbabweSafari />} />
         <Route path="/zimbabwe-matusadona-national-park" element={<ZimbabweMatusadonaNationalPark />} />
         <Route path="/zimbabwe-gonarezhou-national-park" element={<ZimbabweGonarezhouNationalPark />} />

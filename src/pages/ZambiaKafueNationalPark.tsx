@@ -155,7 +155,7 @@ export default function ZambiaKafueNationalPark() {
           <div className="text-center">
             <MapPinIcon />
             <p className="text-white/60 text-sm mt-2">Entry Fee</p>
-            <p className="text-white font-semibold">$20 USD</p>
+            <p className="text-white font-semibold">$20 USD/pp</p>
           </div>
         </div>
       </section>

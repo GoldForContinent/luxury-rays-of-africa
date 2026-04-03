@@ -37,26 +37,22 @@ const faqData = [
 ]
 
 const zambiaParks = [
-  { name: "Mosi-oa-Tunya National Park", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World. Entry fee: $20 USD per person.", image: "/zambia_victoria_falls.jpg", price: "Entry $20 USD/pp", path: "/zambia-safaris" },
-  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings. Entry fee: $20 USD per person.", image: "/zambia_kafue.jpg", price: "Entry $20 USD/pp", path: "/zambia-kafue-national-park" },
-  { name: "Kasanka National Park", description: "Famous for the incredible bat migration - over 10 million straw-coloured fruit bats roost here annually. Entry fee: $25 USD per person.", image: "/zambia_kasanka.jpg", price: "Entry $25 USD/pp", path: "/zambia-safaris" },
-  { name: "South Luangwa National Park", description: "The birthplace of walking safaris. Exceptional leopard sightings and large populations of elephants and buffaloes.", image: "/zambia_south_luangwa.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
-  { name: "Lower Zambezi National Park", description: "Stunning riverside wilderness along the Zambezi River. Excellent canoeing and boat-based wildlife viewing.", image: "/zambia_lower_zambezi.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
-  { name: "North Luangwa National Park", description: "Remote and wild, offering authentic wilderness experiences. Known for large herds of buffalo and elephants.", image: "/zambia_north_luangwa.jpg", price: "From $500/pp/day", path: "/zambia-north-luangwa-national-park" },
-  { name: "Liuwa Plains National Park", description: "Remote wilderness famous for the second-largest wildebeest migration in Africa.", image: "/zambia_liuwa.jpg", price: "From $500/pp/day", path: "/zambia-liuwa-plains-national-park" }
+  { name: "Mosi-oa-Tunya National Park", description: "UNESCO World Heritage Site home to Victoria Falls, one of the Seven Natural Wonders of the World.", image: "/zambia_victoria_falls.jpg", price: "Entry $20 USD/pp", path: "/zambia-mosi-oa-tunya-national-park" },
+  { name: "Kafue National Park", description: " Zambia's oldest national park and one of Africa's largest. Excellent cheetah and wild dog sightings.", image: "/zambia_kafue.jpg", price: "Entry $20 USD/pp", path: "/zambia-kafue-national-park" },
+  { name: "Kasanka National Park", description: "Famous for hosting the world's largest mammal migration - over 10 million straw-coloured fruit bats.", image: "/zambia_kasanka.jpg", price: "Entry $25 USD/pp", path: "/zambia-kasanka-national-park" }
 ]
 
 const safariActivities = [
-  { icon: <Eye className="w-8 h-8" />, title: "Walking Safaris", description: "The original walking safari experience in South Luangwa with expert trackers.", timing: "May-October" },
-  { icon: <Ship className="w-8 h-8" />, title: "Canoe Safaris", description: "Paddle through the Lower Zambezi in traditional canoes for close wildlife encounters.", timing: "May-October" },
+  { icon: <Eye className="w-8 h-8" />, title: "Walking Safaris", description: "Experience the original walking safari in Zambia with expert trackers.", timing: "May-October" },
+  { icon: <Ship className="w-8 h-8" />, title: "Canoe Safaris", description: "Paddle through the Zambezi in traditional canoes for close wildlife encounters.", timing: "May-October" },
   { icon: <Anchor className="w-8 h-8" />, title: "River Cruises", description: "Sunset cruises on the Zambezi River with hippos and crocodiles.", timing: "Year-round" },
   { icon: <Camera className="w-8 h-8" />, title: "Photographic Safaris", description: "Expert-guided photography tours in exclusive private concessions.", timing: "May-October" },
-  { icon: <Sun className="w-8 h-8" />, title: "Victoria Falls", description: "Visit the magnificent falls and enjoy adventure activities like white-water rafting.", timing: "February-May" },
-  { icon: <Mountain className="w-8 h-8" />, title: "Cave Exploration", description: "Discover ancient rock art and underground wonders in Zambia's caves.", timing: "Year-round" }
+  { icon: <Sun className="w-8 h-8" />, title: "Victoria Falls", description: "Visit the magnificent falls and enjoy white-water rafting and helicopter tours.", timing: "February-May" },
+  { icon: <Mountain className="w-8 h-8" />, title: "Bat Migration", description: "Witness the world's largest mammal migration in Kasanka National Park.", timing: "October-December" }
 ]
 
 const accommodations = [
-  { name: "Royal Zambezi Lodge", location: "Lower Zambezi", description: "Luxury riverside lodge on the banks of the Zambezi River with stunning views and excellent wildlife viewing.", image: "/zambia_royal_zambezi.jpg", path: "/zambia-safaris" }
+  { name: "Royal Zambezi Lodge", location: "Lower Zambezi", description: "Luxury safari lodge on the banks of the Zambezi River with breathtaking views.", image: "/zambia_royal_zambezi.jpg", path: "/zambia-royal-zambezi-lodge" }
 ]
 
 const safariPackages = [
@@ -84,12 +80,9 @@ const safariPackages = [
 ]
 
 const seasonalData = [
-  { park: "South Luangwa", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
-  { park: "Lower Zambezi", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
-  { park: "Mosi-oa-Tunya", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
-  { park: "North Luangwa", jan: "Fair", feb: "Fair", mar: "Good", apr: "Fair", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Fair" },
-  { park: "Kafue", jan: "Good", feb: "Good", mar: "Good", apr: "Fair", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
-  { park: "Bangweulu", jan: "Fair", feb: "Fair", mar: "Good", apr: "Fair", may: "Good", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Fair" },
+  { park: "Mosi-oa-Tunya", jan: "Good", feb: "Good", mar: "Good", apr: "Good", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Good" },
+  { park: "Kafue", jan: "Fair", feb: "Fair", mar: "Good", apr: "Good", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Fair" },
+  { park: "Kasanka", jan: "Fair", feb: "Fair", mar: "Good", apr: "Good", may: "Best", jun: "Best", jul: "Best", aug: "Best", sep: "Best", oct: "Best", nov: "Good", dec: "Fair" },
 ]
 
 function getRatingColor(rating: string) {
