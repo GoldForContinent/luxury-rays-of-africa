@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Anchor, Eye, Camera, Footprints } from 'lucide-react'
+import { ArrowRight, Mountain, Ship, Eye, MapPin, Camera, Footprints, Anchor } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,62 +15,61 @@ const ClockIcon = () => (
 
 const parkHighlights = [
   {
-    title: "Zimbabwe's Elephant Kingdom",
-    description: "Hwange hosts one of Africa's largest elephant populations, with estimates exceeding 100,000 individuals. The park's innovative waterhole pumping system ensures year-round water access, drawing impressive herds especially during dry months."
+    title: "Vast Salt Pan",
+    description: "The Etosha Pan is a massive shallow depression spanning over 4,500 square kilometers, creating a unique ecosystem that attracts diverse wildlife throughout the year."
   },
   {
-    title: "Predator Paradise",
-    description: "The park supports healthy populations of lions, leopards, cheetahs, and endangered African wild dogs. The Linyanti and Linkwanso areas are particularly renowned for excellent predator sightings."
+    title: "Exceptional Waterhole Viewing",
+    description: "The park features numerous permanent waterholes where elephants, lions, giraffes, and hundreds of species gather, especially during the dry season."
   },
   {
-    title: "Remote & Exclusive",
-    description: "Unlike more crowded parks in Kenya and Tanzania, Hwange offers uncrowded safari experiences. Private concessions allow off-road driving and night game viewing, creating intimate wildlife encounters."
+    title: "Desert-Adapted Wildlife",
+    description: "Etosha is home to unique desert-adapted species including gemsbok, springbok, and Hartmann's zebras that have evolved to survive in the arid conditions."
   },
   {
-    title: "Diverse Habitats",
-    description: "From teak woodlands to vast savannah plains and semi-desert scrub, Hwange's varied landscapes support remarkable biodiversity with over 100 mammal species and 400 bird species."
+    title: "Bird Paradise",
+    description: "Over 340 bird species inhabit the park, including flamingos, pelicans, and numerous raptors that thrive around the pan and waterholes."
   }
 ]
 
 const wildlifeList = [
-  { category: "Big Five", species: ["African Elephant", "African Lion", "African Leopard", "African Buffalo", "Black Rhino", "White Rhino"] },
-  { category: "Wild Dogs", species: ["African Wild Dog", "Spotted Hyena", "Brown Hyena"] },
-  { category: "Plains Game", species: ["Giraffe", "Zebra", "Wildebeest", "Impala", "Kudu", "Sable Antelope", "Eland"] },
-  { category: "Carnivores", species: ["Lion", "Leopard", "Cheetah", "Jackal"] },
-  { category: "Birdlife", species: ["Kori Bustard", "Secretary Bird", "Lappet-faced Vulture", "400+ species"] }
+  { category: "Big Five", species: ["African Elephant", "African Lion", "African Leopard", "African Buffalo", "Black Rhinoceros", "White Rhinoceros"] },
+  { category: "Plains Game", species: ["Gemsbok (Oryx)", "Springbok", "Hartmann's Zebra", "Blue Wildebeest", "Red Hartebeest", "Kudu"] },
+  { category: "Predators", species: ["Lion", "Leopard", "Cheetah", "Spotted Hyena", "Brown Hyena"] },
+  { category: "Birdlife", species: ["Greater Flamingo", "Kori Bustard", "African Spoonbill", "Secretary Bird", "340+ species"] }
 ]
 
 const seasonalData = [
-  { month: "January", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, newborn wildlife" },
+  { month: "January", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, general viewing" },
   { month: "February", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, photography" },
-  { month: "March", weather: "Hot & Wet", wildlife: "Fair", activities: "Game drives, birdwatching" },
-  { month: "April", weather: "Warm & Transitional", wildlife: "Good", activities: "Game drives, walking safaris" },
-  { month: "May", weather: "Dry Season Begins", wildlife: "Very Good", activities: "Game drives, photography" },
-  { month: "June", weather: "Cool & Dry", wildlife: "Excellent", activities: "All activities available" },
-  { month: "July", weather: "Cool & Dry", wildlife: "Excellent", activities: "All activities - peak season" },
-  { month: "August", weather: "Cool & Dry", wildlife: "Excellent", activities: "All activities - peak season" },
-  { month: "September", weather: "Warm & Dry", wildlife: "Excellent", activities: "All activities - peak season" },
-  { month: "October", weather: "Hot & Dry", wildlife: "Excellent", activities: "Game drives, predator action" },
-  { month: "November", weather: "Hot & Transitional", wildlife: "Good", activities: "Game drives, photography" },
-  { month: "December", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, green season" }
+  { month: "March", weather: "Hot & Wet", wildlife: "Good", activities: "Game drives, photography" },
+  { month: "April", weather: "Warm", wildlife: "Good", activities: "All activities available" },
+  { month: "May", weather: "Dry Season Begins", wildlife: "Excellent", activities: "Game drives, waterhole viewing" },
+  { month: "June", weather: "Cool & Dry", wildlife: "Excellent", activities: "Peak game viewing" },
+  { month: "July", weather: "Cool & Dry", wildlife: "Excellent", activities: "Waterhole safaris" },
+  { month: "August", weather: "Cool & Dry", wildlife: "Excellent", activities: "Peak season - all activities" },
+  { month: "September", weather: "Warm & Dry", wildlife: "Excellent", activities: "Excellent predator sightings" },
+  { month: "October", weather: "Hot & Dry", wildlife: "Excellent", activities: "Final peak season" },
+  { month: "November", weather: "Hot", wildlife: "Good", activities: "Game drives, birdwatching" },
+  { month: "December", weather: "Hot & Wet", wildlife: "Good", activities: "Lush landscape, newborn wildlife" }
 ]
 
 const parkActivities = [
-  { icon: <Eye className="w-8 h-8" />, title: "Game Drives", description: "Explore the park's vast landscapes in expert-guided 4x4 vehicles. Morning and afternoon drives offer optimal wildlife viewing opportunities.", timing: "Year-round" },
-  { icon: <Footprints className="w-8 h-8" />, title: "Walking Safaris", description: "Experience the bush intimately on foot with professional guides. Discover tracks, smaller wildlife, and plant life invisible from vehicles.", timing: "May-October" },
-  { icon: <Camera className="w-8 h-8" />, title: "Photography Safaris", description: "Professional photo safaris in private concessions. Excellent for capturing elephants, predators, and birdlife with expert guidance.", timing: "Year-round" },
-  { icon: <Eye className="w-8 h-8" />, title: "Night Drives", description: "Discover nocturnal wildlife including leopards, hyenas, porcupines, and civets using spotlights in private concession areas.", timing: "May-October" },
-  { icon: <Anchor className="w-8 h-8" />, title: "Hide Viewing", description: "Photograph wildlife from elevated hides positioned at waterholes. Perfect for capturing elephants and other animals up close.", timing: "Year-round" },
-  { icon: <Anchor className="w-8 h-8" />, title: "Wild Dog Tracking", description: "Join conservation teams to track and observe endangered African wild dogs in their natural habitat.", timing: "Year-round" }
+  { icon: <Eye className="w-8 h-8" />, title: "Game Drives", description: "Explore the vast park in 4x4 vehicles. Morning and afternoon drives offer optimal wildlife viewing around waterholes.", timing: "Year-round" },
+  { icon: <Camera className="w-8 h-8" />, title: "Photography Safaris", description: "Capture dramatic landscapes, wildlife at waterholes, and the stunning Etosha salt pan at sunrise and sunset.", timing: "Year-round" },
+  { icon: <Mountain className="w-8 h-8" />, title: "Bush Walks", description: "Guided walking safaris in designated areas for closer encounters with smaller wildlife and plant life.", timing: "May-October" },
+  { icon: <Anchor className="w-8 h-8" />, title: "Waterhole Viewing", description: "Sit at floodlit waterholes in the evening for remarkable wildlife congregations and night animal behavior.", timing: "Year-round" },
+  { icon: <Eye className="w-8 h-8" />, title: "Night Drives", description: "Experience nocturnal wildlife including leopards, hyenas, and smaller mammals in private concessions.", timing: "May-October" },
+  { icon: <MapPin className="w-8 h-8" />, title: "Self-Drive Safari", description: "Navigate the well-maintained roads at your own pace with map and guide booklet provided.", timing: "Year-round" }
 ]
 
 const nearbyAttractions = [
-  { name: "Victoria Falls", description: "World-famous falls - 3 hour drive", image: "https://images.unsplash.com/photo-1537944431265-5b30d01d5db9?w=800&auto=format&fit=crop" },
-  { name: "Mana Pools", description: "UNESCO site for walking safaris - 4 hour drive", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" },
-  { name: "Lake Kariba", description: "Houseboat adventures and fishing", image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop" }
+  { name: "Sossusvlei Dunes", description: "Iconic red sand dunes - 5 hour drive", image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop" },
+  { name: "Namib Desert", description: "World's oldest desert - 4 hour drive", image: "https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop" },
+  { name: "Damaraland", description: "Desert elephants and rock art - 3 hour drive", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" }
 ]
 
-export default function ZimbabweHwangeNationalPark() {
+export default function NamibiaEtoshaNationalPark() {
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -124,7 +123,7 @@ export default function ZimbabweHwangeNationalPark() {
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
           src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&auto=format&fit=crop" 
-          alt="Hwange National Park" 
+          alt="Etosha National Park" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -132,20 +131,20 @@ export default function ZimbabweHwangeNationalPark() {
         <div className="absolute top-24 left-1/2 -translate-x-1/2 text-white/80 text-sm">
           <Link to="/" className="hover:text-[#D4A03A] transition-colors">Home</Link> 
           <span className="mx-2">/</span>
-          <Link to="/zimbabwe-safaris" className="hover:text-[#D4A03A] transition-colors">Zimbabwe Safaris</Link>
+          <Link to="/namibia-safaris" className="hover:text-[#D4A03A] transition-colors">Namibia Safaris</Link>
           <span className="mx-2">/</span>
-          <span className="text-[#D4A03A]">Hwange National Park</span>
+          <span className="text-[#D4A03A]">Etosha National Park</span>
         </div>
 
         <div className="hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-2 tracking-tight">
-            HWANGE
+            ETOSHA
           </h1>
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-6 tracking-tight">
             NATIONAL PARK
           </h1>
           <p className="text-[#D4A03A] text-lg md:text-xl uppercase tracking-[0.3em] mb-8">
-            Zimbabwe's Premier Wildlife Destination
+            Wildlife Paradise of the Salt Pan
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
@@ -168,7 +167,7 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Discover</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
-              ZIMBABWE'S LARGEST WILDLIFE SANCTUARY
+              THE GREAT ETOSHA PAN
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -176,26 +175,26 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-[#2C3E50] text-xl leading-relaxed mb-6">
-                Hwange National Park stands as Zimbabwe's largest wildlife reserve, encompassing over 14,600 square kilometers of spectacular wilderness in the country's northwestern corner. The park represents the heart of Zimbabwe's safari industry, offering world-class wildlife viewing in diverse habitats.
+                Etosha National Park is one of Africa's most spectacular wildlife reserves, covering over 22,000 square kilometers of diverse landscapes centered around the magnificent Etosha Pan.
               </p>
               <p className="text-[#2C3E50] text-lg leading-relaxed mb-6">
-                Originally called Wankie Game Reserve, the park was renamed in 1952 and has since become renowned for its massive elephant populations and exceptional predator sightings. The park's innovative waterhole pumping system, maintained by conservation organizations, ensures permanent water sources that draw wildlife year-round.
+                The name "Etosha" comes from the Oshiwambo language, meaning "great white place" - referring to the vast salt pan that dominates the park's landscape. This natural phenomenon creates a unique ecosystem where wildlife congregates around permanent waterholes, offering exceptional game viewing opportunities.
               </p>
               <div className="bg-[#FAF3E0] p-6 rounded-xl">
                 <h4 className="font-bold text-[#2C3E50] mb-3">Quick Facts</h4>
                 <ul className="space-y-2 text-[#2C3E50]/80">
-                  <li>• Location: Northwestern Zimbabwe</li>
-                  <li>• Size: 14,600 km² (5,650 sq miles)</li>
-                  <li>• Established: 1928 as Game Reserve</li>
-                  <li>• Best for: Elephants, predators, wild dogs</li>
+                  <li>• Location: Northern Namibia</li>
+                  <li>• Size: 22,270 km²</li>
+                  <li>• Established: 1907</li>
+                  <li>• Best for: Big Five, waterhole viewing</li>
                 </ul>
               </div>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop" 
-                alt="Hwange Landscape" 
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop" 
+                alt="Etosha Landscape" 
                 className="relative rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
             </div>
@@ -203,13 +202,13 @@ export default function ZimbabweHwangeNationalPark() {
         </div>
       </section>
 
-      {/* Why Visit Hwange */}
+      {/* Why Visit Etosha */}
       <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div ref={addToRefs} className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Experience</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              WHY VISIT HWANGE
+              WHY VISIT ETOSHA
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -231,7 +230,7 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Wildlife</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              WILDLIFE IN HWANGE
+              WILDLIFE IN ETOSHA
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -287,7 +286,7 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Timing</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              WHEN TO VISIT HWANGE
+              WHEN TO VISIT ETOSHA
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -295,19 +294,19 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg mb-12">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="bg-green-50 p-6 rounded-xl" style={{ borderLeft: '4px solid #16a34a' }}>
-                <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Best Season</span>
+                <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Peak Season</span>
                 <h4 className="font-bold text-[#2C3E50] mb-2">May to October</h4>
-                <p className="text-[#2C3E50]/70 text-sm">Dry season offers exceptional wildlife viewing. Animals congregate around pumped waterholes, vegetation thins, and sightings become highly predictable.</p>
+                <p className="text-[#2C3E50]/70 text-sm">Dry season offers exceptional wildlife viewing. Animals congregate around waterholes, vegetation thins, and sightings are highly predictable.</p>
               </div>
               <div className="bg-orange-50 p-6 rounded-xl" style={{ borderLeft: '4px solid #f97316' }}>
                 <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold uppercase mb-3">Shoulder Season</span>
                 <h4 className="font-bold text-[#2C3E50] mb-2">April & November</h4>
-                <p className="text-[#2C3E50]/70 text-sm">Transitional periods with improving conditions. Pleasant weather, fewer visitors, and increasing wildlife activity around water sources.</p>
+                <p className="text-[#2C3E50]/70 text-sm">Transitional periods with good conditions. Pleasant weather, fewer visitors, and improving wildlife activity.</p>
               </div>
               <div className="bg-blue-50 p-6 rounded-xl" style={{ borderLeft: '4px solid #3b82f6' }}>
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold uppercase mb-3">Green Season</span>
                 <h4 className="font-bold text-[#2C3E50] mb-2">December to March</h4>
-                <p className="text-[#2C3E50]/70 text-sm">Summer rains create lush landscapes. Excellent birdwatching with migratory species, newborn wildlife, and reduced safari crowds.</p>
+                <p className="text-[#2C3E50]/70 text-sm">Summer rains create lush landscapes. Excellent birdwatching with migratory species and lower prices.</p>
               </div>
             </div>
             
@@ -351,15 +350,15 @@ export default function ZimbabweHwangeNationalPark() {
           
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h4 className="font-display font-bold text-2xl text-[#2C3E50] mb-6">Getting to Hwange</h4>
+              <h4 className="font-display font-bold text-2xl text-[#2C3E50] mb-6">Getting to Etosha</h4>
               <div className="space-y-6">
                 <div className="bg-white p-6 rounded-xl shadow-lg">
                   <h5 className="font-bold text-[#D4A03A] mb-3">By Air</h5>
-                  <p className="text-[#2C3E50]/80">Charter flights from Victoria Falls (approximately 30-45 minutes) or Bulawayo to Hwange Main or Umtshibi Airstrip within the park. Many luxury lodges offer included transfers.</p>
+                  <p className="text-[#2C3E50]/80">Charter flights from Windhoek to Etosha Airstrip. Alternatively, fly to Ondangwa Airport and enjoy a 2-hour transfer to the park.</p>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-lg">
                   <h5 className="font-bold text-[#D4A03A] mb-3">By Road</h5>
-                  <p className="text-[#2C3E50]/80">Approximately 200km from Victoria Falls (3-4 hours drive) or 260km from Bulawayo. Roads are generally well-maintained, though a 4x4 vehicle is recommended especially during rainy season.</p>
+                  <p className="text-[#2C3E50]/80">Self-drive from Windhoek (4-5 hours) via the B1 highway. The park has three main gates: Okaukuejo, Andersson, and Von Lindequist.</p>
                 </div>
               </div>
             </div>
@@ -393,10 +392,10 @@ export default function ZimbabweHwangeNationalPark() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6">
-            EXPLORE HWANGE
+            EXPLORE ETOSHA
           </h2>
           <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-            Discover Zimbabwe's premier wildlife destination. From massive elephant herds to elusive predators, Hwange offers extraordinary safari experiences in pristine wilderness.
+            Discover one of Africa's greatest wildlife reserves. From iconic salt pan to abundant waterholes, Etosha offers unforgettable safari adventures.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="btn-primary text-lg px-10 py-4">Plan Your Safari</Link>

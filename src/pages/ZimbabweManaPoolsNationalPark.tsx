@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Anchor, Eye, Camera, Footprints } from 'lucide-react'
+import { ArrowRight, Mountain, Ship, Eye, Camera, Footprints, Anchor } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,62 +15,62 @@ const ClockIcon = () => (
 
 const parkHighlights = [
   {
-    title: "Zimbabwe's Elephant Kingdom",
-    description: "Hwange hosts one of Africa's largest elephant populations, with estimates exceeding 100,000 individuals. The park's innovative waterhole pumping system ensures year-round water access, drawing impressive herds especially during dry months."
+    title: "UNESCO World Heritage Site",
+    description: "Mana Pools is recognized as a UNESCO World Heritage Site, protecting one of Africa's most pristine wilderness areas along the Zambezi River floodplains."
   },
   {
-    title: "Predator Paradise",
-    description: "The park supports healthy populations of lions, leopards, cheetahs, and endangered African wild dogs. The Linyanti and Linkwanso areas are particularly renowned for excellent predator sightings."
+    title: "Walking Safari Capital",
+    description: "This park is renowned as one of the best destinations for walking safaris in Africa. Explore the bush on foot with expert guides for intimate wildlife encounters."
   },
   {
-    title: "Remote & Exclusive",
-    description: "Unlike more crowded parks in Kenya and Tanzania, Hwange offers uncrowded safari experiences. Private concessions allow off-road driving and night game viewing, creating intimate wildlife encounters."
+    title: "Exceptional Leopard Viewing",
+    description: "Mana Pools offers some of the best leopard sightings in Zimbabwe, if not Africa. The riverine forests and open plains provide perfect leopard habitat."
   },
   {
-    title: "Diverse Habitats",
-    description: "From teak woodlands to vast savannah plains and semi-desert scrub, Hwange's varied landscapes support remarkable biodiversity with over 100 mammal species and 400 bird species."
+    title: "Zambezi River Wilderness",
+    description: "The park borders the mighty Zambezi River, creating unique opportunities for canoeing, boat trips, and viewing elephants swimming between islands."
   }
 ]
 
 const wildlifeList = [
   { category: "Big Five", species: ["African Elephant", "African Lion", "African Leopard", "African Buffalo", "Black Rhino", "White Rhino"] },
-  { category: "Wild Dogs", species: ["African Wild Dog", "Spotted Hyena", "Brown Hyena"] },
-  { category: "Plains Game", species: ["Giraffe", "Zebra", "Wildebeest", "Impala", "Kudu", "Sable Antelope", "Eland"] },
-  { category: "Carnivores", species: ["Lion", "Leopard", "Cheetah", "Jackal"] },
-  { category: "Birdlife", species: ["Kori Bustard", "Secretary Bird", "Lappet-faced Vulture", "400+ species"] }
+  { category: "Large Mammals", species: ["Cape Buffalo", "Giraffe", "Zebra", "Wildebeest", "Impala", "Kudu"] },
+  { category: "Predators", species: ["Lion", "Leopard", "Cheetah", "Spotted Hyena", "Wild Dog"] },
+  { category: "Aquatic Life", species: ["Hippopotamus", "Nile Crocodile", "Various fish species"] },
+  { category: "Birdlife", species: ["African Fish Eagle", "Pelicans", "Kingfishers", "Over 400 species"] }
 ]
 
 const seasonalData = [
-  { month: "January", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, newborn wildlife" },
-  { month: "February", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, photography" },
-  { month: "March", weather: "Hot & Wet", wildlife: "Fair", activities: "Game drives, birdwatching" },
+  { month: "January", weather: "Hot & Wet", wildlife: "Good", activities: "Canoeing, birdwatching" },
+  { month: "February", weather: "Hot & Wet", wildlife: "Good", activities: "Canoeing, birdwatching" },
+  { month: "March", weather: "Hot & Wet", wildlife: "Good", activities: "Walking safaris, photography" },
   { month: "April", weather: "Warm & Transitional", wildlife: "Good", activities: "Game drives, walking safaris" },
-  { month: "May", weather: "Dry Season Begins", wildlife: "Very Good", activities: "Game drives, photography" },
-  { month: "June", weather: "Cool & Dry", wildlife: "Excellent", activities: "All activities available" },
+  { month: "May", weather: "Dry Season Begins", wildlife: "Very Good", activities: "All activities available" },
+  { month: "June", weather: "Cool & Dry", wildlife: "Excellent", activities: "Game drives, walking safaris, canoeing" },
   { month: "July", weather: "Cool & Dry", wildlife: "Excellent", activities: "All activities - peak season" },
   { month: "August", weather: "Cool & Dry", wildlife: "Excellent", activities: "All activities - peak season" },
   { month: "September", weather: "Warm & Dry", wildlife: "Excellent", activities: "All activities - peak season" },
-  { month: "October", weather: "Hot & Dry", wildlife: "Excellent", activities: "Game drives, predator action" },
-  { month: "November", weather: "Hot & Transitional", wildlife: "Good", activities: "Game drives, photography" },
-  { month: "December", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, green season" }
+  { month: "October", weather: "Hot & Dry", wildlife: "Excellent", activities: "Game drives, walking safaris" },
+  { month: "November", weather: "Hot & Transitional", wildlife: "Good", activities: "Canoeing, game drives" },
+  { month: "December", weather: "Hot & Wet", wildlife: "Good", activities: "Birdwatching, canoeing" }
 ]
 
 const parkActivities = [
-  { icon: <Eye className="w-8 h-8" />, title: "Game Drives", description: "Explore the park's vast landscapes in expert-guided 4x4 vehicles. Morning and afternoon drives offer optimal wildlife viewing opportunities.", timing: "Year-round" },
-  { icon: <Footprints className="w-8 h-8" />, title: "Walking Safaris", description: "Experience the bush intimately on foot with professional guides. Discover tracks, smaller wildlife, and plant life invisible from vehicles.", timing: "May-October" },
-  { icon: <Camera className="w-8 h-8" />, title: "Photography Safaris", description: "Professional photo safaris in private concessions. Excellent for capturing elephants, predators, and birdlife with expert guidance.", timing: "Year-round" },
-  { icon: <Eye className="w-8 h-8" />, title: "Night Drives", description: "Discover nocturnal wildlife including leopards, hyenas, porcupines, and civets using spotlights in private concession areas.", timing: "May-October" },
-  { icon: <Anchor className="w-8 h-8" />, title: "Hide Viewing", description: "Photograph wildlife from elevated hides positioned at waterholes. Perfect for capturing elephants and other animals up close.", timing: "Year-round" },
-  { icon: <Anchor className="w-8 h-8" />, title: "Wild Dog Tracking", description: "Join conservation teams to track and observe endangered African wild dogs in their natural habitat.", timing: "Year-round" }
+  { icon: <Footprints className="w-8 h-8" />, title: "Walking Safaris", description: "Explore the wilderness on foot with expert guides. Get close to elephants, lions, and hippos while learning about the ecosystem.", timing: "May-October" },
+  { icon: <Ship className="w-8 h-8" />, title: "Canoe Safaris", description: "Paddle along the Zambezi River for unique water-level wildlife viewing. Watch elephants swim and hippos graze.", timing: "Year-round" },
+  { icon: <Eye className="w-8 h-8" />, title: "Game Drives", description: "Morning and afternoon drives through diverse habitats. Excellent for leopard and predator viewing.", timing: "Year-round" },
+  { icon: <Camera className="w-8 h-8" />, title: "Photography Safaris", description: "Professional photo opportunities with riverine backdrops and diverse wildlife in natural habitats.", timing: "Year-round" },
+  { icon: <Anchor className="w-8 h-8" />, title: "River Cruises", description: "Sunset cruises on the Zambezi offering views of hippos, crocodiles, and diverse birdlife.", timing: "Year-round" },
+  { icon: <Mountain className="w-8 h-8" />, title: "Night Drives", description: "Discover nocturnal wildlife including leopards, hyenas, and smaller mammals in the riverine forests.", timing: "May-October" }
 ]
 
 const nearbyAttractions = [
-  { name: "Victoria Falls", description: "World-famous falls - 3 hour drive", image: "https://images.unsplash.com/photo-1537944431265-5b30d01d5db9?w=800&auto=format&fit=crop" },
-  { name: "Mana Pools", description: "UNESCO site for walking safaris - 4 hour drive", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" },
-  { name: "Lake Kariba", description: "Houseboat adventures and fishing", image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop" }
+  { name: "Victoria Falls", description: "World-famous falls - 4 hour drive", image: "https://images.unsplash.com/photo-1537944431265-5b30d01d5db9?w=800&auto=format&fit=crop" },
+  { name: "Lake Kariba", description: "Houseboat adventures and fishing", image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop" },
+  { name: "Hwange National Park", description: "Zimbabwe's largest park - 4 hour drive", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop" }
 ]
 
-export default function ZimbabweHwangeNationalPark() {
+export default function ZimbabweManaPoolsNationalPark() {
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -123,8 +123,8 @@ export default function ZimbabweHwangeNationalPark() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&auto=format&fit=crop" 
-          alt="Hwange National Park" 
+          src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&auto=format&fit=crop" 
+          alt="Mana Pools National Park" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -134,18 +134,18 @@ export default function ZimbabweHwangeNationalPark() {
           <span className="mx-2">/</span>
           <Link to="/zimbabwe-safaris" className="hover:text-[#D4A03A] transition-colors">Zimbabwe Safaris</Link>
           <span className="mx-2">/</span>
-          <span className="text-[#D4A03A]">Hwange National Park</span>
+          <span className="text-[#D4A03A]">Mana Pools National Park</span>
         </div>
 
         <div className="hero-content absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-2 tracking-tight">
-            HWANGE
+            MANA POOLS
           </h1>
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-9xl text-white mb-6 tracking-tight">
             NATIONAL PARK
           </h1>
           <p className="text-[#D4A03A] text-lg md:text-xl uppercase tracking-[0.3em] mb-8">
-            Zimbabwe's Premier Wildlife Destination
+            UNESCO Site & Walking Safari Paradise
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
@@ -168,7 +168,7 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Discover</span>
             <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
-              ZIMBABWE'S LARGEST WILDLIFE SANCTUARY
+              ZAMBEZI FLOODPLAIN WILDERNESS
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -176,26 +176,26 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-[#2C3E50] text-xl leading-relaxed mb-6">
-                Hwange National Park stands as Zimbabwe's largest wildlife reserve, encompassing over 14,600 square kilometers of spectacular wilderness in the country's northwestern corner. The park represents the heart of Zimbabwe's safari industry, offering world-class wildlife viewing in diverse habitats.
+                Mana Pools National Park occupies a unique position along the Zambezi River in northern Zimbabwe, where the river flows into Mozambique. The name "Mana" means "Four" in Shona, referring to the four main pools formed by ancient river channels.
               </p>
               <p className="text-[#2C3E50] text-lg leading-relaxed mb-6">
-                Originally called Wankie Game Reserve, the park was renamed in 1952 and has since become renowned for its massive elephant populations and exceptional predator sightings. The park's innovative waterhole pumping system, maintained by conservation organizations, ensures permanent water sources that draw wildlife year-round.
+                As a UNESCO World Heritage Site, Mana Pools protects one of Africa's last great wilderness areas. The park is famous for its walking safaris, allowing visitors to explore the riverine forests, floodplains, and woodland habitats on foot alongside elephants, lions, and hippos.
               </p>
               <div className="bg-[#FAF3E0] p-6 rounded-xl">
                 <h4 className="font-bold text-[#2C3E50] mb-3">Quick Facts</h4>
                 <ul className="space-y-2 text-[#2C3E50]/80">
-                  <li>• Location: Northwestern Zimbabwe</li>
-                  <li>• Size: 14,600 km² (5,650 sq miles)</li>
-                  <li>• Established: 1928 as Game Reserve</li>
-                  <li>• Best for: Elephants, predators, wild dogs</li>
+                  <li>• Location: Northern Zimbabwe, Zambezi River</li>
+                  <li>• Size: 2,196 km²</li>
+                  <li>• Established: 1963</li>
+                  <li>• Best for: Walking safaris, leopard viewing</li>
                 </ul>
               </div>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop" 
-                alt="Hwange Landscape" 
+                src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" 
+                alt="Mana Pools Landscape" 
                 className="relative rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
             </div>
@@ -203,13 +203,13 @@ export default function ZimbabweHwangeNationalPark() {
         </div>
       </section>
 
-      {/* Why Visit Hwange */}
+      {/* Why Visit Mana Pools */}
       <section className="py-24 px-4 md:px-[8vw] bg-[#FAF3E0]">
         <div ref={addToRefs} className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Experience</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              WHY VISIT HWANGE
+              WHY VISIT MANA POOLS
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -231,7 +231,7 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Wildlife</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              WILDLIFE IN HWANGE
+              WILDLIFE IN MANA POOLS
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -287,7 +287,7 @@ export default function ZimbabweHwangeNationalPark() {
           <div className="text-center mb-16">
             <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Timing</span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-[#2C3E50] mt-4 mb-6">
-              WHEN TO VISIT HWANGE
+              WHEN TO VISIT MANA POOLS
             </h2>
             <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
           </div>
@@ -297,17 +297,17 @@ export default function ZimbabweHwangeNationalPark() {
               <div className="bg-green-50 p-6 rounded-xl" style={{ borderLeft: '4px solid #16a34a' }}>
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold uppercase mb-3">Best Season</span>
                 <h4 className="font-bold text-[#2C3E50] mb-2">May to October</h4>
-                <p className="text-[#2C3E50]/70 text-sm">Dry season offers exceptional wildlife viewing. Animals congregate around pumped waterholes, vegetation thins, and sightings become highly predictable.</p>
+                <p className="text-[#2C3E50]/70 text-sm">Dry season offers exceptional wildlife viewing. Animals concentrate around the river, and walking safaris are at their best.</p>
               </div>
               <div className="bg-orange-50 p-6 rounded-xl" style={{ borderLeft: '4px solid #f97316' }}>
                 <span className="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold uppercase mb-3">Shoulder Season</span>
                 <h4 className="font-bold text-[#2C3E50] mb-2">April & November</h4>
-                <p className="text-[#2C3E50]/70 text-sm">Transitional periods with improving conditions. Pleasant weather, fewer visitors, and increasing wildlife activity around water sources.</p>
+                <p className="text-[#2C3E50]/70 text-sm">Transitional periods with good conditions. Pleasant weather with fewer visitors and improving wildlife activity.</p>
               </div>
               <div className="bg-blue-50 p-6 rounded-xl" style={{ borderLeft: '4px solid #3b82f6' }}>
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold uppercase mb-3">Green Season</span>
                 <h4 className="font-bold text-[#2C3E50] mb-2">December to March</h4>
-                <p className="text-[#2C3E50]/70 text-sm">Summer rains create lush landscapes. Excellent birdwatching with migratory species, newborn wildlife, and reduced safari crowds.</p>
+                <p className="text-[#2C3E50]/70 text-sm">Summer rains transform the landscape. Excellent for birdwatching and canoeing, though wildlife more dispersed.</p>
               </div>
             </div>
             
@@ -351,15 +351,15 @@ export default function ZimbabweHwangeNationalPark() {
           
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h4 className="font-display font-bold text-2xl text-[#2C3E50] mb-6">Getting to Hwange</h4>
+              <h4 className="font-display font-bold text-2xl text-[#2C3E50] mb-6">Getting to Mana Pools</h4>
               <div className="space-y-6">
                 <div className="bg-white p-6 rounded-xl shadow-lg">
                   <h5 className="font-bold text-[#D4A03A] mb-3">By Air</h5>
-                  <p className="text-[#2C3E50]/80">Charter flights from Victoria Falls (approximately 30-45 minutes) or Bulawayo to Hwange Main or Umtshibi Airstrip within the park. Many luxury lodges offer included transfers.</p>
+                  <p className="text-[#2C3E50]/80">Charter flights from Victoria Falls, Harare, or Kariba land at Mana Pools airstrip. Flight time is approximately 1.5 hours from Victoria Falls.</p>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-lg">
                   <h5 className="font-bold text-[#D4A03A] mb-3">By Road</h5>
-                  <p className="text-[#2C3E50]/80">Approximately 200km from Victoria Falls (3-4 hours drive) or 260km from Bulawayo. Roads are generally well-maintained, though a 4x4 vehicle is recommended especially during rainy season.</p>
+                  <p className="text-[#2C3E50]/80">Self-drive from Victoria Falls (approximately 4 hours) or Harare (6 hours). A 4x4 vehicle is recommended, especially during the wet season.</p>
                 </div>
               </div>
             </div>
@@ -386,17 +386,17 @@ export default function ZimbabweHwangeNationalPark() {
       {/* CTA Section */}
       <section className="py-24 px-4 md:px-[8vw] relative overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&auto=format&fit=crop" 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6">
-            EXPLORE HWANGE
+            EXPLORE MANA POOLS
           </h2>
           <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-            Discover Zimbabwe's premier wildlife destination. From massive elephant herds to elusive predators, Hwange offers extraordinary safari experiences in pristine wilderness.
+            Discover one of Africa's premier walking safari destinations. From intimate wildlife encounters to Zambezi river adventures, Mana Pools offers unforgettable experiences.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="btn-primary text-lg px-10 py-4">Plan Your Safari</Link>

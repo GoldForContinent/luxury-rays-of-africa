@@ -65,9 +65,9 @@ const parkActivities = [
 ]
 
 const nearbyAttractions = [
-  { name: "Lake Kariba", description: "Africa's largest man-made lake, perfect for houseboat adventures and fishing", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Kariba Town", description: "Gateway town with markets and local culture, departure point for lake excursions", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Mana Pools", description: "UNESCO site offering walking safaris along the Zambezi, 4-hour drive away", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" }
+  { name: "Lake Kariba", description: "Africa's largest man-made lake, perfect for houseboat adventures and fishing", image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop" },
+  { name: "Kariba Town", description: "Gateway town with markets and local culture, departure point for lake excursions", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop" },
+  { name: "Mana Pools", description: "UNESCO site offering walking safaris along the Zambezi, 4-hour drive away", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" }
 ]
 
 export default function ZimbabweMatusadonaNationalPark() {
@@ -123,7 +123,7 @@ export default function ZimbabweMatusadonaNationalPark() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" 
+          src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=1600&auto=format&fit=crop" 
           alt="Matusadona National Park" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -194,7 +194,7 @@ export default function ZimbabweMatusadonaNationalPark() {
             <div className="relative">
               <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
               <img 
-                src="https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop" 
                 alt="Matusadona Landscape" 
                 className="relative rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
@@ -390,7 +390,7 @@ export default function ZimbabweMatusadonaNationalPark() {
       {/* CTA Section */}
       <section className="py-24 px-4 md:px-[8vw] relative overflow-hidden">
         <img 
-          src="https://images.pexels.com/photos/1684428/pexels-photo-1684428.jpeg?auto=compress&cs=tinysrgb&w=800" 
+          src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=1600&auto=format&fit=crop" 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
         />

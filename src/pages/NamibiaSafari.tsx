@@ -37,12 +37,12 @@ const faqData = [
 ]
 
 const namibiaParks = [
-  { name: "Etosha National Park", description: "Famous salt pan with excellent wildlife viewing at waterholes. Home to lions, elephants, giraffes, and springboks.", image: "/namibia_etosha.jpg", price: "From $2,400/pp/day" },
-  { name: "Sossusvlei & Deadvlei", description: "Iconic red sand dunes including Dune 45 and Deadvlei clay pan with ancient camel thorn trees.", image: "/namibia_sossusvlei.jpg", price: "From $2,400/pp/day" },
-  { name: "Skeleton Coast", description: "Remote and dramatic coastline with shipwrecks, seal colonies, and desert-adapted elephants.", image: "/namibia_skeleton_coast.jpg", price: "From $2,400/pp/day" },
-  { name: "Damaraland", description: "Home to desert-adapted elephants, black rhinos, and the famous Twyfelfontein rock engravings.", image: "/namibia_damaraland.jpg", price: "From $2,400/pp/day" },
-  { name: "Namib Desert", description: "One of the oldest deserts in the world, spanning along the Atlantic coast with towering dunes.", image: "/namibia_namib_desert.jpg", price: "From $2,400/pp/day" },
-  { name: "Kaokoveld", description: "Remote wilderness area in the northwest, known for desert lions and Himba communities.", image: "/namibia_kalahari.jpg", price: "From $2,400/pp/day" }
+  { name: "Etosha National Park", description: "Famous salt pan with excellent wildlife viewing at waterholes. Home to lions, elephants, giraffes, and springboks.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/namibia-etosha-national-park" },
+  { name: "Sossusvlei & Deadvlei", description: "Iconic red sand dunes including Dune 45 and Deadvlei clay pan with ancient camel thorn trees.", image: "https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
+  { name: "Skeleton Coast", description: "Remote and dramatic coastline with shipwrecks, seal colonies, and desert-adapted elephants.", image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
+  { name: "Damaraland", description: "Home to desert-adapted elephants, black rhinos, and the famous Twyfelfontein rock engravings.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
+  { name: "Namib Desert", description: "One of the oldest deserts in the world, spanning along the Atlantic coast with towering dunes.", image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
+  { name: "Kaokoveld", description: "Remote wilderness area in the northwest, known for desert lions and Himba communities.", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" }
 ]
 
 const safariActivities = [
@@ -55,9 +55,9 @@ const safariActivities = [
 ]
 
 const accommodations = [
-  { name: "Ongava Lodge", location: "Etosha", description: "Luxury lodge overlooking a private waterhole with excellent game viewing.", image: "/namibia_ongava.jpg" },
-  { name: "Sossusvlei Lodge", location: "Sossusvlei", description: "Premium desert lodge with views of the dunes and star-filled skies.", image: "/namibia_luxury_desert.jpg" },
-  { name: "Okonjima Lodge", location: "DamaraLand", description: "Home to the AfriCat Foundation with leopard and rhino tracking.", image: "/namibia_okonjima.jpg" }
+  { name: "Ongava Lodge", location: "Etosha", description: "Luxury lodge overlooking a private waterhole with excellent game viewing.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop" },
+  { name: "Sossusvlei Lodge", location: "Sossusvlei", description: "Premium desert lodge with views of the dunes and star-filled skies.", image: "https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop" },
+  { name: "Okonjima Lodge", location: "DamaraLand", description: "Home to the AfriCat Foundation with leopard and rhino tracking.", image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop" }
 ]
 
 const safariPackages = [
@@ -160,7 +160,7 @@ export default function NamibiaSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/namibia_hero.jpg" 
+          src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1600&auto=format&fit=crop" 
           alt="Namibia Safari" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -234,7 +234,7 @@ export default function NamibiaSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/namibia_etosha.jpg" alt="Etosha National Park" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop" alt="Etosha National Park" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function NamibiaSafari() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/namibia_sossusvlei.jpg" alt="Sossusvlei Dunes" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop" alt="Sossusvlei Dunes" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
@@ -274,7 +274,7 @@ export default function NamibiaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {namibiaParks.map((park, index) => (
-              <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <Link key={index} to={park.path} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -292,7 +292,7 @@ export default function NamibiaSafari() {
                     <span className="text-[#D4A03A] font-bold">{park.price}</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

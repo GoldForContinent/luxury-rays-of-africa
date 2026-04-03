@@ -68,12 +68,12 @@ const faqData = [
 ]
 
 const zimbabweParks = [
-  { name: "Hwange National Park", description: "Zimbabwe's largest park hosting the country's biggest elephant herds. Exceptional predator sightings and over 100 mammal species in diverse habitats.", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
-  { name: "Mana Pools National Park", description: "UNESCO World Heritage Site along the Zambezi River. Renowned for walking safaris and incredible leopard encounters in pristine wilderness.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $650/pp/day" },
-  { name: "Victoria Falls", description: "One of the Seven Natural Wonders of the World. The magnificent falls offer adventure activities and breathtaking panoramic views.", image: "https://images.pexels.com/photos/1684428/pexels-photo-1684428.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $350/pp/day" },
-  { name: "Lake Kariba", description: "Massive man-made lake with excellent fishing and unique water-based wildlife viewing. Famous for tiger fish and houseboat adventures.", image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $550/pp/day" },
-  { name: "Gonarezhou National Park", description: "Zimbabwe's second largest park known for elephants, crocodiles, and the iconic Chilojo Cliffs. Part of Great Limpopo Transfrontier Park.", image: "https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $450/pp/day" },
-  { name: "Matusadona National Park", description: "Lake-side wilderness offering both land and water safari experiences. Rich wildlife including elephants, lions, and rhinos.", image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800", price: "From $500/pp/day" }
+  { name: "Hwange National Park", description: "Zimbabwe's largest park hosting the country's biggest elephant herds. Exceptional predator sightings and over 100 mammal species in diverse habitats.", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/zimbabwe-hwange-national-park" },
+  { name: "Mana Pools National Park", description: "UNESCO World Heritage Site along the Zambezi River. Renowned for walking safaris and incredible leopard encounters in pristine wilderness.", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/zimbabwe-mana-pools-national-park" },
+  { name: "Victoria Falls", description: "One of the Seven Natural Wonders of the World. The magnificent falls offer adventure activities and breathtaking panoramic views.", image: "https://images.unsplash.com/photo-1537962882310-41d6b591b3da?w=800&auto=format&fit=crop", price: "From $350/pp/day", path: "/victoria-falls-zimbabwe" },
+  { name: "Lake Kariba", description: "Massive man-made lake with excellent fishing and unique water-based wildlife viewing. Famous for tiger fish and houseboat adventures.", image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop", price: "From $550/pp/day", path: "/lake-kariba-zimbabwe" },
+  { name: "Gonarezhou National Park", description: "Zimbabwe's second largest park known for elephants, crocodiles, and the iconic Chilojo Cliffs. Part of Great Limpopo Transfrontier Park.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $450/pp/day", path: "/zimbabwe-gonarezhou-national-park" },
+  { name: "Matusadona National Park", description: "Lake-side wilderness offering both land and water safari experiences. Rich wildlife including elephants, lions, and rhinos.", image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop", price: "From $500/pp/day", path: "/zimbabwe-matusadona-national-park" }
 ]
 
 const safariActivities = [
@@ -165,7 +165,7 @@ export default function ZimbabweSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/zimbabwe_hero.jpg" 
+          src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&auto=format&fit=crop" 
           alt="Zimbabwe Safari" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -219,7 +219,7 @@ export default function ZimbabweSafari() {
             {zimbabweParks.slice(0, 6).map((pkg, index) => (
               <Link 
                 key={index}
-                to="/contact"
+                to={pkg.path}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
               >
                 <div className="relative h-48 overflow-hidden">
@@ -298,7 +298,7 @@ export default function ZimbabweSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/zimbabwe_victoria_falls.jpg" alt="Victoria Falls" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1537962882310-41d6b591b3da?w=800&auto=format&fit=crop" alt="Victoria Falls" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>
@@ -378,8 +378,9 @@ export default function ZimbabweSafari() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {zimbabweParks.map((park, index) => (
-              <div 
+              <Link 
                 key={index}
+                to={park.path}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
               >
                 <div className="relative h-48 overflow-hidden">
@@ -400,11 +401,11 @@ export default function ZimbabweSafari() {
                   <div className="mb-4 pt-3 border-t border-[#D4C5B9]">
                     <span className="text-[#D4A03A] font-bold">{park.price}</span>
                   </div>
-                  <Link to="/contact" className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
-                    Inquire Now <ArrowRight size={14} />
-                  </Link>
+                  <span className="inline-flex items-center gap-2 text-[#CD7F32] font-semibold text-sm group-hover:gap-3 transition-all">
+                    View Park <ArrowRight size={14} />
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -608,7 +609,7 @@ export default function ZimbabweSafari() {
 
       {/* Final CTA */}
       <section className="py-28 px-4 md:px-[8vw] relative overflow-hidden">
-        <img src="/zimbabwe_hero.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&auto=format&fit=crop" alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-4">

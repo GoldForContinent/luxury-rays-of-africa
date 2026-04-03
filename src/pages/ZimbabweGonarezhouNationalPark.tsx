@@ -65,9 +65,9 @@ const parkActivities = [
 ]
 
 const nearbyAttractions = [
-  { name: "Kruger National Park", description: "South Africa's premier park - cross-border safari experience", image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Great Zimbabwe Ruins", description: "Ancient stone city and UNESCO World Heritage Site", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { name: "Mana Pools", description: "UNESCO site for walking safaris along the Zambezi", image: "https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800" }
+  { name: "Kruger National Park", description: "South Africa's premier park - cross-border safari experience", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop" },
+  { name: "Great Zimbabwe Ruins", description: "Ancient stone city and UNESCO World Heritage Site", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" },
+  { name: "Mana Pools", description: "UNESCO site for walking safaris along the Zambezi", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop" }
 ]
 
 export default function ZimbabweGonarezhouNationalPark() {
@@ -123,7 +123,7 @@ export default function ZimbabweGonarezhouNationalPark() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
         <img 
-          src="https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800" 
+          src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&auto=format&fit=crop" 
           alt="Gonarezhou National Park" 
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
@@ -194,7 +194,7 @@ export default function ZimbabweGonarezhouNationalPark() {
             <div className="relative">
               <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
               <img 
-                src="https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop" 
                 alt="Gonarezhou Landscape" 
                 className="relative rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
@@ -386,7 +386,7 @@ export default function ZimbabweGonarezhouNationalPark() {
       {/* CTA Section */}
       <section className="py-24 px-4 md:px-[8vw] relative overflow-hidden">
         <img 
-          src="https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800" 
+          src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&auto=format&fit=crop" 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
         />

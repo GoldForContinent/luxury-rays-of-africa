@@ -59,6 +59,7 @@ import UgandaPrimatesIntensive from './pages/UgandaPrimatesIntensive'
 import UgandaSafari from './pages/UgandaSafari'
 import RwandaSafari from './pages/RwandaSafari'
 import NamibiaSafari from './pages/NamibiaSafari'
+import NamibiaEtoshaNationalPark from './pages/NamibiaEtoshaNationalPark'
 import SouthAfricaSafari from './pages/SouthAfricaSafari'
 import BotswanaSafari from './pages/BotswanaSafari'
 import BotswanaMakgadikgadiPans from './pages/BotswanaMakgadikgadiPans'
@@ -69,6 +70,12 @@ import ZambiaKafueNationalPark from './pages/ZambiaKafueNationalPark'
 import ZambiaLiuwaPlainsNationalPark from './pages/ZambiaLiuwaPlainsNationalPark'
 import ZambiaNorthLuangwaNationalPark from './pages/ZambiaNorthLuangwaNationalPark'
 import ZimbabweSafari from './pages/ZimbabweSafari'
+import ZimbabweMatusadonaNationalPark from './pages/ZimbabweMatusadonaNationalPark'
+import ZimbabweGonarezhouNationalPark from './pages/ZimbabweGonarezhouNationalPark'
+import ZimbabweHwangeNationalPark from './pages/ZimbabweHwangeNationalPark'
+import ZimbabweManaPoolsNationalPark from './pages/ZimbabweManaPoolsNationalPark'
+import VictoriaFallsZimbabwe from './pages/VictoriaFallsZimbabwe'
+import LakeKaribaZimbabwe from './pages/LakeKaribaZimbabwe'
 import ZanzibarSafari from './pages/ZanzibarSafari'
 import LamuSafari from './pages/LamuSafari'
 import NosyBeSafari from './pages/NosyBeSafari'
@@ -143,6 +150,7 @@ function App() {
         <Route path="/uganda-discover-uganda" element={<UgandaDiscoverUganda />} />
         <Route path="/rwandasafaris" element={<RwandaSafari />} />
         <Route path="/namibia-safaris" element={<NamibiaSafari />} />
+        <Route path="/namibia-etosha-national-park" element={<NamibiaEtoshaNationalPark />} />
         <Route path="/south-africa-safaris" element={<SouthAfricaSafari />} />
         <Route path="/botswana-safaris" element={<BotswanaSafari />} />
         <Route path="/botswana-makgadikgadi-pans" element={<BotswanaMakgadikgadiPans />} />
@@ -153,6 +161,12 @@ function App() {
         <Route path="/zambia-liuwa-plains-national-park" element={<ZambiaLiuwaPlainsNationalPark />} />
         <Route path="/zambia-north-luangwa-national-park" element={<ZambiaNorthLuangwaNationalPark />} />
         <Route path="/zimbabwe-safaris" element={<ZimbabweSafari />} />
+        <Route path="/zimbabwe-matusadona-national-park" element={<ZimbabweMatusadonaNationalPark />} />
+        <Route path="/zimbabwe-gonarezhou-national-park" element={<ZimbabweGonarezhouNationalPark />} />
+        <Route path="/zimbabwe-hwange-national-park" element={<ZimbabweHwangeNationalPark />} />
+        <Route path="/zimbabwe-mana-pools-national-park" element={<ZimbabweManaPoolsNationalPark />} />
+        <Route path="/victoria-falls-zimbabwe" element={<VictoriaFallsZimbabwe />} />
+        <Route path="/lake-kariba-zimbabwe" element={<LakeKaribaZimbabwe />} />
         <Route path="/zanzibar-island" element={<ZanzibarSafari />} />
         <Route path="/lamu-island" element={<LamuSafari />} />
         <Route path="/nosy-be-island" element={<NosyBeSafari />} />
