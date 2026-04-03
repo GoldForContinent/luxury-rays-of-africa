@@ -160,7 +160,7 @@ export default function PackageDetail() {
               {/* Itinerary */}
               <div className="space-y-4 mb-12">
                 {Array.isArray(itinerary) && itinerary.length > 0 ? (
-                  itinerary.map((day: string | any, index: number) => {
+                  itinerary.map((day: string | { day: string; location: string; activities?: string[] }, index: number) => {
                     const dayTitle = typeof day === 'string' 
                       ? day 
                       : `${day.day}: ${day.location}`

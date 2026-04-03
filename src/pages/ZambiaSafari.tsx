@@ -37,13 +37,13 @@ const faqData = [
 ]
 
 const zambiaParks = [
-  { name: "South Luangwa National Park", description: "The birthplace of walking safaris. Exceptional leopard sightings and large populations of elephants and buffaloes.", image: "/zambia_south_luangwa.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" },
-  { name: "Lower Zambezi National Park", description: "Stunning riverside wilderness along the Zambezi River. Excellent canoeing and boat-based wildlife viewing.", image: "/zambia_lower_zambezi.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" },
-  { name: "Mosi-oa-Tunya (Victoria Falls)", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World.", image: "/zambia_victoria_falls.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" },
-  { name: "North Luangwa National Park", description: "Remote and wild, offering authentic wilderness experiences. Known for large herds of buffalo and elephants.", image: "/zambia_north_luangwa.jpg", price: "From $2,200/pp/day", path: "/zambia-north-luangwa-national-park" },
-  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings.", image: "/zambia_kafue.jpg", price: "From $2,200/pp/day", path: "/zambia-kafue-national-park" },
-  { name: "Liuwa Plains National Park", description: "Remote wilderness famous for the second-largest wildebeest migration in Africa.", image: "/zambia_liuwa.jpg", price: "From $2,200/pp/day", path: "/zambia-liuwa-plains-national-park" },
-  { name: "Bangweulu Wetlands", description: "Remote wetlands famous for the elusive shoebill stork and unique birdlife.", image: "/zambia_bangweulu.jpg", price: "From $2,200/pp/day", path: "/zambia-safaris" }
+  { name: "South Luangwa National Park", description: "The birthplace of walking safaris. Exceptional leopard sightings and large populations of elephants and buffaloes.", image: "/zambia_south_luangwa.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
+  { name: "Lower Zambezi National Park", description: "Stunning riverside wilderness along the Zambezi River. Excellent canoeing and boat-based wildlife viewing.", image: "/zambia_lower_zambezi.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
+  { name: "Mosi-oa-Tunya (Victoria Falls)", description: "Home to the magnificent Victoria Falls, one of the Seven Natural Wonders of the World.", image: "/zambia_victoria_falls.jpg", price: "From $500/pp/day", path: "/zambia-safaris" },
+  { name: "North Luangwa National Park", description: "Remote and wild, offering authentic wilderness experiences. Known for large herds of buffalo and elephants.", image: "/zambia_north_luangwa.jpg", price: "From $500/pp/day", path: "/zambia-north-luangwa-national-park" },
+  { name: "Kafue National Park", description: "One of Africa's largest parks with diverse ecosystems. Excellent cheetah and wild dog sightings.", image: "/zambia_kafue.jpg", price: "From $350/pp/day", path: "/zambia-kafue-national-park" },
+  { name: "Liuwa Plains National Park", description: "Remote wilderness famous for the second-largest wildebeest migration in Africa.", image: "/zambia_liuwa.jpg", price: "From $500/pp/day", path: "/zambia-liuwa-plains-national-park" },
+  { name: "Bangweulu Wetlands", description: "Remote wetlands famous for the elusive shoebill stork and unique birdlife.", image: "/zambia_bangweulu.jpg", price: "From $500/pp/day", path: "/zambia-safaris" }
 ]
 
 const safariActivities = [
@@ -64,21 +64,21 @@ const accommodations = [
 const safariPackages = [
   {
     name: "7 Days South Luangwa Walking Safari",
-    price: "$2,850",
+    price: "$1,450",
     description: "Experience the best walking safaris in Africa in Zambia's premier wildlife reserve",
     duration: "7 Days / 6 Nights",
     highlights: ["Walking safaris", "Big Five viewing", "Night drives", "Luxury camps"]
   },
   {
     name: "10 Days Zambia Wildlife Adventure",
-    price: "$3,950",
+    price: "$2,200",
     description: "Explore South Luangwa, Lower Zambezi and Victoria Falls",
     duration: "10 Days / 9 Nights",
     highlights: ["South Luangwa", "Lower Zambezi", "Victoria Falls", "Canoe safaris"]
   },
   {
     name: "14 Days Ultimate Zambia Safari",
-    price: "$5,850",
+    price: "$3,850",
     description: "Complete Zambia experience from Luangwa valleys to the mighty Victoria Falls",
     duration: "14 Days / 13 Nights",
     highlights: ["South Luangwa", "North Luangwa", "Lower Zambezi", "Victoria Falls"]
@@ -358,7 +358,7 @@ export default function ZambiaSafari() {
                 {seasonalData.map((row, i) => (
                   <tr key={i} className="border-b border-[#D4C5B9]">
                     <td className="p-3 text-left font-semibold text-[#2C3E50]">{row.park}</td>
-                    {Object.entries(row).slice(1).map(([_, val], j) => (
+                    {Object.entries(row).slice(1).map(([, val], j) => (
                       <td key={j} className={`p-3 text-center text-xs ${getRatingColor(val)}`}>{val}</td>
                     ))}
                   </tr>

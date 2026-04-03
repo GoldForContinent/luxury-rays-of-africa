@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Moon, Sun, Palmtree, Mountain, Camera, Star, Wind, Footprints, Eye } from 'lucide-react'
+import { ArrowRight, Moon, Sun, Palmtree, Camera, Star, Wind, Footprints, Eye } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 

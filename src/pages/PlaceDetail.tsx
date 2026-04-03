@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function PlaceDetail() {
   const { countryId, placeId } = useParams<{ countryId: string; placeId: string }>()
   const place = getPlaceById(countryId || '', placeId || '')
-  const [selectedType, setSelectedType] = useState<'all' | 'family' | 'solo' | 'group'>('all')
+  const [selectedType, setSelectedType] = useState<string>('all')
 
   useEffect(() => {
     if (!place) return
@@ -130,7 +130,7 @@ export default function PlaceDetail() {
               ].map((filter) => (
                 <button
                   key={filter.key}
-                  onClick={() => setSelectedType(filter.key as any)}
+                  onClick={() => setSelectedType(filter.key as string)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     selectedType === filter.key
                       ? 'bg-[#D4A03A] text-[#2B1E1A]'

@@ -145,12 +145,17 @@ export default function ZambiaKafueNationalPark() {
           <div className="text-center">
             <Mountain />
             <p className="text-white/60 text-sm mt-2">Area</p>
-            <p className="text-white font-semibold">22,400 km²</p>
+            <p className="text-white font-semibold">22,500 km²</p>
           </div>
           <div className="text-center">
             <Eye />
             <p className="text-white/60 text-sm mt-2">Specialty</p>
             <p className="text-white font-semibold">Cheetah & Wild Dog</p>
+          </div>
+          <div className="text-center">
+            <MapPinIcon />
+            <p className="text-white/60 text-sm mt-2">Entry Fee</p>
+            <p className="text-white font-semibold">$20 USD</p>
           </div>
         </div>
       </section>

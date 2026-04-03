@@ -152,6 +152,11 @@ export default function ZambiaLiuwaPlainsNationalPark() {
             <p className="text-white/60 text-sm mt-2">Specialty</p>
             <p className="text-white font-semibold">Wildebeest Migration</p>
           </div>
+          <div className="text-center">
+            <MapPinIcon />
+            <p className="text-white/60 text-sm mt-2">Entry Fee</p>
+            <p className="text-white font-semibold">$25 USD</p>
+          </div>
         </div>
       </section>
 
