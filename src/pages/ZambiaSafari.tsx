@@ -275,10 +275,10 @@ export default function ZambiaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {zambiaParks.map((park, index) => (
-              <Link 
-                key={index} 
-                to={park.path}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block"
+              <div 
+                key={index}
+                onClick={() => window.location.href = park.path}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block cursor-pointer"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -300,7 +300,7 @@ export default function ZambiaSafari() {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
