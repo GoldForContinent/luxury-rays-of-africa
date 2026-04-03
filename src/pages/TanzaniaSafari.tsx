@@ -522,7 +522,7 @@ export default function TanzaniaSafari() {
                 {seasonalData.map((row, i) => (
                   <tr key={i} className="border-b border-[#D4C5B9]">
                     <td className="p-3 text-left font-semibold text-[#2C3E50]">{row.park}</td>
-                    {Object.entries(row).slice(1).map(([, val], j) => (
+                    {Object.entries(row).slice(1).map(([_, val], j) => (
                       <td key={j} className={`p-3 text-center text-xs ${getRatingColor(val)}`}>{val}</td>
                     ))}
                   </tr>
