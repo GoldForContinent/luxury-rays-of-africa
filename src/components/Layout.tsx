@@ -25,8 +25,7 @@ export default function Layout({ children }: LayoutProps) {
   }, [location.pathname])
 
   const navLinks = [
-    { path: '/safari-types', label: 'Safari Types' },
-    { path: '/packages', label: 'Packages' },
+    { path: '/', label: 'Home' },
     { path: '/destinations', label: 'Destinations' },
     { path: '/wildlife', label: 'Wildlife' },
     { path: '/impact', label: 'About Us' },
@@ -328,11 +327,13 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="font-semibold text-[#D4A03A] mb-4">Explore</h4>
               <ul className="space-y-2">
+                <li><Link to="/" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Home</Link></li>
                 <li><Link to="/safari-types" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Safari Types</Link></li>
                 <li><Link to="/destinations" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Destinations</Link></li>
                 <li><Link to="/packages" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Packages</Link></li>
-                <li><Link to="/journal" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Journal</Link></li>
+                <li><Link to="/wildlife" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Wildlife</Link></li>
                 <li><Link to="/impact" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">About Us</Link></li>
+                <li><Link to="/contact" className="text-[#F7F2EA]/60 hover:text-[#F7F2EA] text-sm transition-colors">Contact</Link></li>
               </ul>
             </div>
             
