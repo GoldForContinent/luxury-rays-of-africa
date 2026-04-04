@@ -1,21 +1,26 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ChevronDown, Compass, Camera, Users, TreePine, Send } from 'lucide-react'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const features = [
   {
     icon: Compass,
     title: 'Expert Guides',
-    description: 'Born and raised in Africa with 15+ years experience'
+    description: 'Born and raised in Africa with years of field experience'
   },
   {
     icon: Camera,
     title: 'Photography Focus',
-    description: 'Plan drives around the golden hour light'
+    description: 'Game drives timed for golden hour and optimal light'
   },
   {
     icon: Users,
     title: 'Small Groups',
-    description: 'Maximum 6 guests per vehicle for intimate experiences'
+    description: 'Intimate 4x4 vehicles for exclusive wildlife encounters'
   },
   {
     icon: TreePine,
@@ -26,32 +31,132 @@ const features = [
 
 const safariTypes = [
   {
+    title: 'Luxury Escapes',
+    description: 'Five-star camps with private decks, gourmet dining, and Butler service. Perfect for honeymoons and special celebrations.',
+    image: '/honeymoon_safari.jpg',
+    highlights: ['Private plunge pools', 'Fine dining', 'Spa treatments']
+  },
+  {
+    title: 'Classic Safaris',
+    description: 'Authentic game drives in proven wildlife territories. The traditional safari experience with comfortable lodge accommodation.',
+    image: '/photo_safari.jpg',
+    highlights: ['Morning & afternoon drives', 'Expert rangers', 'Bush walks']
+  },
+  {
+    title: 'Adventure Safaris',
+    description: 'For the active traveler - walking safaris, canoe trips, and remote wilderness camps off the beaten path.',
+    image: '/walking_safari.jpg',
+    highlights: ['Guided bush walks', 'Canoe expeditions', 'Remote fly-camping']
+  },
+  {
     title: 'Family Safaris',
-    description: 'Adventures designed for all ages with child-friendly activities',
-    image: '/family_safari.jpg'
-  },
-  {
-    title: 'Honeymoon Safaris',
-    description: 'Romantic escapes in Africa\'s most beautiful locations',
-    image: '/honeymoon_safari.jpg'
-  },
-  {
-    title: 'Photography Safaris',
-    description: 'Capture the perfect shot with expert photography guides',
-    image: '/photo_safari.jpg'
-  },
-  {
-    title: 'Walking Safaris',
-    description: 'Experience the bush on foot with armed guides',
-    image: '/walking_safari.jpg'
+    description: 'Safe, engaging adventures for all ages. Kid-friendly activities and flexible pacing for family memories.',
+    image: '/family_safari.jpg',
+    highlights: ['Kids activities', 'Child-friendly guides', 'Flexible schedules']
   }
 ]
 
+const animalGallery = [
+  { name: 'Lion', image: '/lion.jpg' },
+  { name: 'Leopard', image: '/leopard.jpg' },
+  { name: 'Elephant', image: '/elephant.jpg' },
+  { name: 'Rhino', image: '/rhino.jpg' },
+  { name: 'Buffalo', image: '/buffalo.jpg' },
+]
+
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const sectionRefs = useRef<(HTMLElement | null)[]>([])
+
+  useEffect(() => {
+    const tl = gsap.timeline()
+
+    tl.fromTo('.hero-title span', 
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out' }
+    )
+    .fromTo('.hero-subtitle',
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+      '-=0.5'
+    )
+    .fromTo('.hero-buttons',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
+      '-=0.4'
+    )
+
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        gsap.fromTo(section, 
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        )
+      }
+    })
+
+    gsap.fromTo('.feature-card',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.features-section',
+          start: 'top 70%'
+        }
+      }
+    )
+
+    gsap.fromTo('.safari-card',
+      { opacity: 0, scale: 0.95 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.safari-section',
+          start: 'top 75%'
+        }
+      }
+    )
+
+    gsap.fromTo('.animal-card',
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: '.animal-section',
+          start: 'top 80%'
+        }
+      }
+    )
+  }, [])
+
+  const addToRefs = (el: HTMLElement | null) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el)
+    }
+  }
+
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden">
+      <section ref={heroRef} className="relative h-screen overflow-hidden">
         <img 
           src="/hero_sunrise.jpg" 
           alt="Sunrise over savanna" 
@@ -60,14 +165,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
-            AFRICA.<br />UNFILTERED.
+          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight overflow-hidden">
+            <span className="hero-title block">
+              <span className="inline-block">AFRICA.</span>
+            </span>
+            <span className="hero-title block">
+              <span className="inline-block text-[#D4A03A]">UNFILTERED.</span>
+            </span>
           </h1>
-          <p className="text-2xl md:text-3xl italic text-white/90 max-w-2xl mb-8">
-            Exciting adventures lie ahead.
+          <p className="hero-subtitle text-2xl md:text-3xl italic text-white/90 max-w-2xl mb-8">
+            Where the wild truly lives.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/destinations" className="btn-primary flex items-center justify-center gap-2">
+          <div className="hero-buttons flex flex-col sm:flex-row gap-4">
+            <Link to="/destinations" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
               Explore Destinations <ArrowRight size={18} />
             </Link>
             <Link to="/contact" className="btn-outline flex items-center justify-center gap-2">
@@ -83,11 +193,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className=" py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
+      <section ref={addToRefs} className="features-section py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="feature-card text-center">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#D4A03A]/10 flex items-center justify-center">
                   <feature.icon className="text-[#D4A03A]" size={28} />
                 </div>
@@ -104,43 +214,44 @@ export default function Home() {
       </section>
 
       {/* Safari Types Section */}
-      <section className=" py-20 px-4 md:px-[8vw] bg-[#1a1410]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="eyebrow mb-4 block">Safari Types</span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA] mb-4">
+      <section ref={addToRefs} className="safari-section py-24 px-4 md:px-[8vw] bg-[#1a1410]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Safari Styles</span>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-[#F7F2EA] mt-4 mb-6">
               Choose Your Adventure
             </h2>
-            <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              From family-friendly adventures to romantic escapes, we design the perfect safari for every traveler.
+            <p className="text-[#F7F2EA]/70 max-w-2xl mx-auto text-lg">
+              From intimate luxury camps to adventurous wilderness expeditions, we tailor every safari to match your style and pace.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {safariTypes.map((type, index) => (
               <div 
                 key={index}
-                className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+                className="safari-card group relative h-72 rounded-3xl overflow-hidden"
               >
                 <img 
                   src={type.image} 
                   alt={type.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-display font-bold text-xl text-white mb-2">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <h3 className="font-display font-bold text-2xl text-white mb-3">
                     {type.title}
                   </h3>
-                  <p className="text-white/80 text-sm mb-4">
+                  <p className="text-white/80 text-sm mb-4 line-clamp-2">
                     {type.description}
                   </p>
-                  <Link 
-                    to="/destinations" 
-                    className="inline-flex items-center gap-2 text-[#D4A03A] text-sm font-medium"
-                  >
-                    Learn More <ArrowRight size={14} />
-                  </Link>
+                  <div className="flex flex-wrap gap-2">
+                    {type.highlights.map((highlight, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-[#D4A03A]/20 text-[#D4A03A] text-xs rounded-full">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -149,16 +260,16 @@ export default function Home() {
       </section>
 
       {/* Featured Destinations */}
-      <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
             <div>
-              <span className="eyebrow mb-4 block">Destinations</span>
-              <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA]">
+              <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Destinations</span>
+              <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA] mt-4">
                 Explore Africa
               </h2>
             </div>
-            <Link to="/destinations" className="mt-4 md:mt-0 link-hover text-[#D4A03A] flex items-center gap-2">
+            <Link to="/destinations" className="mt-4 md:mt-0 text-[#D4A03A] flex items-center gap-2 hover:gap-3 transition-all">
               View All Destinations <ArrowRight size={16} />
             </Link>
           </div>
@@ -220,27 +331,21 @@ export default function Home() {
       </section>
 
       {/* Wildlife Highlights */}
-      <section className=" py-20 px-4 md:px-[8vw] bg-[#1a1410]">
+      <section ref={addToRefs} className="animal-section py-24 px-4 md:px-[8vw] bg-[#1a1410]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <span className="eyebrow mb-4 block">Wildlife</span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA] mb-4">
+            <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Wildlife</span>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA] mt-4 mb-4">
               The Big Five & Beyond
             </h2>
             <p className="text-[#F7F2EA]/60 max-w-2xl mx-auto">
-              Track Africa's most iconic wildlife with expert guides who know every behavior and habitat.
+              Track Africa's most iconic wildlife with guides who understand every behavioral nuance.
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[
-              { name: 'Lion', image: '/lion.jpg' },
-              { name: 'Leopard', image: '/leopard.jpg' },
-              { name: 'Elephant', image: '/elephant.jpg' },
-              { name: 'Rhino', image: '/rhino.jpg' },
-              { name: 'Buffalo', image: '/buffalo.jpg' },
-            ].map((animal, index) => (
-              <div key={index} className="relative aspect-square rounded-2xl overflow-hidden group">
+            {animalGallery.map((animal, index) => (
+              <div key={index} className="animal-card relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
                 <img 
                   src={animal.image} 
                   alt={animal.name}
@@ -257,20 +362,20 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className=" py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
+      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="eyebrow mb-4 block">Start Planning</span>
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-[#F7F2EA] mb-6">
-            Ready for Your African Adventure?
+          <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Start Planning</span>
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-white mt-4 mb-6">
+            Ready for Your Safari?
           </h2>
-          <p className="text-[#F7F2EA]/60 text-lg mb-8 max-w-2xl mx-auto">
-            Tell us what you're after and we'll shape the trip around your pace, your people, and your priorities.
+          <p className="text-white/80 text-lg mb-12 max-w-2xl mx-auto">
+            Share your vision with us. We'll craft a journey that matches your dreams, pace, and priorities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="btn-primary flex items-center justify-center gap-2">
+            <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
               <Send size={18} /> Request a Quote
             </Link>
-            <Link to="/destinations" className="btn-outline flex items-center justify-center gap-2">
+            <Link to="/destinations" className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all">
               Browse Destinations
             </Link>
           </div>
