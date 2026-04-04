@@ -7,25 +7,25 @@ import { ArrowRight, Compass, Palmtree, Mountain, Sun } from 'lucide-react'
 gsap.registerPlugin(ScrollTrigger)
 
 const easternAfrica = [
-  { name: 'Kenya', path: '/kenya-safaris', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop', description: 'Masai Mara, Amboseli & more' },
-  { name: 'Tanzania', path: '/tanzania-safaris', image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop', description: 'Serengeti, Ngorongoro & more' },
-  { name: 'Uganda', path: '/uganda-safaris', image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop', description: 'Gorilla trekking & more' },
-  { name: 'Rwanda', path: '/rwandasafaris', image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&auto=format&fit=crop', description: 'Mountain gorillas & more' },
+  { name: 'Kenya', path: '/kenya-safaris', image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e', description: 'Masai Mara, Amboseli & more' },
+  { name: 'Tanzania', path: '/tanzania-safaris', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801', description: 'Serengeti, Ngorongoro & more' },
+  { name: 'Uganda', path: '/uganda-safaris', image: 'https://images.unsplash.com/photo-1549366021-9f761d450615', description: 'Gorilla trekking & more' },
+  { name: 'Rwanda', path: '/rwandasafaris', image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6', description: 'Mountain gorillas & more' },
 ]
 
 const southernAfrica = [
-  { name: 'Botswana', path: '/botswana-safaris', image: 'https://images.unsplash.com/photo-1534177616072-ef7dc12044f9?w=800&auto=format&fit=crop', description: 'Okavango Delta & more' },
-  { name: 'Zambia', path: '/zambia-safaris', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop', description: 'Walking safaris & more' },
-  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: 'https://images.unsplash.com/photo-1584559586116-b3611d9778b9?w=800&auto=format&fit=crop', description: 'Victoria Falls & more' },
-  { name: 'Namibia', path: '/namibia-safaris', image: 'https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop', description: 'Desert landscapes & more' },
-  { name: 'South Africa', path: '/south-africa-safaris', image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&auto=format&fit=crop', description: 'Kruger & more' },
+  { name: 'Botswana', path: '/botswana-safaris', image: 'https://images.unsplash.com/photo-1534177616072-ef7dc12044f9', description: 'Okavango Delta & more' },
+  { name: 'Zambia', path: '/zambia-safaris', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23', description: 'Walking safaris & more' },
+  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: 'https://images.unsplash.com/photo-1537962882310-41d6b591b3da', description: 'Victoria Falls & more' },
+  { name: 'Namibia', path: '/namibia-safaris', image: 'https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4', description: 'Desert landscapes & more' },
+  { name: 'South Africa', path: '/south-africa-safaris', image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99', description: 'Kruger & more' },
 ]
 
 const islandsAndBeaches = [
-  { name: 'Zanzibar', path: '/zanzibar-island', image: 'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&auto=format&fit=crop', description: 'Spice island paradise' },
-  { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1523639772472-c8d1a731c9d9?w=800&auto=format&fit=crop', description: 'Swahili culture' },
-  { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&auto=format&fit=crop', description: 'Marine sanctuary' },
-  { name: 'Nosy Be', path: '/nosy-be-island', image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=800&auto=format&fit=crop', description: 'Madagascar beaches' },
+  { name: 'Zanzibar', path: '/zanzibar-island', image: 'https://images.unsplash.com/photo-1570077188670-e3a8d5f27dd5', description: 'Spice island paradise' },
+  { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6d54', description: 'Swahili culture' },
+  { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5', description: 'Marine sanctuary' },
+  { name: 'Nosy Be', path: '/nosy-be-island', image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b', description: 'Madagascar beaches' },
 ]
 
 const regionData = [
@@ -95,7 +95,7 @@ export default function Destinations() {
       <section className="relative h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1516426122078-c23e76319801" 
             alt="African Safari" 
             className="w-full h-full object-cover"
           />
