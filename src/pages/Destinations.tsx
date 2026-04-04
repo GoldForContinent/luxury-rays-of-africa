@@ -16,16 +16,16 @@ const easternAfrica = [
 const southernAfrica = [
   { name: 'Botswana', path: '/botswana-safaris', image: 'https://images.unsplash.com/photo-1534177616072-ef7dc12044f9?w=800&auto=format&fit=crop', description: 'Okavango Delta & more' },
   { name: 'Zambia', path: '/zambia-safaris', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop', description: 'Walking safaris & more' },
-  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: 'https://images.unsplash.com/photo-1537962882310-41d6b591b3da?w=800&auto=format&fit=crop', description: 'Victoria Falls & more' },
+  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: 'https://images.unsplash.com/photo-1584559586116-b3611d9778b9?w=800&auto=format&fit=crop', description: 'Victoria Falls & more' },
   { name: 'Namibia', path: '/namibia-safaris', image: 'https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop', description: 'Desert landscapes & more' },
   { name: 'South Africa', path: '/south-africa-safaris', image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&auto=format&fit=crop', description: 'Kruger & more' },
 ]
 
 const islandsAndBeaches = [
   { name: 'Zanzibar', path: '/zanzibar-island', image: 'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&auto=format&fit=crop', description: 'Spice island paradise' },
-  { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1573843981267-be1996ff0a0f?w=800&auto=format&fit=crop', description: 'Swahili culture' },
-  { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1573843981267-be1996ff0a0f?w=800&auto=format&fit=crop', description: 'Marine sanctuary' },
-  { name: 'Nosy Be', path: '/nosy-be-island', image: 'https://images.unsplash.com/photo-1573843981267-be1996ff0a0f?w=800&auto=format&fit=crop', description: 'Madagascar beaches' },
+  { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1523639772472-c8d1a731c9d9?w=800&auto=format&fit=crop', description: 'Swahili culture' },
+  { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=800&auto=format&fit=crop', description: 'Marine sanctuary' },
+  { name: 'Nosy Be', path: '/nosy-be-island', image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=800&auto=format&fit=crop', description: 'Madagascar beaches' },
 ]
 
 const regionData = [
