@@ -1,319 +1,203 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, MapPin, Compass, Umbrella } from 'lucide-react'
-import { allDestinations } from '../data/destinations'
+import { ArrowRight, Compass, Palmtree, Mountain, Sun } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const easternAfrica = [
+  { name: 'Kenya', path: '/kenya-safaris', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop', description: 'Masai Mara, Amboseli & more' },
+  { name: 'Tanzania', path: '/tanzania-safaris', image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop', description: 'Serengeti, Ngorongoro & more' },
+  { name: 'Uganda', path: '/uganda-safaris', image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop', description: 'Gorilla trekking & more' },
+  { name: 'Rwanda', path: '/rwandasafaris', image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&auto=format&fit=crop', description: 'Mountain gorillas & more' },
+]
+
+const southernAfrica = [
+  { name: 'Botswana', path: '/botswana-safaris', image: 'https://images.unsplash.com/photo-1534177616072-ef7dc12044f9?w=800&auto=format&fit=crop', description: 'Okavango Delta & more' },
+  { name: 'Zambia', path: '/zambia-safaris', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop', description: 'Walking safaris & more' },
+  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: 'https://images.unsplash.com/photo-1537962882310-41d6b591b3da?w=800&auto=format&fit=crop', description: 'Victoria Falls & more' },
+  { name: 'Namibia', path: '/namibia-safaris', image: 'https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop', description: 'Desert landscapes & more' },
+  { name: 'South Africa', path: '/south-africa-safaris', image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&auto=format&fit=crop', description: 'Kruger & more' },
+]
+
+const islandsAndBeaches = [
+  { name: 'Zanzibar', path: '/zanzibar-island', image: 'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&auto=format&fit=crop', description: 'Spice island paradise' },
+  { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1573843981267-be1996ff0a0f?w=800&auto=format&fit=crop', description: 'Swahili culture' },
+  { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1573843981267-be1996ff0a0f?w=800&auto=format&fit=crop', description: 'Marine sanctuary' },
+  { name: 'Nosy Be', path: '/nosy-be-island', image: 'https://images.unsplash.com/photo-1573843981267-be1996ff0a0f?w=800&auto=format&fit=crop', description: 'Madagascar beaches' },
+]
+
+const regionData = [
+  {
+    id: 'eastern',
+    title: 'East Africa',
+    subtitle: 'The Birthplace of Safari',
+    description: 'Experience the original safari with world-famous parks, the Great Migration, and unforgettable wildlife encounters.',
+    icon: <Compass className="w-8 h-8" />,
+    destinations: easternAfrica,
+    accentColor: 'text-[#D4A03A]'
+  },
+  {
+    id: 'southern',
+    title: 'Southern Africa',
+    subtitle: 'Wild & Luxurious',
+    description: 'Discover exclusive wildlife destinations from the Okavango Delta to Victoria Falls.',
+    icon: <Mountain className="w-8 h-8" />,
+    destinations: southernAfrica,
+    accentColor: 'text-[#E07A5F]'
+  },
+  {
+    id: 'islands',
+    title: 'Islands & Beaches',
+    subtitle: 'Paradise Found',
+    description: 'Extend your safari with pristine beaches and rich cultural experiences.',
+    icon: <Palmtree className="w-8 h-8" />,
+    destinations: islandsAndBeaches,
+    accentColor: 'text-[#81B29A]'
+  }
+]
+
 export default function Destinations() {
+  const sectionRefs = useRef<(HTMLElement | null)[]>([])
+
   useEffect(() => {
-    const sections = document.querySelectorAll('.fade-section')
-    sections.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top 85%',
-        onEnter: () => {
-          gsap.to(section, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' })
-        },
-        once: true
-      })
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        gsap.fromTo(
+          section.querySelectorAll('.destination-card'),
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        )
+      }
     })
   }, [])
 
-  // Organize destinations by regions
-  const destinationsToDisplay = allDestinations && allDestinations.length > 0 ? allDestinations : []
-  
-  const easternAfrica = destinationsToDisplay.filter(d => 
-    ['kenya', 'tanzania', 'uganda', 'rwanda'].includes(d.id)
-  )
-  
-  const southernAfrica = destinationsToDisplay.filter(d => 
-    ['botswana', 'zambia', 'zimbabwe', 'namibia', 'south-africa'].includes(d.id)
-  )
-
-  const islandsAndBeaches = destinationsToDisplay.filter(d => 
-    ['seychelles', 'mauritius', 'zanzibar'].includes(d.id)
-  )
+  const addToRefs = (el: HTMLElement | null) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el)
+    }
+  }
 
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="relative h-[60vh] overflow-hidden">
-        <img 
-          src="/destinations_hero.jpg" 
-          alt="African landscapes" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <span className="eyebrow mb-4 text-[#D4A03A]">Explore</span>
-          <h1 className="font-display font-bold text-4xl md:text-6xl text-white mb-4">
-            African Safari Destinations
+      <section className="relative h-[70vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&auto=format&fit=crop" 
+            alt="African Safari" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1410] via-[#1a1410]/60 to-transparent"></div>
+        </div>
+        
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+          <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em] mb-4">Discover</span>
+          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
+            DESTINATIONS
           </h1>
-          <p className="text-white/80 max-w-3xl text-lg">
-            Choose your dream African safari destination from our comprehensive selection across Eastern Africa, Southern Africa, and pristine island beaches.
+          <p className="text-white/80 max-w-2xl text-lg md:text-xl mb-8">
+            Explore our curated selection of safari destinations across Africa. From the iconic savannas of East Africa to the pristine beaches of the Indian Ocean.
           </p>
-        </div>
-      </section>
-
-      {/* Eastern Africa */}
-      <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 fade-section opacity-0 translate-y-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Compass className="w-6 h-6 text-[#D4A03A]" />
-              <span className="eyebrow text-[#D4A03A]">Eastern Africa</span>
-            </div>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F7F2EA] mb-4">
-              The Heart of Safari
-            </h2>
-            <p className="text-[#F7F2EA]/70 max-w-2xl mx-auto">
-              Experience the birthplace of safari with the Great Migration, gorilla trekking, and iconic savannas teeming with wildlife.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {easternAfrica.map((country, index) => (
-              <div 
-                key={country.id}
-                className="fade-section opacity-0 translate-y-8 group"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <Link 
-                  to={`/destinations/${country.id}`}
-                  className="block relative h-[300px] rounded-2xl overflow-hidden"
-                >
-                  <img 
-                    src={country.image} 
-                    alt={country.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-[#D4A03A] text-[#2B1E1A] text-xs font-semibold rounded-full">
-                      {country.places.length} Places
-                    </span>
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-display font-bold text-xl text-white mb-2">
-                      {country.name}
-                    </h3>
-                    <p className="text-white/70 text-sm line-clamp-2 mb-4">
-                      {country.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-[#D4A03A]">
-                      <span className="text-sm font-medium">Explore</span>
-                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link 
-              to="/destinations" 
-              className="btn-outline inline-flex items-center gap-2"
-            >
-              View All Eastern Africa Destinations
-              <ArrowRight size={16} />
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link to="/contact" className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
+              Plan Your Safari <ArrowRight size={18} />
             </Link>
           </div>
         </div>
-      </section>
 
-      {/* Southern Africa */}
-      <section className="py-20 px-4 md:px-[8vw] bg-[#1a1410]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 fade-section opacity-0 translate-y-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <MapPin className="w-6 h-6 text-[#D4A03A]" />
-              <span className="eyebrow text-[#D4A03A]">Southern Africa</span>
-            </div>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F7F2EA] mb-4">
-              Diverse Landscapes & Luxury
-            </h2>
-            <p className="text-[#F7F2EA]/70 max-w-2xl mx-auto">
-              From the Okavango Delta's water wonderland to Victoria Falls' thunder and South Africa's world-class reserves.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {southernAfrica.map((country, index) => (
-              <div 
-                key={country.id}
-                className="fade-section opacity-0 translate-y-8 group"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <Link 
-                  to={`/destinations/${country.id}`}
-                  className="block relative h-[300px] rounded-2xl overflow-hidden"
-                >
-                  <img 
-                    src={country.image} 
-                    alt={country.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-[#D4A03A] text-[#2B1E1A] text-xs font-semibold rounded-full">
-                      {country.places.length} Places
-                    </span>
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-display font-bold text-xl text-white mb-2">
-                      {country.name}
-                    </h3>
-                    <p className="text-white/70 text-sm line-clamp-2 mb-4">
-                      {country.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-[#D4A03A]">
-                      <span className="text-sm font-medium">Explore</span>
-                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link 
-              to="/destinations" 
-              className="btn-outline inline-flex items-center gap-2"
-            >
-              View All Southern Africa Destinations
-              <ArrowRight size={16} />
-            </Link>
-          </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
         </div>
       </section>
 
-      {/* Islands & Beaches */}
-      <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 fade-section opacity-0 translate-y-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Umbrella className="w-6 h-6 text-[#D4A03A]" />
-              <span className="eyebrow text-[#D4A03A]">Islands & Beaches</span>
+      {/* Regions */}
+      {regionData.map((region) => (
+        <section 
+          key={region.id}
+          ref={addToRefs}
+          className="py-24 px-4 md:px-[8vw] bg-[#1a1410]"
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <div className={`flex items-center justify-center gap-3 mb-4 ${region.accentColor}`}>
+                {region.icon}
+                <span className="font-mono text-sm uppercase tracking-[0.3em]">{region.subtitle}</span>
+              </div>
+              <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6">
+                {region.title}
+              </h2>
+              <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                {region.description}
+              </p>
             </div>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F7F2EA] mb-4">
-              Tropical Paradise Retreats
-            </h2>
-            <p className="text-[#F7F2EA]/70 max-w-2xl mx-auto">
-              Unwind on pristine beaches, explore ancient Swahili culture, and discover marine wonderlands perfect for post-safari relaxation.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {islandsAndBeaches.map((country, index) => (
-              <div 
-                key={country.id}
-                className="fade-section opacity-0 translate-y-8 group"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
+
+            {/* Destination Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {region.destinations.map((dest, idx) => (
                 <Link 
-                  to={`/destinations/${country.id}`}
-                  className="block relative h-[300px] rounded-2xl overflow-hidden"
+                  key={idx}
+                  to={dest.path}
+                  className="destination-card group relative h-[350px] rounded-2xl overflow-hidden"
                 >
                   <img 
-                    src={country.image} 
-                    alt={country.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src={dest.image}
+                    alt={dest.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-[#D4A03A] text-[#2B1E1A] text-xs font-semibold rounded-full">
-                      {country.places.length} Places
-                    </span>
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-display font-bold text-xl text-white mb-2">
-                      {country.name}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                    <h3 className="font-display font-bold text-2xl text-white mb-2 group-hover:text-[#D4A03A] transition-colors">
+                      {dest.name}
                     </h3>
-                    <p className="text-white/70 text-sm line-clamp-2 mb-4">
-                      {country.description}
-                    </p>
-                    <div className="flex items-center gap-2 text-[#D4A03A]">
-                      <span className="text-sm font-medium">Explore</span>
-                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    <p className="text-white/70 text-sm">{dest.description}</p>
+                    
+                    <div className="mt-4 flex items-center gap-2 text-[#D4A03A] opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                      <span className="text-sm font-semibold">Explore</span>
+                      <ArrowRight size={16} />
                     </div>
                   </div>
                 </Link>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          
-          <div className="text-center mt-8">
-            <Link 
-              to="/destinations" 
-              className="btn-outline inline-flex items-center gap-2"
-            >
-              View All Beach Destinations
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
-      {/* Why Choose Us */}
-      <section className="py-16 px-4 md:px-[8vw] bg-[#1a1410]">
+      {/* CTA Section */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="eyebrow mb-4 block">Why Travel With Us</span>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F7F2EA] mb-8">
-            The Rays of Africa Difference
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Expert Knowledge',
-                description: 'Our team has decades of combined experience across all African destinations.'
-              },
-              {
-                title: 'Tailored Itineraries',
-                description: 'Every trip is customized to your interests, budget, and travel style.'
-              },
-              {
-                title: '24/7 Support',
-                description: 'We\'re with you every step of the way, from planning to your return home.'
-              }
-            ].map((item, index) => (
-              <div key={index} className="fade-section opacity-0 translate-y-8">
-                <h3 className="font-display font-semibold text-lg text-[#F7F2EA] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[#F7F2EA]/60 text-sm">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Sun className="w-8 h-8 text-[#D4A03A]" />
+            <span className="font-mono text-sm uppercase tracking-[0.3em] text-[#D4A03A]">Ready to Go</span>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
-        <div className="max-w-4xl mx-auto text-center">
-          <MapPin className="mx-auto text-[#D4A03A] mb-4" size={40} />
-          <h2 className="font-display font-bold text-2xl md:text-4xl text-[#F7F2EA] mb-4">
-            Not Sure Where to Go?
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6">
+            READY FOR YOUR SAFARI?
           </h2>
-          <p className="text-[#F7F2EA]/60 mb-8">
-            Our safari experts can help you choose the perfect destination based on your interests, budget, and travel dates.
+          <p className="text-white/70 text-xl mb-12 max-w-2xl mx-auto">
+            Let our expert team help you craft the perfect African safari experience tailored to your dreams.
           </p>
-          <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-            Get Expert Advice <ArrowRight size={18} />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+              Plan Your Safari <ArrowRight size={18} />
+            </Link>
+            <Link to="/packages" className="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition-all">
+              View All Packages
+            </Link>
+          </div>
         </div>
       </section>
     </div>
