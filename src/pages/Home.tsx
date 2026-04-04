@@ -164,30 +164,57 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: 'Kenya', image: '/kenya_card.jpg', places: '4 destinations' },
-              { name: 'Tanzania', image: '/tanzania_card.jpg', places: '4 destinations' },
-              { name: 'South Africa', image: '/sa_card.jpg', places: '3 destinations' },
-            ].map((country, index) => (
-              <Link 
-                key={index}
-                to={`/destinations`}
-                className="group relative h-96 rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={country.image} 
-                  alt={country.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-white/60 text-sm mb-1">{country.places}</p>
-                  <h3 className="font-display font-bold text-2xl text-white">
-                    {country.name}
-                  </h3>
-                </div>
-              </Link>
-            ))}
+            <Link 
+              to="/destinations#eastern"
+              className="group relative h-96 rounded-3xl overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e" 
+                alt="East Africa Safaris"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-white/60 text-sm mb-1">4 Countries</p>
+                <h3 className="font-display font-bold text-2xl text-white">
+                  East Africa
+                </h3>
+              </div>
+            </Link>
+            <Link 
+              to="/destinations#southern"
+              className="group relative h-96 rounded-3xl overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1534177616072-ef7dc12044f9" 
+                alt="Southern Africa Safaris"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-white/60 text-sm mb-1">5 Countries</p>
+                <h3 className="font-display font-bold text-2xl text-white">
+                  Southern Africa
+                </h3>
+              </div>
+            </Link>
+            <Link 
+              to="/destinations#islands"
+              className="group relative h-96 rounded-3xl overflow-hidden"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1570077188670-e3a8d5f27dd5" 
+                alt="Islands & Beaches"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-white/60 text-sm mb-1">4 Islands</p>
+                <h3 className="font-display font-bold text-2xl text-white">
+                  Islands & Beaches
+                </h3>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
