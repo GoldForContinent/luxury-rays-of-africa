@@ -68,6 +68,7 @@ const faqData = [
 ]
 
 const zimbabweParks = [
+  { name: "Matobo National Park", description: "UNESCO World Heritage Site with ancient rock formations and rich San rock art. Home to endangered rhinos and panoramic views.", image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop", price: "From $450/pp/day", path: "/zimbabwe-matobo-national-park" },
   { name: "Hwange National Park", description: "Zimbabwe's largest park hosting the country's biggest elephant herds. Exceptional predator sightings and over 100 mammal species in diverse habitats.", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/zimbabwe-hwange-national-park" },
   { name: "Mana Pools National Park", description: "UNESCO World Heritage Site along the Zambezi River. Renowned for walking safaris and incredible leopard encounters in pristine wilderness.", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/zimbabwe-mana-pools-national-park" },
   { name: "Victoria Falls", description: "One of the Seven Natural Wonders of the World. The magnificent falls offer adventure activities and breathtaking panoramic views.", image: "https://images.unsplash.com/photo-1537962882310-41d6b591b3da?w=800&auto=format&fit=crop", price: "From $350/pp/day", path: "/victoria-falls-zimbabwe" },
@@ -307,7 +308,7 @@ export default function ZimbabweSafari() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#CD7F32]/20 rounded-2xl transform -rotate-3"></div>
-                <img src="/zimbabwe_hwange.jpg" alt="Hwange National Park" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop" alt="Hwange National Park" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
               <div>
                 <h3 className="font-display font-bold text-3xl md:text-4xl text-[#2C3E50] mb-6">
@@ -338,7 +339,7 @@ export default function ZimbabweSafari() {
               </div>
               <div className="order-1 md:order-2 relative">
                 <div className="absolute -inset-4 bg-[#D4A03A]/20 rounded-2xl transform rotate-3"></div>
-                <img src="/zimbabwe_mana_pools.jpg" alt="Mana Pools" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop" alt="Mana Pools" className="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
               </div>
             </div>
           </div>

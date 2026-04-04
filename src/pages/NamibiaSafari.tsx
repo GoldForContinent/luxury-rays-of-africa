@@ -37,12 +37,15 @@ const faqData = [
 ]
 
 const namibiaParks = [
-  { name: "Etosha National Park", description: "Famous salt pan with excellent wildlife viewing at waterholes. Home to lions, elephants, giraffes, and springboks.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/namibia-etosha-national-park" },
-  { name: "Sossusvlei & Deadvlei", description: "Iconic red sand dunes including Dune 45 and Deadvlei clay pan with ancient camel thorn trees.", image: "https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
-  { name: "Skeleton Coast", description: "Remote and dramatic coastline with shipwrecks, seal colonies, and desert-adapted elephants.", image: "https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
-  { name: "Damaraland", description: "Home to desert-adapted elephants, black rhinos, and the famous Twyfelfontein rock engravings.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
-  { name: "Namib Desert", description: "One of the oldest deserts in the world, spanning along the Atlantic coast with towering dunes.", image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" },
-  { name: "Kaokoveld", description: "Remote wilderness area in the northwest, known for desert lions and Himba communities.", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/contact" }
+  { name: "Etosha National Park", description: "Famous salt pan with excellent wildlife viewing at waterholes. Home to lions, elephants, giraffes, and springboks.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $2,400/pp/day", path: "/namibia-etosha-national-park" }
+]
+
+const namibiaDestinations = [
+  "Sossusvlei & Deadvlei - Iconic red sand dunes including Dune 45 and Deadvlei clay pan with ancient camel thorn trees",
+  "Skeleton Coast - Remote and dramatic coastline with shipwrecks, seal colonies, and desert-adapted elephants",
+  "Damaraland - Home to desert-adapted elephants, black rhinos, and the famous Twyfelfontein rock engravings",
+  "Namib Desert - One of the oldest deserts in the world, spanning along the Atlantic coast with towering dunes",
+  "Kaokoveld - Remote wilderness area in the northwest, known for desert lions and Himba communities"
 ]
 
 const safariActivities = [
@@ -294,6 +297,17 @@ export default function NamibiaSafari() {
                 </div>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-12">
+            <h3 className="font-display font-bold text-2xl text-[#2C3E50] mb-6">Other Notable Destinations in Namibia</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {namibiaDestinations.map((dest, index) => (
+                <div key={index} className="bg-white p-4 rounded-xl shadow-md">
+                  <p className="text-[#2C3E50]">{dest}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

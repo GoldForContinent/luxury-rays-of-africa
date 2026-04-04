@@ -479,6 +479,82 @@ export default function ZanzibarSafari() {
         </div>
       </section>
 
+      {/* Explore Other Island Destinations */}
+      <section className="py-24 px-4 md:px-[8vw] bg-[#FFF8F0]">
+        <div ref={addToRefs} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#CD7F32] font-mono text-sm uppercase tracking-[0.3em]">Discover More</span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-[#2C3E50] mt-4 mb-6">
+              EXPLORE OTHER ISLAND DESTINATIONS
+            </h2>
+            <div className="w-24 h-1 bg-[#D4A03A] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link to="/lamu-island" className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="/lamu_hero.jpg" 
+                  alt="Lamu Island" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-white font-display font-bold text-xl">Lamu Island</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-[#2C3E50]">Ancient Swahili culture and pristine beaches on Kenya's oldest settlement.</p>
+                <div className="mt-4 pt-4 border-t border-[#D4C5B9] flex items-center justify-between">
+                  <span className="text-[#D4A03A] font-bold">From $350/pp/day</span>
+                  <ArrowRight className="w-5 h-5 text-[#D4A03A] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+            <Link to="/nosy-be-island" className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="/nosybe_hero.jpg" 
+                  alt="Nosy Be Island" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-white font-display font-bold text-xl">Nosy Be Island</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-[#2C3E50]">Madagascar's premier beach destination with lemurs and pristine reefs.</p>
+                <div className="mt-4 pt-4 border-t border-[#D4C5B9] flex items-center justify-between">
+                  <span className="text-[#D4A03A] font-bold">From $450/pp/day</span>
+                  <ArrowRight className="w-5 h-5 text-[#D4A03A] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+            <Link to="/mafia-island" className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src="/mafia_hero.jpg" 
+                  alt="Mafia Island" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-white font-display font-bold text-xl">Mafia Island</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-[#2C3E50]">Unspoiled marine paradise with whale sharks and coral reefs in Tanzania.</p>
+                <div className="mt-4 pt-4 border-t border-[#D4C5B9] flex items-center justify-between">
+                  <span className="text-[#D4A03A] font-bold">From $450/pp/day</span>
+                  <ArrowRight className="w-5 h-5 text-[#D4A03A] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
         <div ref={addToRefs} className="max-w-4xl mx-auto text-center">

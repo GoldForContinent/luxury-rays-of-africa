@@ -85,6 +85,10 @@ import ZimbabweHwangeNationalPark from './pages/ZimbabweHwangeNationalPark'
 import ZimbabweManaPoolsNationalPark from './pages/ZimbabweManaPoolsNationalPark'
 import VictoriaFallsZimbabwe from './pages/VictoriaFallsZimbabwe'
 import LakeKaribaZimbabwe from './pages/LakeKaribaZimbabwe'
+import ZimbabweMatoboNationalPark from './pages/ZimbabweMatoboNationalPark'
+import SouthAfricaSabiSandReserve from './pages/SouthAfricaSabiSandReserve'
+import SouthAfricaKrugerNationalPark from './pages/SouthAfricaKrugerNationalPark'
+import SouthAfricaTableMountainNationalPark from './pages/SouthAfricaTableMountainNationalPark'
 import ZanzibarSafari from './pages/ZanzibarSafari'
 import LamuSafari from './pages/LamuSafari'
 import NosyBeSafari from './pages/NosyBeSafari'
@@ -183,6 +187,10 @@ function App() {
         <Route path="/zimbabwe-gonarezhou-national-park" element={<ZimbabweGonarezhouNationalPark />} />
         <Route path="/zimbabwe-hwange-national-park" element={<ZimbabweHwangeNationalPark />} />
         <Route path="/zimbabwe-mana-pools-national-park" element={<ZimbabweManaPoolsNationalPark />} />
+        <Route path="/zimbabwe-matobo-national-park" element={<ZimbabweMatoboNationalPark />} />
+        <Route path="/south-africa-sabi-sand-reserve" element={<SouthAfricaSabiSandReserve />} />
+        <Route path="/south-africa-kruger-national-park" element={<SouthAfricaKrugerNationalPark />} />
+        <Route path="/south-africa-table-mountain-national-park" element={<SouthAfricaTableMountainNationalPark />} />
         <Route path="/victoria-falls-zimbabwe" element={<VictoriaFallsZimbabwe />} />
         <Route path="/lake-kariba-zimbabwe" element={<LakeKaribaZimbabwe />} />
         <Route path="/zanzibar-island" element={<ZanzibarSafari />} />

@@ -41,12 +41,15 @@ const faqData = [
 ]
 
 const southAfricaParks = [
-  { name: "Kruger National Park", description: "One of Africa's largest and most famous game reserves. Home to the highest concentration of Big Five in South Africa.", image: "/south_africa_kruger.jpg", price: "From $650/pp/day" },
-  { name: "Sabi Sands Reserve", description: "World-renowned for exceptional leopard sightings. Exclusive private reserve bordering Kruger with luxury lodges.", image: "/south_africa_sabi_sands.jpg", price: "From $650/pp/day" },
-  { name: "Madikwe Game Reserve", description: "Top malaria-free destination. Famous for African wild dog sightings and complete Big Five experience.", image: "/south_africa_madikwe.jpg", price: "From $650/pp/day" },
-  { name: "Addo Elephant Park", description: "Third largest national park in South Africa. Features large elephant herds and diverse wildlife.", image: "/south_africa_addo.jpg", price: "From $650/pp/day" },
-  { name: "Table Mountain National Park", description: "Iconic Cape Town landmark. Cable car to summit offers panoramic views of the city and coastline.", image: "/south_africa_table_mountain.jpg", price: "From $650/pp/day" },
-  { name: "Garden Route", description: "Scenic coastal drive featuring forests, beaches, and wildlife. Tsitsikamma and Knysna highlights.", image: "/south_africa_garden_route.jpg", price: "From $650/pp/day" }
+  { name: "Sabi Sand Reserve", description: "World-renowned for exceptional leopard sightings. Exclusive private reserve bordering Kruger with luxury lodges.", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/south-africa-sabi-sand-reserve" },
+  { name: "Kruger National Park", description: "One of Africa's largest and most famous game reserves. Home to the highest concentration of Big Five in South Africa.", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/south-africa-kruger-national-park" },
+  { name: "Table Mountain National Park", description: "Iconic Cape Town landmark. Cable car to summit offers panoramic views of the city and coastline.", image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop", price: "From $650/pp/day", path: "/south-africa-table-mountain-national-park" }
+]
+
+const otherDestinations = [
+  { name: "Madikwe Game Reserve", description: "Top malaria-free destination. Famous for African wild dog sightings and complete Big Five experience." },
+  { name: "Addo Elephant Park", description: "Third largest national park in South Africa. Features large elephant herds and diverse wildlife." },
+  { name: "Garden Route", description: "Scenic coastal drive featuring forests, beaches, and wildlife. Tsitsikamma and Knysna highlights." }
 ]
 
 const safariActivities = [
@@ -300,7 +303,7 @@ export default function SouthAfricaSafari() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {southAfricaParks.map((park, index) => (
-              <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <Link key={index} to={park.path} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 block">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={park.image} 
@@ -314,10 +317,20 @@ export default function SouthAfricaSafari() {
                 </div>
                 <div className="p-6">
                   <p className="text-[#2C3E50]">{park.description}</p>
-                  <div className="mt-4 pt-4 border-t border-[#D4C5B9]">
+                  <div className="mt-4 pt-4 border-t border-[#D4C5B9] flex items-center justify-between">
                     <span className="text-[#D4A03A] font-bold">{park.price}</span>
+                    <ArrowRight className="w-5 h-5 text-[#D4A03A] group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-3 gap-6">
+            {otherDestinations.map((dest, index) => (
+              <div key={index} className="bg-white/50 rounded-2xl p-6 border border-[#D4C5B9]">
+                <h3 className="font-display font-bold text-xl text-[#2C3E50] mb-2">{dest.name}</h3>
+                <p className="text-[#2C3E50]/70">{dest.description}</p>
               </div>
             ))}
           </div>
