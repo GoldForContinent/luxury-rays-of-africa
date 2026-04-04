@@ -13,6 +13,13 @@ const ClockIcon = () => (
   </svg>
 )
 
+const MapPinIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+    <circle cx="12" cy="10" r="3"></circle>
+  </svg>
+)
+
 const parkHighlights = [
   {
     title: "Ancient Rock Formations",
@@ -158,6 +165,37 @@ export default function ZimbabweMatoboNationalPark() {
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
           <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent"></div>
+        </div>
+      </section>
+
+      {/* Quick Info */}
+      <section className="py-12 px-4 md:px-[8vw] bg-[#2C3E50]">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="text-center">
+            <MapPinIcon />
+            <p className="text-white/60 text-sm mt-2">Location</p>
+            <p className="text-white font-semibold">Matabeleland, Zimbabwe</p>
+          </div>
+          <div className="text-center">
+            <ClockIcon />
+            <p className="text-white/60 text-sm mt-2">Best Time</p>
+            <p className="text-white font-semibold">May - October</p>
+          </div>
+          <div className="text-center">
+            <Mountain />
+            <p className="text-white/60 text-sm mt-2">Area</p>
+            <p className="text-white font-semibold">4,250 km²</p>
+          </div>
+          <div className="text-center">
+            <Eye />
+            <p className="text-white/60 text-sm mt-2">Specialty</p>
+            <p className="text-white font-semibold">Rock Art</p>
+          </div>
+          <div className="text-center">
+            <MapPinIcon />
+            <p className="text-white/60 text-sm mt-2">Entry Fee</p>
+            <p className="text-white font-semibold">$15 USD/pp</p>
+          </div>
         </div>
       </section>
 
