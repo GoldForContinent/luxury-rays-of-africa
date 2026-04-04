@@ -223,24 +223,59 @@ export default function Layout({ children }: LayoutProps) {
                       <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'destinations' ? 'rotate-180' : ''}`} />
                     </button>
                     {activeDropdown === 'destinations' && (
-                      <div className="pl-4 space-y-2">
+                      <div className="pl-4 space-y-4 max-h-[60vh] overflow-y-auto">
                         <Link
                           to="/destinations"
-                          className="block py-2 text-sm text-[#D4A03A]"
+                          className="block py-2 text-sm font-semibold text-white border-b border-white/20"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           All Destinations
                         </Link>
-                        {destinations.map((dest) => (
-                          <Link
-                            key={dest.path}
-                            to={dest.path}
-                            className="block py-2 text-sm text-[#D4A03A]/60"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {dest.name}
-                          </Link>
-                        ))}
+                        
+                        {/* East Africa */}
+                        <div>
+                          <p className="py-1 text-xs font-bold text-[#D4A03A] uppercase tracking-wider">East Africa</p>
+                          {destinations.map((dest) => (
+                            <Link
+                              key={dest.path}
+                              to={dest.path}
+                              className="block py-2 text-sm text-white/70 hover:text-[#D4A03A]"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {dest.name}
+                            </Link>
+                          ))}
+                        </div>
+
+                        {/* Southern Africa */}
+                        <div>
+                          <p className="py-1 text-xs font-bold text-[#D4A03A] uppercase tracking-wider">Southern Africa</p>
+                          {southernAfrica.map((dest) => (
+                            <Link
+                              key={dest.path}
+                              to={dest.path}
+                              className="block py-2 text-sm text-white/70 hover:text-[#D4A03A]"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {dest.name}
+                            </Link>
+                          ))}
+                        </div>
+
+                        {/* Islands & Beaches */}
+                        <div>
+                          <p className="py-1 text-xs font-bold text-[#D4A03A] uppercase tracking-wider">Islands & Beaches</p>
+                          {islandsAndBeaches.map((dest) => (
+                            <Link
+                              key={dest.path}
+                              to={dest.path}
+                              className="block py-2 text-sm text-white/70 hover:text-[#D4A03A]"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {dest.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </>
