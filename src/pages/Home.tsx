@@ -169,7 +169,7 @@ export default function Home() {
               className="group relative h-96 rounded-3xl overflow-hidden"
             >
               <img 
-                src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e" 
+                src="/kenyasafaris hero.jpg" 
                 alt="East Africa Safaris"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -186,7 +186,7 @@ export default function Home() {
               className="group relative h-96 rounded-3xl overflow-hidden"
             >
               <img 
-                src="https://images.unsplash.com/photo-1534177616072-ef7dc12044f9" 
+                src="/botswana_hero.jpg" 
                 alt="Southern Africa Safaris"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -203,7 +203,7 @@ export default function Home() {
               className="group relative h-96 rounded-3xl overflow-hidden"
             >
               <img 
-                src="https://images.unsplash.com/photo-1570077188670-e3a8d5f27dd5" 
+                src="/zanzibar_hero.jpg" 
                 alt="Islands & Beaches"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
