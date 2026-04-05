@@ -33,25 +33,25 @@ const safariTypes = [
   {
     title: 'Luxury Escapes',
     description: 'Five-star camps with private decks, gourmet dining, and Butler service. Perfect for honeymoons and special celebrations.',
-    image: '/honeymoon_safari.jpg',
+    image: '/luxury_background.jpg',
     highlights: ['Private plunge pools', 'Fine dining', 'Spa treatments']
   },
   {
     title: 'Classic Safaris',
     description: 'Authentic game drives in proven wildlife territories. The traditional safari experience with comfortable lodge accommodation.',
-    image: '/photo_safari.jpg',
+    image: '/tanzaniasafarishero.jpg',
     highlights: ['Morning & afternoon drives', 'Expert rangers', 'Bush walks']
   },
   {
     title: 'Adventure Safaris',
     description: 'For the active traveler - walking safaris, canoe trips, and remote wilderness camps off the beaten path.',
-    image: '/walking_safari.jpg',
+    image: '/adventure_background.jpg',
     highlights: ['Guided bush walks', 'Canoe expeditions', 'Remote fly-camping']
   },
   {
     title: 'Family Safaris',
     description: 'Safe, engaging adventures for all ages. Kid-friendly activities and flexible pacing for family memories.',
-    image: '/family_safari.jpg',
+    image: '/kenyasafaris hero.jpg',
     highlights: ['Kids activities', 'Child-friendly guides', 'Flexible schedules']
   }
 ]
