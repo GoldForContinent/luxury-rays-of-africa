@@ -1,10 +1,5 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, Compass, Palmtree, Mountain, Sun } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const easternAfrica = [
   { name: 'Kenya', path: '/kenya-safaris', image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e', description: 'Masai Mara, Amboseli & more' },
@@ -59,47 +54,17 @@ const regionData = [
 ]
 
 export default function Destinations() {
-  const sectionRefs = useRef<(HTMLElement | null)[]>([])
-
-  useEffect(() => {
-    sectionRefs.current.forEach((section) => {
-      if (section) {
-        gsap.fromTo(
-          section.querySelectorAll('.destination-card'),
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      }
-    })
-  }, [])
-
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el)
-    }
-  }
-
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero */}
-      <section className="relative h-[70vh] overflow-hidden">
+      <section className="relative -mt-20 h-[90vh] overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1516426122078-c23e76319801" 
             alt="African Safari" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1410] via-[#1a1410]/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40"></div>
         </div>
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
@@ -126,7 +91,6 @@ export default function Destinations() {
       {regionData.map((region) => (
         <section 
           key={region.id}
-          ref={addToRefs}
           className="py-24 px-4 md:px-[8vw] bg-[#1a1410]"
         >
           <div className="max-w-7xl mx-auto">
