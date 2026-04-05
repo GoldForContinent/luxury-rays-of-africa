@@ -609,7 +609,7 @@ export default function TanzaniaWildebeestSafari() {
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <p className="text-white/60">info@luxuryraysofafrica.com</p>
-              <p className="text-white/60">+254 700 000000</p>
+              <p className="text-white/60">0791323799</p>
             </div>
           </div>
         </div>

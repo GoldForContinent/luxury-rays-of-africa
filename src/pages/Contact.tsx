@@ -333,8 +333,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-[#F7F2EA]/50 text-xs mb-1">Phone</p>
-                      <a href="tel:+255123456789" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors text-sm">
-                        +255 123 456 789
+                      <a href="tel:0791323799" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors text-sm">
+                        0791323799
                       </a>
                     </div>
                   </div>
@@ -376,7 +376,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <a 
-                  href="https://wa.me/255123456789"
+                  href="https://wa.me/0791323799"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#25D366] text-white py-3 rounded-xl text-center font-medium hover:bg-[#25D366]/90 transition-colors flex items-center justify-center gap-2"
@@ -409,7 +409,7 @@ export default function Contact() {
               {/* Emergency */}
               <div className="bg-[#D4A03A]/10 rounded-2xl p-4 border border-[#D4A03A]/20">
                 <p className="text-xs text-[#D4A03A] uppercase tracking-wider mb-1">Emergency Support</p>
-                <p className="text-[#F7F2EA] font-medium">+255 987 654 321</p>
+                  <p className="text-[#F7F2EA] font-medium">0791323799</p>
                 <p className="text-xs text-[#F7F2EA]/50 mt-1">Available 24/7 during your safari</p>
               </div>
             </div>
