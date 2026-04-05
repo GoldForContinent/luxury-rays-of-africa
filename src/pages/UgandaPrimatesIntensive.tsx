@@ -596,7 +596,7 @@ export default function UgandaPrimatesIntensive() {
           <div className="grid md:grid-cols-4 gap-12">
             <div>
               <Link to="/" className="inline-block mb-4">
-                <img src="/logo4.png" alt="Rays of Africa Logo" className="h-16" />
+                <img src="/logo21.png" alt="Rays of Africa Logo" className="h-16" />
               </Link>
               <p className="text-white/60 text-sm">Your gateway to extraordinary African safari experiences.</p>
             </div>
