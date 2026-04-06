@@ -365,8 +365,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-[#F7F2EA]/50 text-xs mb-1">Email</p>
-                      <a href="mailto:hello@raysofafrica.travel" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors text-sm">
-                        hello@raysofafrica.travel
+                      <a href="mailto:raysofafrica254@gmail.com" className="text-[#F7F2EA] hover:text-[#D4A03A] transition-colors text-sm">
+                        raysofafrica254@gmail.com
                       </a>
                     </div>
                   </div>
