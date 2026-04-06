@@ -174,7 +174,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="hero-subtitle text-2xl md:text-3xl italic text-white/90 max-w-2xl mb-8">
-            Where the wild truly lives.
+            Exciting adventures lie ahead.
           </p>
           <div className="hero-buttons flex flex-col sm:flex-row gap-4">
             <Link to="/destinations" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
