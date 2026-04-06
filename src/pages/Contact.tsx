@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { MapPin, Phone, Mail, Send, Clock, CheckCircle, MessageCircle, Calendar, Users, DollarSign, Map, Heart, Star } from 'lucide-react'
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,40 +19,11 @@ export default function Contact() {
     howHeard: ''
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
-  }
-
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-[#2B1E1A] flex items-center justify-center px-4">
-        <div className="text-center max-w-md">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#D4A03A]/20 flex items-center justify-center">
-            <CheckCircle className="text-[#D4A03A]" size={48} />
-          </div>
-          <h1 className="font-display font-bold text-3xl text-[#F7F2EA] mb-4">
-            Request Received!
-          </h1>
-          <p className="text-[#F7F2EA]/70 mb-8">
-            Thank you for your safari enquiry. Our team of specialists will review your requirements and get back to you within 24 hours with a personalized proposal.
-          </p>
-          <p className="text-[#F7F2EA]/50 text-sm mb-8">
-            Check your email for a confirmation of your submission.
-          </p>
-          <a href="/" className="btn-primary inline-flex items-center gap-2 px-6 py-3">
-            Back to Home
-          </a>
-        </div>
-      </div>
-    )
   }
 
   return (
@@ -92,7 +62,9 @@ export default function Contact() {
                   </h2>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form action="https://formsubmit.co/raysofafrica254@gmail.com" method="POST" className="space-y-6">
+                  <input type="hidden" name="_subject" value="New Safari Enquiry - Rays of Africa" />
+                  <input type="hidden" name="_captcha" value="false" />
                   {/* Personal Details */}
                   <div>
                     <h3 className="text-sm text-[#D4A03A] uppercase tracking-wider mb-4">Your Details</h3>

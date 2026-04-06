@@ -533,7 +533,7 @@ export default function UgandaDiscoverUganda() {
             </div>
             <div>
               <h4 className="font-semibold text-[#D4A03A] mb-4">Contact</h4>
-              <p className="text-white/60 text-sm">info@raysofafrica.com</p>
+              <p className="text-white/60 text-sm">raysofafrica254@gmail.com</p>
               <p className="text-white/60 text-sm">0791323799</p>
             </div>
           </div>
