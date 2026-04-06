@@ -346,7 +346,7 @@ export default function Contact() {
                     <div>
                       <p className="text-[#F7F2EA]/50 text-xs mb-1">Office</p>
                       <p className="text-[#F7F2EA] text-sm">
-                        Arusha, Tanzania
+                        Nairobi, Kenya
                       </p>
                     </div>
                   </div>
