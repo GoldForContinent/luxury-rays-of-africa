@@ -66,90 +66,127 @@ const animalGallery = [
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
-  const sectionRefs = useRef<(HTMLElement | null)[]>([])
+  const contentRefs = useRef<(HTMLElement | null)[]>([])
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([])
+  const safariRefs = useRef<(HTMLDivElement | null)[]>([])
+  const animalRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
-    const tl = gsap.timeline()
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline()
 
-    tl.fromTo('.hero-title span', 
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out' }
-    )
-    .fromTo('.hero-subtitle',
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-      '-=0.5'
-    )
-    .fromTo('.hero-buttons',
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-      '-=0.4'
-    )
+      tl.fromTo('.hero-title span', 
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out' }
+      )
+      .fromTo('.hero-subtitle',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        '-=0.5'
+      )
+      .fromTo('.hero-buttons',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
+        '-=0.4'
+      )
 
-    sectionRefs.current.forEach((section) => {
-      if (section) {
-        gsap.fromTo(section, 
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
+      contentRefs.current.forEach((section) => {
+        if (section) {
+          gsap.fromTo(section, 
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
             }
-          }
-        )
-      }
-    })
-
-    gsap.fromTo('.feature-card',
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '.features-section',
-          start: 'top 70%'
+          )
         }
-      }
-    )
+      })
 
-    gsap.fromTo('.safari-card',
-      { opacity: 0, scale: 0.95 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.6,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: '.safari-section',
-          start: 'top 75%'
+      featureRefs.current.forEach((el, i) => {
+        if (el) {
+          gsap.fromTo(el,
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              delay: i * 0.1,
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 70%'
+              }
+            }
+          )
         }
-      }
-    )
+      })
 
-    gsap.fromTo('.animal-card',
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.5,
-        stagger: 0.08,
-        scrollTrigger: {
-          trigger: '.animal-section',
-          start: 'top 80%'
+      safariRefs.current.forEach((el, i) => {
+        if (el) {
+          gsap.fromTo(el,
+            { opacity: 0, scale: 0.95 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.6,
+              delay: i * 0.15,
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 75%'
+              }
+            }
+          )
         }
-      }
-    )
+      })
+
+      animalRefs.current.forEach((el, i) => {
+        if (el) {
+          gsap.fromTo(el,
+            { opacity: 0, scale: 0.8 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              delay: i * 0.08,
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 80%'
+              }
+            }
+          )
+        }
+      })
+    }, heroRef)
+
+    return () => ctx.revert()
   }, [])
 
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el)
+  const addContentRef = (el: HTMLElement | null) => {
+    if (el && !contentRefs.current.includes(el)) {
+      contentRefs.current.push(el)
+    }
+  }
+
+  const addFeatureRef = (el: HTMLDivElement | null) => {
+    if (el && !featureRefs.current.includes(el)) {
+      featureRefs.current.push(el)
+    }
+  }
+
+  const addSafariRef = (el: HTMLDivElement | null) => {
+    if (el && !safariRefs.current.includes(el)) {
+      safariRefs.current.push(el)
+    }
+  }
+
+  const addAnimalRef = (el: HTMLDivElement | null) => {
+    if (el && !animalRefs.current.includes(el)) {
+      animalRefs.current.push(el)
     }
   }
 
@@ -193,11 +230,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section ref={addToRefs} className="features-section py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
+      <section ref={addContentRef} className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="feature-card text-center">
+              <div key={index} ref={addFeatureRef} className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#D4A03A]/10 flex items-center justify-center">
                   <feature.icon className="text-[#D4A03A]" size={28} />
                 </div>
@@ -214,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* Safari Types Section */}
-      <section ref={addToRefs} className="safari-section py-24 px-4 md:px-[8vw] bg-[#1a1410]">
+      <section ref={addContentRef} className="py-24 px-4 md:px-[8vw] bg-[#1a1410]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Safari Styles</span>
@@ -230,7 +267,8 @@ export default function Home() {
             {safariTypes.map((type, index) => (
               <div 
                 key={index}
-                className="safari-card group relative h-72 rounded-3xl overflow-hidden"
+                ref={addSafariRef}
+                className="group relative h-72 rounded-3xl overflow-hidden"
               >
                 <img 
                   src={type.image} 
@@ -260,7 +298,7 @@ export default function Home() {
       </section>
 
       {/* Featured Destinations */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
+      <section ref={addContentRef} className="py-24 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
             <div>
@@ -331,7 +369,7 @@ export default function Home() {
       </section>
 
       {/* Wildlife Highlights */}
-      <section ref={addToRefs} className="animal-section py-24 px-4 md:px-[8vw] bg-[#1a1410]">
+      <section ref={addContentRef} className="py-24 px-4 md:px-[8vw] bg-[#1a1410]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Wildlife</span>
@@ -345,7 +383,7 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {animalGallery.map((animal, index) => (
-              <div key={index} className="animal-card relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
+              <div key={index} ref={addAnimalRef} className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
                 <img 
                   src={animal.image} 
                   alt={animal.name}
@@ -362,7 +400,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section ref={addToRefs} className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
+      <section ref={addContentRef} className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-[#D4A03A] font-mono text-sm uppercase tracking-[0.3em]">Start Planning</span>
           <h2 className="font-display font-bold text-4xl md:text-6xl text-white mt-4 mb-6">
