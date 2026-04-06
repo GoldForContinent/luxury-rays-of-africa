@@ -93,6 +93,10 @@ import ZanzibarSafari from './pages/ZanzibarSafari'
 import LamuSafari from './pages/LamuSafari'
 import NosyBeSafari from './pages/NosyBeSafari'
 import MafiaSafari from './pages/MafiaSafari'
+import DianiBeach from './pages/DianiBeach'
+import AlexWalkersSerianCamp from './pages/AlexWalkersSerianCamp'
+import AberdareCountryClub from './pages/AberdareCountryClub'
+import AlexWalkerSerianMobileCamp from './pages/AlexWalkerSerianMobileCamp'
 import RwandaGoldenMonkeyGorillaTrekking from './pages/RwandaGoldenMonkeyGorillaTrekking'
 import RwandaGorillaTrekkingExpress from './pages/RwandaGorillaTrekkingExpress'
 import RwandaThisIsAfricaWomensCenter from './pages/RwandaThisIsAfricaWomensCenter'
@@ -197,6 +201,10 @@ function App() {
         <Route path="/lamu-island" element={<LamuSafari />} />
         <Route path="/nosy-be-island" element={<NosyBeSafari />} />
         <Route path="/mafia-island" element={<MafiaSafari />} />
+        <Route path="/diani-beach" element={<DianiBeach />} />
+        <Route path="/accommodation/alex-walkers-serian-camp" element={<AlexWalkersSerianCamp />} />
+        <Route path="/accommodation/aberdare-country-club" element={<AberdareCountryClub />} />
+        <Route path="/accommodation/alex-walker-serian-mobile-camp" element={<AlexWalkerSerianMobileCamp />} />
         <Route path="/rwanda-golden-monkey-gorilla-trekking" element={<RwandaGoldenMonkeyGorillaTrekking />} />
         <Route path="/rwanda-gorilla-trekking-express" element={<RwandaGorillaTrekkingExpress />} />
         <Route path="/rwanda-this-is-africa-womens-center" element={<RwandaThisIsAfricaWomensCenter />} />

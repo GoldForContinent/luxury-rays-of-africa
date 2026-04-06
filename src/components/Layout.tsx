@@ -48,6 +48,7 @@ export default function Layout({ children }: LayoutProps) {
   ]
 
   const islandsAndBeaches = [
+    { name: 'Diani Beach', path: '/diani-beach', description: 'Kenya\'s premier beach' },
     { name: 'Zanzibar Island', path: '/zanzibar-island', description: 'Spice island paradise' },
     { name: 'Lamu Island', path: '/lamu-island', description: 'Ancient Swahili culture' },
     { name: 'Nosy Be Island', path: '/nosy-be-island', description: 'Madagascar beaches' },
