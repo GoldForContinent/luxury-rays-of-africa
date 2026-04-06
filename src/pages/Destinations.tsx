@@ -61,7 +61,7 @@ const regionData = [
 export default function Destinations() {
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,7 +111,7 @@ export default function Destinations() {
     }
   }
 
-  const addCardRef = (el: HTMLDivElement | null) => {
+  const addCardRef = (el: HTMLAnchorElement | null) => {
     if (el && !cardRefs.current.includes(el)) {
       cardRefs.current.push(el)
     }
