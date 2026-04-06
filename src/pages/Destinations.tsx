@@ -23,6 +23,7 @@ const southernAfrica = [
 
 const islandsAndBeaches = [
   { name: 'Diani', path: '/diani-beach', image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334', description: 'Kenya\'s premier beach' },
+  { name: 'Watamu', path: '/watamu-beach', image: 'https://images.unsplash.com/photo-1536560035542-1398395481780', description: 'Marine park & reefs' },
   { name: 'Zanzibar', path: '/zanzibar-island', image: 'https://images.unsplash.com/photo-1570077188670-e3a8d5f27dd5', description: 'Spice island paradise' },
   { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6d54', description: 'Swahili culture' },
   { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5', description: 'Marine sanctuary' },
