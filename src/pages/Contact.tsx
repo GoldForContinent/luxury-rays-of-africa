@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { MapPin, Phone, Mail, Send, Clock, CheckCircle, MessageCircle, Calendar, Users, DollarSign, Map, Heart, Star } from 'lucide-react'
 
 export default function Contact() {
@@ -18,12 +18,74 @@ export default function Contact() {
     message: '',
     howHeard: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    const formDataToSend = new FormData()
+    Object.entries(formData).forEach(([key, value]) => {
+      formDataToSend.append(key, value)
+    })
+    formDataToSend.append('_subject', 'New Safari Enquiry - Rays of Africa')
+    formDataToSend.append('_captcha', 'false')
+    formDataToSend.append('_next', window.location.href)
+    
+    try {
+      await fetch('https://formsubmit.co/raysofafrica254@gmail.com', {
+        method: 'POST',
+        body: formDataToSend,
+        mode: 'no-cors'
+      })
+      setIsSubmitted(true)
+      formRef.current?.reset()
+    } catch (error) {
+      console.error('Form submission error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-[#2B1E1A] flex items-center justify-center px-4">
+        <div className="text-center max-w-lg">
+          <div className="w-24 h-24 mx-auto mb-8 rounded-full bg-[#D4A03A]/20 flex items-center justify-center">
+            <CheckCircle className="text-[#D4A03A]" size={56} />
+          </div>
+          <h1 className="font-display font-bold text-4xl text-[#F7F2EA] mb-4">
+            Enquiry Received!
+          </h1>
+          <p className="text-[#F7F2EA]/70 text-lg mb-4">
+            Thank you for reaching out to Rays of Africa. We've received your safari enquiry and our team of specialists is reviewing your requirements.
+          </p>
+          <p className="text-[#F7F2EA]/50 mb-8">
+            Expect to hear from us within 24 hours with a personalized safari proposal tailored to your dreams.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/" className="btn-primary inline-flex items-center gap-2 px-8 py-3">
+              Back to Home
+            </a>
+            <button 
+              onClick={() => setIsSubmitted(false)} 
+              className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#D4A03A] text-[#D4A03A] rounded-full font-semibold hover:bg-[#D4A03A] hover:text-black transition-all"
+            >
+              Send Another Enquiry
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -62,7 +124,7 @@ export default function Contact() {
                   </h2>
                 </div>
                 
-                <form action="https://formsubmit.co/raysofafrica254@gmail.com" method="POST" className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <input type="hidden" name="_subject" value="New Safari Enquiry - Rays of Africa" />
                   <input type="hidden" name="_captcha" value="false" />
                   {/* Personal Details */}
@@ -266,9 +328,19 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="btn-primary w-full flex items-center justify-center gap-2 py-4 text-lg"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full flex items-center justify-center gap-2 py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-5 h-5" /> Submit Enquiry
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" /> Submit Enquiry
+                      </>
+                    )}
                   </button>
 
                   <p className="text-[#F7F2EA]/50 text-xs text-center">
