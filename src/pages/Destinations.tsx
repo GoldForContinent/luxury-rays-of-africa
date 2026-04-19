@@ -22,12 +22,12 @@ const southernAfrica = [
 ]
 
 const islandsAndBeaches = [
-  { name: 'Diani', path: '/diani-beach', image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334', description: 'Kenya\'s premier beach' },
-  { name: 'Watamu', path: '/watamu-beach', image: 'https://images.unsplash.com/photo-1536560035542-1398395481780', description: 'Marine park & reefs' },
-  { name: 'Zanzibar', path: '/zanzibar-island', image: 'https://images.unsplash.com/photo-1570077188670-e3a8d5f27dd5', description: 'Spice island paradise' },
-  { name: 'Lamu', path: '/lamu-island', image: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6d54', description: 'Swahili culture' },
-  { name: 'Mafia', path: '/mafia-island', image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5', description: 'Marine sanctuary' },
-  { name: 'Nosy Be', path: '/nosy-be-island', image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b', description: 'Madagascar beaches' },
+  { name: 'Diani', path: '/diani-beach', image: '/diani1.jpg', description: 'Kenya\'s premier beach' },
+  { name: 'Watamu', path: '/watamu-beach', image: 'https://images.unsplash.com/photo-1587131948594-82a00a778370?w=800&q=80', description: 'Marine park & reefs' },
+  { name: 'Zanzibar', path: '/zanzibar-island', image: '/zanzibar_hero.jpg', description: 'Spice island paradise' },
+  { name: 'Lamu', path: '/lamu-island', image: '/lamu_hero.jpg', description: 'Swahili culture' },
+  { name: 'Mafia', path: '/mafia-island', image: '/mafia_hero.jpg', description: 'Marine sanctuary' },
+  { name: 'Nosy Be', path: '/nosy-be-island', image: '/nosybe_hero.jpg', description: 'Madagascar beaches' },
 ]
 
 const regionData = [
