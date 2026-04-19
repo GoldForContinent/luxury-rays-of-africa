@@ -67,7 +67,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="px-4 md:px-[4vw] flex items-center justify-between gap-8">
           {/* Logo - Left */}
           <Link to="/" className="hover:opacity-80 transition-opacity shrink-0">
-            <img src="/rootslogo.png" alt="Roots of Africa Safaris Logo" className="h-16 md:h-20 w-auto" />
+            <img src="/rootslogo.png" alt="Roots of Africa Safaris Logo" className="h-20 md:h-24 w-auto" />
           </Link>
           
           {/* Desktop Nav - Center */}
