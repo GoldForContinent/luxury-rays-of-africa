@@ -37,7 +37,7 @@ export default function Contact() {
     Object.entries(formData).forEach(([key, value]) => {
       formDataToSend.append(key, value)
     })
-    formDataToSend.append('_subject', 'New Safari Enquiry - Rays of Africa')
+    formDataToSend.append('_subject', 'New Safari Enquiry - Roots of Africa Safaris')
     formDataToSend.append('_captcha', 'false')
     formDataToSend.append('_next', window.location.href)
     
@@ -67,7 +67,7 @@ export default function Contact() {
             Enquiry Received!
           </h1>
           <p className="text-[#F7F2EA]/70 text-lg mb-4">
-            Thank you for reaching out to Rays of Africa. We've received your safari enquiry and our team of specialists is reviewing your requirements.
+            Thank you for reaching out to Roots of Africa Safaris. We've received your safari enquiry and our team of specialists is reviewing your requirements.
           </p>
           <p className="text-[#F7F2EA]/50 mb-8">
             Expect to hear from us within 24 hours with a personalized safari proposal tailored to your dreams.
@@ -125,7 +125,7 @@ export default function Contact() {
                 </div>
                 
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                  <input type="hidden" name="_subject" value="New Safari Enquiry - Rays of Africa" />
+                  <input type="hidden" name="_subject" value="New Safari Enquiry - Roots of Africa Safaris" />
                   <input type="hidden" name="_captcha" value="false" />
                   {/* Personal Details */}
                   <div>

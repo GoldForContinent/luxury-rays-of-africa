@@ -67,7 +67,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="px-4 md:px-[4vw] flex items-center justify-between gap-8">
           {/* Logo - Left */}
           <Link to="/" className="hover:opacity-80 transition-opacity shrink-0">
-            <img src="/logo21.png" alt="Rays of Africa Logo" className="h-16 md:h-20 w-auto" />
+            <img src="/rootslogo.png" alt="Roots of Africa Safaris Logo" className="h-16 md:h-20 w-auto" />
           </Link>
           
           {/* Desktop Nav - Center */}
@@ -318,7 +318,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <Link to="/" className="inline-block mb-4">
-                <img src="/logo21.png" alt="Rays of Africa Logo" className="h-16" />
+                <img src="/rootslogo.png" alt="Roots of Africa Safaris Logo" className="h-16" />
               </Link>
               <p className="text-[#F7F2EA]/60 text-sm leading-relaxed">
                 Your gateway to extraordinary African safari experiences. 
@@ -351,7 +351,7 @@ export default function Layout({ children }: LayoutProps) {
           
             <div className="border-t border-[#F7F2EA]/10 mt-8 pt-8 text-center">
             <p className="text-[#F7F2EA]/40 text-sm">
-              © 2026 Rays of Africa. All rights reserved.
+              © 2026 Roots of Africa Safaris. All rights reserved.
             </p>
           </div>
         </div>

@@ -64,7 +64,7 @@ export default function About() {
             Our Story
           </h1>
           <p className="text-[#F7F2EA]/70 text-lg leading-relaxed">
-            Rays of Africa was founded with a simple mission: to share the magic of African safaris 
+            Roots of Africa Safaris was founded with a simple mission: to share the magic of African safaris 
             while supporting conservation and local communities. What started as a small team of 
             passionate guides has grown into a trusted name in luxury safari travel.
           </p>

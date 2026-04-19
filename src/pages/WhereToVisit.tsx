@@ -309,7 +309,7 @@ export default function WhereToVisit() {
       <section className="py-20 px-4 md:px-[8vw] bg-[#2B1E1A]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 fade-section opacity-0 translate-y-8">
-            <span className="eyebrow text-[#D4A03A]">Why Rays of Africa</span>
+            <span className="eyebrow text-[#D4A03A]">Why Roots of Africa Safaris</span>
             <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F7F2EA] mb-4">
               Your Trusted Safari Partner
             </h2>
