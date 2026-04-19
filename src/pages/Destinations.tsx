@@ -62,62 +62,41 @@ const regionData = [
 
 export default function Destinations() {
   const heroRef = useRef<HTMLDivElement>(null)
-  const contentRefs = useRef<(HTMLDivElement | null)[]>([])
-  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      contentRefs.current.forEach((section) => {
-        if (section) {
-          gsap.fromTo(section,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-              }
-            }
-          )
+      gsap.fromTo('.region-section',
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: '.region-section',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
         }
-      })
+      )
 
-      cardRefs.current.forEach((el, i) => {
-        if (el) {
-          gsap.fromTo(el,
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.5,
-              delay: i * 0.1,
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 85%'
-              }
-            }
-          )
+      gsap.fromTo('.destination-card',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: '.destination-card',
+            start: 'top 85%'
+          }
         }
-      })
+      )
     }, heroRef)
 
     return () => ctx.revert()
   }, [])
-
-  const addContentRef = (el: HTMLDivElement | null) => {
-    if (el && !contentRefs.current.includes(el)) {
-      contentRefs.current.push(el)
-    }
-  }
-
-  const addCardRef = (el: HTMLAnchorElement | null) => {
-    if (el && !cardRefs.current.includes(el)) {
-      cardRefs.current.push(el)
-    }
-  }
 
   return (
     <div ref={heroRef}>
@@ -158,8 +137,7 @@ export default function Destinations() {
       {regionData.map((region) => (
         <section 
           key={region.id}
-          ref={addContentRef}
-          className="py-24 px-4 md:px-[8vw] bg-[#1a1410]"
+          className="region-section py-24 px-4 md:px-[8vw] bg-[#1a1410]"
         >
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
@@ -182,8 +160,7 @@ export default function Destinations() {
                 <Link 
                   key={idx}
                   to={dest.path}
-                  ref={addCardRef}
-                  className="group relative h-[350px] rounded-2xl overflow-hidden"
+                  className="destination-card group relative h-[350px] rounded-2xl overflow-hidden"
                 >
                   <img 
                     src={dest.image}
@@ -213,7 +190,7 @@ export default function Destinations() {
       ))}
 
       {/* CTA Section */}
-      <section ref={addContentRef} className="py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
+      <section className="region-section py-24 px-4 md:px-[8vw] bg-[#2C3E50]">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Sun className="w-8 h-8 text-[#D4A03A]" />
