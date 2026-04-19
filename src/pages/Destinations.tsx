@@ -126,7 +126,9 @@ export default function Destinations() {
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1516426122078-c23e76319801" 
-            alt="African Safari" 
+            alt="African Safari"
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40"></div>
@@ -186,6 +188,8 @@ export default function Destinations() {
                   <img 
                     src={dest.image}
                     alt={dest.name}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
