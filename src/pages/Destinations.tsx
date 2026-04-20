@@ -1,29 +1,24 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, Compass, Palmtree, Mountain, Sun } from 'lucide-react'
 
-gsap.registerPlugin(ScrollTrigger)
-
 const easternAfrica = [
-  { name: 'Kenya', path: '/kenya-safaris', image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e', description: 'Masai Mara, Amboseli & more' },
-  { name: 'Tanzania', path: '/tanzania-safaris', image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801', description: 'Serengeti, Ngorongoro & more' },
-  { name: 'Uganda', path: '/uganda-safaris', image: 'https://images.unsplash.com/photo-1549366021-9f761d450615', description: 'Gorilla trekking & more' },
-  { name: 'Rwanda', path: '/rwandasafaris', image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6', description: 'Mountain gorillas & more' },
+  { name: 'Kenya', path: '/kenya-safaris', image: '/kenyasafaris hero.jpg', description: 'Masai Mara, Amboseli & more' },
+  { name: 'Tanzania', path: '/tanzania-safaris', image: '/tanzaniasafarishero.jpg', description: 'Serengeti, Ngorongoro & more' },
+  { name: 'Uganda', path: '/uganda-safaris', image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=600&q=70', description: 'Gorilla trekking & more' },
+  { name: 'Rwanda', path: '/rwandasafaris', image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&q=70', description: 'Mountain gorillas & more' },
 ]
 
 const southernAfrica = [
-  { name: 'Botswana', path: '/botswana-safaris', image: 'https://images.unsplash.com/photo-1534177616072-ef7dc12044f9', description: 'Okavango Delta & more' },
-  { name: 'Zambia', path: '/zambia-safaris', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23', description: 'Walking safaris & more' },
-  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: 'https://images.unsplash.com/photo-1537962882310-41d6b591b3da', description: 'Victoria Falls & more' },
-  { name: 'Namibia', path: '/namibia-safaris', image: 'https://images.unsplash.com/photo-1509316975850-ff9b5deb2cd4', description: 'Desert landscapes & more' },
-  { name: 'South Africa', path: '/south-africa-safaris', image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99', description: 'Kruger & more' },
+  { name: 'Botswana', path: '/botswana-safaris', image: '/botswana_hero.jpg', description: 'Okavango Delta & more' },
+  { name: 'Zambia', path: '/zambia-safaris', image: 'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=600&q=70', description: 'Walking safaris & more' },
+  { name: 'Zimbabwe', path: '/zimbabwe-safaris', image: '/zimbabwe_victoria_falls.jpg', description: 'Victoria Falls & more' },
+  { name: 'Namibia', path: '/namibia-safaris', image: '/namibia_hero.jpg', description: 'Desert landscapes & more' },
+  { name: 'South Africa', path: '/south-africa-safaris', image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600&q=70', description: 'Kruger & more' },
 ]
 
 const islandsAndBeaches = [
   { name: 'Diani', path: '/diani-beach', image: '/diani1.jpg', description: 'Kenya\'s premier beach' },
-  { name: 'Watamu', path: '/watamu-beach', image: 'https://images.unsplash.com/photo-1587131948594-82a00a778370?w=800&q=80', description: 'Marine park & reefs' },
+  { name: 'Watamu', path: '/watamu-beach', image: 'https://images.unsplash.com/photo-1587131948594-82a00a778370?w=600&q=70', description: 'Marine park & reefs' },
   { name: 'Zanzibar', path: '/zanzibar-island', image: '/zanzibar_hero.jpg', description: 'Spice island paradise' },
   { name: 'Lamu', path: '/lamu-island', image: '/lamu_hero.jpg', description: 'Swahili culture' },
   { name: 'Mafia', path: '/mafia-island', image: '/mafia_hero.jpg', description: 'Marine sanctuary' },
@@ -61,53 +56,16 @@ const regionData = [
 ]
 
 export default function Destinations() {
-  const heroRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.region-section',
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: '.region-section',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-
-      gsap.fromTo('.destination-card',
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: '.destination-card',
-            start: 'top 85%'
-          }
-        }
-      )
-    }, heroRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <div ref={heroRef}>
+    <div>
       {/* Hero */}
       <section className="relative -mt-20 h-[90vh] overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1516426122078-c23e76319801" 
+            src="/destinations_hero.jpg" 
             alt="African Safari"
             loading="eager"
-            decoding="async"
+            fetchpriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40"></div>
@@ -137,7 +95,7 @@ export default function Destinations() {
       {regionData.map((region) => (
         <section 
           key={region.id}
-          className="region-section py-24 px-4 md:px-[8vw] bg-[#1a1410]"
+          className="region-section animate-fade-in-up py-24 px-4 md:px-[8vw] bg-[#1a1410]"
         >
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
