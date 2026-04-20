@@ -1,10 +1,5 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ChevronDown, Compass, Camera, Users, TreePine, Send } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const features = [
   {
@@ -65,116 +60,27 @@ const animalGallery = [
 ]
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline()
-
-      tl.fromTo('.hero-title span', 
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out' }
-      )
-      .fromTo('.hero-subtitle',
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-        '-=0.5'
-      )
-      .fromTo('.hero-buttons',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-        '-=0.4'
-      )
-
-      // Optimize: Use single ScrollTrigger for all content sections
-      gsap.fromTo('.content-section',
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: '.content-section',
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-
-      // Optimize: Animate features as a group
-      gsap.fromTo('.feature-card',
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: '.feature-card',
-            start: 'top 70%'
-          }
-        }
-      )
-
-      // Optimize: Animate safari cards as a group
-      gsap.fromTo('.safari-card',
-        { opacity: 0, scale: 0.95 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: '.safari-card',
-            start: 'top 75%'
-          }
-        }
-      )
-
-      // Optimize: Animate animal cards as a group
-      gsap.fromTo('.animal-card',
-        { opacity: 0, scale: 0.8 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.5,
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: '.animal-card',
-            start: 'top 80%'
-          }
-        }
-      )
-    }, heroRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <img 
           src="/hero_sunrise.jpg" 
           alt="Sunrise over savanna" 
+          fetchpriority="high"
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight overflow-hidden">
-            <span className="hero-title block">
-              <span className="inline-block">AFRICA.</span>
-            </span>
-            <span className="hero-title block">
-              <span className="inline-block text-[#D4A03A]">UNFILTERED.</span>
-            </span>
+            <span className="block animate-hero-text">AFRICA.</span>
+            <span className="block animate-hero-text text-[#D4A03A]">UNFILTERED.</span>
           </h1>
-          <p className="hero-subtitle text-2xl md:text-3xl italic text-white/90 max-w-2xl mb-8">
+          <p className="animate-hero-text text-2xl md:text-3xl italic text-white/90 max-w-2xl mb-8">
             Exciting adventures lie ahead.
           </p>
-          <div className="hero-buttons flex flex-col sm:flex-row gap-4">
+          <div className="animate-hero-text flex flex-col sm:flex-row gap-4">
             <Link to="/destinations" className="btn-primary flex items-center justify-center gap-2 hover:scale-105 transition-transform">
               Explore Destinations <ArrowRight size={18} />
             </Link>
@@ -228,7 +134,7 @@ export default function Home() {
             {safariTypes.map((type, index) => (
               <div 
                 key={index}
-                className="safari-card group relative h-72 rounded-3xl overflow-hidden"
+                className={`safari-card group relative h-72 rounded-3xl overflow-hidden`}
               >
                 <img 
                   src={type.image} 

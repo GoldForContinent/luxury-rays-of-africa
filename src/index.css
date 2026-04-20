@@ -274,10 +274,80 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
-  .destination-card {
+  .destination-card,
+  .animate-hero-text,
+  .content-section,
+  .feature-card,
+  .safari-card,
+  .animal-card {
     animation: none;
     opacity: 1;
   }
+}
+
+/* Home page animations */
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-text {
+  animation: heroTextIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-hero-text:nth-child(1) { animation-delay: 0.1s; }
+.animate-hero-text:nth-child(2) { animation-delay: 0.25s; }
+.animate-hero-text:nth-child(3) { animation-delay: 0.4s; }
+.animate-hero-text:nth-child(4) { animation-delay: 0.55s; }
+
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-section {
+  animation: sectionFadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.content-section:nth-child(1) { animation-delay: 0s; }
+.content-section:nth-child(2) { animation-delay: 0.1s; }
+.content-section:nth-child(3) { animation-delay: 0.2s; }
+.content-section:nth-child(4) { animation-delay: 0.3s; }
+.content-section:nth-child(5) { animation-delay: 0.4s; }
+.content-section:nth-child(6) { animation-delay: 0.5s; }
+
+.feature-card {
+  animation: cardFadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.safari-card {
+  animation: cardFadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animal-card {
+  animation: cardFadeIn 0.4s ease-out forwards;
+  opacity: 0;
 }
 
 /* Custom Scrollbar */
