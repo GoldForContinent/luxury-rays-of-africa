@@ -65,7 +65,7 @@ export default function Destinations() {
             src="/destinations_hero.jpg" 
             alt="African Safari"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40"></div>

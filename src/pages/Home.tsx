@@ -67,7 +67,7 @@ export default function Home() {
         <img 
           src="/hero_sunrise.jpg" 
           alt="Sunrise over savanna" 
-          fetchpriority="high"
+          fetchPriority="high"
           className="hero-bg absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
