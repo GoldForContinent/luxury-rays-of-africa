@@ -449,7 +449,7 @@ export default function Layout({ children }: LayoutProps) {
               <ul className="space-y-2 text-sm text-[#F7F2EA]/60">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
-                  hello@raysofafrica.travel
+                   hello@rootsofafricasafari.com
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />

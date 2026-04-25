@@ -608,7 +608,7 @@ export default function TanzaniaWildebeestSafari() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-white/60">raysofafrica254@gmail.com</p>
+               <p className="text-white/60">info@rootsofafricasafari.com</p>
               <p className="text-white/60">0791323799</p>
             </div>
           </div>
