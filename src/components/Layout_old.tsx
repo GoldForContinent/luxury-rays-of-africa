@@ -453,7 +453,7 @@ export default function Layout({ children }: LayoutProps) {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
-                  0791323799
+                  +254791323799
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A]" />
@@ -462,7 +462,7 @@ export default function Layout({ children }: LayoutProps) {
               </ul>
               <div className="mt-4 pt-4 border-t border-[#F7F2EA]/10">
                 <p className="text-xs text-[#F7F2EA]/40">
-                  Emergency Support: 0791323799
+                  Emergency Support: +254791323799
                 </p>
               </div>
             </div>

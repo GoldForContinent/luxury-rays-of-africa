@@ -343,7 +343,7 @@ export default function Layout({ children }: LayoutProps) {
               <h4 className="font-semibold text-[#D4A03A] mb-4">Contact Us</h4>
               <div className="space-y-2 text-[#F7F2EA]/60 text-sm">
                  <p>Email: info@rootsofafricasafari.com</p>
-                <p>Phone: 0791323799</p>
+                <p>Phone: +254791323799</p>
                 <p>Location: Nairobi, Kenya</p>
               </div>
             </div>

@@ -358,12 +358,12 @@ export default function FirstSafari() {
               </Link>
               
               <a 
-                href="https://api.whatsapp.com/send?phone=0791323799&text=&source=&data=" 
+                href="https://api.whatsapp.com/send?phone=+254791323799&text=&source=&data=" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#128C7D] transform hover:scale-105 transition-all duration-300"
               >
-                WhatsApp: 0791323799
+                WhatsApp: +254791323799
               </a>
             </div>
           </div>
