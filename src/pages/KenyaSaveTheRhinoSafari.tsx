@@ -21,6 +21,8 @@ const briefItinerary = [
   { day: "12", place: "Safari Ends", highlights: "Departure arrangements", property: "N/A" }
 ]
 
+const safariDuration = "12 Days / 11 Nights"
+
 const itineraryDays = [
   {
     day: 1,
@@ -124,9 +126,9 @@ const itineraryDays = [
 ]
 
 const pricingData = [
-  { period: "Green Season: Apr - Jun 2026", price: "$6,640", supplement: "$950" },
-  { period: "High Season: Jul - Mar 2026/27", price: "$7,140", supplement: "$1,050" },
-  { period: "Peak Season: Jul - Oct 2026", price: "$7,840", supplement: "$1,200" }
+  { period: "Green Season: Apr - Jun 2026", price: "$7,200", supplement: "$950" },
+  { period: "High Season: Jul - Mar 2026/27", price: "$7,200", supplement: "$1,050" },
+  { period: "Peak Season: Jul - Oct 2026", price: "$7,200", supplement: "$1,200" }
 ]
 
 const includes = [
@@ -192,7 +194,7 @@ export default function KenyaSaveTheRhinoSafari() {
           <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl text-white mb-4 tracking-tight">Save The Rhino Safari</h1>
           <div className="text-xl md:text-2xl text-white/90 mb-2">12 Days Saving Kenya's Endangered Rhinos</div>
           <div className="flex items-center gap-4 text-white/80 mb-8"><span className="flex items-center gap-2"><Clock size={18} /> 12 Days</span><span className="flex items-center gap-2"><MapPin size={18} /> 5 Destinations</span></div>
-          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 7,140 Per Person</div>
+          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 7,200 Per Person</div>
         </div>
       </section>
 

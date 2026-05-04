@@ -53,9 +53,9 @@ const itineraryDays = [
 ]
 
 const pricingData = [
-  { period: "Green Season: Oct - Nov 2026", price: "$3,130", supplement: "$350" },
-  { period: "High Season: Dec - Mar 2026/27", price: "$3,330", supplement: "$380" },
-  { period: "Peak Season: Jul - Oct 2026", price: "$3,530", supplement: "$420" }
+  { period: "Green Season: Oct - Nov 2026", price: "$2,999", supplement: "$350" },
+  { period: "High Season: Dec - Mar 2026/27", price: "$2,999", supplement: "$380" },
+  { period: "Peak Season: Jul - Oct 2026", price: "$2,999", supplement: "$420" }
 ]
 
 const includes = [
@@ -119,7 +119,7 @@ export default function KenyaMagicalMaasaiMara() {
           <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl text-white mb-4 tracking-tight">Magical Maasai Mara</h1>
           <div className="text-xl md:text-2xl text-white/90 mb-2">The World's Greatest Wildlife Show</div>
           <div className="flex items-center gap-4 text-white/80 mb-8"><span className="flex items-center gap-2"><Clock size={18} /> 4 Days</span><span className="flex items-center gap-2"><MapPin size={18} /> 1 Destination</span></div>
-          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 3,130 Per Person</div>
+          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 2,999 Per Person</div>
         </div>
       </section>
 

@@ -82,13 +82,13 @@ const pricingOptions = [
   {
     title: "High Season",
     period: "Jan-Feb, June-Sept & Dec 2026",
-    price: "7,500",
+    price: "5,400",
     perPerson: "per person sharing (4 pax)",
     singleSupplement: "1,406",
     tiers: [
-      { pax: "2 pax", price: "8,700" },
-      { pax: "4 pax", price: "7,500" },
-      { pax: "6 pax", price: "7,900" }
+      { pax: "2 pax", price: "6,400" },
+      { pax: "4 pax", price: "5,400" },
+      { pax: "6 pax", price: "5,800" }
     ],
     highlights: [
       "Airport transfers on arrival and departure in Entebbe",
@@ -125,13 +125,13 @@ const pricingOptions = [
   {
     title: "Green Season",
     period: "March-May & Oct-Nov 2026",
-    price: "7,100",
+    price: "5,400",
     perPerson: "per person sharing (4 pax)",
     singleSupplement: "1,390",
     tiers: [
-      { pax: "2 pax", price: "8,300" },
-      { pax: "4 pax", price: "7,100" },
-      { pax: "6 pax", price: "7,500" }
+      { pax: "2 pax", price: "6,400" },
+      { pax: "4 pax", price: "5,400" },
+      { pax: "6 pax", price: "5,800" }
     ],
     highlights: [
       "Airport transfers on arrival and departure in Entebbe",
@@ -261,7 +261,7 @@ export default function UgandaPrimatesIntensive() {
             PRIMATES<br/>INTENSIVE SAFARI
           </h1>
           <p className="text-[#D4A03A] text-lg md:text-xl uppercase tracking-[0.3em] mb-8">
-            10 Days / 9 Nights - From $5,390
+            10 Days / 9 Nights - From $5,400
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact" className="bg-[#D4A03A] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#B8922F] transition-all flex items-center gap-2">
@@ -300,7 +300,7 @@ export default function UgandaPrimatesIntensive() {
               <DollarSign className="text-[#D4A03A]" size={24} />
               <div>
                 <p className="text-xs text-white/60 uppercase">Price From</p>
-                <p className="font-semibold">$5,390 pp</p>
+                <p className="font-semibold">$5,400 pp</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

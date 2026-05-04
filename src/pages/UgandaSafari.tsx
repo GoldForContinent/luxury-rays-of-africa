@@ -32,7 +32,7 @@ const ugandaParks = [
 
 const samplePackages = [
   { title: "Gorilla Extension", nights: "4 Days / 3 Nights", price: "3,900", path: "/uganda-gorilla-extension", destinations: ["Entebbe", "Bwindi"] },
-  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,390", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
+  { title: "Primates Intensive", nights: "10 Days / 9 Nights", price: "5,400", path: "/uganda-primates-intensive", destinations: ["Kibale", "Bwindi", "Queen Elizabeth"] },
   { title: "Discover Uganda", nights: "13 Days / 12 Nights", price: "7,920", path: "/uganda-discover-uganda", destinations: ["Murchison Falls", "Kibale", "Bwindi", "Queen Elizabeth"] }
 ]
 

@@ -19,6 +19,8 @@ const briefItinerary = [
   { day: "10", place: "Safari Ends", highlights: "Departure arrangements", property: "N/A" }
 ]
 
+const safariDuration = "10 Days / 9 Nights"
+
 const itineraryDays = [
   {
     day: 1,
@@ -104,9 +106,9 @@ const itineraryDays = [
 ]
 
 const pricingData = [
-  { period: "Green Season: Apr - Jun 2026", price: "$5,550", supplement: "$750" },
-  { period: "High Season: Jul - Mar 2026/27", price: "$5,950", supplement: "$850" },
-  { period: "Peak Season: Jul - Oct 2026", price: "$6,550", supplement: "$950" }
+  { period: "Green Season: Apr - Jun 2026", price: "$6,000", supplement: "$750" },
+  { period: "High Season: Jul - Mar 2026/27", price: "$6,000", supplement: "$850" },
+  { period: "Peak Season: Jul - Oct 2026", price: "$6,000", supplement: "$950" }
 ]
 
 const includes = [
@@ -172,7 +174,7 @@ export default function KenyaSaveTheElephantSafari() {
           <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl text-white mb-4 tracking-tight">Save The Elephant Safari</h1>
           <div className="text-xl md:text-2xl text-white/90 mb-2">10 Days Protecting Kenya's Gentle Giants</div>
           <div className="flex items-center gap-4 text-white/80 mb-8"><span className="flex items-center gap-2"><Clock size={18} /> 10 Days</span><span className="flex items-center gap-2"><MapPin size={18} /> 4 Destinations</span></div>
-          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 5,950 Per Person</div>
+          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 6,000 Per Person</div>
         </div>
       </section>
 

@@ -29,7 +29,7 @@ const itineraryDays = [
 ]
 
 const pricingData = [
-  { period: "Migration Season: Jul - Nov 2026", price: "$5,215", supplement: "$580" }
+  { period: "Migration Season: Jul - Nov 2026", price: "$5,000", supplement: "$580" }
 ]
 
 const includes = ["All accommodation — classic tented camp", "All meals — full board", "All national park entry fees", "All game drives in 4×4 safari vehicle", "Expert driver-guide", "Drinking water during drives", "Airport transfers"]
@@ -67,7 +67,7 @@ export default function KenyaMigrationSafariMara() {
           <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl text-white mb-4 tracking-tight">Migration Adventure in the Mara</h1>
           <div className="text-xl md:text-2xl text-white/90 mb-2">Witness the Great Migration</div>
           <div className="flex items-center gap-4 text-white/80 mb-8"><span className="flex items-center gap-2"><Clock size={18} /> 8 Days</span><span className="flex items-center gap-2"><MapPin size={18} /> 1 Destination</span></div>
-          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 5,215 Per Person</div>
+          <div className="text-3xl md:text-4xl font-bold text-[#D4A03A]">From USD $ 5,000 Per Person</div>
         </div>
       </section>
 
