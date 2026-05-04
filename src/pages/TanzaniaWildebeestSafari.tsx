@@ -66,7 +66,7 @@ const itinerary = [
 const pricingOptions = [
   {
     title: "Mid-Range Package",
-    price: "$8,052",
+    price: "$8,000",
     perPerson: "per person",
     groupSize: "2+ guests",
     highlights: ["Quality tented camps with en-suite", "Private 4x4 Land Cruiser", "Expert English-speaking guide", "All park fees included", "All meals during safari"],
@@ -74,7 +74,7 @@ const pricingOptions = [
   },
   {
     title: "Luxury Fly-In Package",
-    price: "$12,500",
+    price: "$8,000",
     perPerson: "per person",
     groupSize: "2+ guests",
     isPopular: true,

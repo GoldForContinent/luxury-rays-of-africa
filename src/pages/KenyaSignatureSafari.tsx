@@ -93,10 +93,10 @@ const itineraryDays = [
 ]
 
 const pricingData = [
-  { period: "1 Mar - 31 May 2026", price: "$9,100", Pax: "4 pax" },
-  { period: "1 - 30 Jun 2026", price: "$9,590", Pax: "4 pax" },
-  { period: "1 July-30 Sep 2026 & 20 Dec 2026 - 3 Jan 27", price: "$10,650", Pax: "4 pax" },
-  { period: "01 Oct - 19 Dec 2026", price: "$9,540", Pax: "4 pax" },
+  { period: "1 Mar - 31 May 2026", price: "$8,000", Pax: "4 pax" },
+  { period: "1 - 30 Jun 2026", price: "$8,000", Pax: "4 pax" },
+  { period: "1 July-30 Sep 2026 & 20 Dec 2026 - 3 Jan 27", price: "$8,000", Pax: "4 pax" },
+  { period: "01 Oct - 19 Dec 2026", price: "$8,000", Pax: "4 pax" },
 ]
 
 const includes = [

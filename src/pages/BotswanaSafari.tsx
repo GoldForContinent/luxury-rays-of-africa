@@ -77,7 +77,7 @@ const safariPackages = [
   },
   {
     name: "12 Days Ultimate Botswana Safari",
-    price: "$8,950",
+    price: "$8,000",
     description: "Complete Botswana experience from delta to desert pans",
     duration: "12 Days / 11 Nights",
     highlights: ["Okavango Delta", "Chobe", "Makgadikgadi Pans", "Central Kalahari"]

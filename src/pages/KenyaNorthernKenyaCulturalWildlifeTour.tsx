@@ -146,7 +146,7 @@ const itineraryDays = [
 const pricingData = [
   { period: "Green Season: Apr - Jun 2026", price: "$6,990", supplement: "$950" },
   { period: "High Season: Jul - Mar 2026/27", price: "$7,490", supplement: "$1,050" },
-  { period: "Peak Season: Jul - Oct 2026", price: "$8,290", supplement: "$1,200" }
+  { period: "Peak Season: Jul - Oct 2026", price: "$8,000", supplement: "$1,200" }
 ]
 
 const includes = [

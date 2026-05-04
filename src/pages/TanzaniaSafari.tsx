@@ -102,7 +102,7 @@ const safariActivities = [
 
 const samplePackages = [
   { title: "Kenya - Tanzania Safari", nights: 16, price: "7,150", destinations: ["Kenya", "Tanzania"], path: "/kenya-tanzania-safari" },
-  { title: "Classic Sky Safari in Tanzania", nights: "8 Days / 7 Nights", price: "12,500", destinations: ["Tarangire", "Ngorongoro", "Serengeti"], path: "/tanzania-classic-sky-safari" },
+  { title: "Classic Sky Safari in Tanzania", nights: "8 Days / 7 Nights", price: "8,000", destinations: ["Tarangire", "Ngorongoro", "Serengeti"], path: "/tanzania-classic-sky-safari" },
   { title: "Best of Zanzibar Beach Extension", nights: "6 Days / 5 Nights", price: "2,970", destinations: ["Zanzibar"], path: "/tanzania-best-of-zanzibar" },
   { title: "Diani Beach Extension", nights: "5 Days / 4 Nights", price: "1,270", destinations: ["Diani Beach"], path: "/tanzania-diani-beach-extension" }
 ]

@@ -125,8 +125,8 @@ const pricingOptions = [
     title: "Green Season",
     period: "04th January – 31st March 2026",
     tiers: [
-      { pax: "2 pax", price: "10,200" },
-      { pax: "4 pax", price: "8,500" },
+      { pax: "2 pax", price: "8,000" },
+      { pax: "4 pax", price: "8,000" },
       { pax: "6 pax", price: "7,900" }
     ]
   },
@@ -134,7 +134,7 @@ const pricingOptions = [
     title: "Low Season",
     period: "01st April – 31st May 2026",
     tiers: [
-      { pax: "2 pax", price: "9,200" },
+      { pax: "2 pax", price: "8,000" },
       { pax: "4 pax", price: "7,500" },
       { pax: "6 pax", price: "6,900" }
     ]
@@ -143,18 +143,18 @@ const pricingOptions = [
     title: "Peak Season",
     period: "01st June – 31st October 2026",
     tiers: [
-      { pax: "2 pax", price: "11,900" },
-      { pax: "4 pax", price: "10,100" },
-      { pax: "6 pax", price: "9,500" }
+      { pax: "2 pax", price: "8,000" },
+      { pax: "4 pax", price: "8,000" },
+      { pax: "6 pax", price: "8,000" }
     ]
   },
   {
     title: "High Season",
     period: "01st November – 19th December 2026",
     tiers: [
-      { pax: "2 pax", price: "10,500" },
-      { pax: "4 pax", price: "8,700" },
-      { pax: "6 pax", price: "8,200" }
+      { pax: "2 pax", price: "8,000" },
+      { pax: "4 pax", price: "8,000" },
+      { pax: "6 pax", price: "8,000" }
     ]
   }
 ]

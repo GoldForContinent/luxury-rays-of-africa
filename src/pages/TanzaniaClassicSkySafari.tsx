@@ -82,7 +82,7 @@ const pricingOptions = [
   {
     title: "Green Season",
     period: "01 Apr - 31 May 2026",
-    price: "12,500",
+    price: "8,000",
     singleSupplement: "1,150",
     parkFees: "927",
     levy: "12"
@@ -90,7 +90,7 @@ const pricingOptions = [
   {
     title: "Mid Season",
     period: "05 Jan - 31 Mar, 01 Jun - 30 Jun, 01 Nov - 19 Dec 2026",
-    price: "13,810",
+    price: "8,000",
     singleSupplement: "1,780",
     parkFees: "927",
     levy: "12"
@@ -98,7 +98,7 @@ const pricingOptions = [
   {
     title: "Peak Season",
     period: "01 Jan - 04 Jan, 01 Jul - 31 Oct, 20 Dec - 31 Dec 2026",
-    price: "15,204",
+    price: "8,000",
     singleSupplement: "2,356",
     parkFees: "927",
     levy: "12"

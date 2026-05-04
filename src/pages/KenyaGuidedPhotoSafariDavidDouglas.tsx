@@ -113,7 +113,7 @@ const itineraryDays = [
 ]
 
 const pricingData = [
-  { period: "Season 2026 (Limited dates)", price: "$13,200", supplement: "$1,800" }
+  { period: "Season 2026 (Limited dates)", price: "$8,000", supplement: "$1,800" }
 ]
 
 const includes = [
