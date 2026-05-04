@@ -19,8 +19,6 @@ const briefItinerary = [
   { day: "10", place: "Safari Ends", highlights: "Departure arrangements", property: "N/A" }
 ]
 
-const safariDuration = "10 Days / 9 Nights"
-
 const itineraryDays = [
   {
     day: 1,

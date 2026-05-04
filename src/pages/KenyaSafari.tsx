@@ -105,7 +105,7 @@ const safariActivities = [
 ]
 
 const samplePackages = [
-  { title: "Kenya Signature Safari", nights: 11, price: "9,100", destinations: ["Maasai Mara", "Samburu", "Amboseli"], path: "/kenya-signature-safari" },
+  { title: "Kenya Signature Safari", nights: 11, price: "8,000", destinations: ["Maasai Mara", "Samburu", "Amboseli"], path: "/kenya-signature-safari" },
   { title: "Wings Over the Wilderness Safari", nights: "7 Days / 6 Nights", price: "5,880", destinations: ["Nairobi", "Masai Mara", "Samburu"], path: "/kenya-wings-over-wilderness" },
   { title: "Wings Over the Wilderness Safari", nights: "4 Days / 3 Nights", price: "5,105", destinations: ["Nairobi", "Masai Mara"], path: "/kenya-wings-over-wilderness-4days" },
   { title: "Soul of the Savannah: An Intimate Escape", nights: "7 Days / 6 Nights", price: "7,111", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-soul-of-the-savannah" },
@@ -114,8 +114,8 @@ const samplePackages = [
   { title: "Eco Adventure Safari - Budget", nights: 9, price: "4,180", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-eco-adventure-safari-budget" },
   { title: "Eco Adventure Safari - Luxury", nights: 9, price: "4,320", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-eco-adventure-safari-luxury" },
   { title: "Twin Treasures: Mara to Lumo", nights: 7, price: "5,020", destinations: ["Masai Mara", "Lumo", "Shompole"], path: "/kenya-twin-treasures-mara-lumo" },
-  { title: "Kenya Photographic Safari", nights: 14, price: "12,190", destinations: ["Samburu", "Lake Nakuru", "Masai Mara"], path: "/kenya-photographic-safari-14days" },
-  { title: "Guided Photo Safari - David Douglas", nights: 10, price: "13,200", destinations: ["Masai Mara", "Samburu"], path: "/kenya-guided-photo-safari-david-douglas" },
+  { title: "Kenya Photographic Safari", nights: 14, price: "8,000", destinations: ["Samburu", "Lake Nakuru", "Masai Mara"], path: "/kenya-photographic-safari-14days" },
+  { title: "Guided Photo Safari - David Douglas", nights: 10, price: "8,000", destinations: ["Masai Mara", "Samburu"], path: "/kenya-guided-photo-safari-david-douglas" },
   { title: "Road Package to Maasai Mara", nights: 3, price: "1,150", destinations: ["Masai Mara"], path: "/kenya-road-package-maasai-mara" },
   { title: "Ukulele Musical Safari", nights: 10, price: "4,600", destinations: ["Lake Nakuru", "Masai Mara", "Amboseli"], path: "/kenya-ukulele-musical-safari" },
   { title: "Magical Maasai Mara", nights: 3, price: "2,999", destinations: ["Masai Mara"], path: "/kenya-magical-maasai-mara" },
@@ -127,7 +127,7 @@ const samplePackages = [
   { title: "Fly Kenya Safari", nights: 7, price: "4,050", destinations: ["Nairobi", "Amboseli", "Masai Mara"], path: "/kenya-fly-kenya-safari" },
   { title: "Great Rift Valley & Maasai Mara Explorer", nights: 8, price: "3,050", destinations: ["Lake Nakuru", "Masai Mara"], path: "/kenya-great-rift-valley-mara-explorer" },
   { title: "Lake Turkana Expedition", nights: 9, price: "3,220", destinations: ["Lake Turkana", "Marsabit"], path: "/kenya-lake-turkana-expedition" },
-  { title: "Gorilla Trekking and Migration Safari", nights: 13, price: "14,870", destinations: ["Masai Mara", "Uganda (Bwindi)"], path: "/kenya-gorilla-trekking-migration-safari" },
+  { title: "Gorilla Trekking and Migration Safari", nights: 13, price: "8,000", destinations: ["Masai Mara", "Uganda (Bwindi)"], path: "/kenya-gorilla-trekking-migration-safari" },
   { title: "Fun Family Safari In Kenya", nights: 12, price: "5,610", destinations: ["Nairobi", "Lake Nakuru", "Masai Mara", "Lake Naivasha"], path: "/kenya-fun-family-safari-kenya" },
   { title: "Northern Kenya Cultural & Wildlife Tour", nights: 14, price: "7,490", destinations: ["Samburu", "Marsabit", "Lake Turkana"], path: "/kenya-northern-kenya-cultural-wildlife-tour" },
   { title: "Authentic Safari & Beach Combo", nights: 12, price: "4,950", destinations: ["Amboseli", "Masai Mara", "Lake Naivasha", "Diani Beach"], path: "/kenya-safari-beach-combo" },
