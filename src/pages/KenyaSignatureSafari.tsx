@@ -25,71 +25,71 @@ const itineraryDays = [
     description: "Arrival can take place at any time of the day though we would recommend from noon onwards for guaranteed hotel check-in. Upon arrival at Jomo Kenyatta International Airport, our airport representative will welcome you together with your safari guide and transfer you to your overnight hotel. Overnight at FOUR POINTS BY SHERATON HOTEL / TAMARIND TREE HOTEL or a HOTEL of your choice.",
     accommodation: "Four Points BY SHERATON NAIROBI AIRPORT",
     mealPlan: "Bed & Breakfast",
-    image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: 2,
+    image: "/signaturesafariske/JKIA.png"
+   },
+   {
+     day: 2,
     title: "Nairobi – Samburu Game Reserve",
     highlights: ["Fly to Samburu National Reserve", "First game drive", "Northern Endemic Species"],
     description: "Enjoy an early breakfast before check-out from your town hotel. Transfer to Wilson Airport to board your scheduled flight to Samburu National Reserve. (Flights typically depart at 8.00 am / 10.20 or 13.30 hrs) After an hour of scenic flights via Nanyuki and Mount Kenya and past the vast wilderness of Laikipia, you will arrive in the semi-arid desert reserve Samburu. Stunning scenery awaits you with Mt. Ololokwe welcoming you. Enjoy a cold towel and refreshments on board of your vehicle and meet your expert Safari Guide! A short game drive enroute to Larsens Camp, nestled on the banks of Ewaso Nyiro River will give you a first glimpse of this stunning park. Samburu is well known for its large herds of elephant, elusive leopard as well as Northern Endemic Species. These include the long-necked Gerenuk, The Somali Ostrich, Gravy's Zebra, Beisa Oryx and Reticulated Giraffe. After check-in and a delicious lunch, embark on your very first afternoon game drive as per the camp's schedule.",
     accommodation: "Soroi Larsens Camp",
     mealPlan: "Full Board",
-    image: "https://images.pexels.com/photos/697922/pexels-photo-697922.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: "3-4",
+    image: "/signaturesafariske/samburu game reserve.png"
+   },
+   {
+     day: "3-4",
     title: "Full Days in Samburu National Reserve",
     highlights: ["Morning & afternoon game drives", "Sundowner experience", "Private dinner under stars", "Infinity pool"],
     description: "Enjoy two full days in Samburu Game Reserve with game drives as per the schedule of the camp – we recommend to do all morning & afternoon game drives. We will spoil you with beautiful sunsets and drinks on a scenic sundowner spot. Cool off in our infinity pool to cool and enjoy one of our special Spa Treatments in our in-house Spa (available at an additional cost). On one night, weather permitting, we have set up a PRIVATE DINNER for you under the stars!",
     accommodation: "Soroi Larsens Camp",
     mealPlan: "Full Board",
-    image: "https://images.pexels.com/photos/2251164/pexels-photo-2251164.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: 5,
+    image: "/signaturesafariske/samburu game reserve.png"
+   },
+   {
+     day: 5,
     title: "Samburu – Maasai Mara",
     highlights: ["Fly to Masai Mara", "Evening game drive", "Classic African savanna", "Big cats"],
     description: "Breakfast at your camp and check-out. Transfer to the airstrip with a game drive en-route to board your mid-morning flight to the world renowned Maasai Mara National Reserve. This is a classic African savanna, and the sheer density of wildlife is unique in Africa. Gazelle, wildebeest and zebra graze in large numbers and where prey is found, so are predators. In the Mara you have the opportunity of sighting an astonishing amount of wildlife, including the big cats, such as lion, leopard and cheetah. Lions are found in large prides and game viewing is fantastic all year round. From the months of July to October, you will be lucky to witness the annual migration of the wildebeest. Enjoy your evening at leisure to unwind around a cozy campfire under the African stars whilst reminiscing about your day in the wild. On arrival, you will find your Camp Safari Guide waiting for you at Olkiombo Airstrip. En-route game drive to the camp & enjoy a scrumptious lunch followed by an afternoon/evening game drive in Masai Mara as per the camp's schedule.",
     accommodation: "Soroi Luxury Migration Camp",
     mealPlan: "Full Board",
-    image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: "6-7",
+    image: "/signaturesafariske/maasai mara.png"
+   },
+   {
+     day: "6-7",
     title: "Full Days in Maasai Mara",
     highlights: ["Full day game viewing", "Wildebeest migration (Jul-Oct)", "Bush dinner under stars", "Hippo viewing"],
     description: "Full days in Maasai Mara Game Reserve with game drives as per the schedule of the camp. In between the game drives, watch the hippos below your tent deck bask in the sun or the lively river! Your stay here is fully packed i.e., from the usual day game drives to an evening Sundowner and a bush dinner under the stars, weather permitting.",
     accommodation: "Soroi Luxury Migration Camp",
     mealPlan: "Full Board",
-    image: "https://images.pexels.com/photos/2374659/pexels-photo-2374659.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: 8,
+    image: "/signaturesafariske/maasai mara.png"
+   },
+   {
+     day: 8,
     title: "Maasai Mara – Lumo Conservancy",
     highlights: ["Fly to Lumo", "Private conservancy experience", "Night game drives available", "Taita Hills excursion"],
     description: "Enjoy your last morning game drive in the Mara and check out after breakfast. The airstrip is only a few min. drive from the camp. Depart with a packed lunch from your preferred camp & arrive in Nairobi at 12.15 pm. (flight time 01 hour) Your onward flight to the beautiful Lumo Community and Wildlife Conservancy. A private conservancy is always a nice contrast to the national parks / reserves as it offers one with possibilities that a typical national reserve / parks would not. Fantastic activities are night game drives, guided bush / bird walks, walking in the nearby Taita Hills and excursions to the scenic and next door Lumo Tsavo West National Park. This is one of the most stunning sceneries you will come across in Kenya!",
     accommodation: "Soroi Lions Bluff Lodge",
     mealPlan: "Full Board",
-    image: "https://images.pexels.com/photos/4614229/pexels-photo-4614229.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: "9-10",
+    image: "/signaturesafariske/lumo conservancy.png"
+   },
+   {
+     day: "9-10",
     title: "Full Days in Lumo Conservancy",
     highlights: ["Day & night game viewing", "Bush breakfast", "Photographic hide", "Infinity pool"],
     description: "Full days spent in the Lumo Wildlife Conservancy, packed with day and night game viewing / bird viewing. On one of the days, we invite you for a bush breakfast. If you prefer to relax on the terrace of your beautiful room with glass frontage whilst enjoying a luxury massage and sipping a glass of wine, while the sun sets, this is also an option. If photography is your hobby, you may want to check out the lodge's amazing photographic hide (available at an extra fee). This is one destination that perfectly integrates wildlife viewing and top-notch luxury with sweeping views of the surroundings. The infinity pool overlooking the park along with a pool bar, wine cellar and private dining options is part of the best features of the lodge.",
     accommodation: "Soroi Lions Bluff Lodge",
     mealPlan: "Full Board",
-    image: "https://images.pexels.com/photos/1708936/pexels-photo-1708936.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    day: 11,
+    image: "/signaturesafariske/lumo conservancy.png"
+   },
+   {
+     day: 11,
     title: "Fly from Lumo to Nairobi",
     highlights: ["Morning at leisure", "Departure flight", "Transfer to airport"],
     description: "The last day is yours to rest & relax. You may opt for a morning game drive as per the lodge schedule or simply take it easy. Check-out from your room at 10.00 am, you are free to use all other facilities. Thereafter, transferred to the airstrip for your late afternoon flight back to Wilson Airport, Nairobi. On arrival, met and transferred for day rooms (if needed) and thereafter, drop off at Jomo Kenyatta International Airport for your departure flight. END OF SERVICES!",
     accommodation: "Optional Day Room upon request",
     mealPlan: "Breakfast",
-    image: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?auto=compress&cs=tinysrgb&w=800"
-  }
+    image: "/signaturesafariske/JKIA.png"
+   }
 ]
 
 const pricingData = [
@@ -192,10 +192,10 @@ export default function KenyaSignatureSafari() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-[70vh] overflow-hidden">
         <img 
-          src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1600" 
-          alt="Kenya Signature Safari" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+           src="/signaturesafariske/kenya signature hero.png" 
+           alt="Kenya Signature Safari" 
+           className="absolute inset-0 w-full h-full object-cover"
+         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         
         <div className="absolute top-24 left-1/2 -translate-x-1/2 text-white/80 text-sm">
