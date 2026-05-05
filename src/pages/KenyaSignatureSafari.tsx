@@ -25,7 +25,7 @@ const itineraryDays = [
     description: "Arrival can take place at any time of the day though we would recommend from noon onwards for guaranteed hotel check-in. Upon arrival at Jomo Kenyatta International Airport, our airport representative will welcome you together with your safari guide and transfer you to your overnight hotel. Overnight at FOUR POINTS BY SHERATON HOTEL / TAMARIND TREE HOTEL or a HOTEL of your choice.",
     accommodation: "Four Points BY SHERATON NAIROBI AIRPORT",
     mealPlan: "Bed & Breakfast",
-    image: "/signaturesafariske/JKIA.png"
+    image: "/signaturesafariske/four points hotel.png"
    },
    {
      day: 2,
@@ -43,7 +43,7 @@ const itineraryDays = [
     description: "Enjoy two full days in Samburu Game Reserve with game drives as per the schedule of the camp – we recommend to do all morning & afternoon game drives. We will spoil you with beautiful sunsets and drinks on a scenic sundowner spot. Cool off in our infinity pool to cool and enjoy one of our special Spa Treatments in our in-house Spa (available at an additional cost). On one night, weather permitting, we have set up a PRIVATE DINNER for you under the stars!",
     accommodation: "Soroi Larsens Camp",
     mealPlan: "Full Board",
-    image: "/signaturesafariske/samburu game reserve.png"
+    image: "/signaturesafariske/tamarind hotel.png"
    },
    {
      day: 5,
@@ -61,7 +61,7 @@ const itineraryDays = [
     description: "Full days in Maasai Mara Game Reserve with game drives as per the schedule of the camp. In between the game drives, watch the hippos below your tent deck bask in the sun or the lively river! Your stay here is fully packed i.e., from the usual day game drives to an evening Sundowner and a bush dinner under the stars, weather permitting.",
     accommodation: "Soroi Luxury Migration Camp",
     mealPlan: "Full Board",
-    image: "/signaturesafariske/maasai mara.png"
+    image: "/signaturesafariske/kenya signature hero.png"
    },
    {
      day: 8,
@@ -79,7 +79,7 @@ const itineraryDays = [
     description: "Full days spent in the Lumo Wildlife Conservancy, packed with day and night game viewing / bird viewing. On one of the days, we invite you for a bush breakfast. If you prefer to relax on the terrace of your beautiful room with glass frontage whilst enjoying a luxury massage and sipping a glass of wine, while the sun sets, this is also an option. If photography is your hobby, you may want to check out the lodge's amazing photographic hide (available at an extra fee). This is one destination that perfectly integrates wildlife viewing and top-notch luxury with sweeping views of the surroundings. The infinity pool overlooking the park along with a pool bar, wine cellar and private dining options is part of the best features of the lodge.",
     accommodation: "Soroi Lions Bluff Lodge",
     mealPlan: "Full Board",
-    image: "/signaturesafariske/lumo conservancy.png"
+    image: "/signaturesafariske/kenya signet card.png"
    },
    {
      day: 11,
