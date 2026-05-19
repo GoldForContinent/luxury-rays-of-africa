@@ -238,18 +238,14 @@ export default function Contact() {
                         <label className="block text-[#F7F2EA]/70 text-sm mb-2 flex items-center gap-2">
                           <DollarSign className="w-4 h-4" /> Budget Per Person
                         </label>
-                        <select
+                        <input
+                          type="text"
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] focus:outline-none focus:border-[#D4A03A]"
-                        >
-                          <option value="">Select</option>
-                          <option value="budget">Budget ($800 - $1,500)</option>
-                          <option value="midrange">Mid-Range ($1,500 - $3,500)</option>
-                          <option value="luxury">Luxury ($3,500 - $8,000)</option>
-                          <option value="ultra-luxury">Ultra-Luxury ($8,000+)</option>
-                        </select>
+                          className="w-full bg-[#1a1410] border border-[#F7F2EA]/10 rounded-xl px-4 py-3 text-[#F7F2EA] placeholder-[#F7F2EA]/40 focus:outline-none focus:border-[#D4A03A]"
+                          placeholder="e.g., $2,000 per person, or flexible"
+                        />
                       </div>
                     </div>
                   </div>
